@@ -7,10 +7,10 @@ using NekoDex.Core.Collections;
 
 namespace NekoDex.Data;
 
-/// <summary>Triple Triad cards, in card-number order from TripleTriadCardResident. Icons live at 82100 + card id.</summary>
+/// <summary>Triple Triad cards, in card-number order from TripleTriadCardResident. Icons live at 87000 + card id (verified present for every card).</summary>
 public sealed unsafe class TriadCardModule : ICollectionModule
 {
-    private const uint IconBase = 82100;
+    private const uint IconBase = 87000;
 
     private readonly IDataManager dataManager;
     private readonly IPluginLog log;

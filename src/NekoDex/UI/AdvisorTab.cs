@@ -260,7 +260,13 @@ public sealed class AdvisorTab
             return;
         }
 
-        var wrap = textureProvider.GetFromGameIcon(new GameIconLookup(iconId)).GetWrapOrEmpty();
-        ImGui.Image(wrap.Handle, size);
+        // Icon ids come from sheets and offsets; a missing texture must never take the whole window down.
+        if (!textureProvider.TryGetFromGameIcon(new GameIconLookup(iconId), out var texture))
+        {
+            ImGui.Dummy(size);
+            return;
+        }
+
+        ImGui.Image(texture.GetWrapOrEmpty().Handle, size);
     }
 }
