@@ -80,11 +80,12 @@ public sealed class Plugin : IDalamudPlugin
         // Resets are fixed in UTC, so the local clock is enough; the checklist controller stamps and clears with it.
         var checklist = new ChecklistController(config, () => DateTimeOffset.UtcNow);
         autoItems = new AutoChecklistController(config, new AutoChecklistSources(dataManager, log), CharacterReady, () => DateTimeOffset.UtcNow);
-        var dashboard = new DashboardTab(checklist, autoItems, tabs, CharacterReady);
+        var navigation = new TabNavigation();
+        var dashboard = new DashboardTab(checklist, autoItems, tabs, CharacterReady, navigation);
 
         miniWindow = new MiniWindow(config, checklist, autoItems, tabs, pins, CharacterReady);
         configWindow = new ConfigWindow(config, miniWindow.SetShown, dataset, pluginInterface.Manifest.AssemblyVersion.ToString(), autoItems);
-        mainWindow = new MainWindow(config, clientState, playerState, dashboard, tabs, outfits, advisor, configWindow.Toggle);
+        mainWindow = new MainWindow(config, clientState, playerState, dashboard, tabs, outfits, advisor, navigation, configWindow.Toggle);
         windowSystem.AddWindow(mainWindow);
         windowSystem.AddWindow(configWindow);
         windowSystem.AddWindow(miniWindow);

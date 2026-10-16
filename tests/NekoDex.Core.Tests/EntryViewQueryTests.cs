@@ -58,6 +58,17 @@ public class EntryViewQueryTests
     }
 
     [Fact]
+    public void Patch_filter_keeps_only_that_patch_and_treats_equivalent_spellings_alike()
+    {
+        var result = EntryViewQuery.Filter(Sample, OwnershipFilter.All, AvailabilityFilter.All, null, onlyPatch: "2.0").Select(v => v.Entry.Id);
+
+        Assert.Equal([1u, 3u], result);
+        Assert.True(EntryViewQuery.IsPatch("7.20", "7.2"));
+        Assert.False(EntryViewQuery.IsPatch(null, "7.2"));
+        Assert.Empty(EntryViewQuery.Filter(Sample, OwnershipFilter.All, AvailabilityFilter.All, null, onlyPatch: "9.9"));
+    }
+
+    [Fact]
     public void Sort_by_name_is_case_insensitive_and_reversible()
     {
         var asc = EntryViewQuery.Sort(Sample, EntrySortKey.Name, false, false, false).Select(v => v.Entry.Name).ToArray();

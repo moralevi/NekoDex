@@ -17,8 +17,9 @@ public sealed class MainWindow : ThemedWindow
     private readonly IReadOnlyList<CollectionTab> tabs;
     private readonly OutfitsTab outfits;
     private readonly AdvisorTab advisor;
+    private readonly TabNavigation navigation;
 
-    public MainWindow(ConfigurationManager config, IClientState clientState, IPlayerState playerState, DashboardTab dashboard, IReadOnlyList<CollectionTab> tabs, OutfitsTab outfits, AdvisorTab advisor, Action openSettings)
+    public MainWindow(ConfigurationManager config, IClientState clientState, IPlayerState playerState, DashboardTab dashboard, IReadOnlyList<CollectionTab> tabs, OutfitsTab outfits, AdvisorTab advisor, TabNavigation navigation, Action openSettings)
         : base(config, "NekoDex###NekoDexMain")
     {
         this.clientState = clientState;
@@ -27,6 +28,7 @@ public sealed class MainWindow : ThemedWindow
         this.tabs = tabs;
         this.outfits = outfits;
         this.advisor = advisor;
+        this.navigation = navigation;
 
         SizeConstraints = new WindowSizeConstraints
         {
@@ -73,7 +75,8 @@ public sealed class MainWindow : ThemedWindow
 
         foreach (var tab in tabs)
         {
-            using var item = ImRaii.TabItem($"{tab.Module.DisplayName}###{tab.Module.Id}");
+            var flags = navigation.Consume(tab.Module.Id) ? ImGuiTabItemFlags.SetSelected : ImGuiTabItemFlags.None;
+            using var item = ImRaii.TabItem($"{tab.Module.DisplayName}###{tab.Module.Id}", flags);
             if (item.Success && DrawCharacterHeader())
             {
                 tab.Draw();

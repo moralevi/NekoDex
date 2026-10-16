@@ -97,6 +97,15 @@ public class UnlockDatasetTests
     }
 
     [Fact]
+    public void Latest_patch_is_the_numerically_highest_and_null_without_data()
+    {
+        var provider = Provider();
+
+        Assert.Equal("2.1", provider.LatestPatch("mounts"));
+        Assert.Null(provider.LatestPatch("minions"));
+    }
+
+    [Fact]
     public void Missing_entry_within_range_and_unknown_module_return_null()
     {
         var provider = Provider();

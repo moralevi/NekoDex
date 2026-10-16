@@ -22,12 +22,20 @@ public enum EntrySortKey
 /// <summary>Filtering and sorting over <see cref="EntryView"/>. Pure, so the UI stays thin and this is tested.</summary>
 public static class EntryViewQuery
 {
-    public static IEnumerable<EntryView> Filter(IEnumerable<EntryView> views, OwnershipFilter ownership, AvailabilityFilter availability, string? search)
+    /// <summary>
+    /// Applies ownership, availability and search filters; when <paramref name="onlyPatch"/> is set, keeps entries added in exactly that patch.
+    /// </summary>
+    public static IEnumerable<EntryView> Filter(IEnumerable<EntryView> views, OwnershipFilter ownership, AvailabilityFilter availability, string? search, string? onlyPatch = null)
     {
         var needle = string.IsNullOrWhiteSpace(search) ? null : search.Trim();
         foreach (var view in views)
         {
             if (!OwnershipMatches(ownership, view.Owned))
+            {
+                continue;
+            }
+
+            if (onlyPatch is not null && !IsPatch(view.Source.Patch, onlyPatch))
             {
                 continue;
             }
@@ -85,6 +93,9 @@ public static class EntryViewQuery
         EntrySortKey.Status => a.Owned.CompareTo(b.Owned),
         _ => 0,
     };
+
+    /// <summary>True when both patches parse and denote the same version ("7.2" equals "7.20").</summary>
+    public static bool IsPatch(string? patch, string wanted) => patch is not null && ParsePatch(patch) is { } a && ParsePatch(wanted) is { } b && a == b;
 
     /// <summary>"2.0" &lt; "2.55" &lt; "7.2"; unknown patches sort last.</summary>
     public static int ComparePatch(string? a, string? b)

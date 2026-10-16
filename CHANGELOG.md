@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.0 (in progress)
+
+- "New in patch X" filter on every collection tab and a Dashboard section with per-collection counts that opens the tab filtered.
+
 ## 1.2.0 (in progress)
 
 - New tabs: Emotes, Bardings, Fashion Accessories, Facewear and Triple Triad, with unlock data for all of them.

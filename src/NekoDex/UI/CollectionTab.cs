@@ -36,6 +36,7 @@ public sealed unsafe class CollectionTab
     private EntrySortKey sortKey = EntrySortKey.Default;
     private bool sortDescending;
     private bool missingFirst;
+    private bool latestOnly;
     private uint? selectedId;
 
     public CollectionTab(ICollectionModule module, ITextureProvider textureProvider, UnlockResolver unlockResolver, DatasetUnlockSourceProvider? dataset, PinController pins)
@@ -48,6 +49,44 @@ public sealed unsafe class CollectionTab
     }
 
     public ICollectionModule Module { get; }
+
+    /// <summary>Newest patch in the unlock data for this module, or null when unknown.</summary>
+    public string? LatestPatch => dataset?.LatestPatch(Module.Id);
+
+    /// <summary>Turns on the "new in latest patch" filter, e.g. when the Dashboard sends the user here.</summary>
+    public void ShowLatestOnly()
+    {
+        latestOnly = LatestPatch is not null;
+        dirty = true;
+    }
+
+    /// <summary>How many entries were added in the latest patch and how many of those are still missing. Only call while a character is loaded.</summary>
+    public (string Patch, int Total, int Missing)? NewThisPatch()
+    {
+        if (LatestPatch is not { } patch)
+        {
+            return null;
+        }
+
+        RefreshIfDue();
+        var total = 0;
+        var missing = 0;
+        foreach (var view in views)
+        {
+            if (!EntryViewQuery.IsPatch(view.Source.Patch, patch))
+            {
+                continue;
+            }
+
+            total++;
+            if (!view.Owned)
+            {
+                missing++;
+            }
+        }
+
+        return (patch, total, missing);
+    }
 
     /// <summary>Forget the current snapshot, e.g. after logout, so stale ownership is never shown for another character.</summary>
     public void Reset()
@@ -94,7 +133,8 @@ public sealed unsafe class CollectionTab
 
         if (dirty)
         {
-            visible = EntryViewQuery.Sort(EntryViewQuery.Filter(views, ownership, availability, search), sortKey, sortDescending, missingFirst, pinnedFirst: true);
+            var onlyPatch = latestOnly ? LatestPatch : null;
+            visible = EntryViewQuery.Sort(EntryViewQuery.Filter(views, ownership, availability, search, onlyPatch), sortKey, sortDescending, missingFirst, pinnedFirst: true);
             dirty = false;
         }
 
@@ -166,6 +206,17 @@ public sealed unsafe class CollectionTab
         Radio(ref availability, AvailabilityFilter.NotObtainable, Strings.Get("Avail_NotObtainable", "Not obtainable"));
         ImGui.SameLine();
         ImGuiComponents.HelpMarker(Strings.Get("Avail_Help", "Not obtainable: store-only, past events and legacy rewards according to the unlock data. Entries without data count as obtainable."));
+
+        if (LatestPatch is { } patch)
+        {
+            ImGui.SameLine();
+            ImGui.TextDisabled("|");
+            ImGui.SameLine();
+            if (ImGui.Checkbox(string.Format(Strings.Get("Filter_NewInPatch", "New in {0}"), patch), ref latestOnly))
+            {
+                dirty = true;
+            }
+        }
     }
 
     private void Radio<T>(ref T field, T value, string label) where T : struct, Enum
@@ -358,7 +409,14 @@ public sealed unsafe class CollectionTab
             if (source.Patch is not null)
             {
                 ImGui.SameLine();
-                ImGui.TextDisabled(string.Format(Strings.Get("Detail_Patch", "Patch {0}"), source.Patch));
+                if (LatestPatch is { } latest && EntryViewQuery.IsPatch(source.Patch, latest))
+                {
+                    ImGui.TextColored(Theme.PinColor, string.Format(Strings.Get("Detail_PatchNew", "New in patch {0}"), source.Patch));
+                }
+                else
+                {
+                    ImGui.TextDisabled(string.Format(Strings.Get("Detail_Patch", "Patch {0}"), source.Patch));
+                }
             }
 
             if (!UnlockAvailability.IsObtainable(source))

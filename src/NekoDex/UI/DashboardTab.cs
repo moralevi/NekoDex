@@ -18,15 +18,17 @@ public sealed class DashboardTab
     private readonly AutoChecklistController autoItems;
     private readonly IReadOnlyList<CollectionTab> collections;
     private readonly Func<bool> characterReady;
+    private readonly TabNavigation navigation;
     private string newItemText = string.Empty;
     private ResetCadence newItemCadence = ResetCadence.Daily;
 
-    public DashboardTab(ChecklistController checklist, AutoChecklistController autoItems, IReadOnlyList<CollectionTab> collections, Func<bool> characterReady)
+    public DashboardTab(ChecklistController checklist, AutoChecklistController autoItems, IReadOnlyList<CollectionTab> collections, Func<bool> characterReady, TabNavigation navigation)
     {
         this.checklist = checklist;
         this.autoItems = autoItems;
         this.collections = collections;
         this.characterReady = characterReady;
+        this.navigation = navigation;
     }
 
     public void Draw()
@@ -42,7 +44,53 @@ public sealed class DashboardTab
         ImGui.Spacing();
         ImGui.Separator();
         ImGui.Spacing();
+        DrawNewThisPatch();
+        ImGui.Spacing();
+        ImGui.Separator();
+        ImGui.Spacing();
         DrawChecklist();
+    }
+
+    /// <summary>Per module: entries added in the newest patch the data knows, and how many are still missing. Click to open the tab filtered.</summary>
+    private void DrawNewThisPatch()
+    {
+        ImGui.Text(Strings.Get("Dashboard_New", "New this patch"));
+
+        if (!characterReady())
+        {
+            ImGui.TextDisabled(Strings.Get("State_NotLoggedIn", "Log in to a character to see your collections."));
+            return;
+        }
+
+        var any = false;
+        foreach (var tab in collections)
+        {
+            if (tab.Module.UnavailableReason is not null || tab.NewThisPatch() is not { } stats || stats.Total == 0)
+            {
+                continue;
+            }
+
+            any = true;
+            using var id = ImRaii.PushId(tab.Module.Id);
+            var label = stats.Missing == 0
+                ? string.Format(Strings.Get("Dashboard_NewRowDone", "{0}: {1} new in {2}, all owned"), tab.Module.DisplayName, stats.Total, stats.Patch)
+                : string.Format(Strings.Get("Dashboard_NewRow", "{0}: {1} new in {2}, {3} missing"), tab.Module.DisplayName, stats.Total, stats.Patch, stats.Missing);
+            if (ImGui.Selectable(label))
+            {
+                tab.ShowLatestOnly();
+                navigation.RequestedModuleId = tab.Module.Id;
+            }
+
+            if (ImGui.IsItemHovered())
+            {
+                ImGui.SetTooltip(Strings.Get("Dashboard_NewHint", "Open the tab filtered to this patch."));
+            }
+        }
+
+        if (!any)
+        {
+            ImGui.TextDisabled(Strings.Get("Dashboard_NewNone", "Nothing to show; the unlock data has no patch information for the loaded collections."));
+        }
     }
 
     private static void DrawResets(DateTimeOffset now)

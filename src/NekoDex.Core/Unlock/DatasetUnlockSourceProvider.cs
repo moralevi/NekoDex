@@ -10,10 +10,35 @@ namespace NekoDex.Core.Unlock;
 public sealed class DatasetUnlockSourceProvider : IUnlockSourceProvider
 {
     private readonly UnlockDataset dataset;
+    private readonly Dictionary<string, string?> latestPatch = new();
 
     public DatasetUnlockSourceProvider(UnlockDataset dataset)
     {
         this.dataset = dataset;
+    }
+
+    /// <summary>The newest patch any entry of the module was added in, or null when the module has no patch data.</summary>
+    public string? LatestPatch(string moduleId)
+    {
+        if (latestPatch.TryGetValue(moduleId, out var cached))
+        {
+            return cached;
+        }
+
+        string? latest = null;
+        if (dataset.Modules.TryGetValue(moduleId, out var module))
+        {
+            foreach (var entry in module.Entries.Values)
+            {
+                if (entry.Patch is not null && (latest is null || Collections.EntryViewQuery.ComparePatch(entry.Patch, latest) > 0))
+                {
+                    latest = entry.Patch;
+                }
+            }
+        }
+
+        latestPatch[moduleId] = latest;
+        return latest;
     }
 
     public string DataVersion => dataset.DataVersion;
