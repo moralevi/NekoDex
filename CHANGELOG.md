@@ -5,6 +5,7 @@
 - "New in patch X" filter on every collection tab and a Dashboard section with per-collection counts that opens the tab filtered.
 - Export and import your data (outfits, pins, checklist, auto item choices, dresser snapshots) as one JSON file from settings, with merge or replace; an outfits-only export is meant for sharing with friends.
 - Garland Tools fills in unlock info for entries FFXIV Collect has none for, attributed per entry. Garland links now open the item page that grants the collectable; the old mount/minion links pointed at pages that do not exist.
+- Gear advisor shows tomestone prices, your tomestone counts, whether the best piece is buyable now, and the best piece you can afford when it is not.
 
 ## 1.2.0 (in progress)
 

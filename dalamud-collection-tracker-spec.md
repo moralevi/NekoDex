@@ -1,6 +1,6 @@
 # FFXIV Dalamud Plugin: Collection Tracker (working name: NekoDex)
 
-Status: Phases 0-7 gates passed 2026-10-16. Phase 8 built (theme and fresh-install gates pending; fresh install needs the GitHub repo public). Phases 9 to 16 gates passed; Phase 17 built, in-game gate pending. Remaining before a public release: Phase 8 theme-leak check, screenshots, repo public, first tag, FFXIV Collect redistribution answer. Target: friends first, public custom repo later.
+Status: Phases 0-7 gates passed 2026-10-16. Phase 8 built (theme and fresh-install gates pending; fresh install needs the GitHub repo public). Phases 9 to 17 gates passed; Phase 18 built, in-game gate pending. Remaining before a public release: Phase 8 theme-leak check, screenshots, repo public, first tag, FFXIV Collect redistribution answer. Target: friends first, public custom repo later.
 Stack: C#/.NET, Dalamud.NET.Sdk, ImGui (via Dalamud's ImGui bindings), Lumina, FFXIVClientStructs.
 Method: phased, each phase has gate criteria. Do not start a phase until the previous gate passes.
 
@@ -318,7 +318,7 @@ From the second Q&A: the friends collect mounts, cards and glamour; languages ar
 
 **Open decisions (resolve before the phase that needs them)**
 - Garland Tools data: which file or endpoint, and its terms. Needed before Phase 17. **Resolved 2026-10-16:** per-item documents at `/db/doc/item/en/3/{item id}.json` (there are no mount or minion documents); no stated licence, ask before public release.
-- Which tomestone currencies count (current and previous tier only, or all). Needed before Phase 18.
+- Which tomestone currencies count (current and previous tier only, or all). Needed before Phase 18. **Decided 2026-10-16: every tomestone the TomestonesItem sheet still lists with a tomestone number (Poetics, Mathematics, Mnemonics, Heliometry).**
 - Whether Dalamud lists Swedish as a UI language; if not, a plugin-level language override is required. Needed before Phase 20.
 
 ---
@@ -359,9 +359,9 @@ Scope
 - Provider chain unchanged; the dataset carries a `source` per entry and the UI shows the right attribution.
 
 Gate
-- [ ] The number of Unknown entries per module drops, and the drop is listed in the generator output.
-- [ ] Every entry shows the attribution of the source it came from.
-- [ ] DATA_SOURCES.md covers Garland's data terms.
+- [x] The number of Unknown entries per module drops, and the drop is listed in the generator output.
+- [x] Every entry shows the attribution of the source it came from.
+- [x] DATA_SOURCES.md covers Garland's data terms.
 
 ---
 
@@ -369,6 +369,7 @@ Gate
 
 Scope
 - Verify first: reading tomestone counts (`InventoryManager` currency container) and the SpecialShop sheet rows that sell gear for tomestones; decide which currencies count (open decision).
+  - Verified 2026-10-16: `InventoryManager.GetTomestoneCount(itemId)`; SpecialShop rows with `UseCurrencyType == 4` price gear in tomestones, the cost id being the TomestonesItem tomestone number. Scrip shops are currency type 16 and are left out. Vendor NPC location is not derived (sheets do not link shops to NPCs directly); the web link remains.
 - Core: price lookup per item and an "affordable now" flag; suggestions show the price and currency, and affordable pieces are marked.
 - Vendor location from the shop's NPC when the sheets provide it; otherwise the existing web link.
 

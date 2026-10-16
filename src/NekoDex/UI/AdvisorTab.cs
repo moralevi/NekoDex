@@ -27,6 +27,8 @@ public sealed class AdvisorTab
     private readonly ItemOwnershipSources ownership;
     private readonly UnlockResolver unlockResolver;
     private readonly ITextureProvider textureProvider;
+    private readonly TomestoneShopIndex tomestoneShops;
+    private readonly Func<uint, int> currencyHeld;
 
     private DateTime lastRefresh = DateTime.MinValue;
     private uint lastJob;
@@ -35,13 +37,15 @@ public sealed class AdvisorTab
     private IReadOnlyList<GearSuggestion> suggestions = [];
     private int averageItemLevel;
 
-    public AdvisorTab(IPlayerState playerState, GearCatalog catalog, ItemOwnershipSources ownership, UnlockResolver unlockResolver, ITextureProvider textureProvider)
+    public AdvisorTab(IPlayerState playerState, GearCatalog catalog, ItemOwnershipSources ownership, UnlockResolver unlockResolver, ITextureProvider textureProvider, TomestoneShopIndex tomestoneShops, Func<uint, int> currencyHeld)
     {
         this.playerState = playerState;
         this.catalog = catalog;
         this.ownership = ownership;
         this.unlockResolver = unlockResolver;
         this.textureProvider = textureProvider;
+        this.tomestoneShops = tomestoneShops;
+        this.currencyHeld = currencyHeld;
     }
 
     public void Draw()
@@ -57,6 +61,7 @@ public sealed class AdvisorTab
         var job = playerState.ClassJob.Value;
         ImGui.Text(string.Format(Strings.Get("Advisor_Header", "{0} level {1}, average item level {2}"), job.Abbreviation.ExtractText(), lastLevel, averageItemLevel));
         ImGui.TextDisabled(Strings.Get("Advisor_Hint", "Highest item level you can equip now per slot. Hover a suggestion for runners-up."));
+        DrawTomestones();
 
         DrawTable();
     }
@@ -141,7 +146,32 @@ public sealed class AdvisorTab
     }
 
     private GearCandidate ToCandidate(GearItem item, GearSlot slot, uint job)
-        => new(item.ItemId, item.Name, item.IconId, slot, item.ItemLevel, item.EquipLevel, catalog.JobCanUse(item.ClassJobCategoryId, job));
+        => new(item.ItemId, item.Name, item.IconId, slot, item.ItemLevel, item.EquipLevel, catalog.JobCanUse(item.ClassJobCategoryId, job), tomestoneShops.Find(item.ItemId));
+
+    private void DrawTomestones()
+    {
+        var parts = new List<string>();
+        foreach (var (itemId, name) in tomestoneShops.Currencies)
+        {
+            var held = currencyHeld(itemId);
+            if (held > 0)
+            {
+                parts.Add($"{held:N0} {Short(name)}");
+            }
+        }
+
+        if (parts.Count > 0)
+        {
+            ImGui.TextDisabled(string.Format(Strings.Get("Advisor_Tomestones", "Tomestones: {0}"), string.Join(", ", parts)));
+        }
+    }
+
+    /// <summary>"Allagan Tomestone of Poetics" -> "Poetics".</summary>
+    private static string Short(string currencyName)
+    {
+        var index = currencyName.LastIndexOf(" of ", StringComparison.Ordinal);
+        return index >= 0 ? currencyName[(index + 4)..] : currencyName;
+    }
 
     private void DrawTable()
     {
@@ -158,7 +188,7 @@ public sealed class AdvisorTab
         ImGui.TableSetupColumn(Strings.Get("Outfit_Slot", "Slot"), ImGuiTableColumnFlags.WidthFixed, 80 * scale);
         ImGui.TableSetupColumn(Strings.Get("Advisor_Equipped", "Equipped"), ImGuiTableColumnFlags.WidthStretch);
         ImGui.TableSetupColumn(Strings.Get("Advisor_Upgrade", "Next upgrade"), ImGuiTableColumnFlags.WidthStretch);
-        ImGui.TableSetupColumn(Strings.Get("Advisor_Source", "Source"), ImGuiTableColumnFlags.WidthFixed, 110 * scale);
+        ImGui.TableSetupColumn(Strings.Get("Advisor_Source", "Source"), ImGuiTableColumnFlags.WidthFixed, 150 * scale);
         ImGui.TableSetupColumn("##link", ImGuiTableColumnFlags.WidthFixed, 30 * scale);
         ImGui.TableHeadersRow();
 
@@ -186,14 +216,23 @@ public sealed class AdvisorTab
             }
 
             DrawPiece(best, iconSize, string.Empty);
-            if (ImGui.IsItemHovered() && suggestion.Upgrades.Count > 1)
+            var affordableAlternative = GearAdvisor.BestAffordable(suggestion, currencyHeld);
+            if (ImGui.IsItemHovered() && (suggestion.Upgrades.Count > 1 || affordableAlternative is not null))
             {
                 using var tooltip = ImRaii.Tooltip();
-                ImGui.Text(Strings.Get("Advisor_RunnersUp", "Also:"));
-                for (var i = 1; i < suggestion.Upgrades.Count; i++)
+                if (affordableAlternative is not null && affordableAlternative != best)
                 {
-                    var alt = suggestion.Upgrades[i];
-                    ImGui.BulletText($"{alt.Name}  i{alt.ItemLevel}");
+                    ImGui.TextColored(Theme.OwnedColor, string.Format(Strings.Get("Advisor_BuyableNow", "Buyable now: {0} (i{1}, {2} {3})"), affordableAlternative.Name, affordableAlternative.ItemLevel, affordableAlternative.Price!.Amount, Short(affordableAlternative.Price.CurrencyName)));
+                }
+
+                if (suggestion.Upgrades.Count > 1)
+                {
+                    ImGui.Text(Strings.Get("Advisor_RunnersUp", "Also:"));
+                    for (var i = 1; i < suggestion.Upgrades.Count; i++)
+                    {
+                        var alt = suggestion.Upgrades[i];
+                        ImGui.BulletText(alt.Price is { } altPrice ? $"{alt.Name}  i{alt.ItemLevel}  ({altPrice.Amount} {Short(altPrice.CurrencyName)})" : $"{alt.Name}  i{alt.ItemLevel}");
+                    }
                 }
             }
 
@@ -207,6 +246,18 @@ public sealed class AdvisorTab
             {
                 ImGui.TextColored(Theme.OwnedColor, string.Format(Strings.Get("Advisor_Owned", "You have it ({0})"), GearLabels.For(where)));
             }
+            else if (best.Price is { } price)
+            {
+                var held = currencyHeld(price.CurrencyItemId);
+                var affordable = held >= price.Amount;
+                ImGui.TextColored(affordable ? Theme.OwnedColor : Theme.MissingColor, string.Format(Strings.Get("Advisor_Price", "{0} {1}"), price.Amount, Short(price.CurrencyName)));
+                if (ImGui.IsItemHovered())
+                {
+                    ImGui.SetTooltip(affordable
+                        ? string.Format(Strings.Get("Advisor_PriceHaveEnough", "You have {0:N0}; buyable now."), held)
+                        : string.Format(Strings.Get("Advisor_PriceShort", "You have {0:N0}; {1:N0} more needed."), held, price.Amount - held));
+                }
+            }
             else if (source.IsUnknown)
             {
                 ImGui.TextDisabled(UnlockLabels.For(source.Type));
@@ -216,7 +267,7 @@ public sealed class AdvisorTab
                 ImGui.Text(source.Summary);
             }
 
-            if (ImGui.IsItemHovered() && !source.IsUnknown)
+            if (best.Price is null && ImGui.IsItemHovered() && !source.IsUnknown)
             {
                 ImGui.SetTooltip(string.Join("\n", source.DetailLines));
             }

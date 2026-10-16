@@ -75,7 +75,7 @@ public sealed class Plugin : IDalamudPlugin
         var outfits = new OutfitsTab(config, gearCatalog, new StainCatalog(dataManager), itemOwnership, dresser, textureProvider);
 
         // Gear advisor (Phase 7, simple scope): next upgrade by item level per slot for the current job and level.
-        var advisor = new AdvisorTab(playerState, gearCatalog, itemOwnership, unlockResolver, textureProvider);
+        var advisor = new AdvisorTab(playerState, gearCatalog, itemOwnership, unlockResolver, textureProvider, new TomestoneShopIndex(dataManager, log), CurrencyReader.Tomestones);
 
         // Resets are fixed in UTC, so the local clock is enough; the checklist controller stamps and clears with it.
         var checklist = new ChecklistController(config, () => DateTimeOffset.UtcNow);
