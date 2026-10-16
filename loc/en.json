@@ -315,6 +315,66 @@
     "message": "Use the web link above to look it up.",
     "description": ""
   },
+  "Duty_Chaotic": {
+    "message": "Chaotic",
+    "description": ""
+  },
+  "Duty_Dungeon": {
+    "message": "Dungeon",
+    "description": ""
+  },
+  "Duty_Extreme": {
+    "message": "Extreme",
+    "description": ""
+  },
+  "Duty_Other": {
+    "message": "Other",
+    "description": ""
+  },
+  "Duty_Raid": {
+    "message": "Raid",
+    "description": ""
+  },
+  "Duty_Savage": {
+    "message": "Savage",
+    "description": ""
+  },
+  "Duty_Trial": {
+    "message": "Trial",
+    "description": ""
+  },
+  "Duty_Ultimate": {
+    "message": "Ultimate",
+    "description": ""
+  },
+  "Duty_Unreal": {
+    "message": "Unreal",
+    "description": ""
+  },
+  "Farm_Clears": {
+    "message": "{0} clears",
+    "description": ""
+  },
+  "Farm_DutyTooltip": {
+    "message": "Level {0}, item level {1}",
+    "description": ""
+  },
+  "Farm_Empty": {
+    "message": "Nothing to farm: no missing mount names a duty.",
+    "description": ""
+  },
+  "Farm_Help": {
+    "message": "Missing mounts whose unlock data names a duty, grouped by duty. The count is how many times this character has completed the duty since NekoDex started counting.",
+    "description": ""
+  },
+  "Farm_HideHighEnd": {
+    "message": "Hide Savage and Ultimate",
+    "description": ""
+  },
+  "Farm_ResetCount": {
+    "message": "Reset count",
+    "description": ""
+  },
   "Filter_All": {
     "message": "All",
     "description": ""
@@ -433,6 +493,10 @@
   },
   "Tab_Dashboard": {
     "message": "Dashboard",
+    "description": ""
+  },
+  "Tab_Farm": {
+    "message": "Farm",
     "description": ""
   },
   "Table_Empty": {

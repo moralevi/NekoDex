@@ -40,7 +40,7 @@ Method: phased, each phase has a scope and a gate. A phase starts only when the 
 
 ## 4. Open decisions
 
-- Boss-kill counter scope (Phase 24): count every duty completion, or only duties tied to a pinned or missing mount. Needed before Phase 24.
+- Boss-kill counter scope (Phase 24): count every duty completion, or only duties tied to a pinned or missing mount. Needed before Phase 24. **Decided 2026-10-16: every completion is counted (per character, per ContentFinderCondition); the UI shows counts where a duty matters.**
 - Hairstyle gate (Phase 25): FFXIV Collect's count is the reference since the game has no hairstyle guide; confirm that is acceptable at the gate.
 - "Check for newer data" (Phase 26): where the version marker is read from (repo.json on the public repo is the plan once public).
 
@@ -81,8 +81,8 @@ Scope
 - Sort options: by stars, by type, by number (the in-game deck view order).
 
 Gate
-- [ ] Map flag lands on the NPC for 5 spot-checked cards.
-- [ ] The winnable filter excludes an NPC whose unlock quest is incomplete and includes one that is complete.
+- [x] Map flag lands on the NPC for 5 spot-checked cards.
+- [x] The winnable filter excludes an NPC whose unlock quest is incomplete and includes one that is complete.
 
 ### Phase 24: Mount farming
 
@@ -90,6 +90,7 @@ Scope
 - "Farmable now" view: missing mounts whose source is a duty, grouped by duty, with duty level (dungeon, trial, extreme, savage, ultimate) from ContentFinderCondition; a filter to hide Savage and Ultimate.
 - Pinned entries in the mini window show their duty name.
 - Boss-kill counter: subscribe to Dalamud's duty completion event, map the territory to the duty, and count completions per character per duty; shown next to the duty in the farm view and the mini window, with a reset button. Decide the counting scope (open decision). Dataset entries keep the related instance id for duty sources so the mapping is data-driven.
+  - Verified 2026-10-16: FFXIV Collect's instance ids are ContentFinderCondition rows; `IDutyState.ContentFinderCondition` is valid at `DutyCompleted`, so no territory mapping is needed. The sheet's HighEndDuty flag is unreliable, so difficulty comes from the name suffix and content type.
 
 Gate
 - [ ] Completing a trial increments its counter by exactly one and survives a reload.

@@ -25,6 +25,7 @@ public sealed class Plugin : IDalamudPlugin
     private readonly MiniWindow miniWindow;
     private readonly AutoChecklistController autoItems;
     private readonly ResetNotifier resetNotifier;
+    private readonly DutyClearTracker dutyClears;
 
     // Services arrive through constructor injection; nothing in the plugin reaches for them statically.
     public Plugin(
@@ -37,6 +38,7 @@ public sealed class Plugin : IDalamudPlugin
         IFramework framework,
         IToastGui toastGui,
         IGameGui gameGui,
+        IDutyState dutyState,
         IPluginLog log)
     {
         this.pluginInterface = pluginInterface;
@@ -56,9 +58,10 @@ public sealed class Plugin : IDalamudPlugin
         // One tab per collection module. Adding a module means one line here plus its class in Data/.
         var pins = new PinController(config);
         var triadNpcs = new TriadNpcIndex(dataManager, log);
+        var mountsTab = new CollectionTab(new MountModule(dataManager, clientState, log), textureProvider, unlockResolver, dataset, pins);
         CollectionTab[] tabs =
         [
-            new(new MountModule(dataManager, clientState, log), textureProvider, unlockResolver, dataset, pins),
+            mountsTab,
             new(new MinionModule(dataManager, clientState, log), textureProvider, unlockResolver, dataset, pins),
             new(new OrchestrionModule(dataManager, log), textureProvider, unlockResolver, dataset, pins),
             new(new EmoteModule(dataManager, log), textureProvider, unlockResolver, dataset, pins),
@@ -75,11 +78,16 @@ public sealed class Plugin : IDalamudPlugin
         var navigation = new TabNavigation();
         var dashboard = new DashboardTab(checklist, autoItems, tabs, CharacterReady, navigation);
 
-        miniWindow = new MiniWindow(config, checklist, autoItems, tabs, pins, CharacterReady);
+        // Mount farming: duties from the unlock data, clear counts from duty completion events.
+        var duties = new DutyIndex(dataManager);
+        dutyClears = new DutyClearTracker(dutyState, playerState, config, log);
+        var farm = new FarmTab(mountsTab, duties, dutyClears, pins, textureProvider);
+
+        miniWindow = new MiniWindow(config, checklist, autoItems, tabs, pins, CharacterReady, duties, dutyClears);
         resetNotifier = new ResetNotifier(framework, toastGui, config, CharacterReady);
         var version = pluginInterface.Manifest.AssemblyVersion.ToString();
         configWindow = new ConfigWindow(config, miniWindow.SetShown, dataset, version, autoItems, new UserDataService(config, log, version), pluginInterface, SetLanguage);
-        mainWindow = new MainWindow(config, clientState, playerState, dashboard, tabs, navigation, configWindow.Toggle);
+        mainWindow = new MainWindow(config, clientState, playerState, dashboard, tabs, navigation, farm, configWindow.Toggle);
         windowSystem.AddWindow(mainWindow);
         windowSystem.AddWindow(configWindow);
         windowSystem.AddWindow(miniWindow);
@@ -115,6 +123,7 @@ public sealed class Plugin : IDalamudPlugin
         commandManager.RemoveHandler(CommandName);
         windowSystem.RemoveAllWindows();
         resetNotifier.Dispose();
+        dutyClears.Dispose();
 
         log.Information("NekoDex unloaded");
     }

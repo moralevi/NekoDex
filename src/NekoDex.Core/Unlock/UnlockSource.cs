@@ -11,6 +11,7 @@ namespace NekoDex.Core.Unlock;
 /// <param name="Note">Attribution or staleness note, e.g. the dataset the answer came from.</param>
 /// <param name="Categories">Raw source categories ("Trial", "Premium", ...), one per way to obtain; drives the obtainable filter.</param>
 /// <param name="ItemId">The item that grants the entry, when known; lets link sites that index by item (Garland Tools) be used.</param>
+/// <param name="DutyIds">ContentFinderCondition ids of the duties that drop the entry, when the data names any.</param>
 public sealed record UnlockSource(
     UnlockSourceType Type,
     string Summary,
@@ -19,7 +20,8 @@ public sealed record UnlockSource(
     string? Patch = null,
     string? Note = null,
     IReadOnlyList<string>? Categories = null,
-    uint? ItemId = null)
+    uint? ItemId = null,
+    IReadOnlyList<uint>? DutyIds = null)
 {
     public static UnlockSource Unknown(string? url = null, string? note = null) => new(UnlockSourceType.Unknown, string.Empty, url, Note: note);
 

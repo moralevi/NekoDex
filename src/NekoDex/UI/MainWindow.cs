@@ -16,8 +16,9 @@ public sealed class MainWindow : ThemedWindow
     private readonly DashboardTab dashboard;
     private readonly IReadOnlyList<CollectionTab> tabs;
     private readonly TabNavigation navigation;
+    private readonly FarmTab farm;
 
-    public MainWindow(ConfigurationManager config, IClientState clientState, IPlayerState playerState, DashboardTab dashboard, IReadOnlyList<CollectionTab> tabs, TabNavigation navigation, Action openSettings)
+    public MainWindow(ConfigurationManager config, IClientState clientState, IPlayerState playerState, DashboardTab dashboard, IReadOnlyList<CollectionTab> tabs, TabNavigation navigation, FarmTab farm, Action openSettings)
         : base(config, "NekoDex###NekoDexMain")
     {
         this.clientState = clientState;
@@ -25,6 +26,7 @@ public sealed class MainWindow : ThemedWindow
         this.dashboard = dashboard;
         this.tabs = tabs;
         this.navigation = navigation;
+        this.farm = farm;
 
         SizeConstraints = new WindowSizeConstraints
         {
@@ -76,6 +78,14 @@ public sealed class MainWindow : ThemedWindow
             if (item.Success && DrawCharacterHeader())
             {
                 tab.Draw();
+            }
+        }
+
+        using (var item = ImRaii.TabItem($"{Strings.Get("Tab_Farm", "Farm")}###farm"))
+        {
+            if (item.Success && DrawCharacterHeader())
+            {
+                farm.Draw();
             }
         }
     }

@@ -114,6 +114,16 @@ public sealed unsafe class CollectionTab
         return snapshot;
     }
 
+    /// <summary>Every entry with ownership and unlock source, module order, refreshed if due. Only call while a character is loaded.</summary>
+    public IReadOnlyList<EntryView> Views
+    {
+        get
+        {
+            RefreshIfDue();
+            return views;
+        }
+    }
+
     /// <summary>Pinned entries with their ownership, module order. Only call while a character is loaded.</summary>
     public IEnumerable<EntryView> PinnedViews()
     {

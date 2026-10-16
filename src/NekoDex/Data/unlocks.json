@@ -143,15 +143,18 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "The Bowl of Embers (Extreme)"
+              "text": "The Bowl of Embers (Extreme)",
+              "instanceId": 63
             },
             {
               "category": "Trial",
-              "text": "The Howling Eye (Extreme)"
+              "text": "The Howling Eye (Extreme)",
+              "instanceId": 65
             },
             {
               "category": "Trial",
-              "text": "The Navel (Extreme)"
+              "text": "The Navel (Extreme)",
+              "instanceId": 64
             }
           ]
         },
@@ -195,7 +198,8 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "The Bowl of Embers (Extreme)"
+              "text": "The Bowl of Embers (Extreme)",
+              "instanceId": 63
             }
           ]
         },
@@ -206,7 +210,8 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "The Howling Eye (Extreme)"
+              "text": "The Howling Eye (Extreme)",
+              "instanceId": 65
             }
           ]
         },
@@ -217,7 +222,8 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "The Navel (Extreme)"
+              "text": "The Navel (Extreme)",
+              "instanceId": 64
             }
           ]
         },
@@ -228,7 +234,8 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "The *Whorleater* (Extreme)"
+              "text": "The *Whorleater* (Extreme)",
+              "instanceId": 73
             }
           ]
         },
@@ -316,7 +323,8 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "The Striking Tree (Extreme)"
+              "text": "The Striking Tree (Extreme)",
+              "instanceId": 78
             }
           ]
         },
@@ -349,7 +357,8 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "The Akh Afah Amphitheatre (Extreme)"
+              "text": "The Akh Afah Amphitheatre (Extreme)",
+              "instanceId": 80
             }
           ]
         },
@@ -491,7 +500,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Alexander - The Burden of the Father (Savage)"
+              "text": "Alexander - The Burden of the Father (Savage)",
+              "instanceId": 119
             }
           ]
         },
@@ -620,7 +630,8 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "The Limitless Blue (Extreme)"
+              "text": "The Limitless Blue (Extreme)",
+              "instanceId": 89
             }
           ]
         },
@@ -631,7 +642,8 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "Thok ast Thok (Extreme)"
+              "text": "Thok ast Thok (Extreme)",
+              "instanceId": 87
             }
           ]
         },
@@ -642,7 +654,8 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "The Minstrel's Ballad: Thordan's Reign"
+              "text": "The Minstrel's Ballad: Thordan's Reign",
+              "instanceId": 91
             }
           ]
         },
@@ -653,7 +666,8 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "Containment Bay S1T7 (Extreme)"
+              "text": "Containment Bay S1T7 (Extreme)",
+              "instanceId": 135
             }
           ]
         },
@@ -741,7 +755,8 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "The Minstrel's Ballad: Nidhogg's Rage"
+              "text": "The Minstrel's Ballad: Nidhogg's Rage",
+              "instanceId": 170
             }
           ]
         },
@@ -829,7 +844,8 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "Containment Bay P1T6 (Extreme)"
+              "text": "Containment Bay P1T6 (Extreme)",
+              "instanceId": 184
             }
           ]
         },
@@ -866,7 +882,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Alexander - The Soul of the Creator (Savage)"
+              "text": "Alexander - The Soul of the Creator (Savage)",
+              "instanceId": 193
             }
           ]
         },
@@ -888,7 +905,8 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "Containment Bay Z1T9 (Extreme)"
+              "text": "Containment Bay Z1T9 (Extreme)",
+              "instanceId": 224
             }
           ]
         },
@@ -1006,7 +1024,8 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "Emanation (Extreme)"
+              "text": "Emanation (Extreme)",
+              "instanceId": 264
             }
           ]
         },
@@ -1017,7 +1036,8 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "The Pool of Tribute (Extreme)"
+              "text": "The Pool of Tribute (Extreme)",
+              "instanceId": 244
             }
           ]
         },
@@ -1028,7 +1048,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Ala Mhigo"
+              "text": "Ala Mhigo",
+              "instanceId": 247
             }
           ]
         },
@@ -1083,7 +1104,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Deltascape V4.0 (Savage)"
+              "text": "Deltascape V4.0 (Savage)",
+              "instanceId": 259
             }
           ]
         },
@@ -1124,7 +1146,8 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "The Minstrel's Ballad: Shinryu's Domain"
+              "text": "The Minstrel's Ballad: Shinryu's Domain",
+              "instanceId": 278
             }
           ]
         },
@@ -1223,7 +1246,8 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "The Jade Stoa (Extreme)"
+              "text": "The Jade Stoa (Extreme)",
+              "instanceId": 291
             }
           ]
         },
@@ -1330,7 +1354,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Sigmascape V4.0 (Savage)"
+              "text": "Sigmascape V4.0 (Savage)",
+              "instanceId": 295
             }
           ]
         },
@@ -1341,7 +1366,8 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "The Minstrel's Ballad: Tsukuyomi's Pain"
+              "text": "The Minstrel's Ballad: Tsukuyomi's Pain",
+              "instanceId": 538
             }
           ]
         },
@@ -1374,7 +1400,8 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "The Great Hunt (Extreme)"
+              "text": "The Great Hunt (Extreme)",
+              "instanceId": 475
             }
           ]
         },
@@ -1477,7 +1504,8 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "Hells' Kier (Extreme)"
+              "text": "Hells' Kier (Extreme)",
+              "instanceId": 597
             }
           ]
         },
@@ -1488,7 +1516,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Alphascape V4.0 (Savage)"
+              "text": "Alphascape V4.0 (Savage)",
+              "instanceId": 594
             }
           ]
         },
@@ -1595,7 +1624,8 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "The Wreath of Snakes (Extreme)"
+              "text": "The Wreath of Snakes (Extreme)",
+              "instanceId": 638
             }
           ]
         },
@@ -1665,7 +1695,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Eden's Gate: Sepulture (Savage)"
+              "text": "Eden's Gate: Sepulture (Savage)",
+              "instanceId": 690
             }
           ]
         },
@@ -1676,7 +1707,8 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "The Dancing Plague (Extreme)"
+              "text": "The Dancing Plague (Extreme)",
+              "instanceId": 658
             }
           ]
         },
@@ -1709,7 +1741,8 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "The Crown of the Immaculate (Extreme)"
+              "text": "The Crown of the Immaculate (Extreme)",
+              "instanceId": 667
             }
           ]
         },
@@ -1823,7 +1856,8 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "The Minstrel's Ballad: Hades's Elegy"
+              "text": "The Minstrel's Ballad: Hades's Elegy",
+              "instanceId": 693
             }
           ]
         },
@@ -1960,7 +1994,8 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "Cinder Drift (Extreme)"
+              "text": "Cinder Drift (Extreme)",
+              "instanceId": 718
             }
           ]
         },
@@ -1982,7 +2017,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Eden's Verse: Refulgence (Savage)"
+              "text": "Eden's Verse: Refulgence (Savage)",
+              "instanceId": 729
             }
           ]
         },
@@ -2052,7 +2088,8 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "The Seat of Sacrifice (Extreme)"
+              "text": "The Seat of Sacrifice (Extreme)",
+              "instanceId": 739
             }
           ]
         },
@@ -2141,7 +2178,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Eden's Promise: Eternity (Savage)"
+              "text": "Eden's Promise: Eternity (Savage)",
+              "instanceId": 759
             }
           ]
         },
@@ -2189,7 +2227,8 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "Castrum Marinum (Extreme)"
+              "text": "Castrum Marinum (Extreme)",
+              "instanceId": 763
             }
           ]
         },
@@ -2323,7 +2362,8 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "The Cloud Deck (Extreme)"
+              "text": "The Cloud Deck (Extreme)",
+              "instanceId": 782
             }
           ]
         },
@@ -2448,7 +2488,8 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "The Minstrel's Ballad: Zodiark's Fall"
+              "text": "The Minstrel's Ballad: Zodiark's Fall",
+              "instanceId": 803
             }
           ]
         },
@@ -2459,7 +2500,8 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "The Minstrel's Ballad: Hydaelyn's Call"
+              "text": "The Minstrel's Ballad: Hydaelyn's Call",
+              "instanceId": 791
             }
           ]
         },
@@ -2492,7 +2534,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Asphodelos: The Fourth Circle (Savage)"
+              "text": "Asphodelos: The Fourth Circle (Savage)",
+              "instanceId": 801
             }
           ]
         },
@@ -2739,7 +2782,8 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "The Minstrel's Ballad: Endsinger's Aria"
+              "text": "The Minstrel's Ballad: Endsinger's Aria",
+              "instanceId": 846
             }
           ]
         },
@@ -2839,7 +2883,8 @@
           "sources": [
             {
               "category": "V&C Dungeon",
-              "text": "Another Sil'dihn Subterrane"
+              "text": "Another Sil'dihn Subterrane",
+              "instanceId": 878
             },
             {
               "category": "V&C Dungeon",
@@ -2865,7 +2910,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Abyssos: The Eighth Circle (Savage)"
+              "text": "Abyssos: The Eighth Circle (Savage)",
+              "instanceId": 884
             }
           ]
         },
@@ -2876,7 +2922,8 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "Storm's Crown (Extreme)"
+              "text": "Storm's Crown (Extreme)",
+              "instanceId": 871
             }
           ]
         },
@@ -2953,7 +3000,8 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "Mount Ordeals (Extreme)"
+              "text": "Mount Ordeals (Extreme)",
+              "instanceId": 924
             }
           ]
         },
@@ -2997,7 +3045,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Anabaseios: The Twelfth Circle (Savage)"
+              "text": "Anabaseios: The Twelfth Circle (Savage)",
+              "instanceId": 943
             }
           ]
         },
@@ -3034,7 +3083,8 @@
           "sources": [
             {
               "category": "V&C Dungeon",
-              "text": "Another Mount Rokkon"
+              "text": "Another Mount Rokkon",
+              "instanceId": 946
             },
             {
               "category": "V&C Dungeon",
@@ -3075,7 +3125,8 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "The Voidcast Dais (Extreme)"
+              "text": "The Voidcast Dais (Extreme)",
+              "instanceId": 950
             }
           ]
         },
@@ -3152,7 +3203,8 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "The Abyssal Fracture (Extreme)"
+              "text": "The Abyssal Fracture (Extreme)",
+              "instanceId": 965
             }
           ]
         },
@@ -3226,7 +3278,8 @@
           "sources": [
             {
               "category": "V&C Dungeon",
-              "text": "Another Aloalo Island"
+              "text": "Another Aloalo Island",
+              "instanceId": 979
             },
             {
               "category": "V&C Dungeon",
@@ -3300,7 +3353,8 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "Worqor Lar Dor (Extreme)"
+              "text": "Worqor Lar Dor (Extreme)",
+              "instanceId": 833
             }
           ]
         },
@@ -3311,7 +3365,8 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "Everkeep (Extreme)"
+              "text": "Everkeep (Extreme)",
+              "instanceId": 996
             }
           ]
         },
@@ -3344,7 +3399,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "AAC Light-heavyweight M4 (Savage)"
+              "text": "AAC Light-heavyweight M4 (Savage)",
+              "instanceId": 992
             }
           ]
         },
@@ -3458,7 +3514,8 @@
             },
             {
               "category": "Chaotic Raid",
-              "text": "The Cloud of Darkness (Chaotic)"
+              "text": "The Cloud of Darkness (Chaotic)",
+              "instanceId": 1010
             }
           ]
         },
@@ -3473,7 +3530,8 @@
             },
             {
               "category": "Chaotic Raid",
-              "text": "The Cloud of Darkness (Chaotic)"
+              "text": "The Cloud of Darkness (Chaotic)",
+              "instanceId": 1010
             }
           ]
         },
@@ -3495,7 +3553,8 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "The Minstrel's Ballad: Sphene's Burden"
+              "text": "The Minstrel's Ballad: Sphene's Burden",
+              "instanceId": 1017
             }
           ]
         },
@@ -3621,7 +3680,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "AAC Cruiserweight M4 (Savage)"
+              "text": "AAC Cruiserweight M4 (Savage)",
+              "instanceId": 1026
             }
           ]
         },
@@ -3680,7 +3740,8 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "Recollection (Extreme)"
+              "text": "Recollection (Extreme)",
+              "instanceId": 1031
             }
           ]
         },
@@ -3780,11 +3841,13 @@
             },
             {
               "category": "Trial",
-              "text": "The Windward Wilds"
+              "text": "The Windward Wilds",
+              "instanceId": 1043
             },
             {
               "category": "Trial",
-              "text": "The Windward Wilds (Extreme)"
+              "text": "The Windward Wilds (Extreme)",
+              "instanceId": 1044
             }
           ]
         },
@@ -3795,7 +3858,8 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "Vault Oneiron"
+              "text": "Vault Oneiron",
+              "instanceId": 1060
             }
           ]
         },
@@ -3839,7 +3903,8 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "The Minstrel's Ballad: Necron's Embrace"
+              "text": "The Minstrel's Ballad: Necron's Embrace",
+              "instanceId": 1062
             }
           ]
         },
@@ -3883,7 +3948,8 @@
           "sources": [
             {
               "category": "V&C Dungeon",
-              "text": "Another Merchant's Tale"
+              "text": "Another Merchant's Tale",
+              "instanceId": 1079
             },
             {
               "category": "V&C Dungeon",
@@ -3898,7 +3964,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "AAC Heavyweight M4 (Savage)"
+              "text": "AAC Heavyweight M4 (Savage)",
+              "instanceId": 1075
             }
           ]
         },
@@ -3990,7 +4057,8 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "Hell on Rails (Extreme)"
+              "text": "Hell on Rails (Extreme)",
+              "instanceId": 1077
             }
           ]
         },
@@ -4160,7 +4228,8 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "The Unmaking (Extreme)"
+              "text": "The Unmaking (Extreme)",
+              "instanceId": 1116
             }
           ]
         },
@@ -4331,7 +4400,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Aurum Vale"
+              "text": "The Aurum Vale",
+              "instanceId": 5
             }
           ]
         },
@@ -4387,7 +4457,8 @@
             },
             {
               "category": "Treasure Hunt",
-              "text": "The Aquapolis"
+              "text": "The Aquapolis",
+              "instanceId": 179
             }
           ]
         },
@@ -4476,7 +4547,8 @@
             },
             {
               "category": "Treasure Hunt",
-              "text": "The Aquapolis"
+              "text": "The Aquapolis",
+              "instanceId": 179
             }
           ]
         },
@@ -4532,7 +4604,8 @@
             },
             {
               "category": "Treasure Hunt",
-              "text": "The Aquapolis"
+              "text": "The Aquapolis",
+              "instanceId": 179
             }
           ]
         },
@@ -4717,7 +4790,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Wanderer's Palace"
+              "text": "The Wanderer's Palace",
+              "instanceId": 10
             }
           ]
         },
@@ -4743,7 +4817,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Amdapor Keep"
+              "text": "Amdapor Keep",
+              "instanceId": 14
             }
           ]
         },
@@ -4780,7 +4855,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Copperbell Mines (Hard)"
+              "text": "Copperbell Mines (Hard)",
+              "instanceId": 18
             }
           ]
         },
@@ -4911,7 +4987,8 @@
             },
             {
               "category": "Treasure Hunt",
-              "text": "The Aquapolis"
+              "text": "The Aquapolis",
+              "instanceId": 179
             }
           ]
         },
@@ -4922,11 +4999,13 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Sastasha (Hard)"
+              "text": "Sastasha (Hard)",
+              "instanceId": 28
             },
             {
               "category": "Treasure Hunt",
-              "text": "The Aquapolis"
+              "text": "The Aquapolis",
+              "instanceId": 179
             }
           ]
         },
@@ -5133,7 +5212,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Brayflox's Longstop (Hard)"
+              "text": "Brayflox's Longstop (Hard)",
+              "instanceId": 20
             },
             {
               "category": "Deep Dungeon",
@@ -5141,7 +5221,8 @@
             },
             {
               "category": "Treasure Hunt",
-              "text": "The Aquapolis"
+              "text": "The Aquapolis",
+              "instanceId": 179
             }
           ]
         },
@@ -5277,7 +5358,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Syrcus Tower"
+              "text": "Syrcus Tower",
+              "instanceId": 102
             }
           ]
         },
@@ -5348,7 +5430,8 @@
             },
             {
               "category": "Treasure Hunt",
-              "text": "The Aquapolis"
+              "text": "The Aquapolis",
+              "instanceId": 179
             },
             {
               "category": "Skybuilders",
@@ -5408,7 +5491,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "The World of Darkness"
+              "text": "The World of Darkness",
+              "instanceId": 111
             }
           ]
         },
@@ -5419,7 +5503,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Hullbreaker Isle"
+              "text": "Hullbreaker Isle",
+              "instanceId": 23
             }
           ]
         },
@@ -5441,7 +5526,8 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "The Dragon's Neck"
+              "text": "The Dragon's Neck",
+              "instanceId": 81
             }
           ]
         },
@@ -5533,7 +5619,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Sunken Temple of Qarn (Hard)"
+              "text": "The Sunken Temple of Qarn (Hard)",
+              "instanceId": 26
             },
             {
               "category": "Deep Dungeon",
@@ -5541,7 +5628,8 @@
             },
             {
               "category": "Treasure Hunt",
-              "text": "The Aquapolis"
+              "text": "The Aquapolis",
+              "instanceId": 179
             }
           ]
         },
@@ -5639,7 +5727,8 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "Battle in the Big Keep"
+              "text": "Battle in the Big Keep",
+              "instanceId": 85
             }
           ]
         },
@@ -5771,7 +5860,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Vault"
+              "text": "The Vault",
+              "instanceId": 34
             },
             {
               "category": "Deep Dungeon",
@@ -5779,7 +5869,8 @@
             },
             {
               "category": "Treasure Hunt",
-              "text": "The Aquapolis"
+              "text": "The Aquapolis",
+              "instanceId": 179
             }
           ]
         },
@@ -5824,11 +5915,13 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Fractal Continuum"
+              "text": "The Fractal Continuum",
+              "instanceId": 35
             },
             {
               "category": "Treasure Hunt",
-              "text": "The Aquapolis"
+              "text": "The Aquapolis",
+              "instanceId": 179
             },
             {
               "category": "Deep Dungeon",
@@ -5847,7 +5940,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Neverreap"
+              "text": "Neverreap",
+              "instanceId": 33
             },
             {
               "category": "Deep Dungeon",
@@ -5855,7 +5949,8 @@
             },
             {
               "category": "Treasure Hunt",
-              "text": "The Aquapolis"
+              "text": "The Aquapolis",
+              "instanceId": 179
             },
             {
               "category": "Skybuilders",
@@ -5874,7 +5969,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Sohm Al"
+              "text": "Sohm Al",
+              "instanceId": 37
             },
             {
               "category": "Deep Dungeon",
@@ -5882,7 +5978,8 @@
             },
             {
               "category": "Treasure Hunt",
-              "text": "The Aquapolis"
+              "text": "The Aquapolis",
+              "instanceId": 179
             },
             {
               "category": "Skybuilders",
@@ -5920,7 +6017,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Aery"
+              "text": "The Aery",
+              "instanceId": 39
             },
             {
               "category": "Deep Dungeon",
@@ -5928,7 +6026,8 @@
             },
             {
               "category": "Treasure Hunt",
-              "text": "The Aquapolis"
+              "text": "The Aquapolis",
+              "instanceId": 179
             }
           ]
         },
@@ -5939,7 +6038,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Great Gubal Library"
+              "text": "The Great Gubal Library",
+              "instanceId": 31
             },
             {
               "category": "Deep Dungeon",
@@ -5947,7 +6047,8 @@
             },
             {
               "category": "Treasure Hunt",
-              "text": "The Aquapolis"
+              "text": "The Aquapolis",
+              "instanceId": 179
             }
           ]
         },
@@ -6121,7 +6222,8 @@
             },
             {
               "category": "Treasure Hunt",
-              "text": "The Aquapolis"
+              "text": "The Aquapolis",
+              "instanceId": 179
             },
             {
               "category": "Deep Dungeon",
@@ -6174,7 +6276,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "The Void Ark"
+              "text": "The Void Ark",
+              "instanceId": 120
             }
           ]
         },
@@ -6252,7 +6355,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Saint Mocianne's Arboretum"
+              "text": "Saint Mocianne's Arboretum",
+              "instanceId": 41
             },
             {
               "category": "Deep Dungeon",
@@ -6402,7 +6506,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Alexander - The Burden of the Son (Savage)"
+              "text": "Alexander - The Burden of the Son (Savage)",
+              "instanceId": 150
             }
           ]
         },
@@ -6428,7 +6533,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Antitower"
+              "text": "The Antitower",
+              "instanceId": 141
             },
             {
               "category": "Eureka",
@@ -6443,7 +6549,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Antitower"
+              "text": "The Antitower",
+              "instanceId": 141
             }
           ]
         },
@@ -6454,7 +6561,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Lost City of Amdapor (Hard)"
+              "text": "The Lost City of Amdapor (Hard)",
+              "instanceId": 140
             },
             {
               "category": "Deep Dungeon",
@@ -6585,7 +6693,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Hullbreaker Isle (Hard)"
+              "text": "Hullbreaker Isle (Hard)",
+              "instanceId": 172
             },
             {
               "category": "Skybuilders",
@@ -6667,7 +6776,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "The Weeping City of Mhach"
+              "text": "The Weeping City of Mhach",
+              "instanceId": 168
             }
           ]
         },
@@ -6689,7 +6799,8 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "The Aquapolis"
+              "text": "The Aquapolis",
+              "instanceId": 179
             },
             {
               "category": "Deep Dungeon",
@@ -6892,11 +7003,13 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Alexander - The Soul of the Creator"
+              "text": "Alexander - The Soul of the Creator",
+              "instanceId": 189
             },
             {
               "category": "Raid",
-              "text": "Alexander - The Soul of the Creator (Savage)"
+              "text": "Alexander - The Soul of the Creator (Savage)",
+              "instanceId": 193
             }
           ]
         },
@@ -6907,7 +7020,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Xelphatol"
+              "text": "Xelphatol",
+              "instanceId": 182
             },
             {
               "category": "Deep Dungeon",
@@ -7034,7 +7148,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Baelsar's Wall"
+              "text": "Baelsar's Wall",
+              "instanceId": 219
             },
             {
               "category": "Skybuilders",
@@ -7112,7 +7227,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Dun Scaith"
+              "text": "Dun Scaith",
+              "instanceId": 220
             }
           ]
         },
@@ -7295,7 +7411,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Shisui of the Violet Tides"
+              "text": "Shisui of the Violet Tides",
+              "instanceId": 235
             },
             {
               "category": "Deep Dungeon",
@@ -7333,7 +7450,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Bardam's Mettle"
+              "text": "Bardam's Mettle",
+              "instanceId": 240
             },
             {
               "category": "Deep Dungeon",
@@ -7367,7 +7485,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Kugane Castle"
+              "text": "Kugane Castle",
+              "instanceId": 262
             }
           ]
         },
@@ -7404,7 +7523,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Doma Castle"
+              "text": "Doma Castle",
+              "instanceId": 241
             }
           ]
         },
@@ -7426,7 +7546,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Temple of the Fist"
+              "text": "The Temple of the Fist",
+              "instanceId": 236
             }
           ]
         },
@@ -7463,7 +7584,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Castrum Abania"
+              "text": "Castrum Abania",
+              "instanceId": 242
             }
           ]
         },
@@ -7474,7 +7596,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Sirensong Sea"
+              "text": "The Sirensong Sea",
+              "instanceId": 238
             },
             {
               "category": "Deep Dungeon",
@@ -7493,11 +7616,13 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Deltascape V4.0"
+              "text": "Deltascape V4.0",
+              "instanceId": 255
             },
             {
               "category": "Raid",
-              "text": "Deltascape V4.0 (Savage)"
+              "text": "Deltascape V4.0 (Savage)",
+              "instanceId": 259
             }
           ]
         },
@@ -7655,7 +7780,8 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "The Hidden Canals of Uznair"
+              "text": "The Hidden Canals of Uznair",
+              "instanceId": 276
             }
           ]
         },
@@ -7666,7 +7792,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "The Orbonne Monastery"
+              "text": "The Orbonne Monastery",
+              "instanceId": 636
             }
           ]
         },
@@ -7696,7 +7823,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Drowned City of Skalla"
+              "text": "The Drowned City of Skalla",
+              "instanceId": 279
             },
             {
               "category": "Bozja",
@@ -7821,7 +7949,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Hells' Lid"
+              "text": "Hells' Lid",
+              "instanceId": 284
             },
             {
               "category": "Bozja",
@@ -7859,11 +7988,13 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Sigmascape V4.0"
+              "text": "Sigmascape V4.0",
+              "instanceId": 289
             },
             {
               "category": "Raid",
-              "text": "Sigmascape V4.0 (Savage)"
+              "text": "Sigmascape V4.0 (Savage)",
+              "instanceId": 295
             }
           ]
         },
@@ -7999,7 +8130,8 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "The Hidden Canals of Uznair"
+              "text": "The Hidden Canals of Uznair",
+              "instanceId": 276
             }
           ]
         },
@@ -8010,7 +8142,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Swallow's Compass"
+              "text": "The Swallow's Compass",
+              "instanceId": 536
             },
             {
               "category": "Bozja",
@@ -8129,7 +8262,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "The Ridorana Lighthouse"
+              "text": "The Ridorana Lighthouse",
+              "instanceId": 550
             }
           ]
         },
@@ -8151,7 +8285,8 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "The Great Hunt (Extreme)"
+              "text": "The Great Hunt (Extreme)",
+              "instanceId": 475
             }
           ]
         },
@@ -8203,11 +8338,13 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Alphascape V4.0"
+              "text": "Alphascape V4.0",
+              "instanceId": 590
             },
             {
               "category": "Raid",
-              "text": "Alphascape V4.0 (Savage)"
+              "text": "Alphascape V4.0 (Savage)",
+              "instanceId": 594
             }
           ]
         },
@@ -8304,7 +8441,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Saint Mocianne's Arboretum (Hard)"
+              "text": "Saint Mocianne's Arboretum (Hard)",
+              "instanceId": 584
             },
             {
               "category": "Bozja",
@@ -8372,15 +8510,18 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "The Lost Canals of Uznair"
+              "text": "The Lost Canals of Uznair",
+              "instanceId": 268
             },
             {
               "category": "Treasure Hunt",
-              "text": "The Hidden Canals of Uznair"
+              "text": "The Hidden Canals of Uznair",
+              "instanceId": 276
             },
             {
               "category": "Treasure Hunt",
-              "text": "The Shifting Altars of Uznair"
+              "text": "The Shifting Altars of Uznair",
+              "instanceId": 586
             }
           ]
         },
@@ -8439,7 +8580,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Ghimlyt Dark"
+              "text": "The Ghimlyt Dark",
+              "instanceId": 611
             },
             {
               "category": "Bozja",
@@ -8570,15 +8712,18 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "The Lost Canals of Uznair"
+              "text": "The Lost Canals of Uznair",
+              "instanceId": 268
             },
             {
               "category": "Treasure Hunt",
-              "text": "The Hidden Canals of Uznair"
+              "text": "The Hidden Canals of Uznair",
+              "instanceId": 276
             },
             {
               "category": "Treasure Hunt",
-              "text": "The Shifting Altars of Uznair"
+              "text": "The Shifting Altars of Uznair",
+              "instanceId": 586
             },
             {
               "category": "Occult Crescent",
@@ -8608,11 +8753,13 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Eden's Verse: Refulgence"
+              "text": "Eden's Verse: Refulgence",
+              "instanceId": 728
             },
             {
               "category": "Raid",
-              "text": "Eden's Verse: Refulgence (Savage)"
+              "text": "Eden's Verse: Refulgence (Savage)",
+              "instanceId": 729
             }
           ]
         },
@@ -8623,7 +8770,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Holminster Switch"
+              "text": "Holminster Switch",
+              "instanceId": 676
             },
             {
               "category": "Deep Dungeon",
@@ -8646,7 +8794,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Qitana Ravel"
+              "text": "The Qitana Ravel",
+              "instanceId": 651
             },
             {
               "category": "Bozja",
@@ -8673,7 +8822,8 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "The Dungeons of Lyhe Ghiah"
+              "text": "The Dungeons of Lyhe Ghiah",
+              "instanceId": 688
             }
           ]
         },
@@ -8684,7 +8834,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Malikah's Well"
+              "text": "Malikah's Well",
+              "instanceId": 656
             },
             {
               "category": "Deep Dungeon",
@@ -8729,7 +8880,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Akadaemia Anyder"
+              "text": "Akadaemia Anyder",
+              "instanceId": 661
             },
             {
               "category": "Deep Dungeon",
@@ -8759,11 +8911,13 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Eden's Gate: Sepulture"
+              "text": "Eden's Gate: Sepulture",
+              "instanceId": 689
             },
             {
               "category": "Raid",
-              "text": "Eden's Gate: Sepulture (Savage)"
+              "text": "Eden's Gate: Sepulture (Savage)",
+              "instanceId": 690
             }
           ]
         },
@@ -8829,7 +8983,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Dohn Mheg"
+              "text": "Dohn Mheg",
+              "instanceId": 649
             },
             {
               "category": "Deep Dungeon",
@@ -8867,7 +9022,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Amaurot"
+              "text": "Amaurot",
+              "instanceId": 652
             },
             {
               "category": "Deep Dungeon",
@@ -8912,7 +9068,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Mt. Gulg"
+              "text": "Mt. Gulg",
+              "instanceId": 659
             },
             {
               "category": "Occult Crescent",
@@ -9055,7 +9212,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Grand Cosmos"
+              "text": "The Grand Cosmos",
+              "instanceId": 692
             },
             {
               "category": "Deep Dungeon",
@@ -9104,7 +9262,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "The Copied Factory"
+              "text": "The Copied Factory",
+              "instanceId": 700
             }
           ]
         },
@@ -9115,7 +9274,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "The Copied Factory"
+              "text": "The Copied Factory",
+              "instanceId": 700
             }
           ]
         },
@@ -9126,11 +9286,13 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "The Dungeons of Lyhe Ghiah"
+              "text": "The Dungeons of Lyhe Ghiah",
+              "instanceId": 688
             },
             {
               "category": "Treasure Hunt",
-              "text": "The Shifting Oubliettes of Lyhe Ghiah"
+              "text": "The Shifting Oubliettes of Lyhe Ghiah",
+              "instanceId": 745
             },
             {
               "category": "Deep Dungeon",
@@ -9222,7 +9384,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Anamnesis Anyder"
+              "text": "Anamnesis Anyder",
+              "instanceId": 714
             }
           ]
         },
@@ -9351,7 +9514,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Heroes' Gauntlet"
+              "text": "The Heroes' Gauntlet",
+              "instanceId": 737
             }
           ]
         },
@@ -9458,7 +9622,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "The Puppets' Bunker"
+              "text": "The Puppets' Bunker",
+              "instanceId": 736
             }
           ]
         },
@@ -9469,7 +9634,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "The Puppets' Bunker"
+              "text": "The Puppets' Bunker",
+              "instanceId": 736
             }
           ]
         },
@@ -9502,11 +9668,13 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Eden's Promise: Eternity"
+              "text": "Eden's Promise: Eternity",
+              "instanceId": 758
             },
             {
               "category": "Raid",
-              "text": "Eden's Promise: Eternity (Savage)"
+              "text": "Eden's Promise: Eternity (Savage)",
+              "instanceId": 759
             }
           ]
         },
@@ -9595,7 +9763,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Matoya's Relict"
+              "text": "Matoya's Relict",
+              "instanceId": 746
             },
             {
               "category": "Deep Dungeon",
@@ -9621,7 +9790,8 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "The Shifting Oubliettes of Lyhe Ghiah"
+              "text": "The Shifting Oubliettes of Lyhe Ghiah",
+              "instanceId": 745
             }
           ]
         },
@@ -9673,7 +9843,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Paglth'an"
+              "text": "Paglth'an",
+              "instanceId": 777
             },
             {
               "category": "Deep Dungeon",
@@ -9733,7 +9904,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "The Tower at Paradigm's Breach"
+              "text": "The Tower at Paradigm's Breach",
+              "instanceId": 779
             }
           ]
         },
@@ -9777,7 +9949,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "The Tower at Paradigm's Breach"
+              "text": "The Tower at Paradigm's Breach",
+              "instanceId": 779
             }
           ]
         },
@@ -9840,7 +10013,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Tower of Zot"
+              "text": "The Tower of Zot",
+              "instanceId": 783
             }
           ]
         },
@@ -9851,7 +10025,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Stigma Dreamscape"
+              "text": "The Stigma Dreamscape",
+              "instanceId": 784
             },
             {
               "category": "Deep Dungeon",
@@ -9870,7 +10045,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Tower of Babil"
+              "text": "The Tower of Babil",
+              "instanceId": 785
             }
           ]
         },
@@ -9881,7 +10057,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Dead Ends"
+              "text": "The Dead Ends",
+              "instanceId": 792
             }
           ]
         },
@@ -9925,7 +10102,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Vanaspati"
+              "text": "Vanaspati",
+              "instanceId": 789
             },
             {
               "category": "Deep Dungeon",
@@ -9955,7 +10133,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Smileton"
+              "text": "Smileton",
+              "instanceId": 794
             },
             {
               "category": "Deep Dungeon",
@@ -9974,7 +10153,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Aitiascope"
+              "text": "The Aitiascope",
+              "instanceId": 786
             }
           ]
         },
@@ -9985,7 +10165,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Ktisis Hyperboreia"
+              "text": "Ktisis Hyperboreia",
+              "instanceId": 787
             }
           ]
         },
@@ -10048,11 +10229,13 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Asphodelos: The Fourth Circle"
+              "text": "Asphodelos: The Fourth Circle",
+              "instanceId": 800
             },
             {
               "category": "Raid",
-              "text": "Asphodelos: The Fourth Circle (Savage)"
+              "text": "Asphodelos: The Fourth Circle (Savage)",
+              "instanceId": 801
             }
           ]
         },
@@ -10085,11 +10268,13 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "The Excitatron 6000"
+              "text": "The Excitatron 6000",
+              "instanceId": 819
             },
             {
               "category": "Treasure Hunt",
-              "text": "The Shifting Gymnasion Agonon"
+              "text": "The Shifting Gymnasion Agonon",
+              "instanceId": 909
             },
             {
               "category": "Treasure Hunt",
@@ -10137,7 +10322,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Alzadaal's Legacy"
+              "text": "Alzadaal's Legacy",
+              "instanceId": 844
             }
           ]
         },
@@ -10189,7 +10375,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Aglaia"
+              "text": "Aglaia",
+              "instanceId": 866
             }
           ]
         },
@@ -10300,7 +10487,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Fell Court of Troia"
+              "text": "The Fell Court of Troia",
+              "instanceId": 869
             }
           ]
         },
@@ -10341,7 +10529,8 @@
           "sources": [
             {
               "category": "V&C Dungeon",
-              "text": "The Sil'dihn Subterrane"
+              "text": "The Sil'dihn Subterrane",
+              "instanceId": 868
             }
           ]
         },
@@ -10352,7 +10541,8 @@
           "sources": [
             {
               "category": "V&C Dungeon",
-              "text": "The Sil'dihn Subterrane"
+              "text": "The Sil'dihn Subterrane",
+              "instanceId": 868
             }
           ]
         },
@@ -10363,7 +10553,8 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "The Shifting Gymnasion Agonon"
+              "text": "The Shifting Gymnasion Agonon",
+              "instanceId": 909
             }
           ]
         },
@@ -10374,11 +10565,13 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Abyssos: The Eighth Circle"
+              "text": "Abyssos: The Eighth Circle",
+              "instanceId": 883
             },
             {
               "category": "Raid",
-              "text": "Abyssos: The Eighth Circle (Savage)"
+              "text": "Abyssos: The Eighth Circle (Savage)",
+              "instanceId": 884
             }
           ]
         },
@@ -10441,7 +10634,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Lapis Manalis"
+              "text": "Lapis Manalis",
+              "instanceId": 896
             }
           ]
         },
@@ -10474,7 +10668,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Euphrosyne"
+              "text": "Euphrosyne",
+              "instanceId": 911
             }
           ]
         },
@@ -10519,7 +10714,8 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "The Shifting Gymnasion Agonon"
+              "text": "The Shifting Gymnasion Agonon",
+              "instanceId": 909
             }
           ]
         },
@@ -10530,7 +10726,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Aetherfont"
+              "text": "The Aetherfont",
+              "instanceId": 822
             }
           ]
         },
@@ -10552,7 +10749,8 @@
           "sources": [
             {
               "category": "V&C Dungeon",
-              "text": "Mount Rokkon"
+              "text": "Mount Rokkon",
+              "instanceId": 945
             }
           ]
         },
@@ -10604,7 +10802,8 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "The Excitatron 6000"
+              "text": "The Excitatron 6000",
+              "instanceId": 819
             },
             {
               "category": "Deep Dungeon",
@@ -10619,7 +10818,8 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "The Shifting Gymnasion Agonon"
+              "text": "The Shifting Gymnasion Agonon",
+              "instanceId": 909
             }
           ]
         },
@@ -10630,7 +10830,8 @@
           "sources": [
             {
               "category": "V&C Dungeon",
-              "text": "Mount Rokkon"
+              "text": "Mount Rokkon",
+              "instanceId": 945
             }
           ]
         },
@@ -10641,11 +10842,13 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Anabaseios: The Twelfth Circle"
+              "text": "Anabaseios: The Twelfth Circle",
+              "instanceId": 942
             },
             {
               "category": "Raid",
-              "text": "Anabaseios: The Twelfth Circle (Savage)"
+              "text": "Anabaseios: The Twelfth Circle (Savage)",
+              "instanceId": 943
             }
           ]
         },
@@ -10686,7 +10889,8 @@
           "sources": [
             {
               "category": "V&C Dungeon",
-              "text": "Mount Rokkon"
+              "text": "Mount Rokkon",
+              "instanceId": 945
             }
           ]
         },
@@ -10697,7 +10901,8 @@
           "sources": [
             {
               "category": "V&C Dungeon",
-              "text": "Aloalo Island"
+              "text": "Aloalo Island",
+              "instanceId": 961
             }
           ]
         },
@@ -10738,7 +10943,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Thaleia"
+              "text": "Thaleia",
+              "instanceId": 962
             }
           ]
         },
@@ -10771,7 +10977,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Lunar Subterrane"
+              "text": "The Lunar Subterrane",
+              "instanceId": 823
             }
           ]
         },
@@ -10870,7 +11077,8 @@
           "sources": [
             {
               "category": "V&C Dungeon",
-              "text": "Aloalo Island"
+              "text": "Aloalo Island",
+              "instanceId": 961
             }
           ]
         },
@@ -10881,7 +11089,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Ihuykatumu"
+              "text": "Ihuykatumu",
+              "instanceId": 826
             }
           ]
         },
@@ -10892,7 +11101,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Vanguard"
+              "text": "Vanguard",
+              "instanceId": 831
             }
           ]
         },
@@ -10914,11 +11124,13 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "Cenote Ja Ja Gural"
+              "text": "Cenote Ja Ja Gural",
+              "instanceId": 993
             },
             {
               "category": "Treasure Hunt",
-              "text": "Vault Oneiron"
+              "text": "Vault Oneiron",
+              "instanceId": 1060
             }
           ]
         },
@@ -10973,7 +11185,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Worqor Zormor"
+              "text": "Worqor Zormor",
+              "instanceId": 824
             }
           ]
         },
@@ -10995,7 +11208,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Tender Valley"
+              "text": "Tender Valley",
+              "instanceId": 834
             }
           ]
         },
@@ -11017,7 +11231,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Skydeep Cenote"
+              "text": "The Skydeep Cenote",
+              "instanceId": 829
             }
           ]
         },
@@ -11039,7 +11254,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Strayborough Deadwalk"
+              "text": "The Strayborough Deadwalk",
+              "instanceId": 981
             }
           ]
         },
@@ -11050,7 +11266,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Alexandria"
+              "text": "Alexandria",
+              "instanceId": 827
             }
           ]
         },
@@ -11061,7 +11278,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Origenics"
+              "text": "Origenics",
+              "instanceId": 825
             }
           ]
         },
@@ -11072,11 +11290,13 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "AAC Light-heavyweight M4"
+              "text": "AAC Light-heavyweight M4",
+              "instanceId": 991
             },
             {
               "category": "Raid",
-              "text": "AAC Light-heavyweight M4 (Savage)"
+              "text": "AAC Light-heavyweight M4 (Savage)",
+              "instanceId": 992
             }
           ]
         },
@@ -11124,7 +11344,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Jeuno: The First Walk"
+              "text": "Jeuno: The First Walk",
+              "instanceId": 1015
             }
           ]
         },
@@ -11172,7 +11393,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Yuweyawata Field Station"
+              "text": "Yuweyawata Field Station",
+              "instanceId": 1008
             }
           ]
         },
@@ -11231,7 +11453,8 @@
           "sources": [
             {
               "category": "Chaotic Raid",
-              "text": "The Cloud of Darkness (Chaotic)"
+              "text": "The Cloud of Darkness (Chaotic)",
+              "instanceId": 1010
             }
           ]
         },
@@ -11253,11 +11476,13 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "Cenote Ja Ja Gural"
+              "text": "Cenote Ja Ja Gural",
+              "instanceId": 993
             },
             {
               "category": "Treasure Hunt",
-              "text": "Vault Oneiron"
+              "text": "Vault Oneiron",
+              "instanceId": 1060
             }
           ]
         },
@@ -11371,7 +11596,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Underkeep"
+              "text": "The Underkeep",
+              "instanceId": 1027
             }
           ]
         },
@@ -11459,7 +11685,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "San d'Oria: The Second Walk"
+              "text": "San d'Oria: The Second Walk",
+              "instanceId": 1058
             }
           ]
         },
@@ -11492,7 +11719,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Meso Terminal"
+              "text": "The Meso Terminal",
+              "instanceId": 1028
             }
           ]
         },
@@ -11525,7 +11753,8 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "Vault Oneiron"
+              "text": "Vault Oneiron",
+              "instanceId": 1060
             }
           ]
         },
@@ -11536,7 +11765,8 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "Vault Oneiron"
+              "text": "Vault Oneiron",
+              "instanceId": 1060
             }
           ]
         },
@@ -11558,7 +11788,8 @@
           "sources": [
             {
               "category": "V&C Dungeon",
-              "text": "*The Merchant's Tale*"
+              "text": "*The Merchant's Tale*",
+              "instanceId": 1066
             }
           ]
         },
@@ -11569,7 +11800,8 @@
           "sources": [
             {
               "category": "V&C Dungeon",
-              "text": "*The Merchant's Tale*"
+              "text": "*The Merchant's Tale*",
+              "instanceId": 1066
             }
           ]
         },
@@ -11646,11 +11878,13 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "AAC Heavyweight M4"
+              "text": "AAC Heavyweight M4",
+              "instanceId": 1074
             },
             {
               "category": "Raid",
-              "text": "AAC Heavyweight M4 (Savage)"
+              "text": "AAC Heavyweight M4 (Savage)",
+              "instanceId": 1075
             }
           ]
         },
@@ -11661,7 +11895,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Mistwake"
+              "text": "Mistwake",
+              "instanceId": 1064
             }
           ]
         },
@@ -11738,7 +11973,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Clyteum"
+              "text": "The Clyteum",
+              "instanceId": 1011
             }
           ]
         },
@@ -11793,7 +12029,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Windurst: The Third Walk"
+              "text": "Windurst: The Third Walk",
+              "instanceId": 1117
             }
           ]
         },
@@ -12625,7 +12862,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Snowcloak"
+              "text": "Snowcloak",
+              "instanceId": 27
             }
           ]
         },
@@ -12651,7 +12889,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Great Gubal Library"
+              "text": "The Great Gubal Library",
+              "instanceId": 31
             },
             {
               "category": "Deep Dungeon",
@@ -12666,7 +12905,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Fractal Continuum"
+              "text": "The Fractal Continuum",
+              "instanceId": 35
             }
           ]
         },
@@ -12677,7 +12917,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Sohr Khai"
+              "text": "Sohr Khai",
+              "instanceId": 171
             }
           ]
         },
@@ -12688,7 +12929,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Hullbreaker Isle"
+              "text": "Hullbreaker Isle",
+              "instanceId": 23
             },
             {
               "category": "Deep Dungeon",
@@ -12791,7 +13033,8 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "The Aquapolis"
+              "text": "The Aquapolis",
+              "instanceId": 179
             },
             {
               "category": "Treasure Hunt",
@@ -12806,7 +13049,8 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "The Aquapolis"
+              "text": "The Aquapolis",
+              "instanceId": 179
             },
             {
               "category": "Treasure Hunt",
@@ -12821,7 +13065,8 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "The Aquapolis"
+              "text": "The Aquapolis",
+              "instanceId": 179
             },
             {
               "category": "Treasure Hunt",
@@ -12999,7 +13244,8 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "The Aquapolis"
+              "text": "The Aquapolis",
+              "instanceId": 179
             },
             {
               "category": "Treasure Hunt",
@@ -13036,7 +13282,8 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "The Aquapolis"
+              "text": "The Aquapolis",
+              "instanceId": 179
             },
             {
               "category": "Treasure Hunt",
@@ -13106,7 +13353,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Sohm Al"
+              "text": "Sohm Al",
+              "instanceId": 37
             }
           ]
         },
@@ -13117,7 +13365,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Keeper of the Lake"
+              "text": "The Keeper of the Lake",
+              "instanceId": 32
             }
           ]
         },
@@ -13422,7 +13671,8 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "The Aquapolis"
+              "text": "The Aquapolis",
+              "instanceId": 179
             },
             {
               "category": "Treasure Hunt",
@@ -13437,7 +13687,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Vault"
+              "text": "The Vault",
+              "instanceId": 34
             }
           ]
         },
@@ -13744,7 +13995,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Saint Mocianne's Arboretum"
+              "text": "Saint Mocianne's Arboretum",
+              "instanceId": 41
             }
           ]
         },
@@ -13755,7 +14007,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Great Gubal Library (Hard)"
+              "text": "The Great Gubal Library (Hard)",
+              "instanceId": 196
             },
             {
               "category": "Deep Dungeon",
@@ -13858,11 +14111,13 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "The Lost Canals of Uznair"
+              "text": "The Lost Canals of Uznair",
+              "instanceId": 268
             },
             {
               "category": "Treasure Hunt",
-              "text": "The Hidden Canals of Uznair"
+              "text": "The Hidden Canals of Uznair",
+              "instanceId": 276
             },
             {
               "category": "Treasure Hunt",
@@ -13881,11 +14136,13 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "The Lost Canals of Uznair"
+              "text": "The Lost Canals of Uznair",
+              "instanceId": 268
             },
             {
               "category": "Treasure Hunt",
-              "text": "The Hidden Canals of Uznair"
+              "text": "The Hidden Canals of Uznair",
+              "instanceId": 276
             },
             {
               "category": "Treasure Hunt",
@@ -13904,11 +14161,13 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "The Lost Canals of Uznair"
+              "text": "The Lost Canals of Uznair",
+              "instanceId": 268
             },
             {
               "category": "Treasure Hunt",
-              "text": "The Hidden Canals of Uznair"
+              "text": "The Hidden Canals of Uznair",
+              "instanceId": 276
             },
             {
               "category": "Treasure Hunt",
@@ -14004,11 +14263,13 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "The Lost Canals of Uznair"
+              "text": "The Lost Canals of Uznair",
+              "instanceId": 268
             },
             {
               "category": "Treasure Hunt",
-              "text": "The Hidden Canals of Uznair"
+              "text": "The Hidden Canals of Uznair",
+              "instanceId": 276
             },
             {
               "category": "Treasure Hunt",
@@ -14045,11 +14306,13 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "The Lost Canals of Uznair"
+              "text": "The Lost Canals of Uznair",
+              "instanceId": 268
             },
             {
               "category": "Treasure Hunt",
-              "text": "The Hidden Canals of Uznair"
+              "text": "The Hidden Canals of Uznair",
+              "instanceId": 276
             },
             {
               "category": "Treasure Hunt",
@@ -14075,7 +14338,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Shisui of the Violet Tides"
+              "text": "Shisui of the Violet Tides",
+              "instanceId": 235
             }
           ]
         },
@@ -14086,7 +14350,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Bardam's Mettle"
+              "text": "Bardam's Mettle",
+              "instanceId": 240
             }
           ]
         },
@@ -14097,7 +14362,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Kugane Castle"
+              "text": "Kugane Castle",
+              "instanceId": 262
             }
           ]
         },
@@ -14108,7 +14374,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Drowned City of Skalla"
+              "text": "The Drowned City of Skalla",
+              "instanceId": 279
             },
             {
               "category": "Deep Dungeon",
@@ -14145,7 +14412,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "The Royal City of Rabanastre"
+              "text": "The Royal City of Rabanastre",
+              "instanceId": 281
             }
           ]
         },
@@ -14156,7 +14424,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "The Royal City of Rabanastre"
+              "text": "The Royal City of Rabanastre",
+              "instanceId": 281
             }
           ]
         },
@@ -14167,7 +14436,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "The Royal City of Rabanastre"
+              "text": "The Royal City of Rabanastre",
+              "instanceId": 281
             }
           ]
         },
@@ -14344,7 +14614,8 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "The Hidden Canals of Uznair"
+              "text": "The Hidden Canals of Uznair",
+              "instanceId": 276
             },
             {
               "category": "Treasure Hunt",
@@ -14370,7 +14641,8 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "The Hidden Canals of Uznair"
+              "text": "The Hidden Canals of Uznair",
+              "instanceId": 276
             },
             {
               "category": "Treasure Hunt",
@@ -14429,7 +14701,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Hells' Lid"
+              "text": "Hells' Lid",
+              "instanceId": 284
             },
             {
               "category": "Deep Dungeon",
@@ -14444,7 +14717,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Fractal Continuum (Hard)"
+              "text": "The Fractal Continuum (Hard)",
+              "instanceId": 285
             },
             {
               "category": "Deep Dungeon",
@@ -14459,7 +14733,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Temple of the Fist"
+              "text": "The Temple of the Fist",
+              "instanceId": 236
             },
             {
               "category": "Deep Dungeon",
@@ -14474,7 +14749,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Ala Mhigo"
+              "text": "Ala Mhigo",
+              "instanceId": 247
             }
           ]
         },
@@ -14529,7 +14805,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Syrcus Tower"
+              "text": "Syrcus Tower",
+              "instanceId": 102
             }
           ]
         },
@@ -14636,7 +14913,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Lost City of Amdapor (Hard)"
+              "text": "The Lost City of Amdapor (Hard)",
+              "instanceId": 140
             }
           ]
         },
@@ -14647,7 +14925,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Doma Castle"
+              "text": "Doma Castle",
+              "instanceId": 241
             }
           ]
         },
@@ -14658,7 +14937,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Swallow's Compass"
+              "text": "The Swallow's Compass",
+              "instanceId": 536
             },
             {
               "category": "Deep Dungeon",
@@ -14717,7 +14997,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "The Ridorana Lighthouse"
+              "text": "The Ridorana Lighthouse",
+              "instanceId": 550
             }
           ]
         },
@@ -14728,7 +15009,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "The Ridorana Lighthouse"
+              "text": "The Ridorana Lighthouse",
+              "instanceId": 550
             }
           ]
         },
@@ -14739,7 +15021,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "The Ridorana Lighthouse"
+              "text": "The Ridorana Lighthouse",
+              "instanceId": 550
             }
           ]
         },
@@ -14772,7 +15055,8 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "The Great Hunt (Extreme)"
+              "text": "The Great Hunt (Extreme)",
+              "instanceId": 475
             },
             {
               "category": "Trial",
@@ -14868,7 +15152,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Pharos Sirius (Hard)"
+              "text": "Pharos Sirius (Hard)",
+              "instanceId": 40
             },
             {
               "category": "Skybuilders",
@@ -14887,7 +15172,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Wanderer's Palace (Hard)"
+              "text": "The Wanderer's Palace (Hard)",
+              "instanceId": 30
             },
             {
               "category": "Skybuilders",
@@ -14906,7 +15192,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Halatali (Hard)"
+              "text": "Halatali (Hard)",
+              "instanceId": 21
             }
           ]
         },
@@ -14917,7 +15204,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Saint Mocianne's Arboretum (Hard)"
+              "text": "Saint Mocianne's Arboretum (Hard)",
+              "instanceId": 584
             },
             {
               "category": "Deep Dungeon",
@@ -14932,7 +15220,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Burn"
+              "text": "The Burn",
+              "instanceId": 585
             },
             {
               "category": "Deep Dungeon",
@@ -14958,15 +15247,18 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Deltascape V1.0"
+              "text": "Deltascape V1.0",
+              "instanceId": 252
             },
             {
               "category": "Raid",
-              "text": "Deltascape V2.0"
+              "text": "Deltascape V2.0",
+              "instanceId": 253
             },
             {
               "category": "Raid",
-              "text": "Deltascape V3.0"
+              "text": "Deltascape V3.0",
+              "instanceId": 254
             }
           ]
         },
@@ -14977,7 +15269,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Deltascape V4.0"
+              "text": "Deltascape V4.0",
+              "instanceId": 255
             }
           ]
         },
@@ -14999,15 +15292,18 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Sigmascape V1.0"
+              "text": "Sigmascape V1.0",
+              "instanceId": 286
             },
             {
               "category": "Raid",
-              "text": "Sigmascape V2.0"
+              "text": "Sigmascape V2.0",
+              "instanceId": 287
             },
             {
               "category": "Raid",
-              "text": "Sigmascape V3.0"
+              "text": "Sigmascape V3.0",
+              "instanceId": 288
             }
           ]
         },
@@ -15018,7 +15314,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Sigmascape V4.0"
+              "text": "Sigmascape V4.0",
+              "instanceId": 289
             }
           ]
         },
@@ -15029,7 +15326,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Sigmascape V4.0"
+              "text": "Sigmascape V4.0",
+              "instanceId": 289
             }
           ]
         },
@@ -15040,7 +15338,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Sigmascape V4.0"
+              "text": "Sigmascape V4.0",
+              "instanceId": 289
             }
           ]
         },
@@ -15062,7 +15361,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Alphascape V1.0"
+              "text": "Alphascape V1.0",
+              "instanceId": 587
             }
           ]
         },
@@ -15073,7 +15373,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Alphascape V2.0"
+              "text": "Alphascape V2.0",
+              "instanceId": 588
             }
           ]
         },
@@ -15084,7 +15385,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Alphascape V3.0"
+              "text": "Alphascape V3.0",
+              "instanceId": 589
             }
           ]
         },
@@ -15095,7 +15397,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Alphascape V4.0"
+              "text": "Alphascape V4.0",
+              "instanceId": 590
             }
           ]
         },
@@ -15150,7 +15453,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Ghimlyt Dark"
+              "text": "The Ghimlyt Dark",
+              "instanceId": 611
             },
             {
               "category": "Deep Dungeon",
@@ -15429,7 +15733,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "The Orbonne Monastery"
+              "text": "The Orbonne Monastery",
+              "instanceId": 636
             }
           ]
         },
@@ -15440,7 +15745,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "The Orbonne Monastery"
+              "text": "The Orbonne Monastery",
+              "instanceId": 636
             }
           ]
         },
@@ -15451,7 +15757,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "The Orbonne Monastery"
+              "text": "The Orbonne Monastery",
+              "instanceId": 636
             }
           ]
         },
@@ -15462,7 +15769,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "The Orbonne Monastery"
+              "text": "The Orbonne Monastery",
+              "instanceId": 636
             }
           ]
         },
@@ -15473,7 +15781,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "The Orbonne Monastery"
+              "text": "The Orbonne Monastery",
+              "instanceId": 636
             }
           ]
         },
@@ -15686,7 +15995,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Holminster Switch"
+              "text": "Holminster Switch",
+              "instanceId": 676
             },
             {
               "category": "Deep Dungeon",
@@ -15701,7 +16011,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Dohn Mheg"
+              "text": "Dohn Mheg",
+              "instanceId": 649
             },
             {
               "category": "Deep Dungeon",
@@ -15716,7 +16027,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Qitana Ravel"
+              "text": "The Qitana Ravel",
+              "instanceId": 651
             },
             {
               "category": "Deep Dungeon",
@@ -15731,7 +16043,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Malikah's Well"
+              "text": "Malikah's Well",
+              "instanceId": 656
             },
             {
               "category": "Deep Dungeon",
@@ -15746,7 +16059,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Mt. Gulg"
+              "text": "Mt. Gulg",
+              "instanceId": 659
             },
             {
               "category": "Deep Dungeon",
@@ -15761,7 +16075,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Amaurot"
+              "text": "Amaurot",
+              "instanceId": 652
             },
             {
               "category": "Deep Dungeon",
@@ -15776,7 +16091,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Akadaemia Anyder"
+              "text": "Akadaemia Anyder",
+              "instanceId": 661
             },
             {
               "category": "Deep Dungeon",
@@ -15791,7 +16107,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Twinning"
+              "text": "The Twinning",
+              "instanceId": 655
             },
             {
               "category": "Deep Dungeon",
@@ -15806,7 +16123,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Castrum Abania"
+              "text": "Castrum Abania",
+              "instanceId": 242
             }
           ]
         },
@@ -15817,7 +16135,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Brayflox's Longstop (Hard)"
+              "text": "Brayflox's Longstop (Hard)",
+              "instanceId": 20
             }
           ]
         },
@@ -15828,11 +16147,13 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Eden's Gate: Resurrection"
+              "text": "Eden's Gate: Resurrection",
+              "instanceId": 653
             },
             {
               "category": "Raid",
-              "text": "Eden's Gate: Descent"
+              "text": "Eden's Gate: Descent",
+              "instanceId": 684
             }
           ]
         },
@@ -15843,7 +16164,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Eden's Gate: Sepulture"
+              "text": "Eden's Gate: Sepulture",
+              "instanceId": 689
             }
           ]
         },
@@ -15865,7 +16187,8 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "The Dungeons of Lyhe Ghiah"
+              "text": "The Dungeons of Lyhe Ghiah",
+              "instanceId": 688
             },
             {
               "category": "Treasure Hunt",
@@ -15902,7 +16225,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Eden's Gate: Inundation"
+              "text": "Eden's Gate: Inundation",
+              "instanceId": 682
             }
           ]
         },
@@ -16023,7 +16347,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Grand Cosmos"
+              "text": "The Grand Cosmos",
+              "instanceId": 692
             },
             {
               "category": "Deep Dungeon",
@@ -16108,7 +16433,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "The Copied Factory"
+              "text": "The Copied Factory",
+              "instanceId": 700
             }
           ]
         },
@@ -16119,7 +16445,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "The Tower at Paradigm's Breach"
+              "text": "The Tower at Paradigm's Breach",
+              "instanceId": 779
             }
           ]
         },
@@ -16145,7 +16472,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "The Copied Factory"
+              "text": "The Copied Factory",
+              "instanceId": 700
             }
           ]
         },
@@ -16156,7 +16484,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "The Copied Factory"
+              "text": "The Copied Factory",
+              "instanceId": 700
             }
           ]
         },
@@ -16167,7 +16496,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "The Copied Factory"
+              "text": "The Copied Factory",
+              "instanceId": 700
             }
           ]
         },
@@ -16178,7 +16508,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "The Copied Factory"
+              "text": "The Copied Factory",
+              "instanceId": 700
             }
           ]
         },
@@ -16252,7 +16583,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Eden's Verse: Fulmination"
+              "text": "Eden's Verse: Fulmination",
+              "instanceId": 715
             }
           ]
         },
@@ -16263,7 +16595,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Eden's Verse: Furor"
+              "text": "Eden's Verse: Furor",
+              "instanceId": 719
             }
           ]
         },
@@ -16274,7 +16607,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Eden's Verse: Refulgence"
+              "text": "Eden's Verse: Refulgence",
+              "instanceId": 728
             }
           ]
         },
@@ -16296,7 +16630,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Haukke Manor"
+              "text": "Haukke Manor",
+              "instanceId": 6
             }
           ]
         },
@@ -16307,7 +16642,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Dzemael Darkhold"
+              "text": "Dzemael Darkhold",
+              "instanceId": 13
             }
           ]
         },
@@ -16318,7 +16654,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Anamnesis Anyder"
+              "text": "Anamnesis Anyder",
+              "instanceId": 714
             },
             {
               "category": "Deep Dungeon",
@@ -16455,7 +16792,8 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "The Dungeons of Lyhe Ghiah"
+              "text": "The Dungeons of Lyhe Ghiah",
+              "instanceId": 688
             },
             {
               "category": "Treasure Hunt",
@@ -16584,7 +16922,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Heroes' Gauntlet"
+              "text": "The Heroes' Gauntlet",
+              "instanceId": 737
             },
             {
               "category": "Deep Dungeon",
@@ -16618,7 +16957,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Wanderer's Palace"
+              "text": "The Wanderer's Palace",
+              "instanceId": 10
             }
           ]
         },
@@ -16629,7 +16969,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Cutter's Cry"
+              "text": "Cutter's Cry",
+              "instanceId": 12
             }
           ]
         },
@@ -16688,7 +17029,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "The Puppets' Bunker"
+              "text": "The Puppets' Bunker",
+              "instanceId": 736
             }
           ]
         },
@@ -16699,7 +17041,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "The Puppets' Bunker"
+              "text": "The Puppets' Bunker",
+              "instanceId": 736
             }
           ]
         },
@@ -16710,7 +17053,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "The Puppets' Bunker"
+              "text": "The Puppets' Bunker",
+              "instanceId": 736
             }
           ]
         },
@@ -16721,7 +17065,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "The Puppets' Bunker"
+              "text": "The Puppets' Bunker",
+              "instanceId": 736
             }
           ]
         },
@@ -16857,7 +17202,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Matoya's Relict"
+              "text": "Matoya's Relict",
+              "instanceId": 746
             },
             {
               "category": "Deep Dungeon",
@@ -16876,7 +17222,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Eden's Promise: Litany"
+              "text": "Eden's Promise: Litany",
+              "instanceId": 747
             }
           ]
         },
@@ -16887,7 +17234,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Eden's Promise: Anamorphosis"
+              "text": "Eden's Promise: Anamorphosis",
+              "instanceId": 751
             }
           ]
         },
@@ -16898,7 +17246,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Eden's Promise: Eternity"
+              "text": "Eden's Promise: Eternity",
+              "instanceId": 758
             }
           ]
         },
@@ -16909,7 +17258,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Eden's Promise: Eternity (Savage)"
+              "text": "Eden's Promise: Eternity (Savage)",
+              "instanceId": 759
             }
           ]
         },
@@ -16931,11 +17281,13 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "The Dungeons of Lyhe Ghiah"
+              "text": "The Dungeons of Lyhe Ghiah",
+              "instanceId": 688
             },
             {
               "category": "Treasure Hunt",
-              "text": "The Shifting Oubliettes of Lyhe Ghiah"
+              "text": "The Shifting Oubliettes of Lyhe Ghiah",
+              "instanceId": 745
             }
           ]
         },
@@ -16946,7 +17298,8 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "The Dungeons of Lyhe Ghiah"
+              "text": "The Dungeons of Lyhe Ghiah",
+              "instanceId": 688
             },
             {
               "category": "Treasure Hunt",
@@ -16965,7 +17318,8 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "The Dungeons of Lyhe Ghiah"
+              "text": "The Dungeons of Lyhe Ghiah",
+              "instanceId": 688
             },
             {
               "category": "Treasure Hunt",
@@ -16980,11 +17334,13 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "The Dungeons of Lyhe Ghiah"
+              "text": "The Dungeons of Lyhe Ghiah",
+              "instanceId": 688
             },
             {
               "category": "Treasure Hunt",
-              "text": "The Shifting Oubliettes of Lyhe Ghiah"
+              "text": "The Shifting Oubliettes of Lyhe Ghiah",
+              "instanceId": 745
             }
           ]
         },
@@ -16995,7 +17351,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Halatali"
+              "text": "Halatali",
+              "instanceId": 7
             }
           ]
         },
@@ -17054,7 +17411,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Copperbell Mines"
+              "text": "Copperbell Mines",
+              "instanceId": 3
             }
           ]
         },
@@ -17065,7 +17423,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Antitower"
+              "text": "The Antitower",
+              "instanceId": 141
             }
           ]
         },
@@ -17142,7 +17501,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Paglth'an"
+              "text": "Paglth'an",
+              "instanceId": 777
             },
             {
               "category": "Deep Dungeon",
@@ -17205,7 +17565,8 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "The Dungeons of Lyhe Ghiah"
+              "text": "The Dungeons of Lyhe Ghiah",
+              "instanceId": 688
             },
             {
               "category": "Treasure Hunt",
@@ -17433,7 +17794,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "The Tower at Paradigm's Breach"
+              "text": "The Tower at Paradigm's Breach",
+              "instanceId": 779
             }
           ]
         },
@@ -17444,7 +17806,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "The Tower at Paradigm's Breach"
+              "text": "The Tower at Paradigm's Breach",
+              "instanceId": 779
             }
           ]
         },
@@ -17455,7 +17818,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "The Tower at Paradigm's Breach"
+              "text": "The Tower at Paradigm's Breach",
+              "instanceId": 779
             }
           ]
         },
@@ -17466,7 +17830,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "The Tower at Paradigm's Breach"
+              "text": "The Tower at Paradigm's Breach",
+              "instanceId": 779
             }
           ]
         },
@@ -17543,7 +17908,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Tower of Zot"
+              "text": "The Tower of Zot",
+              "instanceId": 783
             },
             {
               "category": "Deep Dungeon",
@@ -17558,7 +17924,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Tower of Babil"
+              "text": "The Tower of Babil",
+              "instanceId": 785
             },
             {
               "category": "Deep Dungeon",
@@ -17573,7 +17940,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Vanaspati"
+              "text": "Vanaspati",
+              "instanceId": 789
             },
             {
               "category": "Deep Dungeon",
@@ -17588,7 +17956,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Ktisis Hyperboreia"
+              "text": "Ktisis Hyperboreia",
+              "instanceId": 787
             },
             {
               "category": "Deep Dungeon",
@@ -17603,7 +17972,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Aitiascope"
+              "text": "The Aitiascope",
+              "instanceId": 786
             },
             {
               "category": "Deep Dungeon",
@@ -17618,7 +17988,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Dead Ends"
+              "text": "The Dead Ends",
+              "instanceId": 792
             },
             {
               "category": "Deep Dungeon",
@@ -17633,7 +18004,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Smileton"
+              "text": "Smileton",
+              "instanceId": 794
             },
             {
               "category": "Deep Dungeon",
@@ -17670,7 +18042,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Asphodelos: The Third Circle"
+              "text": "Asphodelos: The Third Circle",
+              "instanceId": 806
             }
           ]
         },
@@ -17681,7 +18054,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Asphodelos: The Fourth Circle"
+              "text": "Asphodelos: The Fourth Circle",
+              "instanceId": 800
             }
           ]
         },
@@ -17802,11 +18176,13 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "The Excitatron 6000"
+              "text": "The Excitatron 6000",
+              "instanceId": 819
             },
             {
               "category": "Treasure Hunt",
-              "text": "The Shifting Gymnasion Agonon"
+              "text": "The Shifting Gymnasion Agonon",
+              "instanceId": 909
             }
           ]
         },
@@ -17839,7 +18215,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Sirensong Sea"
+              "text": "The Sirensong Sea",
+              "instanceId": 238
             }
           ]
         },
@@ -17850,7 +18227,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Aery"
+              "text": "The Aery",
+              "instanceId": 39
             }
           ]
         },
@@ -17861,7 +18239,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Sastasha"
+              "text": "Sastasha",
+              "instanceId": 4
             }
           ]
         },
@@ -17905,7 +18284,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Alzadaal's Legacy"
+              "text": "Alzadaal's Legacy",
+              "instanceId": 844
             },
             {
               "category": "Deep Dungeon",
@@ -17964,7 +18344,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Aglaia"
+              "text": "Aglaia",
+              "instanceId": 866
             }
           ]
         },
@@ -17975,7 +18356,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Aglaia"
+              "text": "Aglaia",
+              "instanceId": 866
             }
           ]
         },
@@ -17986,7 +18368,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Aglaia"
+              "text": "Aglaia",
+              "instanceId": 866
             }
           ]
         },
@@ -18151,7 +18534,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Neverreap"
+              "text": "Neverreap",
+              "instanceId": 33
             }
           ]
         },
@@ -18162,7 +18546,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Dusk Vigil"
+              "text": "The Dusk Vigil",
+              "instanceId": 36
             }
           ]
         },
@@ -18173,7 +18558,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Amdapor Keep (Hard)"
+              "text": "Amdapor Keep (Hard)",
+              "instanceId": 29
             }
           ]
         },
@@ -18250,7 +18636,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Fell Court of Troia"
+              "text": "The Fell Court of Troia",
+              "instanceId": 869
             },
             {
               "category": "Deep Dungeon",
@@ -18265,7 +18652,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Fell Court of Troia"
+              "text": "The Fell Court of Troia",
+              "instanceId": 869
             }
           ]
         },
@@ -18287,7 +18675,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Abyssos: The Fifth Circle"
+              "text": "Abyssos: The Fifth Circle",
+              "instanceId": 872
             }
           ]
         },
@@ -18298,11 +18687,13 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Abyssos: The Sixth Circle"
+              "text": "Abyssos: The Sixth Circle",
+              "instanceId": 880
             },
             {
               "category": "Raid",
-              "text": "Abyssos: The Seventh Circle"
+              "text": "Abyssos: The Seventh Circle",
+              "instanceId": 876
             }
           ]
         },
@@ -18313,7 +18704,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Abyssos: The Eighth Circle"
+              "text": "Abyssos: The Eighth Circle",
+              "instanceId": 883
             }
           ]
         },
@@ -18324,7 +18716,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Abyssos: The Eighth Circle (Savage)"
+              "text": "Abyssos: The Eighth Circle (Savage)",
+              "instanceId": 884
             }
           ]
         },
@@ -18456,7 +18849,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Vault"
+              "text": "The Vault",
+              "instanceId": 34
             }
           ]
         },
@@ -18467,7 +18861,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Vault"
+              "text": "The Vault",
+              "instanceId": 34
             }
           ]
         },
@@ -18500,7 +18895,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Thousand Maws of Toto–Rak"
+              "text": "The Thousand Maws of Toto–Rak",
+              "instanceId": 1
             }
           ]
         },
@@ -18511,7 +18907,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Brayflox's Longstop"
+              "text": "Brayflox's Longstop",
+              "instanceId": 8
             }
           ]
         },
@@ -18588,7 +18985,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Lapis Manalis"
+              "text": "Lapis Manalis",
+              "instanceId": 896
             }
           ]
         },
@@ -18610,7 +19008,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Euphrosyne"
+              "text": "Euphrosyne",
+              "instanceId": 911
             }
           ]
         },
@@ -18621,7 +19020,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Euphrosyne"
+              "text": "Euphrosyne",
+              "instanceId": 911
             }
           ]
         },
@@ -18632,7 +19032,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Euphrosyne"
+              "text": "Euphrosyne",
+              "instanceId": 911
             }
           ]
         },
@@ -18643,11 +19044,13 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "The Excitatron 6000"
+              "text": "The Excitatron 6000",
+              "instanceId": 819
             },
             {
               "category": "Treasure Hunt",
-              "text": "The Shifting Gymnasion Agonon"
+              "text": "The Shifting Gymnasion Agonon",
+              "instanceId": 909
             }
           ]
         },
@@ -18658,11 +19061,13 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "The Excitatron 6000"
+              "text": "The Excitatron 6000",
+              "instanceId": 819
             },
             {
               "category": "Treasure Hunt",
-              "text": "The Shifting Gymnasion Agonon"
+              "text": "The Shifting Gymnasion Agonon",
+              "instanceId": 909
             }
           ]
         },
@@ -18673,7 +19078,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Amdapor Keep"
+              "text": "Amdapor Keep",
+              "instanceId": 14
             }
           ]
         },
@@ -18684,7 +19090,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Sunken Temple of Qarn"
+              "text": "The Sunken Temple of Qarn",
+              "instanceId": 9
             }
           ]
         },
@@ -18695,7 +19102,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Stone Vigil"
+              "text": "The Stone Vigil",
+              "instanceId": 11
             }
           ]
         },
@@ -18706,7 +19114,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Aurum Vale"
+              "text": "The Aurum Vale",
+              "instanceId": 5
             }
           ]
         },
@@ -18717,7 +19126,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Sunken Temple of Qarn (Hard)"
+              "text": "The Sunken Temple of Qarn (Hard)",
+              "instanceId": 26
             }
           ]
         },
@@ -18728,7 +19138,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Hullbreaker Isle (Hard)"
+              "text": "Hullbreaker Isle (Hard)",
+              "instanceId": 172
             }
           ]
         },
@@ -18931,7 +19342,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Aetherfont"
+              "text": "The Aetherfont",
+              "instanceId": 822
             }
           ]
         },
@@ -18953,11 +19365,13 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Anabaseios: The Ninth Circle"
+              "text": "Anabaseios: The Ninth Circle",
+              "instanceId": 936
             },
             {
               "category": "Raid",
-              "text": "Anabaseios: The Tenth Circle"
+              "text": "Anabaseios: The Tenth Circle",
+              "instanceId": 938
             }
           ]
         },
@@ -18968,7 +19382,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Anabaseios: The Eleventh Circle"
+              "text": "Anabaseios: The Eleventh Circle",
+              "instanceId": 940
             }
           ]
         },
@@ -18979,7 +19394,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Anabaseios: The Twelfth Circle"
+              "text": "Anabaseios: The Twelfth Circle",
+              "instanceId": 942
             }
           ]
         },
@@ -18990,7 +19406,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Anabaseios: The Twelfth Circle (Savage)"
+              "text": "Anabaseios: The Twelfth Circle (Savage)",
+              "instanceId": 943
             }
           ]
         },
@@ -19456,7 +19873,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Lunar Subterrane"
+              "text": "The Lunar Subterrane",
+              "instanceId": 823
             }
           ]
         },
@@ -19478,7 +19896,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Thaleia"
+              "text": "Thaleia",
+              "instanceId": 962
             }
           ]
         },
@@ -19489,7 +19908,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Thaleia"
+              "text": "Thaleia",
+              "instanceId": 962
             }
           ]
         },
@@ -19500,7 +19920,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Thaleia"
+              "text": "Thaleia",
+              "instanceId": 962
             }
           ]
         },
@@ -19621,7 +20042,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Ihuykatumu"
+              "text": "Ihuykatumu",
+              "instanceId": 826
             }
           ]
         },
@@ -19632,7 +20054,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Worqor Zormor"
+              "text": "Worqor Zormor",
+              "instanceId": 824
             }
           ]
         },
@@ -19643,7 +20066,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Skydeep Cenote"
+              "text": "The Skydeep Cenote",
+              "instanceId": 829
             }
           ]
         },
@@ -19654,7 +20078,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Vanguard"
+              "text": "Vanguard",
+              "instanceId": 831
             }
           ]
         },
@@ -19665,7 +20090,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Origenics"
+              "text": "Origenics",
+              "instanceId": 825
             }
           ]
         },
@@ -19676,7 +20102,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Alexandria"
+              "text": "Alexandria",
+              "instanceId": 827
             }
           ]
         },
@@ -19687,7 +20114,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Tender Valley"
+              "text": "Tender Valley",
+              "instanceId": 834
             }
           ]
         },
@@ -19698,7 +20126,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Strayborough Deadwalk"
+              "text": "The Strayborough Deadwalk",
+              "instanceId": 981
             }
           ]
         },
@@ -19731,7 +20160,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "AAC Light-heavyweight M1"
+              "text": "AAC Light-heavyweight M1",
+              "instanceId": 985
             }
           ]
         },
@@ -19742,7 +20172,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "AAC Light-heavyweight M2"
+              "text": "AAC Light-heavyweight M2",
+              "instanceId": 987
             }
           ]
         },
@@ -19753,7 +20184,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "AAC Light-heavyweight M3"
+              "text": "AAC Light-heavyweight M3",
+              "instanceId": 989
             }
           ]
         },
@@ -19764,7 +20196,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "AAC Light-heavyweight M4"
+              "text": "AAC Light-heavyweight M4",
+              "instanceId": 991
             }
           ]
         },
@@ -19775,7 +20208,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "AAC Light-heavyweight M4 (Savage)"
+              "text": "AAC Light-heavyweight M4 (Savage)",
+              "instanceId": 992
             }
           ]
         },
@@ -19929,7 +20363,8 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "Cenote Ja Ja Gural"
+              "text": "Cenote Ja Ja Gural",
+              "instanceId": 993
             },
             {
               "category": "Treasure Hunt",
@@ -20010,7 +20445,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Yuweyawata Field Station"
+              "text": "Yuweyawata Field Station",
+              "instanceId": 1008
             }
           ]
         },
@@ -20344,11 +20780,13 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "Cenote Ja Ja Gural"
+              "text": "Cenote Ja Ja Gural",
+              "instanceId": 993
             },
             {
               "category": "Treasure Hunt",
-              "text": "Vault Oneiron"
+              "text": "Vault Oneiron",
+              "instanceId": 1060
             }
           ]
         },
@@ -20529,7 +20967,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Underkeep"
+              "text": "The Underkeep",
+              "instanceId": 1027
             }
           ]
         },
@@ -20540,7 +20979,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "AAC Cruiserweight M1"
+              "text": "AAC Cruiserweight M1",
+              "instanceId": 1019
             }
           ]
         },
@@ -20551,7 +20991,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "AAC Cruiserweight M2"
+              "text": "AAC Cruiserweight M2",
+              "instanceId": 1021
             }
           ]
         },
@@ -20562,7 +21003,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "AAC Cruiserweight M3"
+              "text": "AAC Cruiserweight M3",
+              "instanceId": 1023
             }
           ]
         },
@@ -20573,7 +21015,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "AAC Cruiserweight M4"
+              "text": "AAC Cruiserweight M4",
+              "instanceId": 1025
             }
           ]
         },
@@ -20584,7 +21027,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "AAC Cruiserweight M4 (Savage)"
+              "text": "AAC Cruiserweight M4 (Savage)",
+              "instanceId": 1026
             }
           ]
         },
@@ -20650,11 +21094,13 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "Cenote Ja Ja Gural"
+              "text": "Cenote Ja Ja Gural",
+              "instanceId": 993
             },
             {
               "category": "Treasure Hunt",
-              "text": "Vault Oneiron"
+              "text": "Vault Oneiron",
+              "instanceId": 1060
             }
           ]
         },
@@ -20665,7 +21111,8 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "The Minstrel's Ballad: Necron's Embrace"
+              "text": "The Minstrel's Ballad: Necron's Embrace",
+              "instanceId": 1062
             }
           ]
         },
@@ -20676,7 +21123,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Meso Terminal"
+              "text": "The Meso Terminal",
+              "instanceId": 1028
             }
           ]
         },
@@ -20852,11 +21300,13 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "Cenote Ja Ja Gural"
+              "text": "Cenote Ja Ja Gural",
+              "instanceId": 993
             },
             {
               "category": "Treasure Hunt",
-              "text": "Vault Oneiron"
+              "text": "Vault Oneiron",
+              "instanceId": 1060
             }
           ]
         },
@@ -21274,7 +21724,8 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "Hell on Rails (Extreme)"
+              "text": "Hell on Rails (Extreme)",
+              "instanceId": 1077
             }
           ]
         },
@@ -21285,7 +21736,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Mistwake"
+              "text": "Mistwake",
+              "instanceId": 1064
             }
           ]
         },
@@ -21296,7 +21748,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Mistwake"
+              "text": "Mistwake",
+              "instanceId": 1064
             }
           ]
         },
@@ -21340,7 +21793,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "AAC Heavyweight M1"
+              "text": "AAC Heavyweight M1",
+              "instanceId": 1068
             }
           ]
         },
@@ -21351,7 +21805,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "AAC Heavyweight M2"
+              "text": "AAC Heavyweight M2",
+              "instanceId": 1070
             }
           ]
         },
@@ -21362,7 +21817,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "AAC Heavyweight M3"
+              "text": "AAC Heavyweight M3",
+              "instanceId": 1072
             }
           ]
         },
@@ -21373,7 +21829,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "AAC Heavyweight M4"
+              "text": "AAC Heavyweight M4",
+              "instanceId": 1074
             }
           ]
         },
@@ -21384,7 +21841,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "AAC Heavyweight M4 (Savage)"
+              "text": "AAC Heavyweight M4 (Savage)",
+              "instanceId": 1075
             }
           ]
         },
@@ -21428,11 +21886,13 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "Cenote Ja Ja Gural"
+              "text": "Cenote Ja Ja Gural",
+              "instanceId": 993
             },
             {
               "category": "Treasure Hunt",
-              "text": "Vault Oneiron"
+              "text": "Vault Oneiron",
+              "instanceId": 1060
             }
           ]
         },
@@ -21454,11 +21914,13 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "Cenote Ja Ja Gural"
+              "text": "Cenote Ja Ja Gural",
+              "instanceId": 993
             },
             {
               "category": "Treasure Hunt",
-              "text": "Vault Oneiron"
+              "text": "Vault Oneiron",
+              "instanceId": 1060
             }
           ]
         },
@@ -21579,7 +22041,8 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "The Unmaking (Extreme)"
+              "text": "The Unmaking (Extreme)",
+              "instanceId": 1116
             }
           ]
         },
@@ -21590,7 +22053,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Clyteum"
+              "text": "The Clyteum",
+              "instanceId": 1011
             }
           ]
         },
@@ -21865,11 +22329,13 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "Cenote Ja Ja Gural"
+              "text": "Cenote Ja Ja Gural",
+              "instanceId": 993
             },
             {
               "category": "Treasure Hunt",
-              "text": "Vault Oneiron"
+              "text": "Vault Oneiron",
+              "instanceId": 1060
             }
           ]
         },
@@ -23079,15 +23545,18 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "The Lost Canals of Uznair"
+              "text": "The Lost Canals of Uznair",
+              "instanceId": 268
             },
             {
               "category": "Treasure Hunt",
-              "text": "The Hidden Canals of Uznair"
+              "text": "The Hidden Canals of Uznair",
+              "instanceId": 276
             },
             {
               "category": "Treasure Hunt",
-              "text": "The Shifting Altars of Uznair"
+              "text": "The Shifting Altars of Uznair",
+              "instanceId": 586
             },
             {
               "category": "Occult Crescent",
@@ -23539,11 +24008,13 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "The Dungeons of Lyhe Ghiah"
+              "text": "The Dungeons of Lyhe Ghiah",
+              "instanceId": 688
             },
             {
               "category": "Treasure Hunt",
-              "text": "The Shifting Oubliettes of Lyhe Ghiah"
+              "text": "The Shifting Oubliettes of Lyhe Ghiah",
+              "instanceId": 745
             }
           ]
         },
@@ -23554,11 +24025,13 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "The Dungeons of Lyhe Ghiah"
+              "text": "The Dungeons of Lyhe Ghiah",
+              "instanceId": 688
             },
             {
               "category": "Treasure Hunt",
-              "text": "The Shifting Oubliettes of Lyhe Ghiah"
+              "text": "The Shifting Oubliettes of Lyhe Ghiah",
+              "instanceId": 745
             }
           ]
         },
@@ -23569,11 +24042,13 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "The Dungeons of Lyhe Ghiah"
+              "text": "The Dungeons of Lyhe Ghiah",
+              "instanceId": 688
             },
             {
               "category": "Treasure Hunt",
-              "text": "The Shifting Oubliettes of Lyhe Ghiah"
+              "text": "The Shifting Oubliettes of Lyhe Ghiah",
+              "instanceId": 745
             }
           ]
         },
@@ -23584,11 +24059,13 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "The Dungeons of Lyhe Ghiah"
+              "text": "The Dungeons of Lyhe Ghiah",
+              "instanceId": 688
             },
             {
               "category": "Treasure Hunt",
-              "text": "The Shifting Oubliettes of Lyhe Ghiah"
+              "text": "The Shifting Oubliettes of Lyhe Ghiah",
+              "instanceId": 745
             }
           ]
         },
@@ -24624,7 +25101,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Windurst: The Third Walk"
+              "text": "Windurst: The Third Walk",
+              "instanceId": 1117
             }
           ]
         },
@@ -25600,7 +26078,8 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "Kugane Ohashi"
+              "text": "Kugane Ohashi",
+              "instanceId": 595
             }
           ]
         },
@@ -26347,11 +26826,13 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "The Excitatron 6000"
+              "text": "The Excitatron 6000",
+              "instanceId": 819
             },
             {
               "category": "Treasure Hunt",
-              "text": "The Shifting Gymnasion Agonon"
+              "text": "The Shifting Gymnasion Agonon",
+              "instanceId": 909
             }
           ]
         },
@@ -26384,11 +26865,13 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "The Excitatron 6000"
+              "text": "The Excitatron 6000",
+              "instanceId": 819
             },
             {
               "category": "Treasure Hunt",
-              "text": "The Shifting Gymnasion Agonon"
+              "text": "The Shifting Gymnasion Agonon",
+              "instanceId": 909
             }
           ]
         },
@@ -26410,7 +26893,8 @@
           "sources": [
             {
               "category": "V&C Dungeon",
-              "text": "The Sil'dihn Subterrane"
+              "text": "The Sil'dihn Subterrane",
+              "instanceId": 868
             }
           ]
         },
@@ -26454,7 +26938,8 @@
           "sources": [
             {
               "category": "V&C Dungeon",
-              "text": "Mount Rokkon"
+              "text": "Mount Rokkon",
+              "instanceId": 945
             }
           ]
         },
@@ -26498,7 +26983,8 @@
           "sources": [
             {
               "category": "V&C Dungeon",
-              "text": "Aloalo Island"
+              "text": "Aloalo Island",
+              "instanceId": 961
             }
           ]
         },
@@ -26531,11 +27017,13 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "Cenote Ja Ja Gural"
+              "text": "Cenote Ja Ja Gural",
+              "instanceId": 993
             },
             {
               "category": "Treasure Hunt",
-              "text": "Vault Oneiron"
+              "text": "Vault Oneiron",
+              "instanceId": 1060
             }
           ]
         },
@@ -26624,11 +27112,13 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "Cenote Ja Ja Gural"
+              "text": "Cenote Ja Ja Gural",
+              "instanceId": 993
             },
             {
               "category": "Treasure Hunt",
-              "text": "Vault Oneiron"
+              "text": "Vault Oneiron",
+              "instanceId": 1060
             }
           ]
         },
@@ -26687,7 +27177,8 @@
           "sources": [
             {
               "category": "V&C Dungeon",
-              "text": "*The Merchant's Tale*"
+              "text": "*The Merchant's Tale*",
+              "instanceId": 1066
             }
           ]
         },
@@ -26950,11 +27441,13 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "Cenote Ja Ja Gural"
+              "text": "Cenote Ja Ja Gural",
+              "instanceId": 993
             },
             {
               "category": "Treasure Hunt",
-              "text": "Vault Oneiron"
+              "text": "Vault Oneiron",
+              "instanceId": 1060
             },
             {
               "category": "Occult Crescent",
@@ -26969,11 +27462,13 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "Cenote Ja Ja Gural"
+              "text": "Cenote Ja Ja Gural",
+              "instanceId": 993
             },
             {
               "category": "Treasure Hunt",
-              "text": "Vault Oneiron"
+              "text": "Vault Oneiron",
+              "instanceId": 1060
             },
             {
               "category": "Occult Crescent",
@@ -27043,11 +27538,13 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "Cenote Ja Ja Gural"
+              "text": "Cenote Ja Ja Gural",
+              "instanceId": 993
             },
             {
               "category": "Treasure Hunt",
-              "text": "Vault Oneiron"
+              "text": "Vault Oneiron",
+              "instanceId": 1060
             }
           ]
         },
@@ -27080,11 +27577,13 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "AAC Cruiserweight M4"
+              "text": "AAC Cruiserweight M4",
+              "instanceId": 1025
             },
             {
               "category": "Raid",
-              "text": "AAC Cruiserweight M4 (Savage)"
+              "text": "AAC Cruiserweight M4 (Savage)",
+              "instanceId": 1026
             }
           ]
         },
@@ -27176,11 +27675,13 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "Cenote Ja Ja Gural"
+              "text": "Cenote Ja Ja Gural",
+              "instanceId": 993
             },
             {
               "category": "Treasure Hunt",
-              "text": "Vault Oneiron"
+              "text": "Vault Oneiron",
+              "instanceId": 1060
             }
           ]
         },
@@ -27213,11 +27714,13 @@
           "sources": [
             {
               "category": "Treasure Hunt",
-              "text": "Cenote Ja Ja Gural"
+              "text": "Cenote Ja Ja Gural",
+              "instanceId": 993
             },
             {
               "category": "Treasure Hunt",
-              "text": "Vault Oneiron"
+              "text": "Vault Oneiron",
+              "instanceId": 1060
             }
           ]
         },
@@ -27493,11 +27996,13 @@
             },
             {
               "category": "Dungeon",
-              "text": "The Wanderer's Palace"
+              "text": "The Wanderer's Palace",
+              "instanceId": 10
             },
             {
               "category": "Dungeon",
-              "text": "The Wanderer's Palace (Hard)"
+              "text": "The Wanderer's Palace (Hard)",
+              "instanceId": 30
             }
           ]
         },
@@ -27594,7 +28099,8 @@
             },
             {
               "category": "Dungeon",
-              "text": "The Aurum Vale"
+              "text": "The Aurum Vale",
+              "instanceId": 5
             }
           ]
         },
@@ -27624,7 +28130,8 @@
             },
             {
               "category": "Dungeon",
-              "text": "Dzemael Darkhold"
+              "text": "Dzemael Darkhold",
+              "instanceId": 13
             }
           ]
         },
@@ -27733,7 +28240,8 @@
             },
             {
               "category": "Dungeon",
-              "text": "Sastasha"
+              "text": "Sastasha",
+              "instanceId": 4
             }
           ]
         },
@@ -27782,7 +28290,8 @@
             },
             {
               "category": "Dungeon",
-              "text": "Pharos Sirius"
+              "text": "Pharos Sirius",
+              "instanceId": 17
             }
           ]
         },
@@ -27797,7 +28306,8 @@
             },
             {
               "category": "Trial",
-              "text": "The Dragon's Neck"
+              "text": "The Dragon's Neck",
+              "instanceId": 81
             }
           ]
         },
@@ -27812,11 +28322,13 @@
             },
             {
               "category": "Dungeon",
-              "text": "Amdapor Keep"
+              "text": "Amdapor Keep",
+              "instanceId": 14
             },
             {
               "category": "Dungeon",
-              "text": "Amdapor Keep (Hard)"
+              "text": "Amdapor Keep (Hard)",
+              "instanceId": 29
             }
           ]
         },
@@ -27835,11 +28347,13 @@
             },
             {
               "category": "Dungeon",
-              "text": "Haukke Manor"
+              "text": "Haukke Manor",
+              "instanceId": 6
             },
             {
               "category": "Dungeon",
-              "text": "Haukke Manor (Hard)"
+              "text": "Haukke Manor (Hard)",
+              "instanceId": 19
             }
           ]
         },
@@ -27858,7 +28372,8 @@
             },
             {
               "category": "Dungeon",
-              "text": "Cutter's Cry"
+              "text": "Cutter's Cry",
+              "instanceId": 12
             }
           ]
         },
@@ -27877,11 +28392,13 @@
             },
             {
               "category": "Dungeon",
-              "text": "The Stone Vigil"
+              "text": "The Stone Vigil",
+              "instanceId": 11
             },
             {
               "category": "Dungeon",
-              "text": "The Stone Vigil (Hard)"
+              "text": "The Stone Vigil (Hard)",
+              "instanceId": 25
             }
           ]
         },
@@ -27960,7 +28477,8 @@
             },
             {
               "category": "Dungeon",
-              "text": "Castrum Meridianum"
+              "text": "Castrum Meridianum",
+              "instanceId": 15
             }
           ]
         },
@@ -28076,7 +28594,8 @@
             },
             {
               "category": "Trial",
-              "text": "Battle on the Big Bridge"
+              "text": "Battle on the Big Bridge",
+              "instanceId": 76
             }
           ]
         },
@@ -28095,11 +28614,13 @@
             },
             {
               "category": "Trial",
-              "text": "The Bowl of Embers (Hard)"
+              "text": "The Bowl of Embers (Hard)",
+              "instanceId": 59
             },
             {
               "category": "Trial",
-              "text": "The Bowl of Embers (Extreme)"
+              "text": "The Bowl of Embers (Extreme)",
+              "instanceId": 63
             }
           ]
         },
@@ -28122,11 +28643,13 @@
             },
             {
               "category": "Trial",
-              "text": "The Navel (Hard)"
+              "text": "The Navel (Hard)",
+              "instanceId": 60
             },
             {
               "category": "Trial",
-              "text": "The Navel (Extreme)"
+              "text": "The Navel (Extreme)",
+              "instanceId": 64
             }
           ]
         },
@@ -28145,11 +28668,13 @@
             },
             {
               "category": "Trial",
-              "text": "The Howling Eye (Hard)"
+              "text": "The Howling Eye (Hard)",
+              "instanceId": 61
             },
             {
               "category": "Trial",
-              "text": "The Howling Eye (Extreme)"
+              "text": "The Howling Eye (Extreme)",
+              "instanceId": 65
             }
           ]
         },
@@ -28172,11 +28697,13 @@
             },
             {
               "category": "Trial",
-              "text": "Thornmarch (Hard)"
+              "text": "Thornmarch (Hard)",
+              "instanceId": 66
             },
             {
               "category": "Trial",
-              "text": "Thornmarch (Extreme)"
+              "text": "Thornmarch (Extreme)",
+              "instanceId": 67
             }
           ]
         },
@@ -28304,7 +28831,8 @@
             },
             {
               "category": "Trial",
-              "text": "The Minstrel's Ballad: Ultima's Bane"
+              "text": "The Minstrel's Ballad: Ultima's Bane",
+              "instanceId": 68
             }
           ]
         },
@@ -28323,7 +28851,8 @@
             },
             {
               "category": "Trial",
-              "text": "Urth's Fount"
+              "text": "Urth's Fount",
+              "instanceId": 82
             }
           ]
         },
@@ -28342,11 +28871,13 @@
             },
             {
               "category": "Trial",
-              "text": "The Striking Tree (Hard)"
+              "text": "The Striking Tree (Hard)",
+              "instanceId": 77
             },
             {
               "category": "Trial",
-              "text": "The Striking Tree (Extreme)"
+              "text": "The Striking Tree (Extreme)",
+              "instanceId": 78
             }
           ]
         },
@@ -28365,11 +28896,13 @@
             },
             {
               "category": "Trial",
-              "text": "The *Whorleater* (Hard)"
+              "text": "The *Whorleater* (Hard)",
+              "instanceId": 72
             },
             {
               "category": "Trial",
-              "text": "The *Whorleater* (Extreme)"
+              "text": "The *Whorleater* (Extreme)",
+              "instanceId": 73
             }
           ]
         },
@@ -28388,11 +28921,13 @@
             },
             {
               "category": "Trial",
-              "text": "The Akh Afah Amphitheatre (Hard)"
+              "text": "The Akh Afah Amphitheatre (Hard)",
+              "instanceId": 79
             },
             {
               "category": "Trial",
-              "text": "The Akh Afah Amphitheatre (Extreme)"
+              "text": "The Akh Afah Amphitheatre (Extreme)",
+              "instanceId": 80
             }
           ]
         },
@@ -28523,7 +29058,8 @@
             },
             {
               "category": "Dungeon",
-              "text": "The Praetorium"
+              "text": "The Praetorium",
+              "instanceId": 16
             }
           ]
         },
@@ -28621,7 +29157,8 @@
             },
             {
               "category": "Raid",
-              "text": "The World of Darkness"
+              "text": "The World of Darkness",
+              "instanceId": 111
             }
           ]
         },
@@ -28655,7 +29192,8 @@
             },
             {
               "category": "Trial",
-              "text": "Battle in the Big Keep"
+              "text": "Battle in the Big Keep",
+              "instanceId": 85
             }
           ]
         },
@@ -28678,7 +29216,8 @@
             },
             {
               "category": "Trial",
-              "text": "The Dragon's Neck"
+              "text": "The Dragon's Neck",
+              "instanceId": 81
             }
           ]
         },
@@ -28841,7 +29380,8 @@
             },
             {
               "category": "Dungeon",
-              "text": "The Dusk Vigil"
+              "text": "The Dusk Vigil",
+              "instanceId": 36
             }
           ]
         },
@@ -28852,7 +29392,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Sohm Al"
+              "text": "Sohm Al",
+              "instanceId": 37
             }
           ]
         },
@@ -28933,7 +29474,8 @@
             },
             {
               "category": "Dungeon",
-              "text": "The Great Gubal Library"
+              "text": "The Great Gubal Library",
+              "instanceId": 31
             }
           ]
         },
@@ -28970,11 +29512,13 @@
             },
             {
               "category": "Trial",
-              "text": "Thok ast Thok (Hard)"
+              "text": "Thok ast Thok (Hard)",
+              "instanceId": 86
             },
             {
               "category": "Trial",
-              "text": "Thok ast Thok (Extreme)"
+              "text": "Thok ast Thok (Extreme)",
+              "instanceId": 87
             }
           ]
         },
@@ -28989,11 +29533,13 @@
             },
             {
               "category": "Trial",
-              "text": "The Limitless Blue (Hard)"
+              "text": "The Limitless Blue (Hard)",
+              "instanceId": 88
             },
             {
               "category": "Trial",
-              "text": "The Limitless Blue (Extreme)"
+              "text": "The Limitless Blue (Extreme)",
+              "instanceId": 89
             }
           ]
         },
@@ -29004,15 +29550,18 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Aery"
+              "text": "The Aery",
+              "instanceId": 39
             },
             {
               "category": "Trial",
-              "text": "The Final Steps of Faith"
+              "text": "The Final Steps of Faith",
+              "instanceId": 169
             },
             {
               "category": "Trial",
-              "text": "The Minstrel's Ballad: Nidhogg's Rage"
+              "text": "The Minstrel's Ballad: Nidhogg's Rage",
+              "instanceId": 170
             }
           ]
         },
@@ -29145,7 +29694,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Pharos Sirius (Hard)"
+              "text": "Pharos Sirius (Hard)",
+              "instanceId": 40
             }
           ]
         },
@@ -29160,7 +29710,8 @@
             },
             {
               "category": "Dungeon",
-              "text": "Saint Mocianne's Arboretum"
+              "text": "Saint Mocianne's Arboretum",
+              "instanceId": 41
             }
           ]
         },
@@ -29175,7 +29726,8 @@
             },
             {
               "category": "Raid",
-              "text": "The Void Ark"
+              "text": "The Void Ark",
+              "instanceId": 120
             }
           ]
         },
@@ -29223,7 +29775,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Vault"
+              "text": "The Vault",
+              "instanceId": 34
             }
           ]
         },
@@ -29275,7 +29828,8 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "The Minstrel's Ballad: Thordan's Reign"
+              "text": "The Minstrel's Ballad: Thordan's Reign",
+              "instanceId": 91
             }
           ]
         },
@@ -29342,7 +29896,8 @@
             },
             {
               "category": "Dungeon",
-              "text": "Snowcloak"
+              "text": "Snowcloak",
+              "instanceId": 27
             }
           ]
         },
@@ -29357,7 +29912,8 @@
             },
             {
               "category": "Dungeon",
-              "text": "Sastasha (Hard)"
+              "text": "Sastasha (Hard)",
+              "instanceId": 28
             }
           ]
         },
@@ -29372,7 +29928,8 @@
             },
             {
               "category": "Dungeon",
-              "text": "The Sunken Temple of Qarn (Hard)"
+              "text": "The Sunken Temple of Qarn (Hard)",
+              "instanceId": 26
             }
           ]
         },
@@ -29387,7 +29944,8 @@
             },
             {
               "category": "Dungeon",
-              "text": "The Wanderer's Palace (Hard)"
+              "text": "The Wanderer's Palace (Hard)",
+              "instanceId": 30
             }
           ]
         },
@@ -29406,7 +29964,8 @@
             },
             {
               "category": "Dungeon",
-              "text": "Amdapor Keep (Hard)"
+              "text": "Amdapor Keep (Hard)",
+              "instanceId": 29
             }
           ]
         },
@@ -29421,7 +29980,8 @@
             },
             {
               "category": "Dungeon",
-              "text": "The Antitower"
+              "text": "The Antitower",
+              "instanceId": 141
             }
           ]
         },
@@ -29436,7 +29996,8 @@
             },
             {
               "category": "Dungeon",
-              "text": "The Lost City of Amdapor (Hard)"
+              "text": "The Lost City of Amdapor (Hard)",
+              "instanceId": 140
             }
           ]
         },
@@ -29451,7 +30012,8 @@
             },
             {
               "category": "Raid",
-              "text": "The Labyrinth of the Ancients"
+              "text": "The Labyrinth of the Ancients",
+              "instanceId": 92
             }
           ]
         },
@@ -29488,7 +30050,8 @@
             },
             {
               "category": "Raid",
-              "text": "Syrcus Tower"
+              "text": "Syrcus Tower",
+              "instanceId": 102
             }
           ]
         },
@@ -29503,7 +30066,8 @@
             },
             {
               "category": "Raid",
-              "text": "Alexander - The Burden of the Son"
+              "text": "Alexander - The Burden of the Son",
+              "instanceId": 139
             }
           ]
         },
@@ -29514,11 +30078,13 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "Containment Bay S1T7"
+              "text": "Containment Bay S1T7",
+              "instanceId": 134
             },
             {
               "category": "Trial",
-              "text": "Containment Bay S1T7 (Extreme)"
+              "text": "Containment Bay S1T7 (Extreme)",
+              "instanceId": 135
             }
           ]
         },
@@ -29559,7 +30125,8 @@
             },
             {
               "category": "Raid",
-              "text": "The World of Darkness"
+              "text": "The World of Darkness",
+              "instanceId": 111
             }
           ]
         },
@@ -29644,7 +30211,8 @@
             },
             {
               "category": "Dungeon",
-              "text": "Neverreap"
+              "text": "Neverreap",
+              "instanceId": 33
             }
           ]
         },
@@ -29659,7 +30227,8 @@
             },
             {
               "category": "Dungeon",
-              "text": "The Fractal Continuum"
+              "text": "The Fractal Continuum",
+              "instanceId": 35
             }
           ]
         },
@@ -29674,7 +30243,8 @@
             },
             {
               "category": "Dungeon",
-              "text": "Hullbreaker Isle (Hard)"
+              "text": "Hullbreaker Isle (Hard)",
+              "instanceId": 172
             }
           ]
         },
@@ -29711,7 +30281,8 @@
             },
             {
               "category": "Raid",
-              "text": "The Weeping City of Mhach"
+              "text": "The Weeping City of Mhach",
+              "instanceId": 168
             }
           ]
         },
@@ -29730,7 +30301,8 @@
             },
             {
               "category": "Dungeon",
-              "text": "Sohr Khai"
+              "text": "Sohr Khai",
+              "instanceId": 171
             }
           ]
         },
@@ -29822,7 +30394,8 @@
             },
             {
               "category": "Dungeon",
-              "text": "The Great Gubal Library (Hard)"
+              "text": "The Great Gubal Library (Hard)",
+              "instanceId": 196
             }
           ]
         },
@@ -29841,7 +30414,8 @@
             },
             {
               "category": "Dungeon",
-              "text": "Xelphatol"
+              "text": "Xelphatol",
+              "instanceId": 182
             }
           ]
         },
@@ -29856,7 +30430,8 @@
             },
             {
               "category": "Raid",
-              "text": "Alexander - The Soul of the Creator"
+              "text": "Alexander - The Soul of the Creator",
+              "instanceId": 189
             }
           ]
         },
@@ -29911,11 +30486,13 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "Containment Bay P1T6"
+              "text": "Containment Bay P1T6",
+              "instanceId": 183
             },
             {
               "category": "Trial",
-              "text": "Containment Bay P1T6 (Extreme)"
+              "text": "Containment Bay P1T6 (Extreme)",
+              "instanceId": 184
             }
           ]
         },
@@ -29981,7 +30558,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Sohm Al (Hard)"
+              "text": "Sohm Al (Hard)",
+              "instanceId": 221
             }
           ]
         },
@@ -30014,7 +30592,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Baelsar's Wall"
+              "text": "Baelsar's Wall",
+              "instanceId": 219
             }
           ]
         },
@@ -30040,7 +30619,8 @@
             },
             {
               "category": "Raid",
-              "text": "Dun Scaith"
+              "text": "Dun Scaith",
+              "instanceId": 220
             }
           ]
         },
@@ -30073,11 +30653,13 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "Containment Bay Z1T9"
+              "text": "Containment Bay Z1T9",
+              "instanceId": 223
             },
             {
               "category": "Trial",
-              "text": "Containment Bay Z1T9 (Extreme)"
+              "text": "Containment Bay Z1T9 (Extreme)",
+              "instanceId": 224
             }
           ]
         },
@@ -30181,11 +30763,13 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "The Pool of Tribute"
+              "text": "The Pool of Tribute",
+              "instanceId": 243
             },
             {
               "category": "Trial",
-              "text": "The Pool of Tribute (Extreme)"
+              "text": "The Pool of Tribute (Extreme)",
+              "instanceId": 244
             }
           ]
         },
@@ -30196,11 +30780,13 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "Emanation"
+              "text": "Emanation",
+              "instanceId": 263
             },
             {
               "category": "Trial",
-              "text": "Emanation (Extreme)"
+              "text": "Emanation (Extreme)",
+              "instanceId": 264
             }
           ]
         },
@@ -30215,7 +30801,8 @@
             },
             {
               "category": "Dungeon",
-              "text": "Doma Castle"
+              "text": "Doma Castle",
+              "instanceId": 241
             }
           ]
         },
@@ -30274,11 +30861,13 @@
             },
             {
               "category": "Trial",
-              "text": "The Royal Menagerie"
+              "text": "The Royal Menagerie",
+              "instanceId": 239
             },
             {
               "category": "Trial",
-              "text": "The Minstrel's Ballad: Shinryu's Domain"
+              "text": "The Minstrel's Ballad: Shinryu's Domain",
+              "instanceId": 278
             }
           ]
         },
@@ -30326,7 +30915,8 @@
             },
             {
               "category": "Dungeon",
-              "text": "Ala Mhigo"
+              "text": "Ala Mhigo",
+              "instanceId": 247
             }
           ]
         },
@@ -30381,7 +30971,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Drowned City of Skalla"
+              "text": "The Drowned City of Skalla",
+              "instanceId": 279
             }
           ]
         },
@@ -30407,7 +30998,8 @@
             },
             {
               "category": "Raid",
-              "text": "The Royal City of Rabanastre"
+              "text": "The Royal City of Rabanastre",
+              "instanceId": 281
             }
           ]
         },
@@ -30422,7 +31014,8 @@
             },
             {
               "category": "Raid",
-              "text": "The Royal City of Rabanastre"
+              "text": "The Royal City of Rabanastre",
+              "instanceId": 281
             }
           ]
         },
@@ -30466,7 +31059,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Fractal Continuum (Hard)"
+              "text": "The Fractal Continuum (Hard)",
+              "instanceId": 285
             }
           ]
         },
@@ -30488,7 +31082,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Hells' Lid"
+              "text": "Hells' Lid",
+              "instanceId": 284
             }
           ]
         },
@@ -30499,11 +31094,13 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "The Jade Stoa"
+              "text": "The Jade Stoa",
+              "instanceId": 290
             },
             {
               "category": "Trial",
-              "text": "The Jade Stoa (Extreme)"
+              "text": "The Jade Stoa (Extreme)",
+              "instanceId": 291
             }
           ]
         },
@@ -30603,7 +31200,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Swallow's Compass"
+              "text": "The Swallow's Compass",
+              "instanceId": 536
             }
           ]
         },
@@ -30659,11 +31257,13 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "Castrum Fluminis"
+              "text": "Castrum Fluminis",
+              "instanceId": 537
             },
             {
               "category": "Trial",
-              "text": "The Minstrel's Ballad: Tsukuyomi's Pain"
+              "text": "The Minstrel's Ballad: Tsukuyomi's Pain",
+              "instanceId": 538
             }
           ]
         },
@@ -30678,7 +31278,8 @@
             },
             {
               "category": "Raid",
-              "text": "The Ridorana Lighthouse"
+              "text": "The Ridorana Lighthouse",
+              "instanceId": 550
             }
           ]
         },
@@ -30722,7 +31323,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Saint Mocianne's Arboretum (Hard)"
+              "text": "Saint Mocianne's Arboretum (Hard)",
+              "instanceId": 584
             }
           ]
         },
@@ -30733,7 +31335,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Burn"
+              "text": "The Burn",
+              "instanceId": 585
             }
           ]
         },
@@ -30744,11 +31347,13 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "Hells' Kier"
+              "text": "Hells' Kier",
+              "instanceId": 596
             },
             {
               "category": "Trial",
-              "text": "Hells' Kier (Extreme)"
+              "text": "Hells' Kier (Extreme)",
+              "instanceId": 597
             }
           ]
         },
@@ -30815,11 +31420,13 @@
             },
             {
               "category": "Raid",
-              "text": "Alphascape V4.0"
+              "text": "Alphascape V4.0",
+              "instanceId": 590
             },
             {
               "category": "Raid",
-              "text": "Alphascape V4.0 (Savage)"
+              "text": "Alphascape V4.0 (Savage)",
+              "instanceId": 594
             }
           ]
         },
@@ -30867,7 +31474,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Ghimlyt Dark"
+              "text": "The Ghimlyt Dark",
+              "instanceId": 611
             }
           ]
         },
@@ -30893,11 +31501,13 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "The Wreath of Snakes"
+              "text": "The Wreath of Snakes",
+              "instanceId": 637
             },
             {
               "category": "Trial",
-              "text": "The Wreath of Snakes (Extreme)"
+              "text": "The Wreath of Snakes (Extreme)",
+              "instanceId": 638
             }
           ]
         },
@@ -30930,7 +31540,8 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "Kugane Ohashi"
+              "text": "Kugane Ohashi",
+              "instanceId": 595
             }
           ]
         },
@@ -30945,7 +31556,8 @@
             },
             {
               "category": "Raid",
-              "text": "The Orbonne Monastery"
+              "text": "The Orbonne Monastery",
+              "instanceId": 636
             }
           ]
         },
@@ -31055,7 +31667,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Holminster Switch"
+              "text": "Holminster Switch",
+              "instanceId": 676
             },
             {
               "category": "Gold Saucer",
@@ -31070,11 +31683,13 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "The Dancing Plague"
+              "text": "The Dancing Plague",
+              "instanceId": 657
             },
             {
               "category": "Trial",
-              "text": "The Dancing Plague (Extreme)"
+              "text": "The Dancing Plague (Extreme)",
+              "instanceId": 658
             },
             {
               "category": "Gold Saucer",
@@ -31089,7 +31704,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Qitana Ravel"
+              "text": "The Qitana Ravel",
+              "instanceId": 651
             },
             {
               "category": "Gold Saucer",
@@ -31104,7 +31720,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Malikah's Well"
+              "text": "Malikah's Well",
+              "instanceId": 656
             },
             {
               "category": "Gold Saucer",
@@ -31152,11 +31769,13 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "The Crown of the Immaculate"
+              "text": "The Crown of the Immaculate",
+              "instanceId": 666
             },
             {
               "category": "Trial",
-              "text": "The Crown of the Immaculate (Extreme)"
+              "text": "The Crown of the Immaculate (Extreme)",
+              "instanceId": 667
             },
             {
               "category": "Gold Saucer",
@@ -31204,11 +31823,13 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "The Dying Gasp"
+              "text": "The Dying Gasp",
+              "instanceId": 687
             },
             {
               "category": "Trial",
-              "text": "The Minstrel's Ballad: Hades's Elegy"
+              "text": "The Minstrel's Ballad: Hades's Elegy",
+              "instanceId": 693
             }
           ]
         },
@@ -31296,7 +31917,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Grand Cosmos"
+              "text": "The Grand Cosmos",
+              "instanceId": 692
             }
           ]
         },
@@ -31329,7 +31951,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "The Copied Factory"
+              "text": "The Copied Factory",
+              "instanceId": 700
             }
           ]
         },
@@ -31417,7 +32040,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Anamnesis Anyder"
+              "text": "Anamnesis Anyder",
+              "instanceId": 714
             }
           ]
         },
@@ -31428,11 +32052,13 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "Cinder Drift"
+              "text": "Cinder Drift",
+              "instanceId": 717
             },
             {
               "category": "Trial",
-              "text": "Cinder Drift (Extreme)"
+              "text": "Cinder Drift (Extreme)",
+              "instanceId": 718
             }
           ]
         },
@@ -31454,7 +32080,8 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "Memoria Misera (Extreme)"
+              "text": "Memoria Misera (Extreme)",
+              "instanceId": 725
             }
           ]
         },
@@ -31564,7 +32191,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "The Puppets' Bunker"
+              "text": "The Puppets' Bunker",
+              "instanceId": 736
             }
           ]
         },
@@ -31575,11 +32203,13 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "The Seat of Sacrifice"
+              "text": "The Seat of Sacrifice",
+              "instanceId": 738
             },
             {
               "category": "Trial",
-              "text": "The Seat of Sacrifice (Extreme)"
+              "text": "The Seat of Sacrifice (Extreme)",
+              "instanceId": 739
             }
           ]
         },
@@ -31601,7 +32231,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Matoya's Relict"
+              "text": "Matoya's Relict",
+              "instanceId": 746
             }
           ]
         },
@@ -31671,11 +32302,13 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "Castrum Marinum"
+              "text": "Castrum Marinum",
+              "instanceId": 762
             },
             {
               "category": "Trial",
-              "text": "Castrum Marinum (Extreme)"
+              "text": "Castrum Marinum (Extreme)",
+              "instanceId": 763
             }
           ]
         },
@@ -31708,11 +32341,13 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Eden's Promise: Eternity"
+              "text": "Eden's Promise: Eternity",
+              "instanceId": 758
             },
             {
               "category": "Raid",
-              "text": "Eden's Promise: Eternity (Savage)"
+              "text": "Eden's Promise: Eternity (Savage)",
+              "instanceId": 759
             }
           ]
         },
@@ -31745,7 +32380,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Paglth'an"
+              "text": "Paglth'an",
+              "instanceId": 777
             }
           ]
         },
@@ -31811,11 +32447,13 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "The Cloud Deck"
+              "text": "The Cloud Deck",
+              "instanceId": 781
             },
             {
               "category": "Trial",
-              "text": "The Cloud Deck (Extreme)"
+              "text": "The Cloud Deck (Extreme)",
+              "instanceId": 782
             }
           ]
         },
@@ -31837,7 +32475,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "The Tower at Paradigm's Breach"
+              "text": "The Tower at Paradigm's Breach",
+              "instanceId": 779
             }
           ]
         },
@@ -31914,7 +32553,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Ktisis Hyperboreia"
+              "text": "Ktisis Hyperboreia",
+              "instanceId": 787
             }
           ]
         },
@@ -31925,7 +32565,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Aitiascope"
+              "text": "The Aitiascope",
+              "instanceId": 786
             }
           ]
         },
@@ -31936,11 +32577,13 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Asphodelos: The First Circle"
+              "text": "Asphodelos: The First Circle",
+              "instanceId": 808
             },
             {
               "category": "Raid",
-              "text": "Asphodelos: The First Circle (Savage)"
+              "text": "Asphodelos: The First Circle (Savage)",
+              "instanceId": 809
             }
           ]
         },
@@ -31951,7 +32594,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Tower of Zot"
+              "text": "The Tower of Zot",
+              "instanceId": 783
             }
           ]
         },
@@ -31962,11 +32606,13 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "The Final Day"
+              "text": "The Final Day",
+              "instanceId": 796
             },
             {
               "category": "Trial",
-              "text": "The Minstrel's Ballad: Endsinger's Aria"
+              "text": "The Minstrel's Ballad: Endsinger's Aria",
+              "instanceId": 846
             }
           ]
         },
@@ -31988,7 +32634,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Tower of Babil"
+              "text": "The Tower of Babil",
+              "instanceId": 785
             }
           ]
         },
@@ -32043,11 +32690,13 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "The Dark Inside"
+              "text": "The Dark Inside",
+              "instanceId": 802
             },
             {
               "category": "Trial",
-              "text": "The Minstrel's Ballad: Zodiark's Fall"
+              "text": "The Minstrel's Ballad: Zodiark's Fall",
+              "instanceId": 803
             }
           ]
         },
@@ -32058,11 +32707,13 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "The Mothercrystal"
+              "text": "The Mothercrystal",
+              "instanceId": 790
             },
             {
               "category": "Trial",
-              "text": "The Minstrel's Ballad: Hydaelyn's Call"
+              "text": "The Minstrel's Ballad: Hydaelyn's Call",
+              "instanceId": 791
             }
           ]
         },
@@ -32084,7 +32735,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Alzadaal's Legacy"
+              "text": "Alzadaal's Legacy",
+              "instanceId": 844
             }
           ]
         },
@@ -32139,7 +32791,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Aglaia"
+              "text": "Aglaia",
+              "instanceId": 866
             }
           ]
         },
@@ -32216,7 +32869,8 @@
           "sources": [
             {
               "category": "V&C Dungeon",
-              "text": "The Sil'dihn Subterrane"
+              "text": "The Sil'dihn Subterrane",
+              "instanceId": 868
             }
           ]
         },
@@ -32227,7 +32881,8 @@
           "sources": [
             {
               "category": "V&C Dungeon",
-              "text": "The Sil'dihn Subterrane"
+              "text": "The Sil'dihn Subterrane",
+              "instanceId": 868
             }
           ]
         },
@@ -32238,7 +32893,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Fell Court of Troia"
+              "text": "The Fell Court of Troia",
+              "instanceId": 869
             }
           ]
         },
@@ -32260,7 +32916,8 @@
           "sources": [
             {
               "category": "V&C Dungeon",
-              "text": "The Sil'dihn Subterrane"
+              "text": "The Sil'dihn Subterrane",
+              "instanceId": 868
             }
           ]
         },
@@ -32282,11 +32939,13 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "Storm's Crown"
+              "text": "Storm's Crown",
+              "instanceId": 870
             },
             {
               "category": "Trial",
-              "text": "Storm's Crown (Extreme)"
+              "text": "Storm's Crown (Extreme)",
+              "instanceId": 871
             }
           ]
         },
@@ -32308,11 +32967,13 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Abyssos: The Eighth Circle"
+              "text": "Abyssos: The Eighth Circle",
+              "instanceId": 883
             },
             {
               "category": "Raid",
-              "text": "Abyssos: The Eighth Circle (Savage)"
+              "text": "Abyssos: The Eighth Circle (Savage)",
+              "instanceId": 884
             }
           ]
         },
@@ -32393,7 +33054,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Euphrosyne"
+              "text": "Euphrosyne",
+              "instanceId": 911
             }
           ]
         },
@@ -32404,7 +33066,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Lapis Manalis"
+              "text": "Lapis Manalis",
+              "instanceId": 896
             }
           ]
         },
@@ -32415,11 +33078,13 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "Mount Ordeals"
+              "text": "Mount Ordeals",
+              "instanceId": 886
             },
             {
               "category": "Trial",
-              "text": "Mount Ordeals (Extreme)"
+              "text": "Mount Ordeals (Extreme)",
+              "instanceId": 924
             }
           ]
         },
@@ -32452,7 +33117,8 @@
           "sources": [
             {
               "category": "V&C Dungeon",
-              "text": "Mount Rokkon"
+              "text": "Mount Rokkon",
+              "instanceId": 945
             }
           ]
         },
@@ -32463,7 +33129,8 @@
           "sources": [
             {
               "category": "V&C Dungeon",
-              "text": "Mount Rokkon"
+              "text": "Mount Rokkon",
+              "instanceId": 945
             }
           ]
         },
@@ -32474,7 +33141,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Aetherfont"
+              "text": "The Aetherfont",
+              "instanceId": 822
             }
           ]
         },
@@ -32511,7 +33179,8 @@
           "sources": [
             {
               "category": "V&C Dungeon",
-              "text": "Mount Rokkon"
+              "text": "Mount Rokkon",
+              "instanceId": 945
             }
           ]
         },
@@ -32533,7 +33202,8 @@
           "sources": [
             {
               "category": "V&C Dungeon",
-              "text": "Mount Rokkon"
+              "text": "Mount Rokkon",
+              "instanceId": 945
             }
           ]
         },
@@ -32544,11 +33214,13 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "The Voidcast Dais"
+              "text": "The Voidcast Dais",
+              "instanceId": 949
             },
             {
               "category": "Trial",
-              "text": "The Voidcast Dais (Extreme)"
+              "text": "The Voidcast Dais (Extreme)",
+              "instanceId": 950
             }
           ]
         },
@@ -32559,11 +33231,13 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Anabaseios: The Twelfth Circle"
+              "text": "Anabaseios: The Twelfth Circle",
+              "instanceId": 942
             },
             {
               "category": "Raid",
-              "text": "Anabaseios: The Twelfth Circle (Savage)"
+              "text": "Anabaseios: The Twelfth Circle (Savage)",
+              "instanceId": 943
             }
           ]
         },
@@ -32574,7 +33248,8 @@
           "sources": [
             {
               "category": "V&C Dungeon",
-              "text": "Aloalo Island"
+              "text": "Aloalo Island",
+              "instanceId": 961
             }
           ]
         },
@@ -32585,7 +33260,8 @@
           "sources": [
             {
               "category": "V&C Dungeon",
-              "text": "Aloalo Island"
+              "text": "Aloalo Island",
+              "instanceId": 961
             }
           ]
         },
@@ -32596,7 +33272,8 @@
           "sources": [
             {
               "category": "V&C Dungeon",
-              "text": "Aloalo Island"
+              "text": "Aloalo Island",
+              "instanceId": 961
             }
           ]
         },
@@ -32618,7 +33295,8 @@
           "sources": [
             {
               "category": "V&C Dungeon",
-              "text": "Aloalo Island"
+              "text": "Aloalo Island",
+              "instanceId": 961
             }
           ]
         },
@@ -32706,7 +33384,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Lunar Subterrane"
+              "text": "The Lunar Subterrane",
+              "instanceId": 823
             }
           ]
         },
@@ -32717,7 +33396,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Thaleia"
+              "text": "Thaleia",
+              "instanceId": 962
             }
           ]
         },
@@ -32728,7 +33408,8 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "The Gilded Araya"
+              "text": "The Gilded Araya",
+              "instanceId": 69
             }
           ]
         },
@@ -32739,11 +33420,13 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "The Abyssal Fracture"
+              "text": "The Abyssal Fracture",
+              "instanceId": 964
             },
             {
               "category": "Trial",
-              "text": "The Abyssal Fracture (Extreme)"
+              "text": "The Abyssal Fracture (Extreme)",
+              "instanceId": 965
             }
           ]
         },
@@ -32853,7 +33536,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Ihuykatumu"
+              "text": "Ihuykatumu",
+              "instanceId": 826
             }
           ]
         },
@@ -32864,7 +33548,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Worqor Zormor"
+              "text": "Worqor Zormor",
+              "instanceId": 824
             }
           ]
         },
@@ -32875,7 +33560,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Skydeep Cenote"
+              "text": "The Skydeep Cenote",
+              "instanceId": 829
             }
           ]
         },
@@ -32886,7 +33572,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Origenics"
+              "text": "Origenics",
+              "instanceId": 825
             }
           ]
         },
@@ -32897,11 +33584,13 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "Worqor Lar Dor"
+              "text": "Worqor Lar Dor",
+              "instanceId": 832
             },
             {
               "category": "Trial",
-              "text": "Worqor Lar Dor (Extreme)"
+              "text": "Worqor Lar Dor (Extreme)",
+              "instanceId": 833
             }
           ]
         },
@@ -32912,11 +33601,13 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "Everkeep"
+              "text": "Everkeep",
+              "instanceId": 995
             },
             {
               "category": "Trial",
-              "text": "Everkeep (Extreme)"
+              "text": "Everkeep (Extreme)",
+              "instanceId": 996
             }
           ]
         },
@@ -32927,11 +33618,13 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "The Interphos"
+              "text": "The Interphos",
+              "instanceId": 984
             },
             {
               "category": "Trial",
-              "text": "The Minstrel's Ballad: Sphene's Burden"
+              "text": "The Minstrel's Ballad: Sphene's Burden",
+              "instanceId": 1017
             }
           ]
         },
@@ -32942,11 +33635,13 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "AAC Light-heavyweight M1"
+              "text": "AAC Light-heavyweight M1",
+              "instanceId": 985
             },
             {
               "category": "Raid",
-              "text": "AAC Light-heavyweight M1 (Savage)"
+              "text": "AAC Light-heavyweight M1 (Savage)",
+              "instanceId": 986
             }
           ]
         },
@@ -33001,7 +33696,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Yuweyawata Field Station"
+              "text": "Yuweyawata Field Station",
+              "instanceId": 1008
             }
           ]
         },
@@ -33100,7 +33796,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Jeuno: The First Walk"
+              "text": "Jeuno: The First Walk",
+              "instanceId": 1015
             }
           ]
         },
@@ -33111,7 +33808,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Underkeep"
+              "text": "The Underkeep",
+              "instanceId": 1027
             }
           ]
         },
@@ -33133,11 +33831,13 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "Recollection"
+              "text": "Recollection",
+              "instanceId": 1030
             },
             {
               "category": "Trial",
-              "text": "Recollection (Extreme)"
+              "text": "Recollection (Extreme)",
+              "instanceId": 1031
             }
           ]
         },
@@ -33148,11 +33848,13 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "AAC Cruiserweight M4"
+              "text": "AAC Cruiserweight M4",
+              "instanceId": 1025
             },
             {
               "category": "Raid",
-              "text": "AAC Cruiserweight M4 (Savage)"
+              "text": "AAC Cruiserweight M4 (Savage)",
+              "instanceId": 1026
             }
           ]
         },
@@ -33226,7 +33928,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Meso Terminal"
+              "text": "The Meso Terminal",
+              "instanceId": 1028
             }
           ]
         },
@@ -33248,7 +33951,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "San d'Oria: The Second Walk"
+              "text": "San d'Oria: The Second Walk",
+              "instanceId": 1058
             }
           ]
         },
@@ -33259,11 +33963,13 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "The Ageless Necropolis"
+              "text": "The Ageless Necropolis",
+              "instanceId": 1061
             },
             {
               "category": "Trial",
-              "text": "The Minstrel's Ballad: Necron's Embrace"
+              "text": "The Minstrel's Ballad: Necron's Embrace",
+              "instanceId": 1062
             }
           ]
         },
@@ -33340,7 +34046,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "Mistwake"
+              "text": "Mistwake",
+              "instanceId": 1064
             }
           ]
         },
@@ -33351,11 +34058,13 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "Hell on Rails"
+              "text": "Hell on Rails",
+              "instanceId": 1076
             },
             {
               "category": "Trial",
-              "text": "Hell on Rails (Extreme)"
+              "text": "Hell on Rails (Extreme)",
+              "instanceId": 1077
             }
           ]
         },
@@ -33366,11 +34075,13 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "AAC Heavyweight M4"
+              "text": "AAC Heavyweight M4",
+              "instanceId": 1074
             },
             {
               "category": "Raid",
-              "text": "AAC Heavyweight M4 (Savage)"
+              "text": "AAC Heavyweight M4 (Savage)",
+              "instanceId": 1075
             }
           ]
         },
@@ -33414,7 +34125,8 @@
           "sources": [
             {
               "category": "V&C Dungeon",
-              "text": "*The Merchant's Tale*"
+              "text": "*The Merchant's Tale*",
+              "instanceId": 1066
             }
           ]
         },
@@ -33425,7 +34137,8 @@
           "sources": [
             {
               "category": "V&C Dungeon",
-              "text": "*The Merchant's Tale*"
+              "text": "*The Merchant's Tale*",
+              "instanceId": 1066
             }
           ]
         },
@@ -33436,7 +34149,8 @@
           "sources": [
             {
               "category": "V&C Dungeon",
-              "text": "*The Merchant's Tale*"
+              "text": "*The Merchant's Tale*",
+              "instanceId": 1066
             }
           ]
         },
@@ -33447,7 +34161,8 @@
           "sources": [
             {
               "category": "V&C Dungeon",
-              "text": "*The Merchant's Tale*"
+              "text": "*The Merchant's Tale*",
+              "instanceId": 1066
             }
           ]
         },
@@ -33491,7 +34206,8 @@
           "sources": [
             {
               "category": "Dungeon",
-              "text": "The Clyteum"
+              "text": "The Clyteum",
+              "instanceId": 1011
             }
           ]
         },
@@ -33524,11 +34240,13 @@
           "sources": [
             {
               "category": "Trial",
-              "text": "The Unmaking"
+              "text": "The Unmaking",
+              "instanceId": 1115
             },
             {
               "category": "Trial",
-              "text": "The Unmaking (Extreme)"
+              "text": "The Unmaking (Extreme)",
+              "instanceId": 1116
             }
           ]
         },
@@ -33550,7 +34268,8 @@
           "sources": [
             {
               "category": "Raid",
-              "text": "Windurst: The Third Walk"
+              "text": "Windurst: The Third Walk",
+              "instanceId": 1117
             }
           ]
         },

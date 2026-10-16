@@ -19,8 +19,10 @@ public sealed class MiniWindow : ThemedWindow
     private readonly IReadOnlyList<CollectionTab> collections;
     private readonly PinController pins;
     private readonly Func<bool> characterReady;
+    private readonly Data.DutyIndex duties;
+    private readonly Data.DutyClearTracker clears;
 
-    public MiniWindow(ConfigurationManager config, ChecklistController checklist, AutoChecklistController autoItems, IReadOnlyList<CollectionTab> collections, PinController pins, Func<bool> characterReady)
+    public MiniWindow(ConfigurationManager config, ChecklistController checklist, AutoChecklistController autoItems, IReadOnlyList<CollectionTab> collections, PinController pins, Func<bool> characterReady, Data.DutyIndex duties, Data.DutyClearTracker clears)
         : base(config, "NekoDex Mini###NekoDexMini", BaseFlags)
     {
         this.config = config;
@@ -29,6 +31,8 @@ public sealed class MiniWindow : ThemedWindow
         this.collections = collections;
         this.pins = pins;
         this.characterReady = characterReady;
+        this.duties = duties;
+        this.clears = clears;
         RespectCloseHotkey = false;
         IsOpen = config.Current.ShowMiniWindow;
     }
@@ -197,6 +201,14 @@ public sealed class MiniWindow : ThemedWindow
                     if (ImGui.IsItemHovered() && !view.Source.IsUnknown)
                     {
                         ImGui.SetTooltip(view.Source.Summary);
+                    }
+
+                    // Farm targets: name the duty and how often it has been cleared.
+                    if (view.Source.DutyIds is { Count: > 0 } dutyIds && duties.Find(dutyIds[0]) is { } duty)
+                    {
+                        ImGui.SameLine();
+                        var count = clears.Count(duty.Id);
+                        ImGui.TextDisabled(count > 0 ? $"{duty.Name} ({count})" : duty.Name);
                     }
                 }
             }

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Dalamud.Configuration;
 using NekoDex.Core.Checklist;
+using NekoDex.Core.Farming;
 using NekoDex.Core.Unlock;
 
 namespace NekoDex;
@@ -53,4 +54,7 @@ public sealed class Configuration : IPluginConfiguration
 
     /// <summary>Starred entries per module id ("mounts" -> mount row ids). Shown first in their tab and in the mini window.</summary>
     public Dictionary<string, List<uint>> Pins { get; set; } = new();
+
+    /// <summary>Duty completions per character per ContentFinderCondition id, counted while NekoDex runs.</summary>
+    public KillCounter DutyClears { get; set; } = new();
 }

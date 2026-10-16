@@ -72,10 +72,19 @@ public sealed class DatasetUnlockSourceProvider : IUnlockSourceProvider
 
         var lines = new string[data.Sources.Count];
         var categories = new string[data.Sources.Count];
+        List<uint>? duties = null;
         for (var i = 0; i < lines.Length; i++)
         {
             categories[i] = data.Sources[i].Category;
             lines[i] = $"{data.Sources[i].Category}: {data.Sources[i].Text}";
+            if (data.Sources[i].InstanceId is { } instance && instance != 0)
+            {
+                duties ??= new List<uint>();
+                if (!duties.Contains(instance))
+                {
+                    duties.Add(instance);
+                }
+            }
         }
 
         var first = data.Sources[0];
@@ -86,6 +95,7 @@ public sealed class DatasetUnlockSourceProvider : IUnlockSourceProvider
             Patch: data.Patch,
             Note: data.Source is { } source && source != dataset.Source ? $"{source}, data {dataset.DataVersion}" : Attribution,
             Categories: categories,
-            ItemId: data.ItemId);
+            ItemId: data.ItemId,
+            DutyIds: duties);
     }
 }

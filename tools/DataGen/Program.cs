@@ -159,7 +159,12 @@ foreach (var spec in modules)
                 unknownCategories.Add(source.Type);
             }
 
-            entry.Sources.Add(new UnlockDatasetSource { Category = source.Type, Text = source.Text.Trim() });
+            entry.Sources.Add(new UnlockDatasetSource
+            {
+                Category = source.Type,
+                Text = source.Text.Trim(),
+                InstanceId = source.RelatedType == "Instance" ? source.RelatedId : null,
+            });
         }
 
         if (entry.Sources.Count > 0)
@@ -488,4 +493,10 @@ sealed class CollectSource
     public string Type { get; set; } = string.Empty;
 
     public string Text { get; set; } = string.Empty;
+
+    [System.Text.Json.Serialization.JsonPropertyName("related_type")]
+    public string? RelatedType { get; set; }
+
+    [System.Text.Json.Serialization.JsonPropertyName("related_id")]
+    public uint? RelatedId { get; set; }
 }

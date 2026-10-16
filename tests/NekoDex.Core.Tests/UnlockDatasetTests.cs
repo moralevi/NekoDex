@@ -19,6 +19,7 @@ public class UnlockDatasetTests
                   { "category": "Quest", "text": "My Little Chocobo (Immortal Flames)" },
                   { "category": "Quest", "text": "My Little Chocobo (Maelstrom)" } ] },
                 "18": { "patch": "2.1", "itemId": 6990, "source": "Garland Tools", "sources": [ { "category": "Achievement", "text": "Jonathas - Old Gridania" } ] },
+                "444": { "patch": "7.5", "sources": [ { "category": "Trial", "text": "The Unmaking (Extreme)", "instanceId": 1116 }, { "category": "Trial", "text": "Again", "instanceId": 1116 } ] },
                 "99": { "sources": [ { "category": "Moon Cheese", "text": "???" } ] },
                 "100": { "source": "NekoDex", "sources": [ { "category": "Legacy", "text": "No item grants this." } ] }
               }
@@ -83,6 +84,15 @@ public class UnlockDatasetTests
     }
 
     [Fact]
+    public void Duty_sources_expose_distinct_instance_ids()
+    {
+        var source = Provider().GetSource("mounts", new CollectionEntry(444, "Wings of Nihility", 0));
+
+        Assert.Equal([1116u], source!.DutyIds);
+        Assert.Null(Provider().GetSource("mounts", new CollectionEntry(18, "Behemoth", 0))!.DutyIds);
+    }
+
+    [Fact]
     public void Legacy_entry_is_typed_legacy_and_not_obtainable()
     {
         var source = Provider().GetSource("mounts", new CollectionEntry(100, "Old Promo", 0));
@@ -116,7 +126,7 @@ public class UnlockDatasetTests
     {
         var provider = Provider();
 
-        Assert.Equal("2.1", provider.LatestPatch("mounts"));
+        Assert.Equal("7.5", provider.LatestPatch("mounts"));
         Assert.Null(provider.LatestPatch("minions"));
     }
 

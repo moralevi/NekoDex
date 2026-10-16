@@ -81,4 +81,7 @@ public sealed class UnlockDatasetSource
     public string Category { get; set; } = string.Empty;
 
     public string Text { get; set; } = string.Empty;
+
+    /// <summary>ContentFinderCondition id when the source is a duty (FFXIV Collect's related instance id).</summary>
+    public uint? InstanceId { get; set; }
 }
