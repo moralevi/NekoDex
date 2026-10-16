@@ -1,3 +1,5 @@
+using NekoDex.Core.Outfits;
+
 namespace NekoDex.Core.Dresser;
 
 /// <summary>What one character had in the Glamour Dresser the last time the game exposed it.</summary>
@@ -5,10 +7,29 @@ public sealed class DresserSnapshot
 {
     public List<uint> Items { get; set; } = new();
 
+    /// <summary>Dyes seen per item id; the same item can sit in the dresser in several dyes.</summary>
+    public Dictionary<uint, List<DyePair>> Dyes { get; set; } = new();
+
     public DateTimeOffset CapturedAt { get; set; }
 
     /// <summary>For the settings UI only; the key is the content id.</summary>
     public string? CharacterName { get; set; }
+
+    /// <summary>True when the item is in the dresser in exactly this dye. An undyed request matches any copy of the item.</summary>
+    public bool HasDye(uint itemId, DyePair dye)
+    {
+        if (!Items.Contains(itemId))
+        {
+            return false;
+        }
+
+        if (dye.IsUndyed)
+        {
+            return true;
+        }
+
+        return Dyes.TryGetValue(itemId, out var seen) && seen.Any(d => d.SameAs(dye));
+    }
 }
 
 /// <summary>
@@ -25,11 +46,12 @@ public sealed class DresserCache
         => Snapshots.TryGetValue(contentId, out var snapshot) ? snapshot : null;
 
     /// <summary>Stores or replaces the snapshot for a character.</summary>
-    public void Set(ulong contentId, IEnumerable<uint> items, DateTimeOffset capturedAt, string? characterName)
+    public void Set(ulong contentId, IEnumerable<uint> items, DateTimeOffset capturedAt, string? characterName, Dictionary<uint, List<DyePair>>? dyes = null)
     {
         Snapshots[contentId] = new DresserSnapshot
         {
             Items = new List<uint>(items),
+            Dyes = dyes ?? new Dictionary<uint, List<DyePair>>(),
             CapturedAt = capturedAt,
             CharacterName = characterName,
         };

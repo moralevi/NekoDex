@@ -13,13 +13,14 @@ using NekoDex.Data;
 
 namespace NekoDex.UI;
 
-/// <summary>Outfit planner: named outfits, one item per slot, with where each item is (dresser, armoire, bags) or that it is missing.</summary>
+/// <summary>Outfit planner: named outfits, one item and two dyes per slot, with where each item is (dresser, armoire, bags) or that it is missing.</summary>
 public sealed class OutfitsTab
 {
     private const int PickerLimit = 150;
 
     private readonly ConfigurationManager config;
     private readonly GearCatalog catalog;
+    private readonly StainCatalog stains;
     private readonly ItemOwnershipSources ownership;
     private readonly GlamourDresserReader dresser;
     private readonly ITextureProvider textureProvider;
@@ -29,11 +30,14 @@ public sealed class OutfitsTab
     private string renameBuffer = string.Empty;
     private GearSlot? pickingSlot;
     private string pickerSearch = string.Empty;
+    private (GearSlot Slot, bool Secondary)? pickingDye;
+    private string dyeSearch = string.Empty;
 
-    public OutfitsTab(ConfigurationManager config, GearCatalog catalog, ItemOwnershipSources ownership, GlamourDresserReader dresser, ITextureProvider textureProvider)
+    public OutfitsTab(ConfigurationManager config, GearCatalog catalog, StainCatalog stains, ItemOwnershipSources ownership, GlamourDresserReader dresser, ITextureProvider textureProvider)
     {
         this.config = config;
         this.catalog = catalog;
+        this.stains = stains;
         this.ownership = ownership;
         this.dresser = dresser;
         this.textureProvider = textureProvider;
@@ -100,6 +104,7 @@ public sealed class OutfitsTab
         selectedId = outfit.Id;
         renameBuffer = outfit.Name;
         pickingSlot = null;
+        pickingDye = null;
     }
 
     private Outfit? Selected()
@@ -152,6 +157,8 @@ public sealed class OutfitsTab
             ImGui.SetTooltip(Strings.Get("Outfit_Delete", "Delete outfit"));
         }
 
+        DrawFillButtons(outfit);
+
         var statuses = OutfitPlanner.Evaluate(outfit, ownership.Locate);
         var missing = 0;
         foreach (var status in statuses)
@@ -164,7 +171,7 @@ public sealed class OutfitsTab
 
         if (statuses.Count == 0)
         {
-            ImGui.TextDisabled(Strings.Get("Outfit_Empty", "Nothing planned yet. Pick items per slot below."));
+            ImGui.TextDisabled(Strings.Get("Outfit_Empty", "Nothing planned yet. Pick items per slot below, or fill from your gear or a glamour plate."));
         }
         else if (missing == 0)
         {
@@ -178,6 +185,62 @@ public sealed class OutfitsTab
         DrawSlotTable(outfit);
         DrawSourcesFooter();
         DrawPicker(outfit);
+        DrawDyePicker(outfit);
+    }
+
+    private void DrawFillButtons(Outfit outfit)
+    {
+        if (ImGui.Button(Strings.Get("Outfit_FillGear", "Fill from current gear")))
+        {
+            outfit.Fill(EquippedGearReader.Read(), null);
+            config.Save();
+        }
+
+        if (ImGui.IsItemHovered())
+        {
+            ImGui.SetTooltip(Strings.Get("Outfit_FillGearHint", "Replaces every slot with what you are wearing now."));
+        }
+
+        ImGui.SameLine();
+        var platesLoaded = GlamourPlateReader.IsLoaded;
+        using (ImRaii.Disabled(!platesLoaded))
+        {
+            ImGui.SetNextItemWidth(170 * ImGuiHelpers.GlobalScale);
+            using var combo = ImRaii.Combo("##plate", Strings.Get("Outfit_FillPlate", "Fill from glamour plate"));
+            if (combo.Success)
+            {
+                foreach (var plate in GlamourPlateReader.Read())
+                {
+                    var label = plate.IsEmpty
+                        ? string.Format(Strings.Get("Outfit_PlateEmpty", "Plate {0} (empty)"), plate.Number)
+                        : string.Format(Strings.Get("Outfit_PlateLabel", "Plate {0}: {1}"), plate.Number, FirstItemName(plate));
+                    using var disabled = ImRaii.Disabled(plate.IsEmpty);
+                    if (ImGui.Selectable(label))
+                    {
+                        outfit.Fill(plate.Items, plate.Dyes);
+                        config.Save();
+                    }
+                }
+            }
+        }
+
+        if (!platesLoaded && ImGui.IsItemHovered(ImGuiHoveredFlags.AllowWhenDisabled))
+        {
+            ImGui.SetTooltip(Strings.Get("Outfit_PlatesNotLoaded", "Open the Glamour Dresser once this session to load your plates."));
+        }
+    }
+
+    private string FirstItemName(PlateContents plate)
+    {
+        foreach (var slot in OutfitPlanner.SlotOrder)
+        {
+            if (plate.Items.TryGetValue(slot, out var id) && catalog.Find(id) is { } item)
+            {
+                return item.Name;
+            }
+        }
+
+        return "?";
     }
 
     private void DrawSlotTable(Outfit outfit)
@@ -185,7 +248,7 @@ public sealed class OutfitsTab
         var scale = ImGuiHelpers.GlobalScale;
         var iconSize = new Vector2(24, 24) * scale;
 
-        using var table = ImRaii.Table("##slots", 4, ImGuiTableFlags.RowBg | ImGuiTableFlags.SizingStretchProp);
+        using var table = ImRaii.Table("##slots", 5, ImGuiTableFlags.RowBg | ImGuiTableFlags.SizingStretchProp);
         if (!table.Success)
         {
             return;
@@ -193,7 +256,8 @@ public sealed class OutfitsTab
 
         ImGui.TableSetupColumn(Strings.Get("Outfit_Slot", "Slot"), ImGuiTableColumnFlags.WidthFixed, 80 * scale);
         ImGui.TableSetupColumn(Strings.Get("Outfit_Item", "Item"), ImGuiTableColumnFlags.WidthStretch);
-        ImGui.TableSetupColumn(Strings.Get("Outfit_Where", "Where"), ImGuiTableColumnFlags.WidthFixed, 90 * scale);
+        ImGui.TableSetupColumn(Strings.Get("Outfit_Dyes", "Dyes"), ImGuiTableColumnFlags.WidthFixed, 56 * scale);
+        ImGui.TableSetupColumn(Strings.Get("Outfit_Where", "Where"), ImGuiTableColumnFlags.WidthFixed, 110 * scale);
         ImGui.TableSetupColumn("##actions", ImGuiTableColumnFlags.WidthFixed, 60 * scale);
         ImGui.TableHeadersRow();
 
@@ -223,18 +287,16 @@ public sealed class OutfitsTab
             }
 
             ImGui.TableNextColumn();
+            if (itemId != 0)
+            {
+                DrawDyeSwatches(outfit, slot);
+            }
+
+            ImGui.TableNextColumn();
             ImGui.AlignTextToFramePadding();
             if (itemId != 0)
             {
-                var where = ownership.Locate(itemId);
-                if (where == ItemOwnership.Missing)
-                {
-                    ImGui.TextColored(Theme.MissingColor, GearLabels.For(where));
-                }
-                else
-                {
-                    ImGui.TextColored(Theme.OwnedColor, GearLabels.For(where));
-                }
+                DrawWhere(outfit, slot, itemId);
             }
 
             ImGui.TableNextColumn();
@@ -256,6 +318,7 @@ public sealed class OutfitsTab
                 if (ImGuiComponents.IconButton(FontAwesomeIcon.Times))
                 {
                     outfit.Items.Remove(slot);
+                    outfit.Dyes.Remove(slot);
                     config.Save();
                 }
 
@@ -265,6 +328,125 @@ public sealed class OutfitsTab
                 }
             }
         }
+    }
+
+    private void DrawWhere(Outfit outfit, GearSlot slot, uint itemId)
+    {
+        var where = ownership.Locate(itemId);
+        if (where == ItemOwnership.Missing)
+        {
+            ImGui.TextColored(Theme.MissingColor, GearLabels.For(where));
+            return;
+        }
+
+        ImGui.TextColored(Theme.OwnedColor, GearLabels.For(where));
+        var dye = outfit.DyeFor(slot);
+        if (where == ItemOwnership.GlamourDresser && !dye.IsUndyed)
+        {
+            ImGui.SameLine();
+            if (dresser.HasDye(itemId, dye))
+            {
+                ImGui.TextDisabled(Strings.Get("Outfit_DyeMatch", "(this dye)"));
+            }
+            else
+            {
+                ImGui.TextDisabled(Strings.Get("Outfit_DyeOther", "(other dye)"));
+            }
+        }
+    }
+
+    private void DrawDyeSwatches(Outfit outfit, GearSlot slot)
+    {
+        var dye = outfit.DyeFor(slot);
+        DrawSwatch(slot, false, dye.Primary);
+        ImGui.SameLine();
+        DrawSwatch(slot, true, dye.Secondary);
+    }
+
+    private void DrawSwatch(GearSlot slot, bool secondary, uint stainId)
+    {
+        var size = new Vector2(20, 20) * ImGuiHelpers.GlobalScale;
+        var stain = stainId == 0 ? null : stains.Find(stainId);
+        var color = stain?.Color ?? new Vector4(0, 0, 0, 0);
+        using var id = ImRaii.PushId(secondary ? "dye2" : "dye1");
+        if (ImGui.ColorButton("##swatch", color, ImGuiColorEditFlags.NoTooltip | ImGuiColorEditFlags.AlphaPreview, size))
+        {
+            pickingDye = (slot, secondary);
+            dyeSearch = string.Empty;
+            ImGui.OpenPopup("##dyePicker");
+        }
+
+        if (ImGui.IsItemHovered())
+        {
+            ImGui.SetTooltip(stain?.Name ?? Strings.Get("Dye_None", "No dye"));
+        }
+
+        DrawDyePickerPopup(slot, secondary);
+    }
+
+    private void DrawDyePickerPopup(GearSlot slot, bool secondary)
+    {
+        if (pickingDye != (slot, secondary))
+        {
+            return;
+        }
+
+        var outfit = Selected();
+        if (outfit is null)
+        {
+            pickingDye = null;
+            return;
+        }
+
+        var scale = ImGuiHelpers.GlobalScale;
+        ImGui.SetNextWindowSize(new Vector2(280, 400) * scale, ImGuiCond.Appearing);
+        using var popup = ImRaii.Popup("##dyePicker");
+        if (!popup.Success)
+        {
+            pickingDye = null;
+            return;
+        }
+
+        ImGui.SetNextItemWidth(-1);
+        if (ImGui.IsWindowAppearing())
+        {
+            ImGui.SetKeyboardFocusHere();
+        }
+
+        ImGui.InputTextWithHint("##dyeSearch", Strings.Get("Search_Hint", "Search"), ref dyeSearch, 40);
+
+        using var list = ImRaii.Child("##dyeList", new Vector2(-1, -1), true);
+        if (!list.Success)
+        {
+            return;
+        }
+
+        if (ImGui.Selectable(Strings.Get("Dye_None", "No dye")))
+        {
+            ApplyDye(outfit, slot, secondary, 0);
+            ImGui.CloseCurrentPopup();
+        }
+
+        var swatch = new Vector2(16, 16) * scale;
+        foreach (var stain in stains.Search(dyeSearch))
+        {
+            using var id = ImRaii.PushId((int)stain.Id);
+            ImGui.ColorButton("##c", stain.Color, ImGuiColorEditFlags.NoTooltip, swatch);
+            ImGui.SameLine();
+            if (ImGui.Selectable(stain.Name))
+            {
+                ApplyDye(outfit, slot, secondary, stain.Id);
+                ImGui.CloseCurrentPopup();
+            }
+        }
+    }
+
+    private void ApplyDye(Outfit outfit, GearSlot slot, bool secondary, uint stainId)
+    {
+        var current = outfit.DyeFor(slot);
+        var updated = secondary ? new DyePair(current.Primary, stainId) : new DyePair(stainId, current.Secondary);
+        outfit.SetDye(slot, updated);
+        config.Save();
     }
 
     private void DrawPicker(Outfit outfit)
@@ -328,6 +510,12 @@ public sealed class OutfitsTab
         {
             ImGui.TextDisabled(Strings.Get("Outfit_PickerTruncated", "Showing the newest matches only; type more to narrow down."));
         }
+    }
+
+    private void DrawDyePicker(Outfit outfit)
+    {
+        // Popups are drawn next to their swatch in DrawSwatch; nothing to do here, kept for symmetry with DrawPicker.
+        _ = outfit;
     }
 
     private void DrawSourcesFooter()

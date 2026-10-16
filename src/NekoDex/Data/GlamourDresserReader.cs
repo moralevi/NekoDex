@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Dalamud.Plugin.Services;
 using FFXIVClientStructs.FFXIV.Client.Game;
 using NekoDex.Core.Dresser;
+using NekoDex.Core.Outfits;
 
 namespace NekoDex.Data;
 
@@ -15,7 +16,7 @@ public sealed unsafe class GlamourDresserReader
     private readonly ConfigurationManager config;
     private readonly IPlayerState playerState;
     private readonly IPluginLog log;
-    private HashSet<uint>? live;
+    private DresserSnapshot? live;
     private ulong liveContentId;
 
     public GlamourDresserReader(ConfigurationManager config, IPlayerState playerState, IPluginLog log)
@@ -37,7 +38,20 @@ public sealed unsafe class GlamourDresserReader
 
     private ulong ContentId => playerState.IsLoaded ? playerState.ContentId : 0;
 
-    private DresserSnapshot? Current => ContentId == 0 ? null : config.Current.Dresser.Get(ContentId);
+    /// <summary>Live contents when read this session, otherwise the stored snapshot for this character, otherwise null.</summary>
+    private DresserSnapshot? Current
+    {
+        get
+        {
+            var contentId = ContentId;
+            if (contentId == 0)
+            {
+                return null;
+            }
+
+            return live is not null && liveContentId == contentId ? live : config.Current.Dresser.Get(contentId);
+        }
+    }
 
     public DateTimeOffset? SnapshotTakenAt => Current?.CapturedAt;
 
@@ -71,41 +85,70 @@ public sealed unsafe class GlamourDresserReader
             return;
         }
 
-        var set = new HashSet<uint>();
-        foreach (var id in manager->PrismBoxItemIds)
+        var ids = manager->PrismBoxItemIds;
+        var stain0 = manager->PrismBoxStain0Ids;
+        var stain1 = manager->PrismBoxStain1Ids;
+        var items = new HashSet<uint>();
+        var dyes = new Dictionary<uint, List<DyePair>>();
+        for (var i = 0; i < ids.Length; i++)
         {
-            if (id != 0)
+            if (ids[i] == 0)
             {
-                set.Add(NormalizeItemId(id));
+                continue;
+            }
+
+            var itemId = NormalizeItemId(ids[i]);
+            items.Add(itemId);
+            var dye = new DyePair(i < stain0.Length ? stain0[i] : 0u, i < stain1.Length ? stain1[i] : 0u);
+            if (dye.IsUndyed)
+            {
+                continue;
+            }
+
+            if (!dyes.TryGetValue(itemId, out var list))
+            {
+                dyes[itemId] = list = new List<DyePair>();
+            }
+
+            if (!list.Exists(d => d.SameAs(dye)))
+            {
+                list.Add(dye);
             }
         }
 
-        if (live is not null && liveContentId == contentId && set.SetEquals(live))
+        if (live is not null && liveContentId == contentId && items.SetEquals(live.Items) && SameDyes(live.Dyes, dyes))
         {
             return;
         }
 
-        live = set;
+        config.Current.Dresser.Set(contentId, items, DateTimeOffset.UtcNow, playerState.CharacterName, dyes);
+        live = config.Current.Dresser.Get(contentId);
         liveContentId = contentId;
-        config.Current.Dresser.Set(contentId, set, DateTimeOffset.UtcNow, playerState.CharacterName);
         config.Save();
-        log.Debug("Glamour Dresser snapshot updated for {Name}: {Count} items", playerState.CharacterName, set.Count);
+        log.Debug("Glamour Dresser snapshot updated for {Name}: {Count} items", playerState.CharacterName, items.Count);
     }
 
-    public bool Contains(uint itemId)
+    public bool Contains(uint itemId) => Current?.Items.Contains(itemId) ?? false;
+
+    /// <summary>Whether the dresser holds the item in this dye (an undyed request matches any copy).</summary>
+    public bool HasDye(uint itemId, DyePair dye) => Current?.HasDye(itemId, dye) ?? false;
+
+    private static bool SameDyes(Dictionary<uint, List<DyePair>> a, Dictionary<uint, List<DyePair>> b)
     {
-        var contentId = ContentId;
-        if (contentId == 0)
+        if (a.Count != b.Count)
         {
             return false;
         }
 
-        if (live is not null && liveContentId == contentId)
+        foreach (var (item, list) in a)
         {
-            return live.Contains(itemId);
+            if (!b.TryGetValue(item, out var other) || other.Count != list.Count || !list.TrueForAll(d => other.Exists(o => o.SameAs(d))))
+            {
+                return false;
+            }
         }
 
-        return Current?.Items.Contains(itemId) ?? false;
+        return true;
     }
 
     /// <summary>HQ items are stored with an offset of 1,000,000; the planner works with base item ids.</summary>

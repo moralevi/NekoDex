@@ -1,6 +1,6 @@
 # FFXIV Dalamud Plugin: Collection Tracker (working name: NekoDex)
 
-Status: Phases 0-7 gates passed 2026-10-16. Phase 8 built (theme and fresh-install gates pending; fresh install needs the GitHub repo public). Phases 9 to 11 gates passed; Phase 12 built, in-game gate pending. Target: friends first, public custom repo later.
+Status: Phases 0-7 gates passed 2026-10-16. Phase 8 built (theme and fresh-install gates pending; fresh install needs the GitHub repo public). Phases 9 to 12 gates passed; Phase 13 built, in-game gate pending. Target: friends first, public custom repo later.
 Stack: C#/.NET, Dalamud.NET.Sdk, ImGui (via Dalamud's ImGui bindings), Lumina, FFXIVClientStructs.
 Method: phased, each phase has gate criteria. Do not start a phase until the previous gate passes.
 
@@ -201,7 +201,7 @@ Same method: each phase has a scope and a gate; a phase starts only when the pre
 
 **Open decisions (resolve before the phase that needs them)**
 - Which roulettes and tribal quests count as auto items, and whether auto items can be hidden individually. Needed before Phase 11. **Decided 2026-10-16:** all eleven duty roulettes offered, tribal counts as done when all 12 allowances are used, Wondrous Tails when 9 stickers are placed; every auto item can be toggled in settings.
-- Whether glamour plate import should also copy dyes. Needed before Phase 13.
+- Whether glamour plate import should also copy dyes. Needed before Phase 13. **Decided 2026-10-16: yes, items and both dyes.**
 - Whether the scheduled dataset refresh opens a pull request or commits straight to `main`. Needed before Phase 14.
 
 ---
@@ -262,9 +262,9 @@ Scope
 - Modules whose in-game guide applies extra visibility rules (emotes split by category, cards by region) keep the same ordering as the guide.
 
 Gate
-- [ ] Each delivered module's owned/total matches its in-game guide on the same character.
-- [ ] Dataset regeneration still one command; warnings list only rows that genuinely lack data.
-- [ ] No module touches the UI core; the diff for each is its class, a registration line, a generator row and link segments.
+- [x] Each delivered module's owned/total matches its in-game guide on the same character.
+- [x] Dataset regeneration still one command; warnings list only rows that genuinely lack data.
+- [x] No module touches the UI core; the diff for each is its class, a registration line, a generator row and link segments.
 
 ---
 
@@ -275,6 +275,7 @@ Scope
 - **Fill from glamour plate** reads the plates the game exposes after the dresser was opened and lists them by number; choosing one copies its items. Dyes per the open decision.
 - **Dyes** per slot: two stain ids per item, picked from the Stain sheet with a colour swatch, stored in the outfit; the dresser snapshot already carries stain ids so "owned in this dye" can be shown as a secondary hint.
 - **Item sources** for outfit items: extend the dataset with FFXIV Collect item sources where an endpoint exists; otherwise keep recipes, gil shops and the Garland link.
+  - 2026-10-16: FFXIV Collect has no item endpoint, so outfit items keep recipes, gil shops and the Garland link.
 
 Gate
 - [ ] Fill from gear and fill from a plate reproduce what the game shows, slot for slot, for a test outfit.

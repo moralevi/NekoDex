@@ -72,7 +72,7 @@ public sealed class Plugin : IDalamudPlugin
         dresser = new GlamourDresserReader(config, playerState, log);
         var gearCatalog = new GearCatalog(dataManager, log);
         var itemOwnership = new ItemOwnershipSources(dresser, armoire);
-        var outfits = new OutfitsTab(config, gearCatalog, itemOwnership, dresser, textureProvider);
+        var outfits = new OutfitsTab(config, gearCatalog, new StainCatalog(dataManager), itemOwnership, dresser, textureProvider);
 
         // Gear advisor (Phase 7, simple scope): next upgrade by item level per slot for the current job and level.
         var advisor = new AdvisorTab(playerState, gearCatalog, itemOwnership, unlockResolver, textureProvider);
