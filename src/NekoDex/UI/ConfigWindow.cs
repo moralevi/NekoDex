@@ -14,14 +14,16 @@ public sealed class ConfigWindow : ThemedWindow
     private readonly Action<bool> setMiniWindowShown;
     private readonly DatasetUnlockSourceProvider? dataset;
     private readonly string pluginVersion;
+    private readonly AutoChecklistController autoItems;
 
-    public ConfigWindow(ConfigurationManager config, Action<bool> setMiniWindowShown, DatasetUnlockSourceProvider? dataset, string pluginVersion)
+    public ConfigWindow(ConfigurationManager config, Action<bool> setMiniWindowShown, DatasetUnlockSourceProvider? dataset, string pluginVersion, AutoChecklistController autoItems)
         : base(config, "NekoDex Settings###NekoDexConfig", ImGuiWindowFlags.NoCollapse | ImGuiWindowFlags.AlwaysAutoResize)
     {
         this.config = config;
         this.setMiniWindowShown = setMiniWindowShown;
         this.dataset = dataset;
         this.pluginVersion = pluginVersion;
+        this.autoItems = autoItems;
         SizeConstraints = new WindowSizeConstraints { MinimumSize = new Vector2(380, 0) };
     }
 
@@ -45,6 +47,18 @@ public sealed class ConfigWindow : ThemedWindow
         }
 
         Hint(Strings.Get("Config_ShowMiniHint", "Countdowns and open to-dos in a small panel. Also /nekodex mini."));
+
+        Section(Strings.Get("Config_AutoItems", "Automatic checklist items"));
+
+        Hint(Strings.Get("Config_AutoItemsHint", "Read from the game; they tick themselves."));
+        foreach (var definition in autoItems.Definitions)
+        {
+            var enabled = autoItems.IsEnabled(definition.Id);
+            if (ImGui.Checkbox($"{definition.Name}##{definition.Id}", ref enabled))
+            {
+                autoItems.SetEnabled(definition.Id, enabled);
+            }
+        }
 
         Section(Strings.Get("Config_Appearance", "Appearance"));
 

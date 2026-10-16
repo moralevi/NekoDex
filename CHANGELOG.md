@@ -7,6 +7,7 @@
 - Sortable table headers (name, patch, status, unlock type) and a missing-first toggle.
 - Pin entries with the star: they sit at the top of their tab and in the mini window until unlocked.
 - Dashboard shows per-collection progress.
+- Automatic checklist items read from the game: duty roulettes, tribal allowances and Wondrous Tails, chosen in settings; they tick themselves and show in the mini window until done.
 
 ## 1.0.0 (unreleased)
 

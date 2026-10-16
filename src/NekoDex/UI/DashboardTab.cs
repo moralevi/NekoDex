@@ -15,14 +15,16 @@ namespace NekoDex.UI;
 public sealed class DashboardTab
 {
     private readonly ChecklistController checklist;
+    private readonly AutoChecklistController autoItems;
     private readonly IReadOnlyList<CollectionTab> collections;
     private readonly Func<bool> characterReady;
     private string newItemText = string.Empty;
     private ResetCadence newItemCadence = ResetCadence.Daily;
 
-    public DashboardTab(ChecklistController checklist, IReadOnlyList<CollectionTab> collections, Func<bool> characterReady)
+    public DashboardTab(ChecklistController checklist, AutoChecklistController autoItems, IReadOnlyList<CollectionTab> collections, Func<bool> characterReady)
     {
         this.checklist = checklist;
+        this.autoItems = autoItems;
         this.collections = collections;
         this.characterReady = characterReady;
     }
@@ -133,12 +135,7 @@ public sealed class DashboardTab
         DrawAddRow();
         ImGui.Spacing();
 
-        if (checklist.Items.Count == 0)
-        {
-            ImGui.TextDisabled(Strings.Get("Checklist_Empty", "No items yet. Add one above; daily and weekly items untick themselves at reset."));
-            return;
-        }
-
+        var anyAuto = false;
         using var table = ImRaii.Table("##checklist", 3, ImGuiTableFlags.SizingStretchProp | ImGuiTableFlags.RowBg);
         if (!table.Success)
         {
@@ -148,6 +145,52 @@ public sealed class DashboardTab
         ImGui.TableSetupColumn("##item", ImGuiTableColumnFlags.WidthStretch);
         ImGui.TableSetupColumn("##cadence", ImGuiTableColumnFlags.WidthFixed, 60 * ImGuiHelpers.GlobalScale);
         ImGui.TableSetupColumn("##delete", ImGuiTableColumnFlags.WidthFixed, 28 * ImGuiHelpers.GlobalScale);
+
+        // Game-reported items first. They cannot be ticked by hand; the game decides.
+        foreach (var (definition, reading) in autoItems.Visible())
+        {
+            anyAuto = true;
+            using var autoId = ImRaii.PushId(definition.Id);
+            ImGui.TableNextRow();
+
+            ImGui.TableNextColumn();
+            var done = reading?.Complete ?? false;
+            using (ImRaii.Disabled())
+            {
+                ImGui.Checkbox(definition.Name, ref done);
+            }
+
+            if (reading?.Detail is { } detail)
+            {
+                ImGui.SameLine();
+                ImGui.TextDisabled(detail);
+            }
+            else if (reading is null)
+            {
+                ImGui.SameLine();
+                ImGui.TextDisabled(Strings.Get("Auto_NotRead", "(not read yet)"));
+            }
+
+            ImGui.TableNextColumn();
+            ImGui.AlignTextToFramePadding();
+            ImGui.TextDisabled(ResetLabels.For(definition.Cadence));
+
+            ImGui.TableNextColumn();
+            ImGui.AlignTextToFramePadding();
+            ImGui.TextDisabled(Strings.Get("Auto_Badge", "auto"));
+            if (ImGui.IsItemHovered())
+            {
+                ImGui.SetTooltip(Strings.Get("Auto_Tooltip", "Read from the game. Choose which auto items to show in settings."));
+            }
+        }
+
+        if (!anyAuto && checklist.Items.Count == 0)
+        {
+            ImGui.TableNextRow();
+            ImGui.TableNextColumn();
+            ImGui.TextDisabled(Strings.Get("Checklist_Empty", "No items yet. Add one above; daily and weekly items untick themselves at reset."));
+            return;
+        }
 
         ChecklistItem? toRemove = null;
         foreach (var item in checklist.Items)

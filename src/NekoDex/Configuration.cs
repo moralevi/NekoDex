@@ -28,6 +28,9 @@ public sealed class Configuration : IPluginConfiguration
     /// <summary>User-defined daily/weekly to-dos.</summary>
     public List<ChecklistItem> Checklist { get; set; } = new();
 
+    /// <summary>Ids of game-reported items shown in the checklist (see AutoChecklistSources).</summary>
+    public List<string> EnabledAutoItems { get; set; } = new(Data.AutoChecklistSources.DefaultEnabled);
+
     /// <summary>Whether the compact countdown/checklist window is shown.</summary>
     public bool ShowMiniWindow { get; set; }
 

@@ -13,15 +13,17 @@ public sealed class MiniWindow : ThemedWindow
 {
     private readonly ConfigurationManager config;
     private readonly ChecklistController checklist;
+    private readonly AutoChecklistController autoItems;
     private readonly IReadOnlyList<CollectionTab> collections;
     private readonly PinController pins;
     private readonly Func<bool> characterReady;
 
-    public MiniWindow(ConfigurationManager config, ChecklistController checklist, IReadOnlyList<CollectionTab> collections, PinController pins, Func<bool> characterReady)
+    public MiniWindow(ConfigurationManager config, ChecklistController checklist, AutoChecklistController autoItems, IReadOnlyList<CollectionTab> collections, PinController pins, Func<bool> characterReady)
         : base(config, "NekoDex Mini###NekoDexMini", ImGuiWindowFlags.AlwaysAutoResize | ImGuiWindowFlags.NoCollapse | ImGuiWindowFlags.NoScrollbar)
     {
         this.config = config;
         this.checklist = checklist;
+        this.autoItems = autoItems;
         this.collections = collections;
         this.pins = pins;
         this.characterReady = characterReady;
@@ -67,6 +69,33 @@ public sealed class MiniWindow : ThemedWindow
     private void DrawOpenItems()
     {
         var any = false;
+        foreach (var (definition, reading) in autoItems.Visible())
+        {
+            if (reading is null || reading.Complete)
+            {
+                continue;
+            }
+
+            if (!any)
+            {
+                ImGui.Separator();
+                any = true;
+            }
+
+            using var autoId = ImRaii.PushId(definition.Id);
+            var done = false;
+            using (ImRaii.Disabled())
+            {
+                ImGui.Checkbox(definition.Name, ref done);
+            }
+
+            if (reading.Detail is { } detail)
+            {
+                ImGui.SameLine();
+                ImGui.TextDisabled(detail);
+            }
+        }
+
         foreach (var item in checklist.Items)
         {
             if (item.Checked)

@@ -1,6 +1,6 @@
 # FFXIV Dalamud Plugin: Collection Tracker (working name: NekoDex)
 
-Status: Phases 0-7 gates passed 2026-10-16. Phase 8 built (theme and fresh-install gates pending; fresh install needs the GitHub repo public). Phase 9 gate passed; Phase 10 built, in-game gate pending. Target: friends first, public custom repo later.
+Status: Phases 0-7 gates passed 2026-10-16. Phase 8 built (theme and fresh-install gates pending; fresh install needs the GitHub repo public). Phases 9 and 10 gates passed; Phase 11 built, in-game gate pending. Target: friends first, public custom repo later.
 Stack: C#/.NET, Dalamud.NET.Sdk, ImGui (via Dalamud's ImGui bindings), Lumina, FFXIVClientStructs.
 Method: phased, each phase has gate criteria. Do not start a phase until the previous gate passes.
 
@@ -200,7 +200,7 @@ Same method: each phase has a scope and a gate; a phase starts only when the pre
 | Localisation | CheapLoc export; translations accepted as files, English stays the fallback |
 
 **Open decisions (resolve before the phase that needs them)**
-- Which roulettes and tribal quests count as auto items, and whether auto items can be hidden individually. Needed before Phase 11.
+- Which roulettes and tribal quests count as auto items, and whether auto items can be hidden individually. Needed before Phase 11. **Decided 2026-10-16:** all eleven duty roulettes offered, tribal counts as done when all 12 allowances are used, Wondrous Tails when 9 stickers are placed; every auto item can be toggled in settings.
 - Whether glamour plate import should also copy dyes. Needed before Phase 13.
 - Whether the scheduled dataset refresh opens a pull request or commits straight to `main`. Needed before Phase 14.
 
@@ -230,10 +230,10 @@ Scope
 - **Progress summary** on the Dashboard: one row per module with owned/total and a bar, reusing `CollectionProgress`.
 
 Gate
-- [ ] Obtainable filter hides every Premium and Event mount and nothing else, checked against 10 known cases.
-- [ ] Every sort order is stable and, combined with search and the ownership filter, still returns the right rows (unit tests plus a spot check in game).
-- [ ] A pinned mount appears in the mini window and leaves it when unlocked.
-- [ ] Dashboard summary counts match the tabs.
+- [x] Obtainable filter hides every Premium and Event mount and nothing else, checked against 10 known cases.
+- [x] Every sort order is stable and, combined with search and the ownership filter, still returns the right rows (unit tests plus a spot check in game).
+- [x] A pinned mount appears in the mini window and leaves it when unlocked.
+- [x] Dashboard summary counts match the tabs.
 
 ---
 
@@ -241,6 +241,7 @@ Gate
 
 Scope
 - Verify first: which completion states ClientStructs exposes reliably this patch (duty roulette completion, tribal quest allowances, Wondrous Tails, challenge log). Record the list and the ones that cannot be read.
+  - Verified 2026-10-16: readable are duty roulette completion (`InstanceContent.IsRouletteComplete`), tribal allowances left (`QuestManager.GetBeastTribeAllowance`), Wondrous Tails journal and sticker count (`PlayerState`), challenge log entries (`ContentsNote.IsContentNoteComplete`, deferred: too granular for a checklist). Not exposed: Mini Cactpot plays, Jumbo Cactpot tickets, Grand Company turn-ins, custom delivery allowances.
 - A checklist source abstraction in Core: id, name, cadence, and a completion check the Data layer provides. Auto items render with an "auto" badge and cannot be ticked by hand; manual items stay as they are.
 - Settings: pick which auto items to show. Default: the expert and leveling roulettes and tribal allowances.
 - Mini window shows unfinished auto items too.
