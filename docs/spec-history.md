@@ -1,3 +1,5 @@
+> Historical record of Phases 0-20 with every gate as it was ticked. The current specification and roadmap is [../SPEC.md](../SPEC.md).
+
 # FFXIV Dalamud Plugin: Collection Tracker (working name: NekoDex)
 
 Status: Phases 0-7 gates passed 2026-10-16. Phase 8 built (theme and fresh-install gates pending; fresh install needs the GitHub repo public). Phases 9 to 17 gates passed. **2026-10-16, user decision: the Armoire module, the outfit planner (Phases 6b, 9, 13) and the gear advisor (Phases 7, 18) were removed from the plugin; their sections below stay as history. Phase 19 (dresser capacity) is dropped with them.** Remaining before a public release: Phase 8 theme-leak check, screenshots, repo public, first tag, FFXIV Collect redistribution answer. Target: friends first, public custom repo later.

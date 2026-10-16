@@ -4,7 +4,7 @@ Dalamud plugin for FFXIV that shows what the logged-in character owns and is mis
 
 Information and UI only. No automation, no input injection, read-only access to game state.
 
-Status: 1.0.0 release candidate. All phases built; see [CHANGELOG.md](CHANGELOG.md). See [the spec](dalamud-collection-tracker-spec.md) for the roadmap and phase gates.
+Status: 1.0.0 release candidate. See [SPEC.md](SPEC.md) for what it does and what comes next, and [CHANGELOG.md](CHANGELOG.md).
 
 ## Installing (friends build)
 

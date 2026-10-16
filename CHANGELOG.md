@@ -1,39 +1,14 @@
 # Changelog
 
-## Removed before first release (2026-10-16)
-
-By decision: the Armoire tab, the outfit planner (dresser snapshots, dyes, plate import) and the gear advisor (tomestone prices). The plugin is a collection tracker with unlock info, pins, resets and a checklist. Old config fields and old export sections are ignored.
-
-## 1.3.0 (in progress)
-
-- Swedish translation, and a Language setting in Appearance to pick a translation Dalamud does not offer (follow Dalamud by default).
-- "New in patch X" filter on every collection tab and a Dashboard section with per-collection counts that opens the tab filtered.
-- Export and import your data (outfits, pins, checklist, auto item choices, dresser snapshots) as one JSON file from settings, with merge or replace; an outfits-only export is meant for sharing with friends.
-- Garland Tools fills in unlock info for entries FFXIV Collect has none for, attributed per entry. Garland links now open the item page that grants the collectable; the old mount/minion links pointed at pages that do not exist.
-- Gear advisor shows tomestone prices, your tomestone counts, whether the best piece is buyable now, and the best piece you can afford when it is not.
-
-## 1.2.0 (in progress)
-
-- New tabs: Emotes, Bardings, Fashion Accessories, Facewear and Triple Triad, with unlock data for all of them.
-- Outfits: fill from current gear or from a glamour plate (items and dyes), two dyes per slot with swatches, and the Dresser column says whether you own the piece in that dye.
-- Translations: strings load from loc/<language>.json for Dalamud's UI language, English otherwise; a weekly workflow proposes dataset refreshes as pull requests; settings can forget a character's cached data.
-
-## 1.1.0 (in progress)
-
-- Glamour Dresser contents are remembered per character. Config moves to v2; a snapshot saved by 1.0 is handed to the first character that logs in.
-- Obtainable / not obtainable filter from the unlock data (store-only, event and legacy rewards).
-- Sortable table headers (name, patch, status, unlock type) and a missing-first toggle.
-- Pin entries with the star: they sit at the top of their tab and in the mini window until unlocked.
-- Dashboard shows per-collection progress.
-- Automatic checklist items read from the game: duty roulettes, tribal allowances and Wondrous Tails, chosen in settings; they tick themselves and show in the mini window until done.
-
 ## 1.0.0 (unreleased)
 
-First friends release.
+First release, for friends.
 
-- Mounts, Minions, Orchestrion and Armoire tabs: owned/missing status, progress, search and filters.
-- In-game unlock info for mounts, minions and orchestrion rolls from a bundled dataset generated from FFXIV Collect, with web links to FFXIV Collect or Garland Tools.
-- Outfit planner: named outfits slot by slot, showing where each piece is (Glamour Dresser, Armoire, bags) or that it is missing.
-- Gear advisor: per-slot next upgrade by item level for the current job and level.
-- Dashboard: reset countdowns (daily, weekly, Grand Company, Jumbo Cactpot, Fashion Report) and a checklist that clears itself at reset; optional mini window.
-- Neko theme with a toggle back to the default Dalamud style.
+- Collections: Mounts, Minions, Orchestrion, Emotes, Bardings, Fashion Accessories, Facewear and Triple Triad, with owned/missing status, progress, search, ownership and obtainable filters, "new in patch" filter, sortable columns and pins.
+- Unlock info in game from a bundled dataset built from FFXIV Collect with Garland Tools filling gaps, attributed per entry, with links to FFXIV Collect or Garland item pages. The dataset refreshes weekly through a pull request.
+- Dashboard: reset countdowns (daily, weekly, Grand Company, Jumbo Cactpot, Fashion Report) in your time zone, per-collection progress, new-this-patch rows, and a checklist whose daily and weekly items clear at reset, plus game-read auto items (duty roulettes, tribal allowances, Wondrous Tails).
+- Mini window with countdowns, open to-dos and pinned entries; `/nekodex mini`.
+- Neko theme with a live toggle back to the default Dalamud style.
+- Export and import of pins, checklist and auto item choices.
+- Translations: English and Swedish, with a Language setting for languages Dalamud does not offer; German, French and Japanese templates.
+- Removed during development by decision: an Armoire tab, an outfit planner and a gear advisor. Settings from them are ignored.
