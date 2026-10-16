@@ -1,6 +1,6 @@
 # FFXIV Dalamud Plugin: Collection Tracker (working name: NekoDex)
 
-Status: Phases 0-7 gates passed 2026-10-16. Phase 8 built (theme and fresh-install gates pending; fresh install needs the GitHub repo public). Phases 9 to 13 gates passed; Phase 14 built, gates pending. Target: friends first, public custom repo later.
+Status: Phases 0-7 gates passed 2026-10-16. Phase 8 built (theme and fresh-install gates pending; fresh install needs the GitHub repo public). Phases 9 to 14 gates passed. Remaining before a public release: Phase 8 theme-leak check, screenshots, repo public, first tag, FFXIV Collect redistribution answer. Target: friends first, public custom repo later.
 Stack: C#/.NET, Dalamud.NET.Sdk, ImGui (via Dalamud's ImGui bindings), Lumina, FFXIVClientStructs.
 Method: phased, each phase has gate criteria. Do not start a phase until the previous gate passes.
 
@@ -292,9 +292,9 @@ Scope
 - **Forget this character** button in settings that removes that character's cached data and nothing else.
 
 Gate
-- [ ] The scheduled job produces a reviewable change with the generator's warning summary in its body.
-- [ ] Switching client language loads the matching file and falls back to English for missing keys.
-- [ ] Forgetting a character removes its data and nothing else.
+- [ ] The scheduled job produces a reviewable change with the generator's warning summary in its body. (Runs weekly on GitHub; verify after the first scheduled or manual run.)
+- [x] Switching client language loads the matching file and falls back to English for missing keys.
+- [x] Forgetting a character removes its data and nothing else.
 
 ---
 
