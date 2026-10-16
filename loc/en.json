@@ -419,10 +419,6 @@
     "message": "Fashion Accessories",
     "description": ""
   },
-  "Module_FramersKits": {
-    "message": "Framer's Kits",
-    "description": ""
-  },
   "Module_Hairstyles": {
     "message": "Hairstyles",
     "description": ""
@@ -457,6 +453,14 @@
   },
   "Progress_Overlay": {
     "message": "{0} / {1}",
+    "description": ""
+  },
+  "Report_Copied": {
+    "message": "Copied. Paste it on the data source's Discord with your correction.",
+    "description": ""
+  },
+  "Report_Hint": {
+    "message": "Wrong source? Copy a report to the clipboard.",
     "description": ""
   },
   "Reset_Daily": {
@@ -585,6 +589,30 @@
   },
   "Unlock_Vendor": {
     "message": "Vendor",
+    "description": ""
+  },
+  "Update_Check": {
+    "message": "Check for newer data...",
+    "description": ""
+  },
+  "Update_Checking": {
+    "message": "Checking...",
+    "description": ""
+  },
+  "Update_Data": {
+    "message": "Newer unlock data ({0}) is in the repository; it ships with the next release.",
+    "description": ""
+  },
+  "Update_Hint": {
+    "message": "Two small requests to the NekoDex repository, only when you click. The plugin is otherwise offline.",
+    "description": ""
+  },
+  "Update_Plugin": {
+    "message": "NekoDex {0} is available; update it in /xlplugins.",
+    "description": ""
+  },
+  "Update_UpToDate": {
+    "message": "Up to date.",
     "description": ""
   }
 }

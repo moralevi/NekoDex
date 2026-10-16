@@ -22,9 +22,7 @@ public static class UnlockLinks
                 return CollectSegment(moduleId) is { } segment ? $"https://ffxivcollect.com/{segment}/{entryId}" : null;
 
             case UnlockLinkSite.GarlandTools:
-                // Framer's kits are items themselves, so the entry id is the item id.
-                var item = moduleId == "framerkits" ? entryId : itemId;
-                return item is { } id && id != 0 ? $"https://www.garlandtools.org/db/#item/{id}" : null;
+                return itemId is { } id && id != 0 ? $"https://www.garlandtools.org/db/#item/{id}" : null;
 
             default:
                 return null;

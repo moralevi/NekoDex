@@ -104,7 +104,7 @@ dotnet run --project tools/DataGen -- --sheets-only
 
 ## Collections
 
-Tabs: Mounts, Minions, Orchestrion, Emotes, Bardings, Fashion Accessories, Facewear, Triple Triad, Hairstyles and Framer's Kits, each with owned/missing status, search, filters, sorting, pins and in-game unlock info.
+Tabs: Mounts, Minions, Orchestrion, Emotes, Bardings, Fashion Accessories, Facewear, Triple Triad and Hairstyles, each with owned/missing status, search, filters, sorting, pins and in-game unlock info.
 
 ## Dashboard
 

@@ -252,6 +252,8 @@ foreach (var category in unknownCategories)
 
 Directory.CreateDirectory(Path.GetDirectoryName(Path.GetFullPath(options.OutFile))!);
 await File.WriteAllTextAsync(options.OutFile, dataset.ToJson().ReplaceLineEndings("\n") + "\n");
+// One-line marker the plugin's update check fetches instead of the whole dataset.
+await File.WriteAllTextAsync(Path.ChangeExtension(options.OutFile, ".version"), dataset.DataVersion + "\n");
 Console.WriteLine($"Wrote {options.OutFile} (data {dataset.DataVersion}, {dataset.Modules.Count} modules, {warnings} warnings, {garland.Requests} Garland requests)");
 return warnings == 0 ? 0 : 2;
 

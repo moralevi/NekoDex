@@ -11,6 +11,7 @@ using Dalamud.Interface.Utility.Raii;
 using Dalamud.Plugin.Services;
 using Dalamud.Utility;
 using NekoDex.Core.Collections;
+using NekoDex.Core.Trust;
 using NekoDex.Core.Unlock;
 
 namespace NekoDex.UI;
@@ -25,7 +26,9 @@ public sealed unsafe class CollectionTab
     private readonly DatasetUnlockSourceProvider? dataset;
     private readonly PinController pins;
     private readonly IDetailExtension? detailExtension;
+    private readonly string pluginVersion;
     private readonly IReadOnlyList<EntryFilterOption> moduleFilters;
+    private DateTime reportCopiedAt = DateTime.MinValue;
     private readonly HashSet<string> activeModuleFilters = new();
     private bool hasCategory;
     private bool hasRank;
@@ -45,13 +48,14 @@ public sealed unsafe class CollectionTab
     private bool latestOnly;
     private uint? selectedId;
 
-    public CollectionTab(ICollectionModule module, ITextureProvider textureProvider, UnlockResolver unlockResolver, DatasetUnlockSourceProvider? dataset, PinController pins, IDetailExtension? detailExtension = null)
+    public CollectionTab(ICollectionModule module, ITextureProvider textureProvider, UnlockResolver unlockResolver, DatasetUnlockSourceProvider? dataset, PinController pins, string pluginVersion, IDetailExtension? detailExtension = null)
     {
         Module = module;
         this.textureProvider = textureProvider;
         this.unlockResolver = unlockResolver;
         this.dataset = dataset;
         this.pins = pins;
+        this.pluginVersion = pluginVersion;
         this.detailExtension = detailExtension;
         moduleFilters = module is IFilteredModule filtered ? filtered.Filters : [];
     }
@@ -503,6 +507,20 @@ public sealed unsafe class CollectionTab
             {
                 ImGui.SameLine();
                 DrawOpenLinkButton(source.Url);
+            }
+
+            ImGui.SameLine();
+            if (ImGuiComponents.IconButton(FontAwesomeIcon.Flag))
+            {
+                ImGui.SetClipboardText(ReportText.Build(Module.Id, entry, source, dataset?.DataVersion, pluginVersion));
+                reportCopiedAt = DateTime.UtcNow;
+            }
+
+            if (ImGui.IsItemHovered())
+            {
+                ImGui.SetTooltip((DateTime.UtcNow - reportCopiedAt).TotalSeconds < 3
+                    ? Strings.Get("Report_Copied", "Copied. Paste it on the data source's Discord with your correction.")
+                    : Strings.Get("Report_Hint", "Wrong source? Copy a report to the clipboard."));
             }
         }
 

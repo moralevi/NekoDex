@@ -8,7 +8,9 @@ using Dalamud.Interface.Utility.Raii;
 using Dalamud.Interface.Windowing;
 using Dalamud.Plugin;
 using NekoDex.Core.Transfer;
+using NekoDex.Core.Trust;
 using NekoDex.Core.Unlock;
+using NekoDex.Data;
 
 namespace NekoDex.UI;
 
@@ -22,13 +24,14 @@ public sealed class ConfigWindow : ThemedWindow
     private readonly UserDataService userData;
     private readonly IDalamudPluginInterface pluginInterface;
     private readonly Action<string?> setLanguage;
+    private readonly UpdateChecker updates;
     private readonly FileDialogManager fileDialogs = new();
     private UserDataFile? pendingImport;
     private string? pendingImportName;
     private ImportMode importMode = ImportMode.Merge;
     private string dataStatus = string.Empty;
 
-    public ConfigWindow(ConfigurationManager config, Action<bool> setMiniWindowShown, DatasetUnlockSourceProvider? dataset, string pluginVersion, AutoChecklistController autoItems, UserDataService userData, IDalamudPluginInterface pluginInterface, Action<string?> setLanguage)
+    public ConfigWindow(ConfigurationManager config, Action<bool> setMiniWindowShown, DatasetUnlockSourceProvider? dataset, string pluginVersion, AutoChecklistController autoItems, UserDataService userData, IDalamudPluginInterface pluginInterface, Action<string?> setLanguage, UpdateChecker updates)
         : base(config, "NekoDex Settings###NekoDexConfig", ImGuiWindowFlags.NoCollapse | ImGuiWindowFlags.AlwaysAutoResize)
     {
         this.config = config;
@@ -39,6 +42,7 @@ public sealed class ConfigWindow : ThemedWindow
         this.userData = userData;
         this.pluginInterface = pluginInterface;
         this.setLanguage = setLanguage;
+        this.updates = updates;
         SizeConstraints = new WindowSizeConstraints { MinimumSize = new Vector2(380, 0) };
     }
 
@@ -239,6 +243,38 @@ public sealed class ConfigWindow : ThemedWindow
         ImGui.TextDisabled(dataset is null
             ? Strings.Get("Config_NoDataset", "Bundled unlock data: unavailable")
             : string.Format(Strings.Get("Config_Dataset", "Unlock data {0} from {1}, for game {2}"), dataset.DataVersion, dataset.Source, dataset.GameVersion));
+
+        using (ImRaii.Disabled(updates.IsChecking))
+        {
+            if (ImGui.Button(Strings.Get("Update_Check", "Check for newer data...")))
+            {
+                updates.Check();
+            }
+        }
+
+        if (ImGui.IsItemHovered())
+        {
+            ImGui.SetTooltip(Strings.Get("Update_Hint", "Two small requests to the NekoDex repository, only when you click. The plugin is otherwise offline."));
+        }
+
+        ImGui.SameLine();
+        if (updates.IsChecking)
+        {
+            ImGui.TextDisabled(Strings.Get("Update_Checking", "Checking..."));
+        }
+        else if (updates.LastError is { } error)
+        {
+            ImGui.TextDisabled(error);
+        }
+        else if (updates.LastResult is { } result)
+        {
+            ImGui.TextDisabled(result.Status switch
+            {
+                UpdateStatus.NewerPluginAvailable => string.Format(Strings.Get("Update_Plugin", "NekoDex {0} is available; update it in /xlplugins."), result.RemotePluginVersion),
+                UpdateStatus.NewerDataAvailable => string.Format(Strings.Get("Update_Data", "Newer unlock data ({0}) is in the repository; it ships with the next release."), result.RemoteDataVersion),
+                _ => Strings.Get("Update_UpToDate", "Up to date."),
+            });
+        }
 
         fileDialogs.Draw();
     }

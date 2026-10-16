@@ -26,6 +26,7 @@ public sealed class Plugin : IDalamudPlugin
     private readonly AutoChecklistController autoItems;
     private readonly ResetNotifier resetNotifier;
     private readonly DutyClearTracker dutyClears;
+    private readonly UpdateChecker updates;
 
     // Services arrive through constructor injection; nothing in the plugin reaches for them statically.
     public Plugin(
@@ -57,20 +58,20 @@ public sealed class Plugin : IDalamudPlugin
 
         // One tab per collection module. Adding a module means one line here plus its class in Data/.
         var pins = new PinController(config);
+        var version = pluginInterface.Manifest.AssemblyVersion.ToString();
         var triadNpcs = new TriadNpcIndex(dataManager, log);
-        var mountsTab = new CollectionTab(new MountModule(dataManager, clientState, log), textureProvider, unlockResolver, dataset, pins);
+        var mountsTab = new CollectionTab(new MountModule(dataManager, clientState, log), textureProvider, unlockResolver, dataset, pins, version);
         CollectionTab[] tabs =
         [
             mountsTab,
-            new(new MinionModule(dataManager, clientState, log), textureProvider, unlockResolver, dataset, pins),
-            new(new OrchestrionModule(dataManager, log), textureProvider, unlockResolver, dataset, pins),
-            new(new EmoteModule(dataManager, log), textureProvider, unlockResolver, dataset, pins),
-            new(new BardingModule(dataManager, log), textureProvider, unlockResolver, dataset, pins),
-            new(new FashionAccessoryModule(dataManager, clientState, log), textureProvider, unlockResolver, dataset, pins),
-            new(new FacewearModule(dataManager, log), textureProvider, unlockResolver, dataset, pins),
-            new(new TriadCardModule(dataManager, triadNpcs, log), textureProvider, unlockResolver, dataset, pins, new TriadDetailExtension(triadNpcs, gameGui)),
-            new(new HairstyleModule(dataManager, log), textureProvider, unlockResolver, dataset, pins),
-            new(new FramersKitModule(dataManager, log), textureProvider, unlockResolver, dataset, pins),
+            new(new MinionModule(dataManager, clientState, log), textureProvider, unlockResolver, dataset, pins, version),
+            new(new OrchestrionModule(dataManager, log), textureProvider, unlockResolver, dataset, pins, version),
+            new(new EmoteModule(dataManager, log), textureProvider, unlockResolver, dataset, pins, version),
+            new(new BardingModule(dataManager, log), textureProvider, unlockResolver, dataset, pins, version),
+            new(new FashionAccessoryModule(dataManager, clientState, log), textureProvider, unlockResolver, dataset, pins, version),
+            new(new FacewearModule(dataManager, log), textureProvider, unlockResolver, dataset, pins, version),
+            new(new TriadCardModule(dataManager, triadNpcs, log), textureProvider, unlockResolver, dataset, pins, version, new TriadDetailExtension(triadNpcs, gameGui)),
+            new(new HairstyleModule(dataManager, log), textureProvider, unlockResolver, dataset, pins, version),
         ];
         bool CharacterReady() => clientState.IsLoggedIn && playerState.IsLoaded;
 
@@ -87,8 +88,8 @@ public sealed class Plugin : IDalamudPlugin
 
         miniWindow = new MiniWindow(config, checklist, autoItems, tabs, pins, CharacterReady, duties, dutyClears);
         resetNotifier = new ResetNotifier(framework, toastGui, config, CharacterReady);
-        var version = pluginInterface.Manifest.AssemblyVersion.ToString();
-        configWindow = new ConfigWindow(config, miniWindow.SetShown, dataset, version, autoItems, new UserDataService(config, log, version), pluginInterface, SetLanguage);
+        updates = new UpdateChecker(log, version, dataset?.DataVersion);
+        configWindow = new ConfigWindow(config, miniWindow.SetShown, dataset, version, autoItems, new UserDataService(config, log, version), pluginInterface, SetLanguage, updates);
         mainWindow = new MainWindow(config, clientState, playerState, dashboard, tabs, navigation, farm, configWindow.Toggle);
         windowSystem.AddWindow(mainWindow);
         windowSystem.AddWindow(configWindow);
@@ -126,6 +127,7 @@ public sealed class Plugin : IDalamudPlugin
         windowSystem.RemoveAllWindows();
         resetNotifier.Dispose();
         dutyClears.Dispose();
+        updates.Dispose();
 
         log.Information("NekoDex unloaded");
     }
