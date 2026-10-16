@@ -4,6 +4,7 @@
 
 - New tabs: Emotes, Bardings, Fashion Accessories, Facewear and Triple Triad, with unlock data for all of them.
 - Outfits: fill from current gear or from a glamour plate (items and dyes), two dyes per slot with swatches, and the Dresser column says whether you own the piece in that dye.
+- Translations: strings load from loc/<language>.json for Dalamud's UI language, English otherwise; a weekly workflow proposes dataset refreshes as pull requests; settings can forget a character's cached data.
 
 ## 1.1.0 (in progress)
 

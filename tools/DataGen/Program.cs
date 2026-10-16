@@ -9,43 +9,53 @@ using NekoDex.Core.Unlock;
 // Defaults: --out src/NekoDex/Data/unlocks.json, --game from XIVLauncher's launcherConfigV3.json, API fetched live.
 
 var options = Options.Parse(args);
-var gamePath = options.GamePath ?? GameLocator.FromXivLauncher() ?? Cli.Fail("Game path not found. Pass --game <path to 'FINAL FANTASY XIV - A Realm Reborn'>.");
-var sqpack = Path.Combine(gamePath, "game", "sqpack");
-if (!Directory.Exists(sqpack))
+GameData? lumina = null;
+var gameVersion = "unvalidated (generated without game files)";
+if (options.NoGame)
 {
-    Cli.Die($"No sqpack folder under {gamePath}.");
+    Console.WriteLine("Running without game files: sheet validation skipped, max entry id taken from the API.");
+}
+else
+{
+    var gamePath = options.GamePath ?? GameLocator.FromXivLauncher() ?? Cli.Fail("Game path not found. Pass --game <path to 'FINAL FANTASY XIV - A Realm Reborn'> or --no-game.");
+    var sqpack = Path.Combine(gamePath, "game", "sqpack");
+    if (!Directory.Exists(sqpack))
+    {
+        Cli.Die($"No sqpack folder under {gamePath}.");
+    }
+
+    gameVersion = File.ReadAllText(Path.Combine(gamePath, "game", "ffxivgame.ver")).Trim();
+    Console.WriteLine($"Game {gameVersion} at {gamePath}");
+    lumina = new GameData(sqpack, new LuminaOptions { PanicOnSheetChecksumMismatch = false });
 }
 
-var gameVersion = File.ReadAllText(Path.Combine(gamePath, "game", "ffxivgame.ver")).Trim();
-Console.WriteLine($"Game {gameVersion} at {gamePath}");
-
-var lumina = new GameData(sqpack, new LuminaOptions { PanicOnSheetChecksumMismatch = false });
+GameData Sheets() => lumina ?? throw new InvalidOperationException("Game data not loaded");
 
 // One row per module: the same rules the plugin's Data/*Module.cs classes use to pick the rows the in-game guides show.
 var modules = new ModuleSpec[]
 {
     new("mounts", "https://ffxivcollect.com/api/mounts",
-        () => lumina.GetExcelSheet<Mount>()!.Where(m => m.Icon != 0 && m.Order >= 0 && !m.Singular.IsEmpty).ToDictionary(m => m.RowId, m => m.Singular.ExtractText())),
+        () => Sheets().GetExcelSheet<Mount>()!.Where(m => m.Icon != 0 && m.Order >= 0 && !m.Singular.IsEmpty).ToDictionary(m => m.RowId, m => m.Singular.ExtractText())),
     new("minions", "https://ffxivcollect.com/api/minions",
-        () => lumina.GetExcelSheet<Companion>()!.Where(c => c.Icon != 0 && c.Order > 0 && !c.Singular.IsEmpty).ToDictionary(c => c.RowId, c => c.Singular.ExtractText())),
+        () => Sheets().GetExcelSheet<Companion>()!.Where(c => c.Icon != 0 && c.Order > 0 && !c.Singular.IsEmpty).ToDictionary(c => c.RowId, c => c.Singular.ExtractText())),
     new("orchestrion", "https://ffxivcollect.com/api/orchestrions",
         () =>
         {
-            var ui = lumina.GetExcelSheet<OrchestrionUiparam>()!;
-            return lumina.GetExcelSheet<Orchestrion>()!
+            var ui = Sheets().GetExcelSheet<OrchestrionUiparam>()!;
+            return Sheets().GetExcelSheet<Orchestrion>()!
                 .Where(o => !o.Name.IsEmpty && ui.GetRowOrDefault(o.RowId) is { Order: > 0 })
                 .ToDictionary(o => o.RowId, o => o.Name.ExtractText());
         }),
     new("emotes", "https://ffxivcollect.com/api/emotes",
-        () => lumina.GetExcelSheet<Emote>()!.Where(e => !e.Name.IsEmpty && e.Icon != 0 && e.UnlockLink != 0).ToDictionary(e => e.RowId, e => e.Name.ExtractText())),
+        () => Sheets().GetExcelSheet<Emote>()!.Where(e => !e.Name.IsEmpty && e.Icon != 0 && e.UnlockLink != 0).ToDictionary(e => e.RowId, e => e.Name.ExtractText())),
     new("bardings", "https://ffxivcollect.com/api/bardings",
-        () => lumina.GetExcelSheet<BuddyEquip>()!.Where(b => !b.Name.IsEmpty && b.Order > 0).ToDictionary(b => b.RowId, b => b.Name.ExtractText())),
+        () => Sheets().GetExcelSheet<BuddyEquip>()!.Where(b => !b.Name.IsEmpty && b.Order > 0).ToDictionary(b => b.RowId, b => b.Name.ExtractText())),
     new("fashion", "https://ffxivcollect.com/api/fashions",
-        () => lumina.GetExcelSheet<Ornament>()!.Where(o => o.Icon != 0 && o.Order >= 0 && !o.Singular.IsEmpty).ToDictionary(o => o.RowId, o => o.Singular.ExtractText())),
+        () => Sheets().GetExcelSheet<Ornament>()!.Where(o => o.Icon != 0 && o.Order >= 0 && !o.Singular.IsEmpty).ToDictionary(o => o.RowId, o => o.Singular.ExtractText())),
     new("facewear", "https://ffxivcollect.com/api/facewear",
-        () => lumina.GetExcelSheet<GlassesStyle>()!.Where(g => g.RowId > 0 && !g.Name.IsEmpty && g.Icon != 0).ToDictionary(g => g.RowId, g => g.Name.ExtractText())),
+        () => Sheets().GetExcelSheet<GlassesStyle>()!.Where(g => g.RowId > 0 && !g.Name.IsEmpty && g.Icon != 0).ToDictionary(g => g.RowId, g => g.Name.ExtractText())),
     new("triad", "https://ffxivcollect.com/api/triad/cards",
-        () => lumina.GetExcelSheet<TripleTriadCard>()!.Where(c => c.RowId > 0 && !c.Name.IsEmpty).ToDictionary(c => c.RowId, c => c.Name.ExtractText())),
+        () => Sheets().GetExcelSheet<TripleTriadCard>()!.Where(c => c.RowId > 0 && !c.Name.IsEmpty).ToDictionary(c => c.RowId, c => c.Name.ExtractText())),
 };
 
 var dataset = new UnlockDataset
@@ -63,9 +73,6 @@ http.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue("(+https://g
 
 foreach (var spec in modules)
 {
-    var guideRows = spec.GuideRows();
-    Console.WriteLine($"[{spec.Id}] sheet: {guideRows.Count} guide rows, max id {guideRows.Keys.Max()}");
-
     string apiJson;
     if (options.InputDir is not null)
     {
@@ -80,6 +87,12 @@ foreach (var spec in modules)
     var api = JsonSerializer.Deserialize<CollectResponse>(apiJson, new JsonSerializerOptions { PropertyNameCaseInsensitive = true })
               ?? Cli.Fail<CollectResponse>($"[{spec.Id}] API response was empty.");
     Console.WriteLine($"[{spec.Id}] FFXIV Collect: {api.Results.Count} entries");
+
+    // Without game files every API row counts as a guide row; the next local run re-validates against the sheets.
+    var guideRows = options.NoGame
+        ? api.Results.ToDictionary(r => r.Id, r => r.Name)
+        : spec.GuideRows();
+    Console.WriteLine($"[{spec.Id}] {(options.NoGame ? "api" : "sheet")}: {guideRows.Count} guide rows, max id {guideRows.Keys.Max()}");
 
     var module = new UnlockDatasetModule { MaxEntryId = guideRows.Keys.Max() };
     foreach (var row in api.Results.OrderBy(r => r.Id))
@@ -156,13 +169,14 @@ static class Cli
     public static void Die(string message) => Fail<object>(message);
 }
 
-sealed record Options(string OutFile, string? GamePath, string? InputDir)
+sealed record Options(string OutFile, string? GamePath, string? InputDir, bool NoGame)
 {
     public static Options Parse(string[] args)
     {
         string outFile = Path.Combine("src", "NekoDex", "Data", "unlocks.json");
         string? gamePath = null;
         string? inputDir = null;
+        var noGame = false;
 
         for (var i = 0; i < args.Length; i++)
         {
@@ -172,11 +186,12 @@ sealed record Options(string OutFile, string? GamePath, string? InputDir)
                 case "--out": outFile = Next(); break;
                 case "--game": gamePath = Next(); break;
                 case "--input-dir": inputDir = Next(); break;
+                case "--no-game": noGame = true; break;
                 default: Cli.Die($"Unknown argument {args[i]}"); break;
             }
         }
 
-        return new Options(outFile, gamePath, inputDir);
+        return new Options(outFile, gamePath, inputDir, noGame);
     }
 }
 

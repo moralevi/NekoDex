@@ -41,6 +41,20 @@ The Core project exists so logic can be tested without the game. Anything that t
 2. Commit to `main`, then tag and push: `git tag v1.0.0.0 && git push origin v1.0.0.0`.
 3. The Release workflow builds, tests, attaches `latest.zip` to a GitHub release and updates `repo.json` on `main`. Dalamud picks the new version up from `repo.json`.
 
+## Translations
+
+Every user-visible string goes through `Strings.Get(key, english)`. `loc/en.json` lists them all in CheapLoc format and is regenerated with:
+
+```bash
+dotnet run --project tools/LocExport
+```
+
+To translate, copy `loc/en.json` to `loc/<language>.json` (`de`, `fr`, `ja`) and replace the `message` values. The plugin loads the file matching Dalamud's UI language at start and when the language changes; missing keys fall back to English.
+
+## Dataset refresh in CI
+
+The `Refresh unlock dataset` workflow runs weekly after the Tuesday reset and on demand. It regenerates `unlocks.json` from the FFXIV Collect API without game files (`--no-game`) and opens a pull request when something changed. Run DataGen locally before merging if a game patch landed, so the sheet validation runs.
+
 ## Building
 
 Requirements: .NET 10 SDK and a Dalamud install (run the game through XIVLauncher once). The Dalamud.NET.Sdk resolves Dalamud assemblies from `%APPDATA%\XIVLauncher\addon\Hooks\dev`.

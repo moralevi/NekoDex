@@ -1,0 +1,638 @@
+{
+  "Advisor_Empty": {
+    "message": "(empty)",
+    "description": ""
+  },
+  "Advisor_Equipped": {
+    "message": "Equipped",
+    "description": ""
+  },
+  "Advisor_Header": {
+    "message": "{0} level {1}, average item level {2}",
+    "description": ""
+  },
+  "Advisor_Hint": {
+    "message": "Highest item level you can equip now per slot. Hover a suggestion for runners-up.",
+    "description": ""
+  },
+  "Advisor_NoJob": {
+    "message": "No job detected.",
+    "description": ""
+  },
+  "Advisor_Owned": {
+    "message": "You have it ({0})",
+    "description": ""
+  },
+  "Advisor_RunnersUp": {
+    "message": "Also:",
+    "description": ""
+  },
+  "Advisor_Source": {
+    "message": "Source",
+    "description": ""
+  },
+  "Advisor_UpToDate": {
+    "message": "Nothing better available",
+    "description": ""
+  },
+  "Advisor_Upgrade": {
+    "message": "Next upgrade",
+    "description": ""
+  },
+  "Armoire_NotLoaded": {
+    "message": "Open the Armoire (at an inn) once this session to load its contents.",
+    "description": ""
+  },
+  "Armoire_NotLoadedShort": {
+    "message": "Armoire: not loaded this session; open it once at an inn.",
+    "description": ""
+  },
+  "Auto_Badge": {
+    "message": "auto",
+    "description": ""
+  },
+  "Auto_Bingo": {
+    "message": "Wondrous Tails",
+    "description": ""
+  },
+  "Auto_NoJournal": {
+    "message": "no journal",
+    "description": ""
+  },
+  "Auto_NotRead": {
+    "message": "(not read yet)",
+    "description": ""
+  },
+  "Auto_Stickers": {
+    "message": "{0}/{1} stickers",
+    "description": ""
+  },
+  "Auto_Tooltip": {
+    "message": "Read from the game. Choose which auto items to show in settings.",
+    "description": ""
+  },
+  "Auto_Tribal": {
+    "message": "Tribal quest allowances",
+    "description": ""
+  },
+  "Auto_TribalLeft": {
+    "message": "{0} of {1} left",
+    "description": ""
+  },
+  "Avail_All": {
+    "message": "Any source",
+    "description": ""
+  },
+  "Avail_Help": {
+    "message": "Not obtainable: store-only, past events and legacy rewards according to the unlock data. Entries without data count as obtainable.",
+    "description": ""
+  },
+  "Avail_NotObtainable": {
+    "message": "Not obtainable",
+    "description": ""
+  },
+  "Avail_Obtainable": {
+    "message": "Obtainable",
+    "description": ""
+  },
+  "Cadence_Daily": {
+    "message": "Daily",
+    "description": ""
+  },
+  "Cadence_Never": {
+    "message": "Never",
+    "description": ""
+  },
+  "Cadence_Weekly": {
+    "message": "Weekly",
+    "description": ""
+  },
+  "Checklist_Add": {
+    "message": "Add",
+    "description": ""
+  },
+  "Checklist_Delete": {
+    "message": "Delete",
+    "description": ""
+  },
+  "Checklist_Empty": {
+    "message": "No items yet. Add one above; daily and weekly items untick themselves at reset.",
+    "description": ""
+  },
+  "Checklist_NewHint": {
+    "message": "New item",
+    "description": ""
+  },
+  "Column_Name": {
+    "message": "Name",
+    "description": ""
+  },
+  "Column_Patch": {
+    "message": "Patch",
+    "description": ""
+  },
+  "Column_Status": {
+    "message": "Status",
+    "description": ""
+  },
+  "Column_Unlock": {
+    "message": "Unlock",
+    "description": ""
+  },
+  "Config_About": {
+    "message": "About",
+    "description": ""
+  },
+  "Config_Appearance": {
+    "message": "Appearance",
+    "description": ""
+  },
+  "Config_AutoItems": {
+    "message": "Automatic checklist items",
+    "description": ""
+  },
+  "Config_AutoItemsHint": {
+    "message": "Read from the game; they tick themselves.",
+    "description": ""
+  },
+  "Config_CharacterRow": {
+    "message": "{0}: {1} dresser items as of {2:d}",
+    "description": ""
+  },
+  "Config_Characters": {
+    "message": "Characters",
+    "description": ""
+  },
+  "Config_CharactersHint": {
+    "message": "Glamour Dresser snapshots kept per character. Forget one to delete its data.",
+    "description": ""
+  },
+  "Config_Dataset": {
+    "message": "Unlock data {0} from {1}, for game {2}",
+    "description": ""
+  },
+  "Config_Forget": {
+    "message": "Forget this character",
+    "description": ""
+  },
+  "Config_General": {
+    "message": "General",
+    "description": ""
+  },
+  "Config_LinkSite": {
+    "message": "Website for unlock info",
+    "description": ""
+  },
+  "Config_LinkSiteHint": {
+    "message": "Used by the open-on-web buttons. Falls back to the other site when one has no page for an entry.",
+    "description": ""
+  },
+  "Config_Links": {
+    "message": "Web links",
+    "description": ""
+  },
+  "Config_NekoTheme": {
+    "message": "Neko theme",
+    "description": ""
+  },
+  "Config_NekoThemeHint": {
+    "message": "Off uses your Dalamud style unchanged. Applies immediately.",
+    "description": ""
+  },
+  "Config_NoCharacters": {
+    "message": "None yet.",
+    "description": ""
+  },
+  "Config_NoDataset": {
+    "message": "Bundled unlock data: unavailable",
+    "description": ""
+  },
+  "Config_OpenOnLogin": {
+    "message": "Open NekoDex when a character logs in",
+    "description": ""
+  },
+  "Config_ShowMini": {
+    "message": "Show the mini window",
+    "description": ""
+  },
+  "Config_ShowMiniHint": {
+    "message": "Countdowns and open to-dos in a small panel. Also /nekodex mini.",
+    "description": ""
+  },
+  "Config_Version": {
+    "message": "NekoDex {0}, config v{1}",
+    "description": ""
+  },
+  "Dashboard_Checklist": {
+    "message": "Checklist",
+    "description": ""
+  },
+  "Dashboard_Progress": {
+    "message": "Collections",
+    "description": ""
+  },
+  "Dashboard_Resets": {
+    "message": "Resets",
+    "description": ""
+  },
+  "Dashboard_Unavailable": {
+    "message": "not loaded",
+    "description": ""
+  },
+  "Detail_DataFooter": {
+    "message": "Unlock data {0} from {1}, generated for game {2}.",
+    "description": ""
+  },
+  "Detail_Hint": {
+    "message": "Select an entry to see how to get it.",
+    "description": ""
+  },
+  "Detail_NoDataset": {
+    "message": "Bundled unlock data unavailable; web links only.",
+    "description": ""
+  },
+  "Detail_NotObtainable": {
+    "message": "Not obtainable",
+    "description": ""
+  },
+  "Detail_Patch": {
+    "message": "Patch {0}",
+    "description": ""
+  },
+  "Detail_UseWeb": {
+    "message": "Use the web link above to look it up.",
+    "description": ""
+  },
+  "Dresser_Never": {
+    "message": "Glamour Dresser: not read yet; open it once so its contents count as owned.",
+    "description": ""
+  },
+  "Dresser_Snapshot": {
+    "message": "Glamour Dresser: {0} items as of {1:g}{2}",
+    "description": ""
+  },
+  "Dresser_Stale": {
+    "message": " (open the dresser to refresh)",
+    "description": ""
+  },
+  "Dye_None": {
+    "message": "No dye",
+    "description": ""
+  },
+  "Filter_All": {
+    "message": "All",
+    "description": ""
+  },
+  "Filter_Missing": {
+    "message": "Missing",
+    "description": ""
+  },
+  "Filter_Owned": {
+    "message": "Owned",
+    "description": ""
+  },
+  "ItemSource_Craft": {
+    "message": "Crafted by {0}",
+    "description": ""
+  },
+  "ItemSource_GilShop": {
+    "message": "Sold by a gil vendor",
+    "description": ""
+  },
+  "ItemSource_Note": {
+    "message": "From game data (recipes and gil shops).",
+    "description": ""
+  },
+  "Mini_WorkingOn": {
+    "message": "Working on",
+    "description": ""
+  },
+  "Module_Armoire": {
+    "message": "Armoire",
+    "description": ""
+  },
+  "Module_Bardings": {
+    "message": "Bardings",
+    "description": ""
+  },
+  "Module_Emotes": {
+    "message": "Emotes",
+    "description": ""
+  },
+  "Module_Facewear": {
+    "message": "Facewear",
+    "description": ""
+  },
+  "Module_Fashion": {
+    "message": "Fashion Accessories",
+    "description": ""
+  },
+  "Module_Minions": {
+    "message": "Minions",
+    "description": ""
+  },
+  "Module_Mounts": {
+    "message": "Mounts",
+    "description": ""
+  },
+  "Module_Orchestrion": {
+    "message": "Orchestrion",
+    "description": ""
+  },
+  "Module_Triad": {
+    "message": "Triple Triad",
+    "description": ""
+  },
+  "Outfit_Add": {
+    "message": "Add outfit",
+    "description": ""
+  },
+  "Outfit_Clear": {
+    "message": "Clear slot",
+    "description": ""
+  },
+  "Outfit_Complete": {
+    "message": "You have every item.",
+    "description": ""
+  },
+  "Outfit_Delete": {
+    "message": "Delete outfit",
+    "description": ""
+  },
+  "Outfit_DyeMatch": {
+    "message": "(this dye)",
+    "description": ""
+  },
+  "Outfit_DyeOther": {
+    "message": "(other dye)",
+    "description": ""
+  },
+  "Outfit_Dyes": {
+    "message": "Dyes",
+    "description": ""
+  },
+  "Outfit_Empty": {
+    "message": "Nothing planned yet. Pick items per slot below, or fill from your gear or a glamour plate.",
+    "description": ""
+  },
+  "Outfit_FillGear": {
+    "message": "Fill from current gear",
+    "description": ""
+  },
+  "Outfit_FillGearHint": {
+    "message": "Replaces every slot with what you are wearing now.",
+    "description": ""
+  },
+  "Outfit_FillPlate": {
+    "message": "Fill from glamour plate",
+    "description": ""
+  },
+  "Outfit_Item": {
+    "message": "Item",
+    "description": ""
+  },
+  "Outfit_ItemTooltip": {
+    "message": "Item {0}, level {1}, {2}",
+    "description": ""
+  },
+  "Outfit_MissingCount": {
+    "message": "{0} of {1} items missing",
+    "description": ""
+  },
+  "Outfit_NewHint": {
+    "message": "New outfit name",
+    "description": ""
+  },
+  "Outfit_None": {
+    "message": "No outfits yet.",
+    "description": ""
+  },
+  "Outfit_Pick": {
+    "message": "Pick an item",
+    "description": ""
+  },
+  "Outfit_PickFor": {
+    "message": "Pick for {0}",
+    "description": ""
+  },
+  "Outfit_PickerTruncated": {
+    "message": "Showing the newest matches only; type more to narrow down.",
+    "description": ""
+  },
+  "Outfit_PlateEmpty": {
+    "message": "Plate {0} (empty)",
+    "description": ""
+  },
+  "Outfit_PlateLabel": {
+    "message": "Plate {0}: {1}",
+    "description": ""
+  },
+  "Outfit_PlatesNotLoaded": {
+    "message": "Open the Glamour Dresser once this session to load your plates.",
+    "description": ""
+  },
+  "Outfit_SelectHint": {
+    "message": "Select or add an outfit.",
+    "description": ""
+  },
+  "Outfit_Slot": {
+    "message": "Slot",
+    "description": ""
+  },
+  "Outfit_UnknownItem": {
+    "message": "Unknown item {0}",
+    "description": ""
+  },
+  "Outfit_Where": {
+    "message": "Where",
+    "description": ""
+  },
+  "Own_Armoire": {
+    "message": "Armoire",
+    "description": ""
+  },
+  "Own_Dresser": {
+    "message": "Dresser",
+    "description": ""
+  },
+  "Own_Inventory": {
+    "message": "Bags",
+    "description": ""
+  },
+  "Pin_Add": {
+    "message": "Pin: show first here and in the mini window",
+    "description": ""
+  },
+  "Pin_Done": {
+    "message": "Done! Click to unpin.",
+    "description": ""
+  },
+  "Pin_Remove": {
+    "message": "Unpin",
+    "description": ""
+  },
+  "Progress_Overlay": {
+    "message": "{0} / {1}",
+    "description": ""
+  },
+  "Reset_Daily": {
+    "message": "Daily reset",
+    "description": ""
+  },
+  "Reset_FashionReport": {
+    "message": "Fashion Report judging opens",
+    "description": ""
+  },
+  "Reset_GrandCompany": {
+    "message": "Grand Company missions",
+    "description": ""
+  },
+  "Reset_JumboCactpot": {
+    "message": "Jumbo Cactpot drawing",
+    "description": ""
+  },
+  "Reset_LocalTooltip": {
+    "message": "{0:f} your time ({1:HH:mm} UTC)",
+    "description": ""
+  },
+  "Reset_Weekly": {
+    "message": "Weekly reset",
+    "description": ""
+  },
+  "Search_Hint": {
+    "message": "Search",
+    "description": ""
+  },
+  "Slot_Body": {
+    "message": "Body",
+    "description": ""
+  },
+  "Slot_Ears": {
+    "message": "Ears",
+    "description": ""
+  },
+  "Slot_Feet": {
+    "message": "Feet",
+    "description": ""
+  },
+  "Slot_Hands": {
+    "message": "Hands",
+    "description": ""
+  },
+  "Slot_Head": {
+    "message": "Head",
+    "description": ""
+  },
+  "Slot_Legs": {
+    "message": "Legs",
+    "description": ""
+  },
+  "Slot_MainHand": {
+    "message": "Main hand",
+    "description": ""
+  },
+  "Slot_Neck": {
+    "message": "Neck",
+    "description": ""
+  },
+  "Slot_OffHand": {
+    "message": "Off hand",
+    "description": ""
+  },
+  "Slot_RingLeft": {
+    "message": "Ring (L)",
+    "description": ""
+  },
+  "Slot_RingRight": {
+    "message": "Ring (R)",
+    "description": ""
+  },
+  "Slot_Wrists": {
+    "message": "Wrists",
+    "description": ""
+  },
+  "Sort_MissingFirst": {
+    "message": "Missing first",
+    "description": ""
+  },
+  "State_Loading": {
+    "message": "Loading character data...",
+    "description": ""
+  },
+  "State_NotLoggedIn": {
+    "message": "Log in to a character to see your collections.",
+    "description": ""
+  },
+  "Status_Missing": {
+    "message": "Missing",
+    "description": ""
+  },
+  "Status_Owned": {
+    "message": "Owned",
+    "description": ""
+  },
+  "Tab_Advisor": {
+    "message": "Gear",
+    "description": ""
+  },
+  "Tab_Dashboard": {
+    "message": "Dashboard",
+    "description": ""
+  },
+  "Tab_Outfits": {
+    "message": "Outfits",
+    "description": ""
+  },
+  "Table_Empty": {
+    "message": "Nothing matches.",
+    "description": ""
+  },
+  "Tooltip_OpenOnWeb": {
+    "message": "Open on {0}",
+    "description": ""
+  },
+  "Tooltip_OpenOnWebShort": {
+    "message": "Open on web",
+    "description": ""
+  },
+  "Tooltip_Settings": {
+    "message": "NekoDex settings",
+    "description": ""
+  },
+  "Unlock_Achievement": {
+    "message": "Achievement",
+    "description": ""
+  },
+  "Unlock_Duty": {
+    "message": "Duty",
+    "description": ""
+  },
+  "Unlock_Event": {
+    "message": "Event",
+    "description": ""
+  },
+  "Unlock_Other": {
+    "message": "Other",
+    "description": ""
+  },
+  "Unlock_Quest": {
+    "message": "Quest",
+    "description": ""
+  },
+  "Unlock_Store": {
+    "message": "Store",
+    "description": ""
+  },
+  "Unlock_Unknown": {
+    "message": "Unknown",
+    "description": ""
+  },
+  "Unlock_UnknownHint": {
+    "message": "No unlock information yet.",
+    "description": ""
+  },
+  "Unlock_Vendor": {
+    "message": "Vendor",
+    "description": ""
+  }
+}

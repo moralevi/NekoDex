@@ -1,6 +1,8 @@
 using System;
 using System.Numerics;
 using Dalamud.Bindings.ImGui;
+using Dalamud.Interface;
+using Dalamud.Interface.Components;
 using Dalamud.Interface.Utility;
 using Dalamud.Interface.Utility.Raii;
 using Dalamud.Interface.Windowing;
@@ -90,6 +92,42 @@ public sealed class ConfigWindow : ThemedWindow
         }
 
         Hint(Strings.Get("Config_LinkSiteHint", "Used by the open-on-web buttons. Falls back to the other site when one has no page for an entry."));
+
+        Section(Strings.Get("Config_Characters", "Characters"));
+
+        Hint(Strings.Get("Config_CharactersHint", "Glamour Dresser snapshots kept per character. Forget one to delete its data."));
+        if (current.Dresser.Snapshots.Count == 0)
+        {
+            Hint(Strings.Get("Config_NoCharacters", "None yet."));
+        }
+
+        ulong? forget = null;
+        foreach (var (contentId, snapshot) in current.Dresser.Snapshots)
+        {
+            using var id = ImRaii.PushId(contentId.ToString());
+            if (ImGuiComponents.IconButton(FontAwesomeIcon.Trash))
+            {
+                forget = contentId;
+            }
+
+            if (ImGui.IsItemHovered())
+            {
+                ImGui.SetTooltip(Strings.Get("Config_Forget", "Forget this character"));
+            }
+
+            ImGui.SameLine();
+            ImGui.AlignTextToFramePadding();
+            ImGui.Text(string.Format(
+                Strings.Get("Config_CharacterRow", "{0}: {1} dresser items as of {2:d}"),
+                snapshot.CharacterName ?? contentId.ToString(),
+                snapshot.Items.Count,
+                snapshot.CapturedAt.ToLocalTime()));
+        }
+
+        if (forget is { } gone && current.Dresser.Forget(gone))
+        {
+            config.Save();
+        }
 
         Section(Strings.Get("Config_About", "About"));
 

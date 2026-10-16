@@ -41,7 +41,7 @@ public sealed class Plugin : IDalamudPlugin
         this.clientState = clientState;
         this.log = log;
 
-        Strings.Setup();
+        Strings.Setup(pluginInterface, log);
         config = new ConfigurationManager(pluginInterface, log);
 
         // Unlock info comes from the bundled dataset; anything it cannot answer becomes an explicit
@@ -99,6 +99,7 @@ public sealed class Plugin : IDalamudPlugin
         pluginInterface.UiBuilder.OpenConfigUi += configWindow.Toggle;
         clientState.Login += OnLogin;
         clientState.Logout += OnLogout;
+        pluginInterface.LanguageChanged += OnLanguageChanged;
 
         log.Information(
             "NekoDex {Version} loaded (Dalamud API {Api})",
@@ -109,6 +110,7 @@ public sealed class Plugin : IDalamudPlugin
     public void Dispose()
     {
         // Mirror every registration in the constructor so reloads leave nothing behind.
+        pluginInterface.LanguageChanged -= OnLanguageChanged;
         clientState.Logout -= OnLogout;
         clientState.Login -= OnLogin;
         pluginInterface.UiBuilder.OpenConfigUi -= configWindow.Toggle;
@@ -147,6 +149,8 @@ public sealed class Plugin : IDalamudPlugin
             mainWindow.IsOpen = true;
         }
     }
+
+    private void OnLanguageChanged(string language) => Strings.Apply(language, pluginInterface, log);
 
     private void OnLogout(int type, int code)
     {

@@ -1,6 +1,6 @@
 # FFXIV Dalamud Plugin: Collection Tracker (working name: NekoDex)
 
-Status: Phases 0-7 gates passed 2026-10-16. Phase 8 built (theme and fresh-install gates pending; fresh install needs the GitHub repo public). Phases 9 to 12 gates passed; Phase 13 built, in-game gate pending. Target: friends first, public custom repo later.
+Status: Phases 0-7 gates passed 2026-10-16. Phase 8 built (theme and fresh-install gates pending; fresh install needs the GitHub repo public). Phases 9 to 13 gates passed; Phase 14 built, gates pending. Target: friends first, public custom repo later.
 Stack: C#/.NET, Dalamud.NET.Sdk, ImGui (via Dalamud's ImGui bindings), Lumina, FFXIVClientStructs.
 Method: phased, each phase has gate criteria. Do not start a phase until the previous gate passes.
 
@@ -202,7 +202,7 @@ Same method: each phase has a scope and a gate; a phase starts only when the pre
 **Open decisions (resolve before the phase that needs them)**
 - Which roulettes and tribal quests count as auto items, and whether auto items can be hidden individually. Needed before Phase 11. **Decided 2026-10-16:** all eleven duty roulettes offered, tribal counts as done when all 12 allowances are used, Wondrous Tails when 9 stickers are placed; every auto item can be toggled in settings.
 - Whether glamour plate import should also copy dyes. Needed before Phase 13. **Decided 2026-10-16: yes, items and both dyes.**
-- Whether the scheduled dataset refresh opens a pull request or commits straight to `main`. Needed before Phase 14.
+- Whether the scheduled dataset refresh opens a pull request or commits straight to `main`. Needed before Phase 14. **Decided 2026-10-16: pull request**, because the data is embedded in the release and the generator's warnings deserve a look.
 
 ---
 
@@ -278,9 +278,9 @@ Scope
   - 2026-10-16: FFXIV Collect has no item endpoint, so outfit items keep recipes, gil shops and the Garland link.
 
 Gate
-- [ ] Fill from gear and fill from a plate reproduce what the game shows, slot for slot, for a test outfit.
-- [ ] Dyes persist and display with the right swatch.
-- [ ] Every outfit item still resolves to text, a link or an explicit Unknown.
+- [x] Fill from gear and fill from a plate reproduce what the game shows, slot for slot, for a test outfit.
+- [x] Dyes persist and display with the right swatch.
+- [x] Every outfit item still resolves to text, a link or an explicit Unknown.
 
 ---
 
