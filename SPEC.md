@@ -119,7 +119,7 @@ Gate
 - [ ] The check reports "up to date" and "newer available" correctly against a test repo.json.
 
 ### Release rhythm
-- Tag `v1.0.0.0` when the user decides to go public, after the outreach answers are recorded.
+- `v1.0.0.0` tagged 2026-10-16 (the user chose to go public before the outreach answers; the messages in docs/outreach.md are to be sent and the answers recorded in DATA_SOURCES.md).
 - Then one tag per completed Part 4 phase pair.
 
 ## 6. Repo layout
