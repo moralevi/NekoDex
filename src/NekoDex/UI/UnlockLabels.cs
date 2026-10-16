@@ -13,6 +13,7 @@ internal static class UnlockLabels
         UnlockSourceType.Event => Strings.Get("Unlock_Event", "Event"),
         UnlockSourceType.Store => Strings.Get("Unlock_Store", "Store"),
         UnlockSourceType.Other => Strings.Get("Unlock_Other", "Other"),
+        UnlockSourceType.Legacy => Strings.Get("Unlock_Legacy", "Legacy"),
         _ => Strings.Get("Unlock_Unknown", "Unknown"),
     };
 }

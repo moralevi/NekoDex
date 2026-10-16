@@ -12,4 +12,7 @@ public enum UnlockSourceType
     Event,
     Store,
     Other,
+
+    /// <summary>Nothing in current game data grants it: no item, no source. Promotional or legacy rewards. Never obtainable.</summary>
+    Legacy,
 }

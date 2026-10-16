@@ -435,6 +435,10 @@
     "message": "Event",
     "description": ""
   },
+  "Unlock_Legacy": {
+    "message": "Legacy",
+    "description": ""
+  },
   "Unlock_Other": {
     "message": "Other",
     "description": ""

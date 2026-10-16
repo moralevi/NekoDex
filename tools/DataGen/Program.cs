@@ -5,7 +5,8 @@ using Lumina.Excel.Sheets;
 using NekoDex.Core.Unlock;
 
 // Usage (from the repo root):
-//   dotnet run --project tools/DataGen [-- --out <file>] [--game <path>] [--input-dir <dir with saved <module>.json>] [--no-game] [--no-garland]
+//   dotnet run --project tools/DataGen [-- --out <file>] [--game <path>] [--input-dir <dir with saved <module>.json>] [--no-game] [--no-garland] [--sheets-only]
+//   --sheets-only runs every module's sheet rule against the local game files with no network: the patch-day smoke test.
 // Defaults: --out src/NekoDex/Data/unlocks.json, --game from XIVLauncher's launcherConfigV3.json, APIs fetched live.
 // Sources: FFXIV Collect first; entries it leaves without sources are looked up in Garland Tools item documents by item id.
 
@@ -61,6 +62,34 @@ var modules = new ModuleSpec[]
 
 // Collectable -> item that grants it, from the Item sheet's ItemAction. Used for Garland lookups and item-page links.
 var itemLinks = options.NoGame ? new Dictionary<string, Dictionary<uint, uint>>() : ItemLinker.Build(Sheets());
+
+if (options.SheetsOnly)
+{
+    if (options.NoGame)
+    {
+        Cli.Die("--sheets-only needs game files.");
+    }
+
+    var failures = 0;
+    foreach (var spec in modules)
+    {
+        try
+        {
+            var rows = spec.GuideRows();
+            itemLinks.TryGetValue(spec.Id, out var links);
+            var linked = links is null ? 0 : rows.Keys.Count(links.ContainsKey);
+            Console.WriteLine($"[{spec.Id}] {rows.Count} guide rows, max id {rows.Keys.Max()}, {linked} with an item");
+        }
+        catch (Exception ex)
+        {
+            failures++;
+            Console.WriteLine($"[{spec.Id}] FAILED: {ex.GetType().Name}: {ex.Message}");
+        }
+    }
+
+    Console.WriteLine(failures == 0 ? "Sheets OK." : $"{failures} module(s) failed; check the sheet columns against this game version.");
+    return failures == 0 ? 0 : 3;
+}
 
 var dataset = new UnlockDataset
 {
@@ -178,10 +207,22 @@ foreach (var spec in modules)
         }
     }
 
+    // No item grants it and no site lists a source: a promotional or legacy reward. Recorded as such, not as Unknown.
+    var legacy = 0;
+    foreach (var id in guideRows.Keys.Where(id => !module.Entries.ContainsKey(id) && ItemIdFor(id) is null).ToList())
+    {
+        module.Entries[id] = new UnlockDatasetEntry
+        {
+            Source = "NekoDex",
+            Sources = [new UnlockDatasetSource { Category = "Legacy", Text = "No item grants this and no source lists it; most likely a promotional or legacy reward that can no longer be obtained." }],
+        };
+        legacy++;
+    }
+
     var missing = guideRows.Keys.Where(id => !module.Entries.ContainsKey(id)).Order().ToList();
     foreach (var id in missing.Take(25))
     {
-        Console.WriteLine($"  warn: no unlock data for {spec.Id} {id} '{guideRows[id]}'{(ItemIdFor(id) is null ? " (no item id either)" : string.Empty)}");
+        Console.WriteLine($"  warn: no unlock data for {spec.Id} {id} '{guideRows[id]}'");
     }
 
     if (missing.Count > 25)
@@ -191,7 +232,7 @@ foreach (var spec in modules)
 
     warnings += missing.Count;
     dataset.Modules[spec.Id] = module;
-    Console.WriteLine($"[{spec.Id}] {module.Entries.Count} entries with data ({filledByGarland} from Garland Tools), unknown {missingBefore.Count} -> {missing.Count}, item ids for {module.Entries.Values.Count(e => e.ItemId is not null)}");
+    Console.WriteLine($"[{spec.Id}] {module.Entries.Count} entries with data ({filledByGarland} from Garland Tools, {legacy} legacy), unknown {missingBefore.Count} -> {missing.Count}, item ids for {module.Entries.Values.Count(e => e.ItemId is not null)}");
 }
 
 foreach (var category in unknownCategories)
@@ -378,7 +419,7 @@ static class Cli
     public static void Die(string message) => Fail<object>(message);
 }
 
-sealed record Options(string OutFile, string? GamePath, string? InputDir, bool NoGame, bool NoGarland)
+sealed record Options(string OutFile, string? GamePath, string? InputDir, bool NoGame, bool NoGarland, bool SheetsOnly)
 {
     public static Options Parse(string[] args)
     {
@@ -387,6 +428,7 @@ sealed record Options(string OutFile, string? GamePath, string? InputDir, bool N
         string? inputDir = null;
         var noGame = false;
         var noGarland = false;
+        var sheetsOnly = false;
 
         for (var i = 0; i < args.Length; i++)
         {
@@ -398,11 +440,12 @@ sealed record Options(string OutFile, string? GamePath, string? InputDir, bool N
                 case "--input-dir": inputDir = Next(); break;
                 case "--no-game": noGame = true; break;
                 case "--no-garland": noGarland = true; break;
+                case "--sheets-only": sheetsOnly = true; break;
                 default: Cli.Die($"Unknown argument {args[i]}"); break;
             }
         }
 
-        return new Options(outFile, gamePath, inputDir, noGame, noGarland);
+        return new Options(outFile, gamePath, inputDir, noGame, noGarland, sheetsOnly);
     }
 }
 

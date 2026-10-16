@@ -108,6 +108,7 @@
   "Unlock_Achievement": { "message": "Prestation", "description": "" },
   "Unlock_Duty": { "message": "Duty", "description": "" },
   "Unlock_Event": { "message": "Evenemang", "description": "" },
+  "Unlock_Legacy": { "message": "Legacy", "description": "" },
   "Unlock_Other": { "message": "Övrigt", "description": "" },
   "Unlock_Quest": { "message": "Uppdrag", "description": "" },
   "Unlock_Store": { "message": "Butik", "description": "" },

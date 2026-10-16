@@ -19,7 +19,8 @@ public class UnlockDatasetTests
                   { "category": "Quest", "text": "My Little Chocobo (Immortal Flames)" },
                   { "category": "Quest", "text": "My Little Chocobo (Maelstrom)" } ] },
                 "18": { "patch": "2.1", "itemId": 6990, "source": "Garland Tools", "sources": [ { "category": "Achievement", "text": "Jonathas - Old Gridania" } ] },
-                "99": { "sources": [ { "category": "Moon Cheese", "text": "???" } ] }
+                "99": { "sources": [ { "category": "Moon Cheese", "text": "???" } ] },
+                "100": { "source": "NekoDex", "sources": [ { "category": "Legacy", "text": "No item grants this." } ] }
               }
             }
           }
@@ -79,6 +80,18 @@ public class UnlockDatasetTests
 
         Assert.Equal(UnlockSourceType.Other, source!.Type);
         Assert.False(UnlockCategories.IsKnown("Moon Cheese"));
+    }
+
+    [Fact]
+    public void Legacy_entry_is_typed_legacy_and_not_obtainable()
+    {
+        var source = Provider().GetSource("mounts", new CollectionEntry(100, "Old Promo", 0));
+
+        Assert.NotNull(source);
+        Assert.Equal(UnlockSourceType.Legacy, source.Type);
+        Assert.False(source.IsUnknown);
+        Assert.False(UnlockAvailability.IsObtainable(source));
+        Assert.Equal("NekoDex, data 2026-10-16", source.Note);
     }
 
     [Fact]

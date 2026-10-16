@@ -47,6 +47,10 @@ public class EntryViewQueryTests
         Assert.True(UnlockAvailability.IsObtainable(mixed));
         Assert.False(UnlockAvailability.IsObtainable(legacy));
         Assert.True(UnlockAvailability.IsObtainable(UnlockSource.Unknown()));
+
+        var flagged = new UnlockSource(UnlockSourceType.Legacy, "s", Categories: ["Legacy"], Details: ["Legacy: nothing grants this"]);
+        Assert.False(UnlockAvailability.IsObtainable(flagged));
+        Assert.False(UnlockAvailability.IsObtainable(new UnlockSource(UnlockSourceType.Legacy, "s")));
     }
 
     [Fact]

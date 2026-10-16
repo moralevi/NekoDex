@@ -45,6 +45,7 @@ public static class UnlockCategories
         ["Gathering"] = UnlockSourceType.Other,
         ["Crafting"] = UnlockSourceType.Other,
         ["Other"] = UnlockSourceType.Other,
+        ["Legacy"] = UnlockSourceType.Legacy,
     };
 
     public static bool IsKnown(string category) => Map.ContainsKey(category);

@@ -56,7 +56,7 @@ Scope
 - DataGen gains `--sheets-only`: runs every module's sheet rule against the local game files with no network, as the patch-day smoke test. Recommendation from the developer: this is the cheap version of a plugin smoke test; a harness that boots the real modules would need a fake `IDataManager` and is not worth it yet.
 
 Gate
-- [ ] `--sheets-only` runs in under a minute and prints per-module counts.
+- [x] `--sheets-only` runs in under a minute and prints per-module counts.
 - [ ] Legacy entries show as not obtainable with a reason.
 
 ### Phase 22: Dashboard and mini window polish

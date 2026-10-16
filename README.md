@@ -94,7 +94,13 @@ In-game "how to get it" text comes from `src/NekoDex/Data/unlocks.json`, embedde
 dotnet run --project tools/DataGen
 ```
 
-The generator validates every entry against the local Mount sheet and exits non-zero with warnings if the API and the game disagree or a new source category appears. Mounts newer than the dataset fall back to the web link.
+The generator validates every entry against the local sheets and exits non-zero with warnings if the API and the game disagree or a new source category appears. Entries newer than the dataset fall back to the web link. Entries that no item grants and no site lists are recorded as Legacy and count as not obtainable.
+
+After a game patch, run the sheet rules alone as a smoke test (no network):
+
+```bash
+dotnet run --project tools/DataGen -- --sheets-only
+```
 
 ## Collections
 

@@ -13,7 +13,7 @@ public enum AvailabilityFilter
 /// </summary>
 public static class UnlockAvailability
 {
-    private static readonly HashSet<string> ClosedCategories = new(StringComparer.OrdinalIgnoreCase) { "Premium", "Event" };
+    private static readonly HashSet<string> ClosedCategories = new(StringComparer.OrdinalIgnoreCase) { "Premium", "Event", "Legacy" };
 
     public static bool IsObtainable(UnlockSource source)
     {
@@ -26,7 +26,7 @@ public static class UnlockAvailability
         if (categories is null || categories.Count == 0)
         {
             // Hand-written or game-data sources carry only a coarse type.
-            return source.Type is not (UnlockSourceType.Store or UnlockSourceType.Event);
+            return source.Type is not (UnlockSourceType.Store or UnlockSourceType.Event or UnlockSourceType.Legacy);
         }
 
         for (var i = 0; i < categories.Count; i++)
