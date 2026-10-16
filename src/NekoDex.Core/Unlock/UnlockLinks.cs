@@ -12,7 +12,7 @@ public static class UnlockLinks
 {
     /// <summary>
     /// Returns null when the site has no page for this entry. FFXIV Collect indexes by the game's row id;
-    /// Garland Tools indexes by item, so it needs <paramref name="itemId"/> except for modules whose entries are items already.
+    /// Garland Tools indexes by item, so it needs <paramref name="itemId"/>.
     /// </summary>
     public static string? BuildUrl(UnlockLinkSite site, string moduleId, uint entryId, uint? itemId = null)
     {
@@ -22,8 +22,7 @@ public static class UnlockLinks
                 return CollectSegment(moduleId) is { } segment ? $"https://ffxivcollect.com/{segment}/{entryId}" : null;
 
             case UnlockLinkSite.GarlandTools:
-                var item = moduleId is "armoire" or "items" ? entryId : itemId;
-                return item is { } id && id != 0 ? $"https://www.garlandtools.org/db/#item/{id}" : null;
+                return itemId is { } id && id != 0 ? $"https://www.garlandtools.org/db/#item/{id}" : null;
 
             default:
                 return null;

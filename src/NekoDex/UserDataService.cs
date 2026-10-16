@@ -5,7 +5,7 @@ using NekoDex.Core.Transfer;
 
 namespace NekoDex;
 
-/// <summary>Export and import of the user's own data (outfits, pins, checklist, auto item choices, dresser snapshots) as one JSON file.</summary>
+/// <summary>Export and import of the user's own data (pins, checklist, auto item choices) as one JSON file.</summary>
 public sealed class UserDataService
 {
     private readonly ConfigurationManager config;
@@ -21,21 +21,19 @@ public sealed class UserDataService
 
     public UserDataState State => new()
     {
-        Outfits = config.Current.Outfits,
         Pins = config.Current.Pins,
         Checklist = config.Current.Checklist,
         EnabledAutoItems = config.Current.EnabledAutoItems,
-        DresserSnapshots = config.Current.Dresser.Snapshots,
     };
 
-    public string DefaultFileName(bool outfitsOnly) => $"nekodex-{(outfitsOnly ? "outfits" : "data")}-{DateTime.Now:yyyy-MM-dd}.json";
+    public string DefaultFileName() => $"nekodex-data-{DateTime.Now:yyyy-MM-dd}.json";
 
     /// <summary>Writes the file; returns a message for the status line.</summary>
-    public string Export(string path, bool outfitsOnly)
+    public string Export(string path)
     {
         try
         {
-            var file = UserDataTransfer.Export(State, pluginVersion, DateTimeOffset.UtcNow, outfitsOnly);
+            var file = UserDataTransfer.Export(State, pluginVersion, DateTimeOffset.UtcNow);
             File.WriteAllText(path, UserDataTransfer.ToJson(file) + "\n");
             var counts = UserDataTransfer.Preview(file);
             log.Information("Exported user data to {Path}: {Counts}", path, counts);
@@ -68,7 +66,7 @@ public sealed class UserDataService
         config.Save();
         log.Information("Imported user data ({Mode}): {Counts}", mode, counts);
         return string.Format(
-            Strings.Get("Data_Imported", "Imported: {0} outfits, {1} pins, {2} checklist items, {3} auto items, {4} dresser snapshots"),
-            counts.Outfits, counts.Pins, counts.Checklist, counts.AutoItems, counts.Snapshots);
+            Strings.Get("Data_Imported", "Imported: {0} pins, {1} checklist items, {2} auto items"),
+            counts.Pins, counts.Checklist, counts.AutoItems);
     }
 }

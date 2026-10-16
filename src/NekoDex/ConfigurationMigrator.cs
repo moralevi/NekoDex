@@ -1,6 +1,4 @@
-using System;
 using Dalamud.Plugin.Services;
-using NekoDex.Core.Dresser;
 
 namespace NekoDex;
 
@@ -25,20 +23,8 @@ internal static class ConfigurationMigrator
                     break;
 
                 case 1:
-                    // v1 -> v2: the single Glamour Dresser snapshot becomes per character. We do not know whose it was,
-                    // so it waits in the legacy slot until a character logs in and adopts it.
-                    if (config.GlamourDresserItems is { Count: > 0 } items)
-                    {
-                        config.Dresser.Legacy = new DresserSnapshot
-                        {
-                            Items = items,
-                            CapturedAt = config.GlamourDresserCapturedAt ?? DateTimeOffset.UtcNow,
-                        };
-                        log.Information("Dresser snapshot of {Count} items parked for the next character to log in", items.Count);
-                    }
-
-                    config.GlamourDresserItems = null;
-                    config.GlamourDresserCapturedAt = null;
+                    // v1 -> v2 used to move the Glamour Dresser snapshot to per-character storage. That feature was
+                    // removed, so the old fields are simply ignored on load and vanish on save.
                     config.Version = 2;
                     break;
 

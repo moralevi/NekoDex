@@ -2,8 +2,6 @@ using System;
 using System.Collections.Generic;
 using Dalamud.Configuration;
 using NekoDex.Core.Checklist;
-using NekoDex.Core.Dresser;
-using NekoDex.Core.Outfits;
 using NekoDex.Core.Unlock;
 
 namespace NekoDex;
@@ -11,6 +9,7 @@ namespace NekoDex;
 /// <summary>
 /// Persisted settings. Add new fields with defaults freely; bump <see cref="CurrentVersion"/> and add a step
 /// in <see cref="ConfigurationMigrator"/> only when an existing field changes meaning or shape.
+/// Fields from removed features (outfits, dresser snapshots) are ignored on load and dropped on the next save.
 /// </summary>
 [Serializable]
 public sealed class Configuration : IPluginConfiguration
@@ -37,18 +36,6 @@ public sealed class Configuration : IPluginConfiguration
     /// <summary>Neko look on, or plain Dalamud styling.</summary>
     public bool UseNekoTheme { get; set; } = true;
 
-    /// <summary>Planned outfits.</summary>
-    public List<Outfit> Outfits { get; set; } = new();
-
     /// <summary>Starred entries per module id ("mounts" -> mount row ids). Shown first in their tab and in the mini window.</summary>
     public Dictionary<string, List<uint>> Pins { get; set; } = new();
-
-    /// <summary>Glamour Dresser contents per character (v2). The game only exposes them after the dresser is opened.</summary>
-    public DresserCache Dresser { get; set; } = new();
-
-    /// <summary>v1 single-character snapshot. Read only by the migration; empty afterwards.</summary>
-    public List<uint>? GlamourDresserItems { get; set; }
-
-    /// <summary>v1 companion of <see cref="GlamourDresserItems"/>.</summary>
-    public DateTimeOffset? GlamourDresserCapturedAt { get; set; }
 }

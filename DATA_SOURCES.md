@@ -4,13 +4,13 @@ Every external source NekoDex uses, with how it is used, its terms and the attri
 
 ## Game data (Lumina)
 
-- **What:** Excel sheets read from the player's own game installation through Dalamud's `IDataManager` (Mount, Companion, Orchestrion/OrchestrionUiparam, Cabinet and Item sheets: names, icons, order, slots). The generator in `tools/DataGen` reads the same sheets from the local install to validate the dataset and record the game version.
+- **What:** Excel sheets read from the player's own game installation through Dalamud's `IDataManager` (Mount, Companion, Orchestrion/OrchestrionUiparam, Emote, BuddyEquip, Ornament, GlassesStyle and TripleTriadCard sheets: names, icons, order). The generator in `tools/DataGen` reads the same sheets from the local install to validate the dataset and record the game version.
 - **Use:** entry lists and icons. Nothing is redistributed; the plugin reads whatever client the user has installed.
 - **Terms:** FINAL FANTASY XIV © SQUARE ENIX CO., LTD. Names and icons are displayed in the user's own client only.
 
 ## Character state (FFXIVClientStructs)
 
-- **What:** `PlayerState.IsMountUnlocked`, `PlayerState.IsOrchestrionRollUnlocked`, `UIState.IsCompanionUnlocked`, `UIState.Cabinet` (Armoire, only after it was opened), `MirageManager.PrismBoxItemIds` (Glamour Dresser, only after it was opened; the last list is cached in the plugin config) and `InventoryManager.GetInventoryItemCount`, all read from the running game's memory.
+- **What:** `PlayerState.IsMountUnlocked`, `PlayerState.IsOrchestrionRollUnlocked`, `UIState.IsCompanionUnlocked`, `UIState.IsEmoteUnlocked`, `UIState.IsTripleTriadCardUnlocked`, `CompanionInfo.IsBuddyEquipUnlocked`, `PlayerState.IsOrnamentUnlocked` and `PlayerState.IsGlassesStyleUnlocked`, plus roulette, tribal and Wondrous Tails state for the checklist, all read from the running game's memory.
 - **Use:** owned / missing status. Read-only; nothing is written.
 
 ## FFXIV Collect (https://ffxivcollect.com)

@@ -23,7 +23,6 @@ public sealed class Plugin : IDalamudPlugin
     private readonly MainWindow mainWindow;
     private readonly ConfigWindow configWindow;
     private readonly MiniWindow miniWindow;
-    private readonly GlamourDresserReader dresser;
     private readonly AutoChecklistController autoItems;
 
     // Services arrive through constructor injection; nothing in the plugin reaches for them statically.
@@ -47,13 +46,11 @@ public sealed class Plugin : IDalamudPlugin
         // Unlock info comes from the bundled dataset; anything it cannot answer becomes an explicit
         // Unknown with a web link for the configured site. Entries newer than the data also fall back to the link.
         var dataset = BundledUnlockDataset.Load(log);
-        var itemSources = new ItemSourceProvider(dataManager, log);
-        IUnlockSourceProvider[] providers = dataset is null ? [itemSources] : [dataset, itemSources];
+        IUnlockSourceProvider[] providers = dataset is null ? [] : [dataset];
         var unlockResolver = new UnlockResolver(providers, () => config.Current.LinkSite);
 
         // One tab per collection module. Adding a module means one line here plus its class in Data/.
         var pins = new PinController(config);
-        var armoire = new ArmoireModule(dataManager, log);
         CollectionTab[] tabs =
         [
             new(new MountModule(dataManager, clientState, log), textureProvider, unlockResolver, dataset, pins),
@@ -64,18 +61,8 @@ public sealed class Plugin : IDalamudPlugin
             new(new FashionAccessoryModule(dataManager, clientState, log), textureProvider, unlockResolver, dataset, pins),
             new(new FacewearModule(dataManager, log), textureProvider, unlockResolver, dataset, pins),
             new(new TriadCardModule(dataManager, log), textureProvider, unlockResolver, dataset, pins),
-            new(armoire, textureProvider, unlockResolver, dataset, pins),
         ];
         bool CharacterReady() => clientState.IsLoggedIn && playerState.IsLoaded;
-
-        // Outfit planner: item catalogue from the Item sheet, ownership from dresser snapshot, armoire and bags.
-        dresser = new GlamourDresserReader(config, playerState, log);
-        var gearCatalog = new GearCatalog(dataManager, log);
-        var itemOwnership = new ItemOwnershipSources(dresser, armoire);
-        var outfits = new OutfitsTab(config, gearCatalog, new StainCatalog(dataManager), itemOwnership, dresser, textureProvider);
-
-        // Gear advisor (Phase 7, simple scope): next upgrade by item level per slot for the current job and level.
-        var advisor = new AdvisorTab(playerState, gearCatalog, itemOwnership, unlockResolver, textureProvider, new TomestoneShopIndex(dataManager, log), CurrencyReader.Tomestones);
 
         // Resets are fixed in UTC, so the local clock is enough; the checklist controller stamps and clears with it.
         var checklist = new ChecklistController(config, () => DateTimeOffset.UtcNow);
@@ -86,7 +73,7 @@ public sealed class Plugin : IDalamudPlugin
         miniWindow = new MiniWindow(config, checklist, autoItems, tabs, pins, CharacterReady);
         var version = pluginInterface.Manifest.AssemblyVersion.ToString();
         configWindow = new ConfigWindow(config, miniWindow.SetShown, dataset, version, autoItems, new UserDataService(config, log, version));
-        mainWindow = new MainWindow(config, clientState, playerState, dashboard, tabs, outfits, advisor, navigation, configWindow.Toggle);
+        mainWindow = new MainWindow(config, clientState, playerState, dashboard, tabs, navigation, configWindow.Toggle);
         windowSystem.AddWindow(mainWindow);
         windowSystem.AddWindow(configWindow);
         windowSystem.AddWindow(miniWindow);
@@ -143,7 +130,6 @@ public sealed class Plugin : IDalamudPlugin
 
     private void OnLogin()
     {
-        dresser.Reset();
         autoItems.Reset();
         mainWindow.ResetCollections();
         if (config.Current.OpenMainWindowOnLogin)
@@ -156,7 +142,6 @@ public sealed class Plugin : IDalamudPlugin
 
     private void OnLogout(int type, int code)
     {
-        dresser.Reset();
         autoItems.Reset();
         mainWindow.ResetCollections();
     }

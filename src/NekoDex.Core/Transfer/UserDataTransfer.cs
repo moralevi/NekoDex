@@ -1,12 +1,10 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using NekoDex.Core.Checklist;
-using NekoDex.Core.Dresser;
-using NekoDex.Core.Outfits;
 
 namespace NekoDex.Core.Transfer;
 
-/// <summary>The export file. Every section is optional so an "outfits only" file can be shared without touching anything else on import.</summary>
+/// <summary>The export file. Every section is optional; unknown sections (from older exports) are ignored.</summary>
 public sealed class UserDataFile
 {
     public const int CurrentSchemaVersion = 1;
@@ -17,29 +15,21 @@ public sealed class UserDataFile
 
     public string PluginVersion { get; set; } = string.Empty;
 
-    public List<Outfit>? Outfits { get; set; }
-
     public Dictionary<string, List<uint>>? Pins { get; set; }
 
     public List<ChecklistItem>? Checklist { get; set; }
 
     public List<string>? EnabledAutoItems { get; set; }
-
-    public Dictionary<ulong, DresserSnapshot>? DresserSnapshots { get; set; }
 }
 
 /// <summary>Live references to the user's data, so applying an import mutates the configuration in place.</summary>
 public sealed class UserDataState
 {
-    public required List<Outfit> Outfits { get; init; }
-
     public required Dictionary<string, List<uint>> Pins { get; init; }
 
     public required List<ChecklistItem> Checklist { get; init; }
 
     public required List<string> EnabledAutoItems { get; init; }
-
-    public required Dictionary<ulong, DresserSnapshot> DresserSnapshots { get; init; }
 }
 
 public enum ImportMode
@@ -52,9 +42,9 @@ public enum ImportMode
 }
 
 /// <summary>What an import contains or did, per section.</summary>
-public sealed record SectionCounts(int Outfits, int Pins, int Checklist, int AutoItems, int Snapshots)
+public sealed record SectionCounts(int Pins, int Checklist, int AutoItems)
 {
-    public int Total => Outfits + Pins + Checklist + AutoItems + Snapshots;
+    public int Total => Pins + Checklist + AutoItems;
 }
 
 public static class UserDataTransfer
@@ -69,25 +59,14 @@ public static class UserDataTransfer
         Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
     };
 
-    public static UserDataFile Export(UserDataState state, string pluginVersion, DateTimeOffset now, bool outfitsOnly)
+    public static UserDataFile Export(UserDataState state, string pluginVersion, DateTimeOffset now) => new()
     {
-        var file = new UserDataFile
-        {
-            ExportedAt = now.ToUniversalTime().ToString("O"),
-            PluginVersion = pluginVersion,
-            Outfits = new List<Outfit>(state.Outfits),
-        };
-
-        if (!outfitsOnly)
-        {
-            file.Pins = state.Pins.ToDictionary(p => p.Key, p => new List<uint>(p.Value));
-            file.Checklist = new List<ChecklistItem>(state.Checklist);
-            file.EnabledAutoItems = new List<string>(state.EnabledAutoItems);
-            file.DresserSnapshots = new Dictionary<ulong, DresserSnapshot>(state.DresserSnapshots);
-        }
-
-        return file;
-    }
+        ExportedAt = now.ToUniversalTime().ToString("O"),
+        PluginVersion = pluginVersion,
+        Pins = state.Pins.ToDictionary(p => p.Key, p => new List<uint>(p.Value)),
+        Checklist = new List<ChecklistItem>(state.Checklist),
+        EnabledAutoItems = new List<string>(state.EnabledAutoItems),
+    };
 
     public static string ToJson(UserDataFile file) => JsonSerializer.Serialize(file, Options);
 
@@ -118,39 +97,16 @@ public static class UserDataTransfer
     }
 
     public static SectionCounts Preview(UserDataFile file) => new(
-        file.Outfits?.Count ?? 0,
         file.Pins?.Sum(p => p.Value.Count) ?? 0,
         file.Checklist?.Count ?? 0,
-        file.EnabledAutoItems?.Count ?? 0,
-        file.DresserSnapshots?.Count ?? 0);
+        file.EnabledAutoItems?.Count ?? 0);
 
     /// <summary>Applies the file to the live state and returns how many entries were added or replaced per section.</summary>
     public static SectionCounts Apply(UserDataState target, UserDataFile file, ImportMode mode)
     {
-        var outfits = 0;
         var pins = 0;
         var checklist = 0;
         var auto = 0;
-        var snapshots = 0;
-
-        if (file.Outfits is { } fileOutfits)
-        {
-            if (mode == ImportMode.Replace)
-            {
-                target.Outfits.Clear();
-            }
-
-            foreach (var outfit in fileOutfits)
-            {
-                if (target.Outfits.Any(o => o.Id == outfit.Id))
-                {
-                    continue;
-                }
-
-                target.Outfits.Add(outfit);
-                outfits++;
-            }
-        }
 
         if (file.Pins is { } filePins)
         {
@@ -213,25 +169,6 @@ public static class UserDataTransfer
             }
         }
 
-        if (file.DresserSnapshots is { } fileSnapshots)
-        {
-            if (mode == ImportMode.Replace)
-            {
-                target.DresserSnapshots.Clear();
-            }
-
-            foreach (var (contentId, snapshot) in fileSnapshots)
-            {
-                if (target.DresserSnapshots.ContainsKey(contentId))
-                {
-                    continue;
-                }
-
-                target.DresserSnapshots[contentId] = snapshot;
-                snapshots++;
-            }
-        }
-
-        return new SectionCounts(outfits, pins, checklist, auto, snapshots);
+        return new SectionCounts(pins, checklist, auto);
     }
 }

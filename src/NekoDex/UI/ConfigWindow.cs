@@ -1,13 +1,11 @@
 using System;
+using System.IO;
 using System.Numerics;
 using Dalamud.Bindings.ImGui;
-using Dalamud.Interface;
-using Dalamud.Interface.Components;
+using Dalamud.Interface.ImGuiFileDialog;
 using Dalamud.Interface.Utility;
 using Dalamud.Interface.Utility.Raii;
 using Dalamud.Interface.Windowing;
-using System.IO;
-using Dalamud.Interface.ImGuiFileDialog;
 using NekoDex.Core.Transfer;
 using NekoDex.Core.Unlock;
 
@@ -103,64 +101,16 @@ public sealed class ConfigWindow : ThemedWindow
 
         Hint(Strings.Get("Config_LinkSiteHint", "Used by the open-on-web buttons. Falls back to the other site when one has no page for an entry."));
 
-        Section(Strings.Get("Config_Characters", "Characters"));
-
-        Hint(Strings.Get("Config_CharactersHint", "Glamour Dresser snapshots kept per character. Forget one to delete its data."));
-        if (current.Dresser.Snapshots.Count == 0)
-        {
-            Hint(Strings.Get("Config_NoCharacters", "None yet."));
-        }
-
-        ulong? forget = null;
-        foreach (var (contentId, snapshot) in current.Dresser.Snapshots)
-        {
-            using var id = ImRaii.PushId(contentId.ToString());
-            if (ImGuiComponents.IconButton(FontAwesomeIcon.Trash))
-            {
-                forget = contentId;
-            }
-
-            if (ImGui.IsItemHovered())
-            {
-                ImGui.SetTooltip(Strings.Get("Config_Forget", "Forget this character"));
-            }
-
-            ImGui.SameLine();
-            ImGui.AlignTextToFramePadding();
-            ImGui.Text(string.Format(
-                Strings.Get("Config_CharacterRow", "{0}: {1} dresser items as of {2:d}"),
-                snapshot.CharacterName ?? contentId.ToString(),
-                snapshot.Items.Count,
-                snapshot.CapturedAt.ToLocalTime()));
-        }
-
-        if (forget is { } gone && current.Dresser.Forget(gone))
-        {
-            config.Save();
-        }
-
         Section(Strings.Get("Config_Data", "Your data"));
 
-        Hint(Strings.Get("Config_DataHint", "Outfits, pins, checklist, auto item choices and dresser snapshots as one JSON file."));
-        if (ImGui.Button(Strings.Get("Data_ExportAll", "Export all...")))
+        Hint(Strings.Get("Config_DataHint", "Pins, checklist and auto item choices as one JSON file."));
+        if (ImGui.Button(Strings.Get("Data_Export", "Export...")))
         {
-            fileDialogs.SaveFileDialog(Strings.Get("Data_ExportTitle", "Export NekoDex data"), ".json", userData.DefaultFileName(false), ".json", (ok, path) =>
+            fileDialogs.SaveFileDialog(Strings.Get("Data_ExportTitle", "Export NekoDex data"), ".json", userData.DefaultFileName(), ".json", (ok, path) =>
             {
                 if (ok)
                 {
-                    dataStatus = userData.Export(path, false);
-                }
-            });
-        }
-
-        ImGui.SameLine();
-        if (ImGui.Button(Strings.Get("Data_ExportOutfits", "Export outfits only...")))
-        {
-            fileDialogs.SaveFileDialog(Strings.Get("Data_ExportOutfitsTitle", "Export NekoDex outfits"), ".json", userData.DefaultFileName(true), ".json", (ok, path) =>
-            {
-                if (ok)
-                {
-                    dataStatus = userData.Export(path, true);
+                    dataStatus = userData.Export(path);
                 }
             });
         }
@@ -186,8 +136,8 @@ public sealed class ConfigWindow : ThemedWindow
         {
             var counts = UserDataTransfer.Preview(pending);
             Hint(string.Format(
-                Strings.Get("Data_Preview", "{0} contains {1} outfits, {2} pins, {3} checklist items, {4} auto items, {5} dresser snapshots (exported by NekoDex {6})."),
-                pendingImportName, counts.Outfits, counts.Pins, counts.Checklist, counts.AutoItems, counts.Snapshots, pending.PluginVersion));
+                Strings.Get("Data_Preview", "{0} contains {1} pins, {2} checklist items, {3} auto items (exported by NekoDex {4})."),
+                pendingImportName, counts.Pins, counts.Checklist, counts.AutoItems, pending.PluginVersion));
 
             using (ImRaii.PushIndent(20f * ImGuiHelpers.GlobalScale))
             {

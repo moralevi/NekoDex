@@ -1,5 +1,9 @@
 # Changelog
 
+## Removed before first release (2026-10-16)
+
+By decision: the Armoire tab, the outfit planner (dresser snapshots, dyes, plate import) and the gear advisor (tomestone prices). The plugin is a collection tracker with unlock info, pins, resets and a checklist. Old config fields and old export sections are ignored.
+
 ## 1.3.0 (in progress)
 
 - "New in patch X" filter on every collection tab and a Dashboard section with per-collection counts that opens the tab filtered.

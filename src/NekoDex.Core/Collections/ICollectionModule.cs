@@ -15,7 +15,7 @@ public interface ICollectionModule
 
     /// <summary>
     /// Null when ownership can be read right now; otherwise a sentence telling the user what to do
-    /// (e.g. "Open the Armoire once this session"). Entries may still be listed while unavailable.
+    /// (e.g. "Open the window once this session"). Entries may still be listed while unavailable.
     /// </summary>
     string? UnavailableReason { get; }
 

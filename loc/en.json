@@ -1,52 +1,4 @@
 {
-  "Advisor_Empty": {
-    "message": "(empty)",
-    "description": ""
-  },
-  "Advisor_Equipped": {
-    "message": "Equipped",
-    "description": ""
-  },
-  "Advisor_Header": {
-    "message": "{0} level {1}, average item level {2}",
-    "description": ""
-  },
-  "Advisor_Hint": {
-    "message": "Highest item level you can equip now per slot. Hover a suggestion for runners-up.",
-    "description": ""
-  },
-  "Advisor_NoJob": {
-    "message": "No job detected.",
-    "description": ""
-  },
-  "Advisor_Owned": {
-    "message": "You have it ({0})",
-    "description": ""
-  },
-  "Advisor_RunnersUp": {
-    "message": "Also:",
-    "description": ""
-  },
-  "Advisor_Source": {
-    "message": "Source",
-    "description": ""
-  },
-  "Advisor_UpToDate": {
-    "message": "Nothing better available",
-    "description": ""
-  },
-  "Advisor_Upgrade": {
-    "message": "Next upgrade",
-    "description": ""
-  },
-  "Armoire_NotLoaded": {
-    "message": "Open the Armoire (at an inn) once this session to load its contents.",
-    "description": ""
-  },
-  "Armoire_NotLoadedShort": {
-    "message": "Armoire: not loaded this session; open it once at an inn.",
-    "description": ""
-  },
   "Auto_Badge": {
     "message": "auto",
     "description": ""
@@ -155,24 +107,16 @@
     "message": "Read from the game; they tick themselves.",
     "description": ""
   },
-  "Config_CharacterRow": {
-    "message": "{0}: {1} dresser items as of {2:d}",
+  "Config_Data": {
+    "message": "Your data",
     "description": ""
   },
-  "Config_Characters": {
-    "message": "Characters",
-    "description": ""
-  },
-  "Config_CharactersHint": {
-    "message": "Glamour Dresser snapshots kept per character. Forget one to delete its data.",
+  "Config_DataHint": {
+    "message": "Pins, checklist and auto item choices as one JSON file.",
     "description": ""
   },
   "Config_Dataset": {
     "message": "Unlock data {0} from {1}, for game {2}",
-    "description": ""
-  },
-  "Config_Forget": {
-    "message": "Forget this character",
     "description": ""
   },
   "Config_General": {
@@ -199,10 +143,6 @@
     "message": "Off uses your Dalamud style unchanged. Applies immediately.",
     "description": ""
   },
-  "Config_NoCharacters": {
-    "message": "None yet.",
-    "description": ""
-  },
   "Config_NoDataset": {
     "message": "Bundled unlock data: unavailable",
     "description": ""
@@ -227,6 +167,26 @@
     "message": "Checklist",
     "description": ""
   },
+  "Dashboard_New": {
+    "message": "New this patch",
+    "description": ""
+  },
+  "Dashboard_NewHint": {
+    "message": "Open the tab filtered to this patch.",
+    "description": ""
+  },
+  "Dashboard_NewNone": {
+    "message": "Nothing to show; the unlock data has no patch information for the loaded collections.",
+    "description": ""
+  },
+  "Dashboard_NewRow": {
+    "message": "{0}: {1} new in {2}, {3} missing",
+    "description": ""
+  },
+  "Dashboard_NewRowDone": {
+    "message": "{0}: {1} new in {2}, all owned",
+    "description": ""
+  },
   "Dashboard_Progress": {
     "message": "Collections",
     "description": ""
@@ -237,6 +197,58 @@
   },
   "Dashboard_Unavailable": {
     "message": "not loaded",
+    "description": ""
+  },
+  "Data_Apply": {
+    "message": "Apply import",
+    "description": ""
+  },
+  "Data_Cancel": {
+    "message": "Cancel",
+    "description": ""
+  },
+  "Data_Export": {
+    "message": "Export...",
+    "description": ""
+  },
+  "Data_ExportFailed": {
+    "message": "Export failed: {0}",
+    "description": ""
+  },
+  "Data_ExportTitle": {
+    "message": "Export NekoDex data",
+    "description": ""
+  },
+  "Data_Exported": {
+    "message": "Exported {0} entries to {1}",
+    "description": ""
+  },
+  "Data_Import": {
+    "message": "Import...",
+    "description": ""
+  },
+  "Data_ImportRefused": {
+    "message": "Cannot import {0}: {1}",
+    "description": ""
+  },
+  "Data_ImportTitle": {
+    "message": "Import NekoDex data",
+    "description": ""
+  },
+  "Data_Imported": {
+    "message": "Imported: {0} pins, {1} checklist items, {2} auto items",
+    "description": ""
+  },
+  "Data_Merge": {
+    "message": "Merge (keep mine on conflicts)",
+    "description": ""
+  },
+  "Data_Preview": {
+    "message": "{0} contains {1} pins, {2} checklist items, {3} auto items (exported by NekoDex {4}).",
+    "description": ""
+  },
+  "Data_Replace": {
+    "message": "Replace sections in the file",
     "description": ""
   },
   "Detail_DataFooter": {
@@ -259,24 +271,12 @@
     "message": "Patch {0}",
     "description": ""
   },
+  "Detail_PatchNew": {
+    "message": "New in patch {0}",
+    "description": ""
+  },
   "Detail_UseWeb": {
     "message": "Use the web link above to look it up.",
-    "description": ""
-  },
-  "Dresser_Never": {
-    "message": "Glamour Dresser: not read yet; open it once so its contents count as owned.",
-    "description": ""
-  },
-  "Dresser_Snapshot": {
-    "message": "Glamour Dresser: {0} items as of {1:g}{2}",
-    "description": ""
-  },
-  "Dresser_Stale": {
-    "message": " (open the dresser to refresh)",
-    "description": ""
-  },
-  "Dye_None": {
-    "message": "No dye",
     "description": ""
   },
   "Filter_All": {
@@ -287,28 +287,16 @@
     "message": "Missing",
     "description": ""
   },
+  "Filter_NewInPatch": {
+    "message": "New in {0}",
+    "description": ""
+  },
   "Filter_Owned": {
     "message": "Owned",
     "description": ""
   },
-  "ItemSource_Craft": {
-    "message": "Crafted by {0}",
-    "description": ""
-  },
-  "ItemSource_GilShop": {
-    "message": "Sold by a gil vendor",
-    "description": ""
-  },
-  "ItemSource_Note": {
-    "message": "From game data (recipes and gil shops).",
-    "description": ""
-  },
   "Mini_WorkingOn": {
     "message": "Working on",
-    "description": ""
-  },
-  "Module_Armoire": {
-    "message": "Armoire",
     "description": ""
   },
   "Module_Bardings": {
@@ -341,122 +329,6 @@
   },
   "Module_Triad": {
     "message": "Triple Triad",
-    "description": ""
-  },
-  "Outfit_Add": {
-    "message": "Add outfit",
-    "description": ""
-  },
-  "Outfit_Clear": {
-    "message": "Clear slot",
-    "description": ""
-  },
-  "Outfit_Complete": {
-    "message": "You have every item.",
-    "description": ""
-  },
-  "Outfit_Delete": {
-    "message": "Delete outfit",
-    "description": ""
-  },
-  "Outfit_DyeMatch": {
-    "message": "(this dye)",
-    "description": ""
-  },
-  "Outfit_DyeOther": {
-    "message": "(other dye)",
-    "description": ""
-  },
-  "Outfit_Dyes": {
-    "message": "Dyes",
-    "description": ""
-  },
-  "Outfit_Empty": {
-    "message": "Nothing planned yet. Pick items per slot below, or fill from your gear or a glamour plate.",
-    "description": ""
-  },
-  "Outfit_FillGear": {
-    "message": "Fill from current gear",
-    "description": ""
-  },
-  "Outfit_FillGearHint": {
-    "message": "Replaces every slot with what you are wearing now.",
-    "description": ""
-  },
-  "Outfit_FillPlate": {
-    "message": "Fill from glamour plate",
-    "description": ""
-  },
-  "Outfit_Item": {
-    "message": "Item",
-    "description": ""
-  },
-  "Outfit_ItemTooltip": {
-    "message": "Item {0}, level {1}, {2}",
-    "description": ""
-  },
-  "Outfit_MissingCount": {
-    "message": "{0} of {1} items missing",
-    "description": ""
-  },
-  "Outfit_NewHint": {
-    "message": "New outfit name",
-    "description": ""
-  },
-  "Outfit_None": {
-    "message": "No outfits yet.",
-    "description": ""
-  },
-  "Outfit_Pick": {
-    "message": "Pick an item",
-    "description": ""
-  },
-  "Outfit_PickFor": {
-    "message": "Pick for {0}",
-    "description": ""
-  },
-  "Outfit_PickerTruncated": {
-    "message": "Showing the newest matches only; type more to narrow down.",
-    "description": ""
-  },
-  "Outfit_PlateEmpty": {
-    "message": "Plate {0} (empty)",
-    "description": ""
-  },
-  "Outfit_PlateLabel": {
-    "message": "Plate {0}: {1}",
-    "description": ""
-  },
-  "Outfit_PlatesNotLoaded": {
-    "message": "Open the Glamour Dresser once this session to load your plates.",
-    "description": ""
-  },
-  "Outfit_SelectHint": {
-    "message": "Select or add an outfit.",
-    "description": ""
-  },
-  "Outfit_Slot": {
-    "message": "Slot",
-    "description": ""
-  },
-  "Outfit_UnknownItem": {
-    "message": "Unknown item {0}",
-    "description": ""
-  },
-  "Outfit_Where": {
-    "message": "Where",
-    "description": ""
-  },
-  "Own_Armoire": {
-    "message": "Armoire",
-    "description": ""
-  },
-  "Own_Dresser": {
-    "message": "Dresser",
-    "description": ""
-  },
-  "Own_Inventory": {
-    "message": "Bags",
     "description": ""
   },
   "Pin_Add": {
@@ -503,54 +375,6 @@
     "message": "Search",
     "description": ""
   },
-  "Slot_Body": {
-    "message": "Body",
-    "description": ""
-  },
-  "Slot_Ears": {
-    "message": "Ears",
-    "description": ""
-  },
-  "Slot_Feet": {
-    "message": "Feet",
-    "description": ""
-  },
-  "Slot_Hands": {
-    "message": "Hands",
-    "description": ""
-  },
-  "Slot_Head": {
-    "message": "Head",
-    "description": ""
-  },
-  "Slot_Legs": {
-    "message": "Legs",
-    "description": ""
-  },
-  "Slot_MainHand": {
-    "message": "Main hand",
-    "description": ""
-  },
-  "Slot_Neck": {
-    "message": "Neck",
-    "description": ""
-  },
-  "Slot_OffHand": {
-    "message": "Off hand",
-    "description": ""
-  },
-  "Slot_RingLeft": {
-    "message": "Ring (L)",
-    "description": ""
-  },
-  "Slot_RingRight": {
-    "message": "Ring (R)",
-    "description": ""
-  },
-  "Slot_Wrists": {
-    "message": "Wrists",
-    "description": ""
-  },
   "Sort_MissingFirst": {
     "message": "Missing first",
     "description": ""
@@ -571,16 +395,8 @@
     "message": "Owned",
     "description": ""
   },
-  "Tab_Advisor": {
-    "message": "Gear",
-    "description": ""
-  },
   "Tab_Dashboard": {
     "message": "Dashboard",
-    "description": ""
-  },
-  "Tab_Outfits": {
-    "message": "Outfits",
     "description": ""
   },
   "Table_Empty": {
@@ -589,10 +405,6 @@
   },
   "Tooltip_OpenOnWeb": {
     "message": "Open on {0}",
-    "description": ""
-  },
-  "Tooltip_OpenOnWebShort": {
-    "message": "Open on web",
     "description": ""
   },
   "Tooltip_Settings": {

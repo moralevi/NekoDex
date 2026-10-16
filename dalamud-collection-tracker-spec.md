@@ -1,6 +1,6 @@
 # FFXIV Dalamud Plugin: Collection Tracker (working name: NekoDex)
 
-Status: Phases 0-7 gates passed 2026-10-16. Phase 8 built (theme and fresh-install gates pending; fresh install needs the GitHub repo public). Phases 9 to 17 gates passed; Phase 18 built, in-game gate pending. Remaining before a public release: Phase 8 theme-leak check, screenshots, repo public, first tag, FFXIV Collect redistribution answer. Target: friends first, public custom repo later.
+Status: Phases 0-7 gates passed 2026-10-16. Phase 8 built (theme and fresh-install gates pending; fresh install needs the GitHub repo public). Phases 9 to 17 gates passed. **2026-10-16, user decision: the Armoire module, the outfit planner (Phases 6b, 9, 13) and the gear advisor (Phases 7, 18) were removed from the plugin; their sections below stay as history. Phase 19 (dresser capacity) is dropped with them.** Remaining before a public release: Phase 8 theme-leak check, screenshots, repo public, first tag, FFXIV Collect redistribution answer. Target: friends first, public custom repo later.
 Stack: C#/.NET, Dalamud.NET.Sdk, ImGui (via Dalamud's ImGui bindings), Lumina, FFXIVClientStructs.
 Method: phased, each phase has gate criteria. Do not start a phase until the previous gate passes.
 
@@ -379,7 +379,7 @@ Gate
 
 ---
 
-## Phase 19: Dresser capacity warning
+## Phase 19: Dresser capacity warning (dropped 2026-10-16 with the outfit planner)
 
 Scope
 - Outfits footer and Dashboard show dresser usage against the 800-item limit from the live read or the snapshot, with a warning colour above a threshold set in settings (default 760).
