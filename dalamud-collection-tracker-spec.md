@@ -1,6 +1,6 @@
 # FFXIV Dalamud Plugin: Collection Tracker (working name: NekoDex)
 
-Status: Phases 0-2 gates passed 2026-10-16. Phase 3 built, in-game gate pending. Target: friends first, public custom repo later.
+Status: Phases 0-3 gates passed 2026-10-16. Phase 4 built, in-game gate pending. Target: friends first, public custom repo later.
 Stack: C#/.NET, Dalamud.NET.Sdk, ImGui (via Dalamud's ImGui bindings), Lumina, FFXIVClientStructs.
 Method: phased, each phase has gate criteria. Do not start a phase until the previous gate passes.
 
@@ -104,10 +104,10 @@ Scope
 - Licensing check recorded in the repo (`DATA_SOURCES.md`): where each dataset comes from, its license, and attribution requirements.
 
 Gate
-- [ ] Every missing mount shows either a link or an explicit "unknown".
-- [ ] Links open the right page for 10 spot-checked mounts.
-- [ ] Provider interface has a stub in-game provider implementation proving the UI can render text without links.
-- [ ] `DATA_SOURCES.md` exists and covers every external source used.
+- [x] Every missing mount shows either a link or an explicit "unknown".
+- [x] Links open the right page for 10 spot-checked mounts.
+- [x] Provider interface has a stub in-game provider implementation proving the UI can render text without links.
+- [x] `DATA_SOURCES.md` exists and covers every external source used.
 
 ---
 

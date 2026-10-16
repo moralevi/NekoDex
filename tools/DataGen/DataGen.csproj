@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!--
+    Generates src/NekoDex/Data/unlocks.json from FFXIV Collect's public API, validated against the
+    local game's Excel sheets. Run from the repo root:  dotnet run (with the project set to tools/DataGen)
+  -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>NekoDex.DataGen</RootNamespace>
+    <IsPackable>false</IsPackable>
+    <InvariantGlobalization>true</InvariantGlobalization>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\NekoDex.Core\NekoDex.Core.csproj" />
+  </ItemGroup>
+
+  <!-- Lumina ships with Dalamud; reuse the copy XIVLauncher downloaded rather than pinning a NuGet version that may lag the game. -->
+  <PropertyGroup>
+    <DalamudLibPath Condition="'$(DalamudLibPath)' == '' AND '$(DALAMUD_HOME)' != ''">$(DALAMUD_HOME)\</DalamudLibPath>
+    <DalamudLibPath Condition="'$(DalamudLibPath)' == ''">$(APPDATA)\XIVLauncher\addon\Hooks\dev\</DalamudLibPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Lumina"><HintPath>$(DalamudLibPath)Lumina.dll</HintPath></Reference>
+    <Reference Include="Lumina.Excel"><HintPath>$(DalamudLibPath)Lumina.Excel.dll</HintPath></Reference>
+  </ItemGroup>
+</Project>

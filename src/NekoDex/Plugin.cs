@@ -41,14 +41,16 @@ public sealed class Plugin : IDalamudPlugin
         Strings.Setup();
         config = new ConfigurationManager(pluginInterface, log);
 
-        // Unlock info: hand-verified entries first, the bundled dataset (Phase 4) slots in after them;
-        // anything unanswered becomes an explicit Unknown with a web link for the configured site.
-        var unlockResolver = new UnlockResolver([KnownUnlocks.Create()], () => config.Current.LinkSite);
+        // Unlock info comes from the bundled dataset; anything it cannot answer becomes an explicit
+        // Unknown with a web link for the configured site. Entries newer than the data also fall back to the link.
+        var dataset = BundledUnlockDataset.Load(log);
+        IUnlockSourceProvider[] providers = dataset is null ? [] : [dataset];
+        var unlockResolver = new UnlockResolver(providers, () => config.Current.LinkSite);
 
         // One tab per collection module. Adding a module means one line here plus its class in Data/.
         CollectionTab[] tabs =
         [
-            new(new MountModule(dataManager, clientState, log), textureProvider, unlockResolver),
+            new(new MountModule(dataManager, clientState, log), textureProvider, unlockResolver, dataset),
         ];
 
         configWindow = new ConfigWindow(config);

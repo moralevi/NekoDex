@@ -1,0 +1,3481 @@
+{
+  "schemaVersion": 1,
+  "dataVersion": "2026-10-16",
+  "gameVersion": "2026.10.06.0000.0000",
+  "source": "FFXIV Collect",
+  "modules": {
+    "mounts": {
+      "maxEntryId": 446,
+      "entries": {
+        "1": {
+          "patch": "2.0",
+          "sources": [
+            {
+              "category": "Quest",
+              "text": "My Little Chocobo (Immortal Flames)"
+            },
+            {
+              "category": "Quest",
+              "text": "My Little Chocobo (Maelstrom)"
+            },
+            {
+              "category": "Quest",
+              "text": "My Little Chocobo (Twin Adder)"
+            }
+          ]
+        },
+        "4": {
+          "patch": "2.0",
+          "sources": [
+            {
+              "category": "Other",
+              "text": "At level 30 or above, speak with the Wandering Minstrel in Eastern La Noscea (Final Fantasy XIV 1.0)"
+            }
+          ]
+        },
+        "5": {
+          "patch": "2.0",
+          "sources": [
+            {
+              "category": "Other",
+              "text": "Legacy Campaign"
+            }
+          ]
+        },
+        "6": {
+          "patch": "2.0",
+          "sources": [
+            {
+              "category": "Quest",
+              "text": "The Ultimate Weapon"
+            }
+          ]
+        },
+        "8": {
+          "patch": "2.0",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "A Realm Reborn Collector's Edition"
+            }
+          ]
+        },
+        "9": {
+          "patch": "2.0",
+          "sources": [
+            {
+              "category": "Achievement",
+              "text": "Jonathas - Old Gridania - 6 Achievement Certificates"
+            }
+          ]
+        },
+        "15": {
+          "patch": "2.0",
+          "sources": [
+            {
+              "category": "Quest",
+              "text": "Unicorn Power"
+            }
+          ]
+        },
+        "18": {
+          "patch": "2.1",
+          "sources": [
+            {
+              "category": "Achievement",
+              "text": "Jonathas - Old Gridania - 6 Achievement Certificates"
+            }
+          ]
+        },
+        "19": {
+          "patch": "2.1",
+          "sources": [
+            {
+              "category": "Tribal",
+              "text": "Amalj'aa Vendor - Ring of Ash (Southern Thanalan) - 120,000 Gil (Rank 4)"
+            }
+          ]
+        },
+        "20": {
+          "patch": "2.1",
+          "sources": [
+            {
+              "category": "Tribal",
+              "text": "Sylphic Vendor - Little Solace (East Shroud) - 120,000 Gil (Rank 4)"
+            }
+          ]
+        },
+        "21": {
+          "patch": "2.1",
+          "sources": [
+            {
+              "category": "Achievement",
+              "text": "Everybody's Darling"
+            }
+          ]
+        },
+        "22": {
+          "patch": "2.1",
+          "sources": [
+            {
+              "category": "Trial",
+              "text": "The Bowl of Embers (Extreme)"
+            },
+            {
+              "category": "Trial",
+              "text": "The Howling Eye (Extreme)"
+            },
+            {
+              "category": "Trial",
+              "text": "The Navel (Extreme)"
+            }
+          ]
+        },
+        "25": {
+          "patch": "2.2",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "A Realm Reborn Collector's Edition"
+            }
+          ]
+        },
+        "26": {
+          "patch": "2.2",
+          "sources": [
+            {
+              "category": "Tribal",
+              "text": "Sahagin Vendor - Novv's Nursery (Western La Noscea) - 120,000 Gil (Rank 4)"
+            }
+          ]
+        },
+        "27": {
+          "patch": "2.2",
+          "sources": [
+            {
+              "category": "Tribal",
+              "text": "Kobold Vendor - 789th Order Dig (Outer La Noscea) - 120,000 Gil (Rank 4)"
+            }
+          ]
+        },
+        "28": {
+          "patch": "2.2",
+          "sources": [
+            {
+              "category": "Trial",
+              "text": "The Bowl of Embers (Extreme)"
+            }
+          ]
+        },
+        "29": {
+          "patch": "2.2",
+          "sources": [
+            {
+              "category": "Trial",
+              "text": "The Howling Eye (Extreme)"
+            }
+          ]
+        },
+        "30": {
+          "patch": "2.2",
+          "sources": [
+            {
+              "category": "Trial",
+              "text": "The Navel (Extreme)"
+            }
+          ]
+        },
+        "31": {
+          "patch": "2.2",
+          "sources": [
+            {
+              "category": "Trial",
+              "text": "The *Whorleater* (Extreme)"
+            }
+          ]
+        },
+        "32": {
+          "patch": "2.2",
+          "sources": [
+            {
+              "category": "Achievement",
+              "text": "But Somebody's Gotta Do It (Paladin)"
+            }
+          ]
+        },
+        "33": {
+          "patch": "2.2",
+          "sources": [
+            {
+              "category": "Achievement",
+              "text": "But Somebody's Gotta Do It (Warrior)"
+            }
+          ]
+        },
+        "34": {
+          "patch": "2.3",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Recruit a Friend Campaign reward"
+            }
+          ]
+        },
+        "35": {
+          "patch": "2.35",
+          "sources": [
+            {
+              "category": "Tribal",
+              "text": "Ixali Vendor - Ehcatl (North Shroud) - 120,000 Gil (Rank 7)"
+            }
+          ]
+        },
+        "36": {
+          "patch": "2.3",
+          "sources": [
+            {
+              "category": "Achievement",
+              "text": "A Line in the Storm IV"
+            }
+          ]
+        },
+        "37": {
+          "patch": "2.3",
+          "sources": [
+            {
+              "category": "Achievement",
+              "text": "A Line in the Glade IV"
+            }
+          ]
+        },
+        "38": {
+          "patch": "2.3",
+          "sources": [
+            {
+              "category": "Achievement",
+              "text": "A Line in the Sand IV"
+            }
+          ]
+        },
+        "40": {
+          "patch": "2.3",
+          "sources": [
+            {
+              "category": "Trial",
+              "text": "The Striking Tree (Extreme)"
+            }
+          ]
+        },
+        "41": {
+          "patch": "2.45",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Ceremony of Eternal Bonding (Gold/Platinum)"
+            }
+          ]
+        },
+        "42": {
+          "patch": "2.38",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "43": {
+          "patch": "2.4",
+          "sources": [
+            {
+              "category": "Trial",
+              "text": "The Akh Afah Amphitheatre (Extreme)"
+            }
+          ]
+        },
+        "44": {
+          "patch": "2.4",
+          "sources": [
+            {
+              "category": "Achievement",
+              "text": "Leaving a Better Impression II"
+            }
+          ]
+        },
+        "45": {
+          "patch": "3.0",
+          "sources": [
+            {
+              "category": "Quest",
+              "text": "Divine Intervention"
+            }
+          ]
+        },
+        "46": {
+          "patch": "2.51",
+          "sources": [
+            {
+              "category": "Gold Saucer",
+              "text": "200,000 MGP"
+            }
+          ]
+        },
+        "47": {
+          "patch": "2.5",
+          "sources": [
+            {
+              "category": "Quest",
+              "text": "A Legend for a Legend"
+            }
+          ]
+        },
+        "48": {
+          "patch": "2.5",
+          "sources": [
+            {
+              "category": "Achievement",
+              "text": "Behind Enemy Lines I"
+            }
+          ]
+        },
+        "49": {
+          "patch": "2.51",
+          "sources": [
+            {
+              "category": "Gold Saucer",
+              "text": "1,000,000 MGP"
+            }
+          ]
+        },
+        "50": {
+          "patch": "3.0",
+          "sources": [
+            {
+              "category": "Quest",
+              "text": "Fetters of Lament"
+            }
+          ]
+        },
+        "52": {
+          "patch": "3.0",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Calamity Salvager - 8 Gold Chocobo Feathers (Recruit a Friend Campaign)"
+            }
+          ]
+        },
+        "53": {
+          "patch": "3.1",
+          "sources": [
+            {
+              "category": "Tribal",
+              "text": "Luna Vanu - Ok' Gundu Nakki (The Sea of Clouds) - 200,000 Gil (Rank 7)"
+            }
+          ]
+        },
+        "54": {
+          "patch": "3.0",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Heavensward Collector's Edition"
+            }
+          ]
+        },
+        "55": {
+          "patch": "3.0",
+          "sources": [
+            {
+              "category": "Quest",
+              "text": "Into the Aery"
+            }
+          ]
+        },
+        "56": {
+          "patch": "3.0",
+          "sources": [
+            {
+              "category": "Achievement",
+              "text": "But Somebody's Gotta Do It (Dark Knight)"
+            }
+          ]
+        },
+        "58": {
+          "patch": "3.05",
+          "sources": [
+            {
+              "category": "Raid",
+              "text": "Alexander - The Burden of the Father (Savage)"
+            }
+          ]
+        },
+        "59": {
+          "patch": "3.0",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Calamity Salvager - 15 Gold Chocobo Feathers (Recruit a Friend Campaign)"
+            }
+          ]
+        },
+        "62": {
+          "patch": "3.07",
+          "sources": [
+            {
+              "category": "Event",
+              "text": "All Saints' Wake (2015)"
+            },
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "67": {
+          "patch": "3.1",
+          "sources": [
+            {
+              "category": "Skybuilders",
+              "text": "Enie - The Firmament - 4,200 Skybuilders' Scrips"
+            }
+          ]
+        },
+        "68": {
+          "patch": "3.1",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "69": {
+          "patch": "3.1",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "70": {
+          "patch": "3.1",
+          "sources": [
+            {
+              "category": "Hunts",
+              "text": "Bertana - Idyllshire - 6 Clan Mark Logs"
+            }
+          ]
+        },
+        "71": {
+          "patch": "4.4",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Fan Festival 2018-19"
+            },
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "72": {
+          "patch": "3.2",
+          "sources": [
+            {
+              "category": "Tribal",
+              "text": "Vath Stickpeddler - Loth ast Vath (The Dravanian Forelands) - 200,000 Gil (Rank 7)"
+            }
+          ]
+        },
+        "73": {
+          "patch": "3.2",
+          "sources": [
+            {
+              "category": "Voyages",
+              "text": "Spoils Collector - 1 Iron Voyage Spoil (Sea of Clouds Sector 24)"
+            }
+          ]
+        },
+        "74": {
+          "patch": "3.25",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "75": {
+          "patch": "3.2",
+          "sources": [
+            {
+              "category": "Trial",
+              "text": "The Limitless Blue (Extreme)"
+            }
+          ]
+        },
+        "76": {
+          "patch": "3.2",
+          "sources": [
+            {
+              "category": "Trial",
+              "text": "Thok ast Thok (Extreme)"
+            }
+          ]
+        },
+        "77": {
+          "patch": "3.2",
+          "sources": [
+            {
+              "category": "Trial",
+              "text": "The Minstrel's Ballad: Thordan's Reign"
+            }
+          ]
+        },
+        "78": {
+          "patch": "3.2",
+          "sources": [
+            {
+              "category": "Trial",
+              "text": "Containment Bay S1T7 (Extreme)"
+            }
+          ]
+        },
+        "80": {
+          "patch": "3.2",
+          "sources": [
+            {
+              "category": "Achievement",
+              "text": "Blood Born IV"
+            }
+          ]
+        },
+        "81": {
+          "patch": "3.5",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "In-Game Item Campaign"
+            }
+          ]
+        },
+        "82": {
+          "patch": "3.2",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "In-Game Item Campaign"
+            }
+          ]
+        },
+        "83": {
+          "patch": "3.3",
+          "sources": [
+            {
+              "category": "Achievement",
+              "text": "I Hope Mentor Will Notice Me VI"
+            }
+          ]
+        },
+        "84": {
+          "patch": "3.35",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "86": {
+          "patch": "3.3",
+          "sources": [
+            {
+              "category": "Tribal",
+              "text": "Mogmul Mogbelly - Bahrr Lehs (The Churning Mists) - 200,000 Gil (Rank 7)"
+            }
+          ]
+        },
+        "87": {
+          "patch": "3.35",
+          "sources": [
+            {
+              "category": "Event",
+              "text": "Yo-kai Watch Collaboration - Obtain 13 Yo-kai Minions"
+            }
+          ]
+        },
+        "90": {
+          "patch": "3.3",
+          "sources": [
+            {
+              "category": "Trial",
+              "text": "The Minstrel's Ballad: Nidhogg's Rage"
+            }
+          ]
+        },
+        "91": {
+          "patch": "3.3",
+          "sources": [
+            {
+              "category": "Achievement",
+              "text": "In a Blaze of Glory V"
+            }
+          ]
+        },
+        "92": {
+          "patch": "3.35",
+          "sources": [
+            {
+              "category": "Deep Dungeon",
+              "text": "E-Una-Kotor - Quarrymill (South Shroud) - 10 Gelmorran Potsherds"
+            }
+          ]
+        },
+        "93": {
+          "patch": "4.1",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Calamity Salvager - 8 Gold Chocobo Feathers (Recruit a Friend Campaign)"
+            }
+          ]
+        },
+        "94": {
+          "patch": "3.35",
+          "sources": [
+            {
+              "category": "Event",
+              "text": "Yo-kai Watch Collaboration - Obtain 13 Yo-kai Weapons"
+            }
+          ]
+        },
+        "95": {
+          "patch": "3.5",
+          "sources": [
+            {
+              "category": "Achievement",
+              "text": "Fame Fatale"
+            }
+          ]
+        },
+        "96": {
+          "patch": "3.5",
+          "sources": [
+            {
+              "category": "Achievement",
+              "text": "Frontline Fury"
+            }
+          ]
+        },
+        "97": {
+          "patch": "4.1",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "98": {
+          "patch": "3.4",
+          "sources": [
+            {
+              "category": "Trial",
+              "text": "Containment Bay P1T6 (Extreme)"
+            }
+          ]
+        },
+        "99": {
+          "patch": "4.1",
+          "sources": [
+            {
+              "category": "Event",
+              "text": "The Starlight Celebration (2017)"
+            },
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "100": {
+          "patch": "3.4",
+          "sources": [
+            {
+              "category": "Deep Dungeon",
+              "text": "The Palace of the Dead - Gold Sack"
+            }
+          ]
+        },
+        "101": {
+          "patch": "3.4",
+          "sources": [
+            {
+              "category": "Raid",
+              "text": "Alexander - The Soul of the Creator (Savage)"
+            }
+          ]
+        },
+        "102": {
+          "patch": "3.5",
+          "sources": [
+            {
+              "category": "Achievement",
+              "text": "Furious Fatalities"
+            }
+          ]
+        },
+        "104": {
+          "patch": "3.5",
+          "sources": [
+            {
+              "category": "Trial",
+              "text": "Containment Bay Z1T9 (Extreme)"
+            }
+          ]
+        },
+        "105": {
+          "patch": "3.5",
+          "sources": [
+            {
+              "category": "Quest",
+              "text": "Fiery Wings, Fiery Hearts"
+            }
+          ]
+        },
+        "106": {
+          "patch": "3.5",
+          "sources": [
+            {
+              "category": "Event",
+              "text": "Hatching-tide (2017)"
+            },
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "108": {
+          "patch": "3.55a",
+          "sources": [
+            {
+              "category": "PvP",
+              "text": "The Feast: Season 3"
+            }
+          ]
+        },
+        "109": {
+          "patch": "3.55a",
+          "sources": [
+            {
+              "category": "PvP",
+              "text": "The Feast: Season 3"
+            }
+          ]
+        },
+        "110": {
+          "patch": "3.5",
+          "sources": [
+            {
+              "category": "Gold Saucer",
+              "text": "750,000 MGP"
+            }
+          ]
+        },
+        "111": {
+          "patch": "4.0",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Stormblood Collector's Edition"
+            }
+          ]
+        },
+        "112": {
+          "patch": "4.05",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Fly the Falcon Mount Campaign"
+            },
+            {
+              "category": "Event",
+              "text": "Moogle Treasure Trove Event"
+            }
+          ]
+        },
+        "113": {
+          "patch": "4.0",
+          "sources": [
+            {
+              "category": "PvP",
+              "text": "The Feast: Season 4"
+            }
+          ]
+        },
+        "114": {
+          "patch": "4.0",
+          "sources": [
+            {
+              "category": "PvP",
+              "text": "The Feast: Season 4"
+            }
+          ]
+        },
+        "115": {
+          "patch": "4.0",
+          "sources": [
+            {
+              "category": "Trial",
+              "text": "Emanation (Extreme)"
+            }
+          ]
+        },
+        "116": {
+          "patch": "4.0",
+          "sources": [
+            {
+              "category": "Trial",
+              "text": "The Pool of Tribute (Extreme)"
+            }
+          ]
+        },
+        "121": {
+          "patch": "4.0",
+          "sources": [
+            {
+              "category": "Dungeon",
+              "text": "Ala Mhigo"
+            }
+          ]
+        },
+        "122": {
+          "patch": "4.0",
+          "sources": [
+            {
+              "category": "Achievement",
+              "text": "Tank You, Paladin III"
+            }
+          ]
+        },
+        "123": {
+          "patch": "4.0",
+          "sources": [
+            {
+              "category": "Achievement",
+              "text": "Tank You, Warrior III"
+            }
+          ]
+        },
+        "124": {
+          "patch": "4.0",
+          "sources": [
+            {
+              "category": "Achievement",
+              "text": "Tank You, Dark Knight III"
+            }
+          ]
+        },
+        "125": {
+          "patch": "4.0",
+          "sources": [
+            {
+              "category": "Quest",
+              "text": "In the Footsteps of Bardam the Brave"
+            }
+          ]
+        },
+        "126": {
+          "patch": "4.05",
+          "sources": [
+            {
+              "category": "Raid",
+              "text": "Deltascape V4.0 (Savage)"
+            }
+          ]
+        },
+        "127": {
+          "patch": "4.0",
+          "sources": [
+            {
+              "category": "Achievement",
+              "text": "You Got Game"
+            }
+          ]
+        },
+        "130": {
+          "patch": "4.0",
+          "sources": [
+            {
+              "category": "FATE",
+              "text": "Eschina - Rhalgr's Reach - 12 Ixion Horns (FATE \"A Horse Outside\" - The Lochs)"
+            },
+            {
+              "category": "Wondrous Tails",
+              "text": "300 Faux Leaves"
+            },
+            {
+              "category": "Wondrous Tails",
+              "text": "1 Khloe's Silver Certificate of Commendation"
+            }
+          ]
+        },
+        "133": {
+          "patch": "4.1",
+          "sources": [
+            {
+              "category": "Trial",
+              "text": "The Minstrel's Ballad: Shinryu's Domain"
+            }
+          ]
+        },
+        "135": {
+          "patch": "4.2",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "136": {
+          "patch": "4.1",
+          "sources": [
+            {
+              "category": "Tribal",
+              "text": "Shikitahe - Tamamizu (The Ruby Sea) - 12 Kojin Sango (Rank 8)"
+            }
+          ]
+        },
+        "138": {
+          "patch": "4.15",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "139": {
+          "patch": "4.15",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "140": {
+          "patch": "4.1",
+          "sources": [
+            {
+              "category": "Crafting",
+              "text": "Crafted by Alchemist"
+            }
+          ]
+        },
+        "141": {
+          "patch": "4.1",
+          "sources": [
+            {
+              "category": "Achievement",
+              "text": "Die Another Day III"
+            }
+          ]
+        },
+        "142": {
+          "patch": "4.1",
+          "sources": [
+            {
+              "category": "Gold Saucer",
+              "text": "750,000 MGP"
+            }
+          ]
+        },
+        "143": {
+          "patch": "4.3",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "144": {
+          "patch": "4.2",
+          "sources": [
+            {
+              "category": "Trial",
+              "text": "The Jade Stoa (Extreme)"
+            }
+          ]
+        },
+        "145": {
+          "patch": "4.2",
+          "sources": [
+            {
+              "category": "Achievement",
+              "text": "Jonathas - Old Gridania - 6 Achievement Certificates"
+            }
+          ]
+        },
+        "146": {
+          "patch": "4.2",
+          "sources": [
+            {
+              "category": "Tribal",
+              "text": "Madhura - Castellum Velodyna (The Fringes) - 18 Ananta Dreamstaves (Rank 7)"
+            }
+          ]
+        },
+        "148": {
+          "patch": "4.2",
+          "sources": [
+            {
+              "category": "Tribal",
+              "text": "Madhura - Castellum Velodyna (The Fringes) - 18 Ananta Dreamstaves (Rank 8)"
+            }
+          ]
+        },
+        "150": {
+          "patch": "4.25",
+          "sources": [
+            {
+              "category": "Eureka",
+              "text": "Anemos Lockbox"
+            }
+          ]
+        },
+        "151": {
+          "patch": "4.5",
+          "sources": [
+            {
+              "category": "Event",
+              "text": "Final Fantasy XV Collaboration"
+            }
+          ]
+        },
+        "152": {
+          "patch": "4.2",
+          "sources": [
+            {
+              "category": "Event",
+              "text": "Valentione's Day (2018)"
+            },
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "153": {
+          "patch": "4.2",
+          "sources": [
+            {
+              "category": "Event",
+              "text": "Valentione's Day (2018)"
+            },
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "154": {
+          "patch": "4.4",
+          "sources": [
+            {
+              "category": "Gold Saucer",
+              "text": "750,000 MGP"
+            }
+          ]
+        },
+        "156": {
+          "patch": "4.2",
+          "sources": [
+            {
+              "category": "Raid",
+              "text": "Sigmascape V4.0 (Savage)"
+            }
+          ]
+        },
+        "158": {
+          "patch": "4.3",
+          "sources": [
+            {
+              "category": "Trial",
+              "text": "The Minstrel's Ballad: Tsukuyomi's Pain"
+            }
+          ]
+        },
+        "159": {
+          "patch": "4.35",
+          "sources": [
+            {
+              "category": "Deep Dungeon",
+              "text": "Heaven-on-High - Platinum Sack"
+            }
+          ]
+        },
+        "160": {
+          "patch": "4.4",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "161": {
+          "patch": "4.36",
+          "sources": [
+            {
+              "category": "Trial",
+              "text": "The Great Hunt (Extreme)"
+            }
+          ]
+        },
+        "162": {
+          "patch": "4.3",
+          "sources": [
+            {
+              "category": "PvP",
+              "text": "The Feast: Season 7"
+            }
+          ]
+        },
+        "163": {
+          "patch": "4.31",
+          "sources": [
+            {
+              "category": "PvP",
+              "text": "The Feast: Season 8"
+            }
+          ]
+        },
+        "164": {
+          "patch": "4.3",
+          "sources": [
+            {
+              "category": "Tribal",
+              "text": "Gyosho - Dhoro Iloh (The Azim Steppe) - 20 Namazu Koban (Rank 8)"
+            }
+          ]
+        },
+        "166": {
+          "patch": "4.35",
+          "sources": [
+            {
+              "category": "Achievement",
+              "text": "Dressed for Heaven"
+            }
+          ]
+        },
+        "167": {
+          "patch": "6.3",
+          "sources": [
+            {
+              "category": "PvP",
+              "text": "PvP Series 3 - Level 15"
+            },
+            {
+              "category": "PvP",
+              "text": "5,000 Trophy Crystals"
+            }
+          ]
+        },
+        "168": {
+          "patch": "4.3",
+          "sources": [
+            {
+              "category": "Achievement",
+              "text": "Front and Center V"
+            }
+          ]
+        },
+        "170": {
+          "patch": "5.0",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Shadowbringers Collector's Edition"
+            }
+          ]
+        },
+        "171": {
+          "patch": "4.45",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "172": {
+          "patch": "4.4",
+          "sources": [
+            {
+              "category": "Trial",
+              "text": "Hells' Kier (Extreme)"
+            }
+          ]
+        },
+        "173": {
+          "patch": "4.4",
+          "sources": [
+            {
+              "category": "Raid",
+              "text": "Alphascape V4.0 (Savage)"
+            }
+          ]
+        },
+        "174": {
+          "patch": "4.4",
+          "sources": [
+            {
+              "category": "PvP",
+              "text": "20,000 Wolf Marks"
+            }
+          ]
+        },
+        "175": {
+          "patch": "4.45",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "176": {
+          "patch": "4.45",
+          "sources": [
+            {
+              "category": "PvP",
+              "text": "The Feast: Season 11"
+            }
+          ]
+        },
+        "177": {
+          "patch": "4.45",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "In-Game Item Campaign"
+            },
+            {
+              "category": "Premium",
+              "text": "Twitch Campaign (2021)"
+            }
+          ]
+        },
+        "178": {
+          "patch": "4.45",
+          "sources": [
+            {
+              "category": "Eureka",
+              "text": "Happy Bunny Lockbox - Eureka Pyros"
+            },
+            {
+              "category": "Occult Crescent",
+              "text": "South Horn - Silver Coffer"
+            }
+          ]
+        },
+        "179": {
+          "patch": "4.45",
+          "sources": [
+            {
+              "category": "PvP",
+              "text": "The Feast: Season 12"
+            }
+          ]
+        },
+        "180": {
+          "patch": "4.45",
+          "sources": [
+            {
+              "category": "Gold Saucer",
+              "text": "2,000,000 MGP"
+            }
+          ]
+        },
+        "181": {
+          "patch": "4.45",
+          "sources": [
+            {
+              "category": "Quest",
+              "text": "A Lone Wolf No More"
+            }
+          ]
+        },
+        "182": {
+          "patch": "4.45",
+          "sources": [
+            {
+              "category": "Trial",
+              "text": "The Wreath of Snakes (Extreme)"
+            }
+          ]
+        },
+        "183": {
+          "patch": "5.0",
+          "sources": [
+            {
+              "category": "Achievement",
+              "text": "Tank You, Gunbreaker II"
+            }
+          ]
+        },
+        "184": {
+          "patch": "4.5",
+          "sources": [
+            {
+              "category": "Eureka",
+              "text": "Happy Bunny Lockbox - Eureka Hydatos"
+            },
+            {
+              "category": "Occult Crescent",
+              "text": "South Horn - Bronze/Silver Coffer"
+            }
+          ]
+        },
+        "185": {
+          "patch": "4.5",
+          "sources": [
+            {
+              "category": "Achievement",
+              "text": "Out of Hiding"
+            }
+          ]
+        },
+        "186": {
+          "patch": "4.5",
+          "sources": [
+            {
+              "category": "Achievement",
+              "text": "We're on Your Side I"
+            }
+          ]
+        },
+        "187": {
+          "patch": "5.0",
+          "sources": [
+            {
+              "category": "Achievement",
+              "text": "A Life of Adventure IV"
+            }
+          ]
+        },
+        "188": {
+          "patch": "5.05",
+          "sources": [
+            {
+              "category": "Raid",
+              "text": "Eden's Gate: Sepulture (Savage)"
+            }
+          ]
+        },
+        "189": {
+          "patch": "5.0",
+          "sources": [
+            {
+              "category": "Trial",
+              "text": "The Dancing Plague (Extreme)"
+            }
+          ]
+        },
+        "190": {
+          "patch": "5.0",
+          "sources": [
+            {
+              "category": "Achievement",
+              "text": "Nuts for Nutsy"
+            }
+          ]
+        },
+        "191": {
+          "patch": "5.0",
+          "sources": [
+            {
+              "category": "FATE",
+              "text": "Fathard - Eulmore - 12 Formidable Cog (FATE \"A Finale Most Formidable\" - Kholusia)"
+            }
+          ]
+        },
+        "192": {
+          "patch": "5.0",
+          "sources": [
+            {
+              "category": "Trial",
+              "text": "The Crown of the Immaculate (Extreme)"
+            }
+          ]
+        },
+        "193": {
+          "patch": "5.05",
+          "sources": [
+            {
+              "category": "Crafting",
+              "text": "Crafted by Carpenter - The Dungeons of Lyhe Ghiah"
+            }
+          ]
+        },
+        "194": {
+          "patch": "5.0",
+          "sources": [
+            {
+              "category": "Event",
+              "text": "All Saints' Wake (2019)"
+            },
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "195": {
+          "patch": "5.0",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "197": {
+          "patch": "5.0",
+          "sources": [
+            {
+              "category": "Achievement",
+              "text": "Tank You, Gunbreaker III"
+            }
+          ]
+        },
+        "200": {
+          "patch": "5.15",
+          "sources": [
+            {
+              "category": "Achievement",
+              "text": "True Blue"
+            }
+          ]
+        },
+        "201": {
+          "patch": "5.1",
+          "sources": [
+            {
+              "category": "Tribal",
+              "text": "Jul Oul - Lydha Lran (Il Mheg) - 18 Fae Fancies (Rank 7)"
+            }
+          ]
+        },
+        "202": {
+          "patch": "5.2",
+          "sources": [
+            {
+              "category": "PvP",
+              "text": "The Feast: Season 14"
+            }
+          ]
+        },
+        "203": {
+          "patch": "5.2",
+          "sources": [
+            {
+              "category": "PvP",
+              "text": "The Feast: Season 15"
+            }
+          ]
+        },
+        "204": {
+          "patch": "5.15",
+          "sources": [
+            {
+              "category": "Achievement",
+              "text": "One Steppe at a Time V"
+            }
+          ]
+        },
+        "205": {
+          "patch": "5.1",
+          "sources": [
+            {
+              "category": "Trial",
+              "text": "The Minstrel's Ballad: Hades's Elegy"
+            }
+          ]
+        },
+        "206": {
+          "patch": "5.2",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "207": {
+          "patch": "5.1",
+          "sources": [
+            {
+              "category": "Hunts",
+              "text": "Xylle (The Crystarium) / Ilfroy (Eulmore) - 3,200 Sacks of Nuts"
+            }
+          ]
+        },
+        "208": {
+          "patch": "5.21",
+          "sources": [
+            {
+              "category": "Skybuilders",
+              "text": "Kupo of Fortune"
+            }
+          ]
+        },
+        "209": {
+          "patch": "5.21",
+          "sources": [
+            {
+              "category": "Skybuilders",
+              "text": "Enie - The Firmament - 8,400 Skybuilders' Scrips"
+            },
+            {
+              "category": "Cosmic Exploration",
+              "text": "Gold Ancient Record - Auxesia"
+            }
+          ]
+        },
+        "211": {
+          "patch": "5.11",
+          "sources": [
+            {
+              "category": "Skybuilders",
+              "text": "Enie - The Firmament - 8,400 Skybuilders' Scrips"
+            },
+            {
+              "category": "Cosmic Exploration",
+              "text": "Gold Ancient Record - Oizys"
+            }
+          ]
+        },
+        "212": {
+          "patch": "5.55",
+          "sources": [
+            {
+              "category": "Bozja",
+              "text": "Dalriada - Final Boss Chest"
+            },
+            {
+              "category": "Occult Crescent",
+              "text": "South Horn - Bronze/Silver Coffer"
+            }
+          ]
+        },
+        "213": {
+          "patch": "5.35",
+          "sources": [
+            {
+              "category": "Bozja",
+              "text": "180 Bozjan Clusters"
+            },
+            {
+              "category": "Occult Crescent",
+              "text": "South Horn - Bronze Coffer"
+            }
+          ]
+        },
+        "214": {
+          "patch": "5.2",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "215": {
+          "patch": "5.2",
+          "sources": [
+            {
+              "category": "Tribal",
+              "text": "Yuqurl Manl - Hopl's Stopple (The Rak'tika Greatwood) - 18 Qitari Compliments (Rank 7)"
+            }
+          ]
+        },
+        "216": {
+          "patch": "5.21",
+          "sources": [
+            {
+              "category": "Achievement",
+              "text": "Castle in the Sky"
+            }
+          ]
+        },
+        "217": {
+          "patch": "5.2",
+          "sources": [
+            {
+              "category": "Trial",
+              "text": "Cinder Drift (Extreme)"
+            }
+          ]
+        },
+        "218": {
+          "patch": "5.2",
+          "sources": [
+            {
+              "category": "Achievement",
+              "text": "No More Fish in the Sea II"
+            }
+          ]
+        },
+        "219": {
+          "patch": "5.2",
+          "sources": [
+            {
+              "category": "Raid",
+              "text": "Eden's Verse: Refulgence (Savage)"
+            }
+          ]
+        },
+        "220": {
+          "patch": "5.2",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "222": {
+          "patch": "5.3",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "223": {
+          "patch": "5.3",
+          "sources": [
+            {
+              "category": "Tribal",
+              "text": "Mizutt - Watts's Anvil (Lakeland) - 18 Hammered Frogments (Rank 7)"
+            }
+          ]
+        },
+        "224": {
+          "patch": "5.35",
+          "sources": [
+            {
+              "category": "Bozja",
+              "text": "Southern Front Lockbox"
+            }
+          ]
+        },
+        "225": {
+          "patch": "5.31",
+          "sources": [
+            {
+              "category": "Skybuilders",
+              "text": "Enie - The Firmament - 8,400 Skybuilders' Scrips"
+            },
+            {
+              "category": "Cosmic Exploration",
+              "text": "Gold Ancient Record - Oizys"
+            }
+          ]
+        },
+        "226": {
+          "patch": "5.3",
+          "sources": [
+            {
+              "category": "Trial",
+              "text": "The Seat of Sacrifice (Extreme)"
+            }
+          ]
+        },
+        "228": {
+          "patch": "5.3",
+          "sources": [
+            {
+              "category": "Event",
+              "text": "Yo-kai Watch Collaboration - Obtain 17 Yo-kai Weapons"
+            }
+          ]
+        },
+        "229": {
+          "patch": "5.3",
+          "sources": [
+            {
+              "category": "PvP",
+              "text": "The Feast: Season 16"
+            }
+          ]
+        },
+        "230": {
+          "patch": "5.3",
+          "sources": [
+            {
+              "category": "Quest",
+              "text": "On Ehll Tou's Wings"
+            }
+          ]
+        },
+        "231": {
+          "patch": "5.3",
+          "sources": [
+            {
+              "category": "Wondrous Tails",
+              "text": "2 Khloe's Silver Certificate of Commendation"
+            },
+            {
+              "category": "Wondrous Tails",
+              "text": "250 Faux Leaves"
+            }
+          ]
+        },
+        "232": {
+          "patch": "5.4",
+          "sources": [
+            {
+              "category": "Event",
+              "text": "The Starlight Celebration (2020)"
+            },
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "233": {
+          "patch": "5.5",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Digital Fan Festival (2021)"
+            },
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "234": {
+          "patch": "5.4",
+          "sources": [
+            {
+              "category": "Raid",
+              "text": "Eden's Promise: Eternity (Savage)"
+            }
+          ]
+        },
+        "235": {
+          "patch": "5.45",
+          "sources": [
+            {
+              "category": "Achievement",
+              "text": "Savage Queen of Swords I"
+            }
+          ]
+        },
+        "236": {
+          "patch": "5.41",
+          "sources": [
+            {
+              "category": "Skybuilders",
+              "text": "Enie - The Firmament - 8,400 Skybuilders' Scrips"
+            },
+            {
+              "category": "Cosmic Exploration",
+              "text": "Gold Ancient Record - Auxesia"
+            }
+          ]
+        },
+        "237": {
+          "patch": "6.0",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Endwalker Collector's Edition"
+            }
+          ]
+        },
+        "238": {
+          "patch": "5.4",
+          "sources": [
+            {
+              "category": "Trial",
+              "text": "Castrum Marinum (Extreme)"
+            }
+          ]
+        },
+        "239": {
+          "patch": "5.4",
+          "sources": [
+            {
+              "category": "PvP",
+              "text": "The Feast: Season 17"
+            }
+          ]
+        },
+        "240": {
+          "patch": "5.4",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Butterfinger Promotion (NA Only)"
+            },
+            {
+              "category": "Premium",
+              "text": "Lawson Promotion (Japan Only)"
+            },
+            {
+              "category": "Premium",
+              "text": "Twitch Campaign (July 2024)"
+            }
+          ]
+        },
+        "241": {
+          "patch": "5.45",
+          "sources": [
+            {
+              "category": "Bozja",
+              "text": "Delubrum Reginae - Final Boss Chests"
+            },
+            {
+              "category": "Occult Crescent",
+              "text": "South Horn - Silver Coffer"
+            }
+          ]
+        },
+        "242": {
+          "patch": "5.5",
+          "sources": [
+            {
+              "category": "Skybuilders",
+              "text": "Enie - The Firmament - 8,400 Skybuilders' Scrips"
+            },
+            {
+              "category": "Cosmic Exploration",
+              "text": "Gold Ancient Record - Auxesia"
+            }
+          ]
+        },
+        "243": {
+          "patch": "5.5",
+          "sources": [
+            {
+              "category": "Skybuilders",
+              "text": "Fête Present"
+            },
+            {
+              "category": "Skybuilders",
+              "text": "Enie - The Firmament - 30 Fête Tokens"
+            }
+          ]
+        },
+        "245": {
+          "patch": "5.5",
+          "sources": [
+            {
+              "category": "Quest",
+              "text": "The Dragon Made"
+            }
+          ]
+        },
+        "246": {
+          "patch": "5.55",
+          "sources": [
+            {
+              "category": "Achievement",
+              "text": "A Complete History"
+            }
+          ]
+        },
+        "247": {
+          "patch": "5.5",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "248": {
+          "patch": "5.4",
+          "sources": [
+            {
+              "category": "Wondrous Tails",
+              "text": "2 Khloe's Silver Certificate of Commendation"
+            },
+            {
+              "category": "Wondrous Tails",
+              "text": "250 Faux Leaves"
+            }
+          ]
+        },
+        "249": {
+          "patch": "5.5",
+          "sources": [
+            {
+              "category": "Trial",
+              "text": "The Cloud Deck (Extreme)"
+            }
+          ]
+        },
+        "250": {
+          "patch": "5.5",
+          "sources": [
+            {
+              "category": "Event",
+              "text": "Moonfire Faire (2021)"
+            },
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "252": {
+          "patch": "5.5",
+          "sources": [
+            {
+              "category": "Purchase",
+              "text": "Edelina - Mor Dhona - 50,000,000 Gil"
+            }
+          ]
+        },
+        "253": {
+          "patch": "5.5",
+          "sources": [
+            {
+              "category": "Purchase",
+              "text": "Tabeth - Eulmore - 25,000,000 Gil"
+            }
+          ]
+        },
+        "254": {
+          "patch": "5.55",
+          "sources": [
+            {
+              "category": "Quest",
+              "text": "The Adventurer with All the Cards"
+            }
+          ]
+        },
+        "255": {
+          "patch": "6.2",
+          "sources": [
+            {
+              "category": "Island Sanctuary",
+              "text": "12,000 Seafarer's Cowries"
+            }
+          ]
+        },
+        "256": {
+          "patch": "6.2",
+          "sources": [
+            {
+              "category": "Island Sanctuary",
+              "text": "12,000 Seafarer's Cowries"
+            }
+          ]
+        },
+        "257": {
+          "patch": "6.2",
+          "sources": [
+            {
+              "category": "Island Sanctuary",
+              "text": "12,000 Seafarer's Cowries"
+            }
+          ]
+        },
+        "258": {
+          "patch": "6.4",
+          "sources": [
+            {
+              "category": "Island Sanctuary",
+              "text": "18,000 Seafarer's Cowries"
+            }
+          ]
+        },
+        "259": {
+          "patch": "6.4",
+          "sources": [
+            {
+              "category": "Island Sanctuary",
+              "text": "18,000 Seafarer's Cowries"
+            }
+          ]
+        },
+        "260": {
+          "patch": "6.4",
+          "sources": [
+            {
+              "category": "Island Sanctuary",
+              "text": "18,000 Seafarer's Cowries"
+            }
+          ]
+        },
+        "261": {
+          "patch": "6.0",
+          "sources": [
+            {
+              "category": "Trial",
+              "text": "The Minstrel's Ballad: Zodiark's Fall"
+            }
+          ]
+        },
+        "262": {
+          "patch": "6.0",
+          "sources": [
+            {
+              "category": "Trial",
+              "text": "The Minstrel's Ballad: Hydaelyn's Call"
+            }
+          ]
+        },
+        "263": {
+          "patch": "6.0",
+          "sources": [
+            {
+              "category": "Quest",
+              "text": "Endwalker"
+            }
+          ]
+        },
+        "264": {
+          "patch": "6.0",
+          "sources": [
+            {
+              "category": "PvP",
+              "text": "The Feast: Season 20"
+            }
+          ]
+        },
+        "265": {
+          "patch": "6.05",
+          "sources": [
+            {
+              "category": "Raid",
+              "text": "Asphodelos: The Fourth Circle (Savage)"
+            }
+          ]
+        },
+        "266": {
+          "patch": "6.0",
+          "sources": [
+            {
+              "category": "Wondrous Tails",
+              "text": "1 Khloe's Gold Certificate of Commendation"
+            },
+            {
+              "category": "Wondrous Tails",
+              "text": "600 Faux Leaves"
+            }
+          ]
+        },
+        "267": {
+          "patch": "6.0",
+          "sources": [
+            {
+              "category": "Achievement",
+              "text": "Endgame Hunter"
+            }
+          ]
+        },
+        "268": {
+          "patch": "6.0",
+          "sources": [
+            {
+              "category": "FATE",
+              "text": "Nesvaaz - Radz-at-Han - 12 Chi Bolts (FATE \"Omicron Recall: Killing Order\" - Ultima Thule)"
+            }
+          ]
+        },
+        "269": {
+          "patch": "6.0",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "273": {
+          "patch": "6.0",
+          "sources": [
+            {
+              "category": "FATE",
+              "text": "Edelina - Mor Dhona - 500 Bicolor Gemstone Vouchers"
+            }
+          ]
+        },
+        "274": {
+          "patch": "6.0",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Lawson Promotion (Japan Only)"
+            },
+            {
+              "category": "Premium",
+              "text": "Gong Cha Promotion"
+            }
+          ]
+        },
+        "277": {
+          "patch": "6.2",
+          "sources": [
+            {
+              "category": "Island Sanctuary",
+              "text": "24,000 Seafarer's Cowries (Sanctuary Rank 10)"
+            }
+          ]
+        },
+        "279": {
+          "patch": "6.2",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "280": {
+          "patch": "6.2",
+          "sources": [
+            {
+              "category": "PvP",
+              "text": "PvP Series 2 - Level 25"
+            },
+            {
+              "category": "PvP",
+              "text": "5,000 Trophy Crystals"
+            }
+          ]
+        },
+        "281": {
+          "patch": "6.1",
+          "sources": [
+            {
+              "category": "Treasure Hunt",
+              "text": "Nesvaaz - Radz-at-Han - 3 Resplendent Feathers (The Excitatron 6000 or The Shifting Gymnasion Agonon)"
+            }
+          ]
+        },
+        "282": {
+          "patch": "6.4",
+          "sources": [
+            {
+              "category": "Island Sanctuary",
+              "text": "50,000 Seafarer's Cowries (Sanctuary Rank 16)"
+            }
+          ]
+        },
+        "283": {
+          "patch": "7.1",
+          "sources": [
+            {
+              "category": "Hunts",
+              "text": "Ryubool Ja - Tuliyollal - 3,200 Sacks of Nuts"
+            }
+          ]
+        },
+        "284": {
+          "patch": "6.1",
+          "sources": [
+            {
+              "category": "Gold Saucer",
+              "text": "300,000 MGP"
+            }
+          ]
+        },
+        "285": {
+          "patch": "6.35",
+          "sources": [
+            {
+              "category": "Tribal",
+              "text": "Coiningway - Hoper's Hold (Mare Lamentorum) - 18 Loporrit Carats (Rank 7)"
+            }
+          ]
+        },
+        "286": {
+          "patch": "6.3",
+          "sources": [
+            {
+              "category": "Island Sanctuary",
+              "text": "35,000 Seafarer's Cowries (Sanctuary Rank 12)"
+            }
+          ]
+        },
+        "287": {
+          "patch": "6.15",
+          "sources": [
+            {
+              "category": "Tribal",
+              "text": "Ghanta - Svarna (Thavnair) - 18 Arkasodara Pana (Rank 7)"
+            }
+          ]
+        },
+        "288": {
+          "patch": "6.1",
+          "sources": [
+            {
+              "category": "Wondrous Tails",
+              "text": "1 Khloe's Gold Certificate of Commendation"
+            },
+            {
+              "category": "Wondrous Tails",
+              "text": "600 Faux Leaves"
+            }
+          ]
+        },
+        "290": {
+          "patch": "6.55",
+          "sources": [
+            {
+              "category": "Quest",
+              "text": "Gentlemen at Heart"
+            }
+          ]
+        },
+        "291": {
+          "patch": "6.1",
+          "sources": [
+            {
+              "category": "Hunts",
+              "text": "J'lakshai (Old Sharlayan) / Wilmetta (Radz-at-Han) - 3,200 Sacks Of Nuts"
+            }
+          ]
+        },
+        "292": {
+          "patch": "6.35",
+          "sources": [
+            {
+              "category": "Deep Dungeon",
+              "text": "Eureka Orthos - Gold Sack"
+            }
+          ]
+        },
+        "293": {
+          "patch": "6.1",
+          "sources": [
+            {
+              "category": "Trial",
+              "text": "The Minstrel's Ballad: Endsinger's Aria"
+            }
+          ]
+        },
+        "294": {
+          "patch": "6.1",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "297": {
+          "patch": "6.4",
+          "sources": [
+            {
+              "category": "PvP",
+              "text": "PvP Series 4 - Level 25"
+            },
+            {
+              "category": "PvP",
+              "text": "5,000 Trophy Crystals"
+            }
+          ]
+        },
+        "298": {
+          "patch": "6.25",
+          "sources": [
+            {
+              "category": "Tribal",
+              "text": "N-0598 - A-4 Research (Ultima Thule) - 18 Omicron Omnitokens (Rank 7)"
+            }
+          ]
+        },
+        "299": {
+          "patch": "6.2",
+          "sources": [
+            {
+              "category": "Wondrous Tails",
+              "text": "1 Khloe's Gold Certificate of Commendation"
+            },
+            {
+              "category": "Wondrous Tails",
+              "text": "600 Faux Leaves"
+            }
+          ]
+        },
+        "300": {
+          "patch": "6.3",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "301": {
+          "patch": "6.3",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "302": {
+          "patch": "6.2",
+          "sources": [
+            {
+              "category": "Event",
+              "text": "The Starlight Celebration (2022)"
+            },
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "303": {
+          "patch": "6.25",
+          "sources": [
+            {
+              "category": "V&C Dungeon",
+              "text": "Another Sil'dihn Subterrane"
+            },
+            {
+              "category": "V&C Dungeon",
+              "text": "Trisassant - Old Sharlayan - 100 Sil'dihn Silvers"
+            }
+          ]
+        },
+        "304": {
+          "patch": "6.25",
+          "sources": [
+            {
+              "category": "Achievement",
+              "text": "Dig Deep: The Sil'dihn Subterrane"
+            }
+          ]
+        },
+        "305": {
+          "patch": "6.2",
+          "sources": [
+            {
+              "category": "Raid",
+              "text": "Abyssos: The Eighth Circle (Savage)"
+            }
+          ]
+        },
+        "306": {
+          "patch": "6.2",
+          "sources": [
+            {
+              "category": "Trial",
+              "text": "Storm's Crown (Extreme)"
+            }
+          ]
+        },
+        "308": {
+          "patch": "6.35",
+          "sources": [
+            {
+              "category": "Achievement",
+              "text": "Vintage Vogue"
+            }
+          ]
+        },
+        "310": {
+          "patch": "6.3",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "311": {
+          "patch": "6.3",
+          "sources": [
+            {
+              "category": "Quest",
+              "text": "A Labor of Leaf"
+            }
+          ]
+        },
+        "312": {
+          "patch": "6.3",
+          "sources": [
+            {
+              "category": "Gold Saucer",
+              "text": "4,000,000 MGP"
+            }
+          ]
+        },
+        "313": {
+          "patch": "6.3",
+          "sources": [
+            {
+              "category": "Treasure Hunt",
+              "text": "Nesvaaz - Radz-at-Han - 3 Burning Horns (The Shifting Gymnasion Agonon - Gold Chests)"
+            }
+          ]
+        },
+        "314": {
+          "patch": "6.3",
+          "sources": [
+            {
+              "category": "Treasure Hunt",
+              "text": "Nesvaaz - Radz-at-Han - 3 Bottles Of Exciting Tonic (The Excitatron 6000 - Gold Chests)"
+            }
+          ]
+        },
+        "315": {
+          "patch": "6.3",
+          "sources": [
+            {
+              "category": "Trial",
+              "text": "Mount Ordeals (Extreme)"
+            }
+          ]
+        },
+        "316": {
+          "patch": "6.3",
+          "sources": [
+            {
+              "category": "Purchase",
+              "text": "Edelina - Mor Dhona - 50,000,000 Gil"
+            }
+          ]
+        },
+        "317": {
+          "patch": "6.3",
+          "sources": [
+            {
+              "category": "Purchase",
+              "text": "Edelina - Mor Dhona - 50,000,000 Gil"
+            }
+          ]
+        },
+        "318": {
+          "patch": "6.4",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "319": {
+          "patch": "6.4",
+          "sources": [
+            {
+              "category": "Raid",
+              "text": "Anabaseios: The Twelfth Circle (Savage)"
+            }
+          ]
+        },
+        "320": {
+          "patch": "6.48",
+          "sources": [
+            {
+              "category": "Event",
+              "text": "The Rising (2023)"
+            },
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "321": {
+          "patch": "6.45",
+          "sources": [
+            {
+              "category": "Achievement",
+              "text": "Mononopeke"
+            }
+          ]
+        },
+        "322": {
+          "patch": "6.45",
+          "sources": [
+            {
+              "category": "V&C Dungeon",
+              "text": "Another Mount Rokkon"
+            },
+            {
+              "category": "V&C Dungeon",
+              "text": "Trisassant - Old Sharlayan - 100 Shishu Coins"
+            }
+          ]
+        },
+        "323": {
+          "patch": "6.4",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "324": {
+          "patch": "6.4",
+          "sources": [
+            {
+              "category": "Wondrous Tails",
+              "text": "1 Khloe's Gold Certificate of Commendation"
+            },
+            {
+              "category": "Wondrous Tails",
+              "text": "600 Faux Leaves"
+            }
+          ]
+        },
+        "325": {
+          "patch": "6.4",
+          "sources": [
+            {
+              "category": "Trial",
+              "text": "The Voidcast Dais (Extreme)"
+            }
+          ]
+        },
+        "326": {
+          "patch": "6.58",
+          "sources": [
+            {
+              "category": "Event",
+              "text": "Final Fantasy XVI Collaboration"
+            }
+          ]
+        },
+        "327": {
+          "patch": "7.0",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Dawntrail Collector's Edition"
+            }
+          ]
+        },
+        "328": {
+          "patch": "6.5",
+          "sources": [
+            {
+              "category": "Quest",
+              "text": "Wings of Hope"
+            }
+          ]
+        },
+        "329": {
+          "patch": "6.5",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "330": {
+          "patch": "6.51",
+          "sources": [
+            {
+              "category": "Event",
+              "text": "410 MGF (Fall Guys Collaboration)"
+            }
+          ]
+        },
+        "331": {
+          "patch": "7.0",
+          "sources": [
+            {
+              "category": "PvP",
+              "text": "PvP Series 6 - Level 25"
+            }
+          ]
+        },
+        "332": {
+          "patch": "6.5",
+          "sources": [
+            {
+              "category": "Trial",
+              "text": "The Abyssal Fracture (Extreme)"
+            }
+          ]
+        },
+        "333": {
+          "patch": "6.5",
+          "sources": [
+            {
+              "category": "Wondrous Tails",
+              "text": "1 Khloe's Gold Certificate of Commendation"
+            },
+            {
+              "category": "Wondrous Tails",
+              "text": "600 Faux Leaves"
+            }
+          ]
+        },
+        "334": {
+          "patch": "6.51",
+          "sources": [
+            {
+              "category": "Achievement",
+              "text": "Good-willed Hunting"
+            }
+          ]
+        },
+        "335": {
+          "patch": "6.5",
+          "sources": [
+            {
+              "category": "Island Sanctuary",
+              "text": "100,000 Seafarer's Cowries (Sanctuary Rank 20)"
+            }
+          ]
+        },
+        "336": {
+          "patch": "6.5",
+          "sources": [
+            {
+              "category": "Event",
+              "text": "Little Ladies' Day & Hatching-tide (2024)"
+            },
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "337": {
+          "patch": "7.55",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Twitch Campaign (August 2026)"
+            }
+          ]
+        },
+        "338": {
+          "patch": "6.51",
+          "sources": [
+            {
+              "category": "V&C Dungeon",
+              "text": "Another Aloalo Island"
+            },
+            {
+              "category": "V&C Dungeon",
+              "text": "Trisassant - Old Sharlayan - 100 Aloalo Coins"
+            }
+          ]
+        },
+        "339": {
+          "patch": "6.5",
+          "sources": [
+            {
+              "category": "Island Sanctuary",
+              "text": "Sanctuary Materiel Container"
+            }
+          ]
+        },
+        "340": {
+          "patch": "6.5",
+          "sources": [
+            {
+              "category": "Island Sanctuary",
+              "text": "200 Vegetal Vouchers"
+            },
+            {
+              "category": "Island Sanctuary",
+              "text": "Sanctuary Materiel Container"
+            }
+          ]
+        },
+        "342": {
+          "patch": "7.0",
+          "sources": [
+            {
+              "category": "FATE",
+              "text": "Edelina - Mor Dhona - 500 Turali Bicolor Gemstone Vouchers"
+            }
+          ]
+        },
+        "343": {
+          "patch": "7.0",
+          "sources": [
+            {
+              "category": "Purchase",
+              "text": "Neon - Solution Nine - 7,500,000 Gil"
+            }
+          ]
+        },
+        "344": {
+          "patch": "7.0",
+          "sources": [
+            {
+              "category": "Quest",
+              "text": "Dawntrail"
+            }
+          ]
+        },
+        "345": {
+          "patch": "7.0",
+          "sources": [
+            {
+              "category": "Trial",
+              "text": "Worqor Lar Dor (Extreme)"
+            }
+          ]
+        },
+        "346": {
+          "patch": "7.0",
+          "sources": [
+            {
+              "category": "Trial",
+              "text": "Everkeep (Extreme)"
+            }
+          ]
+        },
+        "347": {
+          "patch": "7.0",
+          "sources": [
+            {
+              "category": "Achievement",
+              "text": "A Life of Adventure VI"
+            }
+          ]
+        },
+        "348": {
+          "patch": "7.0",
+          "sources": [
+            {
+              "category": "FATE",
+              "text": "Uah'shepya - Solution Nine - 12 Ttokrrone Scales (FATE \"The Serpentlord Seethes\" - Shaaloani)"
+            }
+          ]
+        },
+        "349": {
+          "patch": "7.05",
+          "sources": [
+            {
+              "category": "Raid",
+              "text": "AAC Light-heavyweight M4 (Savage)"
+            }
+          ]
+        },
+        "350": {
+          "patch": "7.0",
+          "sources": [
+            {
+              "category": "Gathering",
+              "text": "Splendors Vendor - Solution Nine - 100 Mount Tokens (100,000 Orange Gatherer's Scrips)"
+            }
+          ]
+        },
+        "351": {
+          "patch": "7.0",
+          "sources": [
+            {
+              "category": "Achievement",
+              "text": "Dawnbright Hunter"
+            }
+          ]
+        },
+        "352": {
+          "patch": "7.05",
+          "sources": [
+            {
+              "category": "Treasure Hunt",
+              "text": "Uah'shepya - Solution Nine - 3 Twilight Gemstones (Cenote Ja Ja Gural or Vault Oneiron)"
+            }
+          ]
+        },
+        "353": {
+          "patch": "7.0",
+          "sources": [
+            {
+              "category": "Hunts",
+              "text": "Ryubool Ja - Tuliyollal - 3,200 Sacks of Nuts"
+            }
+          ]
+        },
+        "354": {
+          "patch": "7.0",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Mountain Dew Promotion (NA Only)"
+            }
+          ]
+        },
+        "356": {
+          "patch": "7.1",
+          "sources": [
+            {
+              "category": "Gathering",
+              "text": "Splendors Vendor - Solution Nine - 100 Mount Tokens (100,000 Orange Gatherer's Scrips)"
+            }
+          ]
+        },
+        "357": {
+          "patch": "7.2",
+          "sources": [
+            {
+              "category": "Wondrous Tails",
+              "text": "600 Faux Leaves"
+            }
+          ]
+        },
+        "358": {
+          "patch": "7.1",
+          "sources": [
+            {
+              "category": "Tribal",
+              "text": "Pavli - Dock Poga (Kozama'uka) - 18 Pelu Pelplumes (Rank 5)"
+            }
+          ]
+        },
+        "359": {
+          "patch": "7.5",
+          "sources": [
+            {
+              "category": "Wondrous Tails",
+              "text": "600 Faux Leaves"
+            }
+          ]
+        },
+        "360": {
+          "patch": "7.15",
+          "sources": [
+            {
+              "category": "Chaotic Raid",
+              "text": "Uah'shepya - Solution Nine - 99 Clouddark Demimateria I"
+            },
+            {
+              "category": "Chaotic Raid",
+              "text": "The Cloud of Darkness (Chaotic)"
+            }
+          ]
+        },
+        "361": {
+          "patch": "7.15",
+          "sources": [
+            {
+              "category": "Chaotic Raid",
+              "text": "Uah'shepya - Solution Nine - 75 Clouddark Demimateria II"
+            },
+            {
+              "category": "Chaotic Raid",
+              "text": "The Cloud of Darkness (Chaotic)"
+            }
+          ]
+        },
+        "362": {
+          "patch": "7.25",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "363": {
+          "patch": "7.1",
+          "sources": [
+            {
+              "category": "Trial",
+              "text": "The Minstrel's Ballad: Sphene's Burden"
+            }
+          ]
+        },
+        "364": {
+          "patch": "7.21",
+          "sources": [
+            {
+              "category": "Cosmic Exploration",
+              "text": "Cosmic Fortune - Sinus Ardonum"
+            },
+            {
+              "category": "Cosmic Exploration",
+              "text": "Mech Pilot Reward - Sinus Ardonum"
+            }
+          ]
+        },
+        "365": {
+          "patch": "7.1",
+          "sources": [
+            {
+              "category": "Wondrous Tails",
+              "text": "1 Khloe's Gold Certificate of Commendation"
+            },
+            {
+              "category": "Wondrous Tails",
+              "text": "600 Faux Leaves"
+            }
+          ]
+        },
+        "367": {
+          "patch": "7.56",
+          "sources": [
+            {
+              "category": "Achievement",
+              "text": "Crucible Contender"
+            }
+          ]
+        },
+        "371": {
+          "patch": "7.41",
+          "sources": [
+            {
+              "category": "Cosmic Exploration",
+              "text": "Gold Ancient Record - Oizys"
+            }
+          ]
+        },
+        "372": {
+          "patch": "7.25",
+          "sources": [
+            {
+              "category": "Achievement",
+              "text": "A Fork to Be Reckoned With I"
+            }
+          ]
+        },
+        "373": {
+          "patch": "7.25",
+          "sources": [
+            {
+              "category": "Occult Crescent",
+              "text": "99 Chunks of Sanguinite"
+            },
+            {
+              "category": "Occult Crescent",
+              "text": "South Horn - Bronze/Silver Coffer"
+            }
+          ]
+        },
+        "374": {
+          "patch": "7.11",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Twitch Campaign (December 2024)"
+            }
+          ]
+        },
+        "379": {
+          "patch": "7.35",
+          "sources": [
+            {
+              "category": "Deep Dungeon",
+              "text": "99 First Light Relics"
+            },
+            {
+              "category": "Deep Dungeon",
+              "text": "Pilgrim's Traverse - Sack of First Light"
+            }
+          ]
+        },
+        "381": {
+          "patch": "7.25",
+          "sources": [
+            {
+              "category": "Tribal",
+              "text": "Veerul Ja - Gok Golma (Yak T'el) - 18 Mamool Ja Nanook (Rank 4)"
+            }
+          ]
+        },
+        "382": {
+          "patch": "7.2",
+          "sources": [
+            {
+              "category": "Raid",
+              "text": "AAC Cruiserweight M4 (Savage)"
+            }
+          ]
+        },
+        "383": {
+          "patch": "7.25",
+          "sources": [
+            {
+              "category": "Occult Crescent",
+              "text": "5,000 Enlightenment Silver Pieces"
+            }
+          ]
+        },
+        "385": {
+          "patch": "7.21",
+          "sources": [
+            {
+              "category": "Achievement",
+              "text": "Out of This World"
+            }
+          ]
+        },
+        "386": {
+          "patch": "7.31",
+          "sources": [
+            {
+              "category": "Cosmic Exploration",
+              "text": "Cosmic Fortune - Phaenna"
+            },
+            {
+              "category": "Cosmic Exploration",
+              "text": "Mech Pilot Reward - Phaenna"
+            }
+          ]
+        },
+        "388": {
+          "patch": "7.2",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "389": {
+          "patch": "7.2",
+          "sources": [
+            {
+              "category": "Trial",
+              "text": "Recollection (Extreme)"
+            }
+          ]
+        },
+        "390": {
+          "patch": "7.2",
+          "sources": [
+            {
+              "category": "PvP",
+              "text": "PvP Series 8 - Level 25"
+            }
+          ]
+        },
+        "393": {
+          "patch": "7.35",
+          "sources": [
+            {
+              "category": "Tribal",
+              "text": "Rarkorgor - Shelter (Urqopacha) - 18 Yok Huy Wards (Rank 7)"
+            }
+          ]
+        },
+        "394": {
+          "patch": "7.4",
+          "sources": [
+            {
+              "category": "PvP",
+              "text": "PvP Series 10 - Level 25"
+            }
+          ]
+        },
+        "395": {
+          "patch": "7.35",
+          "sources": [
+            {
+              "category": "Deep Dungeon",
+              "text": "99 First Light Relics"
+            },
+            {
+              "category": "Deep Dungeon",
+              "text": "Pilgrim's Traverse - Sack of First Light"
+            }
+          ]
+        },
+        "396": {
+          "patch": "7.35",
+          "sources": [
+            {
+              "category": "Event",
+              "text": "All Saints' Wake (2025)"
+            },
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "397": {
+          "patch": "7.3",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "398": {
+          "patch": "7.35",
+          "sources": [
+            {
+              "category": "Quest",
+              "text": "The White Wanderer"
+            }
+          ]
+        },
+        "399": {
+          "patch": "7.35",
+          "sources": [
+            {
+              "category": "Trial",
+              "text": "Smithy - Tuliyollal - 99 Guardian Arkveld Certificates"
+            },
+            {
+              "category": "Trial",
+              "text": "The Windward Wilds"
+            },
+            {
+              "category": "Trial",
+              "text": "The Windward Wilds (Extreme)"
+            }
+          ]
+        },
+        "400": {
+          "patch": "7.3",
+          "sources": [
+            {
+              "category": "Treasure Hunt",
+              "text": "Vault Oneiron"
+            }
+          ]
+        },
+        "401": {
+          "patch": "7.31",
+          "sources": [
+            {
+              "category": "Cosmic Exploration",
+              "text": "Mesouaidonque - 29,000 Cosmocredits"
+            }
+          ]
+        },
+        "402": {
+          "patch": "7.31",
+          "sources": [
+            {
+              "category": "Cosmic Exploration",
+              "text": "Mesouaidonque - 60 Phaenna Token Booklets"
+            }
+          ]
+        },
+        "403": {
+          "patch": "7.35",
+          "sources": [
+            {
+              "category": "Achievement",
+              "text": "Faerie Favors"
+            }
+          ]
+        },
+        "407": {
+          "patch": "7.3",
+          "sources": [
+            {
+              "category": "Trial",
+              "text": "The Minstrel's Ballad: Necron's Embrace"
+            }
+          ]
+        },
+        "408": {
+          "patch": "7.35",
+          "sources": [
+            {
+              "category": "Deep Dungeon",
+              "text": "Pilgrim's Traverse - Silver Sack"
+            }
+          ]
+        },
+        "409": {
+          "patch": "7.51",
+          "sources": [
+            {
+              "category": "Cosmic Exploration",
+              "text": "Gold Ancient Record - Auxesia"
+            }
+          ]
+        },
+        "411": {
+          "patch": "7.4",
+          "sources": [
+            {
+              "category": "Wondrous Tails",
+              "text": "600 Faux Leaves"
+            }
+          ]
+        },
+        "412": {
+          "patch": "7.45",
+          "sources": [
+            {
+              "category": "V&C Dungeon",
+              "text": "Another Merchant's Tale"
+            },
+            {
+              "category": "V&C Dungeon",
+              "text": "Trisassant - Old Sharlayan - 100 Corvosi Manuscripts"
+            }
+          ]
+        },
+        "413": {
+          "patch": "7.4",
+          "sources": [
+            {
+              "category": "Raid",
+              "text": "AAC Heavyweight M4 (Savage)"
+            }
+          ]
+        },
+        "414": {
+          "patch": "7.56",
+          "sources": [
+            {
+              "category": "Event",
+              "text": "Moogle Treasure Trove Event"
+            }
+          ]
+        },
+        "415": {
+          "patch": "7.41",
+          "sources": [
+            {
+              "category": "Cosmic Exploration",
+              "text": "Cosmic Fortune - Oizys"
+            },
+            {
+              "category": "Cosmic Exploration",
+              "text": "Mech Pilot Reward - Oizys"
+            }
+          ]
+        },
+        "416": {
+          "patch": "7.41",
+          "sources": [
+            {
+              "category": "Cosmic Exploration",
+              "text": "Mesouaidonque - 60 Oizys Token Booklets"
+            }
+          ]
+        },
+        "417": {
+          "patch": "7.55",
+          "sources": [
+            {
+              "category": "Event",
+              "text": "Moonfire Faire (2026)"
+            }
+          ]
+        },
+        "419": {
+          "patch": "7.5",
+          "sources": [
+            {
+              "category": "Event",
+              "text": "The Starlight Celebration (2026)"
+            }
+          ]
+        },
+        "420": {
+          "patch": "7.5",
+          "sources": [
+            {
+              "category": "Quest",
+              "text": "The Wing Spirit Cometh"
+            }
+          ]
+        },
+        "421": {
+          "patch": "7.45",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "422": {
+          "patch": "7.4",
+          "sources": [
+            {
+              "category": "Trial",
+              "text": "Hell on Rails (Extreme)"
+            }
+          ]
+        },
+        "425": {
+          "patch": "7.41",
+          "sources": [
+            {
+              "category": "Cosmic Exploration",
+              "text": "Mesouaidonque - 20,000 Cosmocredits"
+            }
+          ]
+        },
+        "426": {
+          "patch": "7.41",
+          "sources": [
+            {
+              "category": "Cosmic Exploration",
+              "text": "Mesouaidonque - 20,000 Cosmocredits"
+            }
+          ]
+        },
+        "427": {
+          "patch": "7.45",
+          "sources": [
+            {
+              "category": "V&C Dungeon",
+              "text": "Trisassant - Old Sharlayan - 100 Pieces of Corvosi Brass"
+            }
+          ]
+        },
+        "428": {
+          "patch": "7.4",
+          "sources": [
+            {
+              "category": "Achievement",
+              "text": "Worqor and Peace V"
+            }
+          ]
+        },
+        "429": {
+          "patch": "7.55",
+          "sources": [
+            {
+              "category": "Quest",
+              "text": "Clotted Crime"
+            }
+          ]
+        },
+        "430": {
+          "patch": "7.55",
+          "sources": [
+            {
+              "category": "Gold Saucer",
+              "text": "430 MGC"
+            }
+          ]
+        },
+        "432": {
+          "patch": "7.56",
+          "sources": [
+            {
+              "category": "PvP",
+              "text": "PvP Series 12 - Level 25"
+            }
+          ]
+        },
+        "434": {
+          "patch": "7.56",
+          "sources": [
+            {
+              "category": "Quest",
+              "text": "Bonds Unbroken"
+            }
+          ]
+        },
+        "435": {
+          "patch": "7.55",
+          "sources": [
+            {
+              "category": "Occult Crescent",
+              "text": "North Horn - Pot/Bunny Coffer"
+            },
+            {
+              "category": "Occult Crescent",
+              "text": "North Horn - Bronze/Silver Coffer"
+            }
+          ]
+        },
+        "436": {
+          "patch": "7.56",
+          "sources": [
+            {
+              "category": "Achievement",
+              "text": "Kornago Merchant - Bentbranch Meadows (Requires Achievement \"A Beast in the Hand V\")"
+            }
+          ]
+        },
+        "437": {
+          "patch": "7.55",
+          "sources": [
+            {
+              "category": "Occult Crescent",
+              "text": "Expedition Antiquarian - North Horn - 500 Arcane Amulets"
+            },
+            {
+              "category": "Occult Crescent",
+              "text": "The Forked Tower: Magic"
+            },
+            {
+              "category": "Occult Crescent",
+              "text": "The Forked Tower: Magic (Extreme)"
+            }
+          ]
+        },
+        "438": {
+          "patch": "7.51",
+          "sources": [
+            {
+              "category": "Cosmic Exploration",
+              "text": "Cosmic Fortune - Auxesia"
+            },
+            {
+              "category": "Cosmic Exploration",
+              "text": "Mech Pilot Reward - Auxesia"
+            }
+          ]
+        },
+        "440": {
+          "patch": "7.51",
+          "sources": [
+            {
+              "category": "Cosmic Exploration",
+              "text": "Mesouaidonque - 60 Auxesia Token Booklets"
+            }
+          ]
+        },
+        "444": {
+          "patch": "7.5",
+          "sources": [
+            {
+              "category": "Trial",
+              "text": "The Unmaking (Extreme)"
+            }
+          ]
+        },
+        "445": {
+          "patch": "7.51",
+          "sources": [
+            {
+              "category": "Cosmic Exploration",
+              "text": "Mesouaidonque - 20,000 Cosmocredits"
+            }
+          ]
+        },
+        "446": {
+          "patch": "7.51",
+          "sources": [
+            {
+              "category": "Cosmic Exploration",
+              "text": "Mesouaidonque - 20,000 Cosmocredits"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

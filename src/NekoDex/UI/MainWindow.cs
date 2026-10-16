@@ -24,10 +24,10 @@ public sealed class MainWindow : Window
 
         SizeConstraints = new WindowSizeConstraints
         {
-            MinimumSize = new Vector2(480, 360),
+            MinimumSize = new Vector2(520, 420),
             MaximumSize = new Vector2(float.MaxValue, float.MaxValue),
         };
-        Size = new Vector2(560, 640);
+        Size = new Vector2(620, 720);
         SizeCondition = ImGuiCond.FirstUseEver;
 
         TitleBarButtons.Add(new TitleBarButton
