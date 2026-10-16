@@ -1,6 +1,6 @@
 # FFXIV Dalamud Plugin: Collection Tracker (working name: NekoDex)
 
-Status: Phases 0-5 gates passed 2026-10-16. Phase 6 built, in-game gate pending. Target: friends first, public custom repo later.
+Status: Phases 0-6 gates passed 2026-10-16. Phase 7 built, in-game gate pending. Target: friends first, public custom repo later.
 Stack: C#/.NET, Dalamud.NET.Sdk, ImGui (via Dalamud's ImGui bindings), Lumina, FFXIVClientStructs.
 Method: phased, each phase has gate criteria. Do not start a phase until the previous gate passes.
 
@@ -32,7 +32,7 @@ Method: phased, each phase has gate criteria. Do not start a phase until the pre
 | UI | Themed, with a toggle to default styling |
 
 **Open decisions (resolve before the phase that needs them)**
-- Gear advisor scope: simple "next upgrade by item level" vs per-job best-in-slot. Needed before Phase 7.
+- Gear advisor scope: simple "next upgrade by item level" vs per-job best-in-slot. Needed before Phase 7. **Decided 2026-10-16: simple.** Best-in-slot would need stat-priority tables maintained every patch; nobody has committed to that.
 - Final plugin name and Neko branding. Needed before Phase 8.
 - Whether any existing plugin does part of this badly (informs scope). Optional.
 
@@ -152,20 +152,20 @@ Scope (two sub-tracks, deliver tracking first)
 - **6b. Outfit planner:** build a named outfit from owned items, preview as a list with icons, save and load outfits, and show which items are missing for an outfit. In-game application of outfits stays out of scope unless it can be done through supported means; planning only.
 
 Gate
-- [ ] 6a: counts match the in-game collection UIs for each module delivered.
-- [ ] Adding a new module touches only a module class and a registration line, not the UI core.
-- [ ] 6b: outfits persist, and missing items are listed correctly for a test outfit.
+- [x] 6a: counts match the in-game collection UIs for each module delivered.
+- [x] Adding a new module touches only a module class and a registration line, not the UI core.
+- [x] 6b: outfits persist, and missing items are listed correctly for a test outfit.
 
 ---
 
 ## Phase 7: Gear advisor (optional)
 
-Decide scope first (open decision above).
+Decide scope first (open decision above). Decided 2026-10-16: **Simple**. Where-to-get comes from game data (recipes, gil shops) with a Garland Tools link for everything else; the advisor also says when you already own the suggested piece (bags, Armoire or Glamour Dresser).
 - **Simple:** per-slot "next upgrade by item level" for current job and level, with where-to-get info reusing the unlock provider.
 - **Full:** per-job best-in-slot sets, requires stat priority data and per-patch maintenance. Only if you commit to maintaining it.
 
 Gate
-- [ ] Scope decision written down.
+- [x] Scope decision written down.
 - [ ] Suggestions for 3 different jobs at 3 different levels are sanity-checked by hand.
 
 ---

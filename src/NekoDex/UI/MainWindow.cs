@@ -16,8 +16,9 @@ public sealed class MainWindow : Window
     private readonly DashboardTab dashboard;
     private readonly IReadOnlyList<CollectionTab> tabs;
     private readonly OutfitsTab outfits;
+    private readonly AdvisorTab advisor;
 
-    public MainWindow(IClientState clientState, IPlayerState playerState, DashboardTab dashboard, IReadOnlyList<CollectionTab> tabs, OutfitsTab outfits, Action openSettings)
+    public MainWindow(IClientState clientState, IPlayerState playerState, DashboardTab dashboard, IReadOnlyList<CollectionTab> tabs, OutfitsTab outfits, AdvisorTab advisor, Action openSettings)
         : base("NekoDex###NekoDexMain")
     {
         this.clientState = clientState;
@@ -25,6 +26,7 @@ public sealed class MainWindow : Window
         this.dashboard = dashboard;
         this.tabs = tabs;
         this.outfits = outfits;
+        this.advisor = advisor;
 
         SizeConstraints = new WindowSizeConstraints
         {
@@ -83,6 +85,14 @@ public sealed class MainWindow : Window
             if (item.Success && DrawCharacterHeader())
             {
                 outfits.Draw();
+            }
+        }
+
+        using (var item = ImRaii.TabItem($"{Strings.Get("Tab_Advisor", "Gear")}###advisor"))
+        {
+            if (item.Success && DrawCharacterHeader())
+            {
+                advisor.Draw();
             }
         }
     }

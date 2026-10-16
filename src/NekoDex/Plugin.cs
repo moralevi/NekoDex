@@ -45,7 +45,8 @@ public sealed class Plugin : IDalamudPlugin
         // Unlock info comes from the bundled dataset; anything it cannot answer becomes an explicit
         // Unknown with a web link for the configured site. Entries newer than the data also fall back to the link.
         var dataset = BundledUnlockDataset.Load(log);
-        IUnlockSourceProvider[] providers = dataset is null ? [] : [dataset];
+        var itemSources = new ItemSourceProvider(dataManager, log);
+        IUnlockSourceProvider[] providers = dataset is null ? [itemSources] : [dataset, itemSources];
         var unlockResolver = new UnlockResolver(providers, () => config.Current.LinkSite);
 
         // One tab per collection module. Adding a module means one line here plus its class in Data/.
@@ -60,7 +61,12 @@ public sealed class Plugin : IDalamudPlugin
 
         // Outfit planner: item catalogue from the Item sheet, ownership from dresser snapshot, armoire and bags.
         var dresser = new GlamourDresserReader(config, log);
-        var outfits = new OutfitsTab(config, new GearCatalog(dataManager, log), new ItemOwnershipSources(dresser, armoire), dresser, textureProvider);
+        var gearCatalog = new GearCatalog(dataManager, log);
+        var itemOwnership = new ItemOwnershipSources(dresser, armoire);
+        var outfits = new OutfitsTab(config, gearCatalog, itemOwnership, dresser, textureProvider);
+
+        // Gear advisor (Phase 7, simple scope): next upgrade by item level per slot for the current job and level.
+        var advisor = new AdvisorTab(playerState, gearCatalog, itemOwnership, unlockResolver, textureProvider);
 
         // Resets are fixed in UTC, so the local clock is enough; the checklist controller stamps and clears with it.
         var checklist = new ChecklistController(config, () => DateTimeOffset.UtcNow);
@@ -68,7 +74,7 @@ public sealed class Plugin : IDalamudPlugin
 
         miniWindow = new MiniWindow(config, checklist);
         configWindow = new ConfigWindow(config, miniWindow.SetShown);
-        mainWindow = new MainWindow(clientState, playerState, dashboard, tabs, outfits, configWindow.Toggle);
+        mainWindow = new MainWindow(clientState, playerState, dashboard, tabs, outfits, advisor, configWindow.Toggle);
         windowSystem.AddWindow(mainWindow);
         windowSystem.AddWindow(configWindow);
         windowSystem.AddWindow(miniWindow);

@@ -4,7 +4,7 @@ Dalamud plugin for FFXIV that shows what the logged-in character owns and is mis
 
 Information and UI only. No automation, no input injection, read-only access to game state.
 
-Status: Phase 6 (mounts, minions, orchestrion and Armoire tracking, outfit planner, resets and checklist). See [the spec](dalamud-collection-tracker-spec.md) for the roadmap and phase gates.
+Status: Phase 7 (collections, outfit planner, gear advisor, resets and checklist). See [the spec](dalamud-collection-tracker-spec.md) for the roadmap and phase gates.
 
 ## Layout
 
@@ -54,6 +54,10 @@ The generator validates every entry against the local Mount sheet and exits non-
 ## Collections and outfits
 
 Tabs: Mounts, Minions, Orchestrion and Armoire, each with owned/missing status, search, filters and in-game unlock info. The Armoire tab needs the Armoire opened once per session before the game exposes its contents. The Outfits tab plans named outfits slot by slot from every equippable item and tells you where each piece is (Glamour Dresser, Armoire, bags) or that it is missing. Dresser contents are read when you open the dresser and remembered between sessions.
+
+## Gear advisor
+
+The Gear tab lists, per slot, the highest item level piece your current job can equip at your level that beats what you have on, with runners-up in a tooltip. It says whether you already own the piece (bags, Armoire, Glamour Dresser), whether it is craftable or sold for gil, and links to Garland Tools otherwise. It is deliberately item-level only: no stat weights or best-in-slot tables.
 
 ## Dashboard
 

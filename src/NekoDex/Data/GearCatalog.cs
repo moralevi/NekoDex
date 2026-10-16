@@ -7,8 +7,8 @@ using NekoDex.Core.Outfits;
 
 namespace NekoDex.Data;
 
-/// <summary>One equippable item, with the slots an outfit may put it in.</summary>
-public sealed record GearItem(uint ItemId, string Name, uint IconId, IReadOnlyList<GearSlot> Slots, byte EquipLevel);
+/// <summary>One equippable item, with the slots an outfit may put it in and what the advisor needs.</summary>
+public sealed record GearItem(uint ItemId, string Name, uint IconId, IReadOnlyList<GearSlot> Slots, byte EquipLevel, int ItemLevel, uint ClassJobCategoryId);
 
 /// <summary>Every named equippable item from the Item sheet, loaded once on first use (about 30k rows).</summary>
 public sealed class GearCatalog
@@ -18,6 +18,7 @@ public sealed class GearCatalog
     private IReadOnlyList<GearItem>? items;
     private Dictionary<uint, GearItem>? byId;
     private Dictionary<GearSlot, GearItem[]>? bySlot;
+    private Dictionary<uint, bool[]>? jobsByCategory;
 
     public GearCatalog(IDataManager dataManager, IPluginLog log)
     {
@@ -31,13 +32,19 @@ public sealed class GearCatalog
         return byId!.TryGetValue(itemId, out var item) ? item : null;
     }
 
+    /// <summary>All items that fit <paramref name="slot"/>, newest (highest id) first.</summary>
+    public IReadOnlyList<GearItem> ForSlot(GearSlot slot)
+    {
+        EnsureLoaded();
+        return bySlot![slot];
+    }
+
     /// <summary>Items that fit <paramref name="slot"/> whose name contains <paramref name="search"/>, newest (highest id) first, capped at <paramref name="limit"/>.</summary>
     public IEnumerable<GearItem> Search(GearSlot slot, string? search, int limit)
     {
-        EnsureLoaded();
         var needle = string.IsNullOrWhiteSpace(search) ? null : search.Trim();
         var matched = 0;
-        foreach (var item in bySlot![slot])
+        foreach (var item in ForSlot(slot))
         {
             if (needle is not null && !item.Name.Contains(needle, StringComparison.OrdinalIgnoreCase))
             {
@@ -50,6 +57,13 @@ public sealed class GearCatalog
                 yield break;
             }
         }
+    }
+
+    /// <summary>Whether the ClassJobCategory lets the given ClassJob row id equip the item.</summary>
+    public bool JobCanUse(uint classJobCategoryId, uint classJobId)
+    {
+        EnsureLoaded();
+        return jobsByCategory!.TryGetValue(classJobCategoryId, out var jobs) && classJobId < jobs.Length && jobs[classJobId];
     }
 
     private void EnsureLoaded()
@@ -73,15 +87,24 @@ public sealed class GearCatalog
                 continue;
             }
 
-            list.Add(new GearItem(item.RowId, item.Name.ExtractText(), item.Icon, slots, item.LevelEquip));
+            list.Add(new GearItem(item.RowId, item.Name.ExtractText(), item.Icon, slots, item.LevelEquip, (int)item.LevelItem.RowId, item.ClassJobCategory.RowId));
         }
 
         list.Sort((a, b) => b.ItemId.CompareTo(a.ItemId));
         items = list;
         byId = list.ToDictionary(i => i.ItemId);
         bySlot = OutfitPlanner.SlotOrder.ToDictionary(slot => slot, slot => list.Where(i => i.Slots.Contains(slot)).ToArray());
-        log.Debug("Gear catalog loaded: {Count} equippable items", list.Count);
+        jobsByCategory = dataManager.GetExcelSheet<ClassJobCategory>().ToDictionary(c => c.RowId, JobFlags);
+        log.Debug("Gear catalog loaded: {Count} equippable items, {Categories} job categories", list.Count, jobsByCategory.Count);
     }
+
+    /// <summary>The sheet has one bool column per ClassJob, in ClassJob row id order (ADV = 0 ... PCT = 42).</summary>
+    private static bool[] JobFlags(ClassJobCategory c) =>
+    [
+        c.ADV, c.GLA, c.PGL, c.MRD, c.LNC, c.ARC, c.CNJ, c.THM, c.CRP, c.BSM, c.ARM, c.GSM, c.LTW, c.WVR, c.ALC, c.CUL, c.MIN, c.BTN, c.FSH,
+        c.PLD, c.MNK, c.WAR, c.DRG, c.BRD, c.WHM, c.BLM, c.ACN, c.SMN, c.SCH, c.ROG, c.NIN, c.MCH, c.DRK, c.AST, c.SAM, c.RDM, c.BLU, c.GNB,
+        c.DNC, c.RPR, c.SGE, c.VPR, c.PCT,
+    ];
 
     /// <summary>Maps the sheet's per-slot flags (1 = occupies) to planner slots. Soul crystals and belts are not glamour.</summary>
     private static IReadOnlyList<GearSlot> SlotsFor(EquipSlotCategory category)
