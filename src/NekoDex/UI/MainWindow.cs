@@ -15,14 +15,16 @@ public sealed class MainWindow : Window
     private readonly IPlayerState playerState;
     private readonly DashboardTab dashboard;
     private readonly IReadOnlyList<CollectionTab> tabs;
+    private readonly OutfitsTab outfits;
 
-    public MainWindow(IClientState clientState, IPlayerState playerState, DashboardTab dashboard, IReadOnlyList<CollectionTab> tabs, Action openSettings)
+    public MainWindow(IClientState clientState, IPlayerState playerState, DashboardTab dashboard, IReadOnlyList<CollectionTab> tabs, OutfitsTab outfits, Action openSettings)
         : base("NekoDex###NekoDexMain")
     {
         this.clientState = clientState;
         this.playerState = playerState;
         this.dashboard = dashboard;
         this.tabs = tabs;
+        this.outfits = outfits;
 
         SizeConstraints = new WindowSizeConstraints
         {
@@ -70,26 +72,34 @@ public sealed class MainWindow : Window
         foreach (var tab in tabs)
         {
             using var item = ImRaii.TabItem($"{tab.Module.DisplayName}###{tab.Module.Id}");
-            if (item.Success)
+            if (item.Success && DrawCharacterHeader())
             {
-                DrawCollection(tab);
+                tab.Draw();
+            }
+        }
+
+        using (var item = ImRaii.TabItem($"{Strings.Get("Tab_Outfits", "Outfits")}###outfits"))
+        {
+            if (item.Success && DrawCharacterHeader())
+            {
+                outfits.Draw();
             }
         }
     }
 
-    private void DrawCollection(CollectionTab tab)
+    /// <summary>Every "game not ready" state renders a message instead of touching character data. Returns true when character data may be read.</summary>
+    private bool DrawCharacterHeader()
     {
-        // Every "game not ready" state renders a message instead of touching character data.
         if (!clientState.IsLoggedIn)
         {
             ImGui.TextDisabled(Strings.Get("State_NotLoggedIn", "Log in to a character to see your collections."));
-            return;
+            return false;
         }
 
         if (!playerState.IsLoaded)
         {
             ImGui.TextDisabled(Strings.Get("State_Loading", "Loading character data..."));
-            return;
+            return false;
         }
 
         ImGui.Text(playerState.CharacterName);
@@ -99,6 +109,6 @@ public sealed class MainWindow : Window
             ImGui.TextDisabled($"@ {playerState.HomeWorld.Value.Name}");
         }
 
-        tab.Draw();
+        return true;
     }
 }

@@ -1,6 +1,6 @@
 # FFXIV Dalamud Plugin: Collection Tracker (working name: NekoDex)
 
-Status: Phases 0-4 gates passed 2026-10-16. Phase 5 built, in-game gate pending. Target: friends first, public custom repo later.
+Status: Phases 0-5 gates passed 2026-10-16. Phase 6 built, in-game gate pending. Target: friends first, public custom repo later.
 Stack: C#/.NET, Dalamud.NET.Sdk, ImGui (via Dalamud's ImGui bindings), Lumina, FFXIVClientStructs.
 Method: phased, each phase has gate criteria. Do not start a phase until the previous gate passes.
 
@@ -138,9 +138,9 @@ Scope
 - Compact always-on-top mini window option.
 
 Gate
-- [ ] Countdowns match in-game reset times across a reset boundary.
-- [ ] Checklist items clear at the correct reset and not before.
-- [ ] Time handling is tested with fake clocks, including DST edge cases for display.
+- [x] Countdowns match in-game reset times across a reset boundary.
+- [x] Checklist items clear at the correct reset and not before.
+- [x] Time handling is tested with fake clocks, including DST edge cases for display.
 
 ---
 
@@ -148,6 +148,7 @@ Gate
 
 Scope (two sub-tracks, deliver tracking first)
 - **6a. Tracking (owned vs missing):** glamour items and sets available to the character (Glamour Dresser, Armoire, inventory as feasible), minions/orchestrion as further modules reusing the same tracker core. Verify which of these can be read from game state, and document any that cannot.
+  - Verified 2026-10-16: minions (`UIState.IsCompanionUnlocked`) and orchestrion (`PlayerState.IsOrchestrionRollUnlocked`) read like mounts. Armoire contents (`UIState.Cabinet`) exist only after the player opens the Armoire in the session; the module reports itself unavailable until then. Glamour Dresser contents (`MirageManager.PrismBoxItemIds`) exist only after the dresser is opened; NekoDex stores the last seen list in its config and uses it for the outfit planner until the dresser is opened again. Bags, armoury chest and equipped gear are readable any time (`InventoryManager`). Retainer inventories are not readable without visiting the retainer and are not used.
 - **6b. Outfit planner:** build a named outfit from owned items, preview as a list with icons, save and load outfits, and show which items are missing for an outfit. In-game application of outfits stays out of scope unless it can be done through supported means; planning only.
 
 Gate

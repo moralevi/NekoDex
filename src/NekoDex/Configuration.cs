@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Dalamud.Configuration;
 using NekoDex.Core.Checklist;
+using NekoDex.Core.Outfits;
 using NekoDex.Core.Unlock;
 
 namespace NekoDex;
@@ -28,4 +29,12 @@ public sealed class Configuration : IPluginConfiguration
 
     /// <summary>Whether the compact countdown/checklist window is shown.</summary>
     public bool ShowMiniWindow { get; set; }
+
+    /// <summary>Planned outfits.</summary>
+    public List<Outfit> Outfits { get; set; } = new();
+
+    /// <summary>Item ids last seen in the Glamour Dresser, kept because the game only exposes them after the dresser is opened.</summary>
+    public List<uint> GlamourDresserItems { get; set; } = new();
+
+    public DateTimeOffset? GlamourDresserCapturedAt { get; set; }
 }

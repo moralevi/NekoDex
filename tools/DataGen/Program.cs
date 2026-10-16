@@ -5,7 +5,7 @@ using Lumina.Excel.Sheets;
 using NekoDex.Core.Unlock;
 
 // Usage (from the repo root):
-//   dotnet run --project tools/DataGen [-- --out <file>] [--game <path>] [--input <saved api json>]
+//   dotnet run --project tools/DataGen [-- --out <file>] [--game <path>] [--input-dir <dir with saved <module>.json>]
 // Defaults: --out src/NekoDex/Data/unlocks.json, --game from XIVLauncher's launcherConfigV3.json, API fetched live.
 
 var options = Options.Parse(args);
@@ -20,56 +20,103 @@ var gameVersion = File.ReadAllText(Path.Combine(gamePath, "game", "ffxivgame.ver
 Console.WriteLine($"Game {gameVersion} at {gamePath}");
 
 var lumina = new GameData(sqpack, new LuminaOptions { PanicOnSheetChecksumMismatch = false });
-var mountSheet = lumina.GetExcelSheet<Mount>() ?? throw new InvalidOperationException("Mount sheet missing");
-var guideMounts = mountSheet.Where(m => m.Icon != 0 && m.Order >= 0 && !m.Singular.IsEmpty).ToDictionary(m => m.RowId);
-Console.WriteLine($"Mount sheet: {guideMounts.Count} guide rows, max id {guideMounts.Keys.Max()}");
 
-var apiJson = options.InputFile is not null
-    ? await File.ReadAllTextAsync(options.InputFile)
-    : await FetchAsync(options.ApiUrl);
-var api = JsonSerializer.Deserialize<CollectResponse>(apiJson, new JsonSerializerOptions { PropertyNameCaseInsensitive = true })
-          ?? Cli.Fail<CollectResponse>("API response was empty.");
-Console.WriteLine($"FFXIV Collect: {api.Results.Count} mounts");
+// One row per module: the same rules the plugin's Data/*Module.cs classes use to pick the rows the in-game guides show.
+var modules = new ModuleSpec[]
+{
+    new("mounts", "https://ffxivcollect.com/api/mounts",
+        () => lumina.GetExcelSheet<Mount>()!.Where(m => m.Icon != 0 && m.Order >= 0 && !m.Singular.IsEmpty).ToDictionary(m => m.RowId, m => m.Singular.ExtractText())),
+    new("minions", "https://ffxivcollect.com/api/minions",
+        () => lumina.GetExcelSheet<Companion>()!.Where(c => c.Icon != 0 && c.Order > 0 && !c.Singular.IsEmpty).ToDictionary(c => c.RowId, c => c.Singular.ExtractText())),
+    new("orchestrion", "https://ffxivcollect.com/api/orchestrions",
+        () =>
+        {
+            var ui = lumina.GetExcelSheet<OrchestrionUiparam>()!;
+            return lumina.GetExcelSheet<Orchestrion>()!
+                .Where(o => !o.Name.IsEmpty && ui.GetRowOrDefault(o.RowId) is { Order: > 0 })
+                .ToDictionary(o => o.RowId, o => o.Name.ExtractText());
+        }),
+};
 
-var module = new UnlockDatasetModule { MaxEntryId = guideMounts.Keys.Max() };
+var dataset = new UnlockDataset
+{
+    DataVersion = DateTime.UtcNow.ToString("yyyy-MM-dd"),
+    GameVersion = gameVersion,
+    Source = "FFXIV Collect",
+};
+
 var warnings = 0;
 var unknownCategories = new SortedSet<string>(StringComparer.OrdinalIgnoreCase);
+using var http = new HttpClient();
+http.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue("NekoDex-DataGen", "0.1"));
+http.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue("(+https://github.com/moralevi/NekoDex)"));
 
-foreach (var mount in api.Results.OrderBy(m => m.Id))
+foreach (var spec in modules)
 {
-    if (!guideMounts.ContainsKey(mount.Id))
+    var guideRows = spec.GuideRows();
+    Console.WriteLine($"[{spec.Id}] sheet: {guideRows.Count} guide rows, max id {guideRows.Keys.Max()}");
+
+    string apiJson;
+    if (options.InputDir is not null)
     {
-        Console.WriteLine($"  warn: API mount {mount.Id} '{mount.Name}' is not a Mount Guide row in this game version; skipped");
-        warnings++;
-        continue;
+        apiJson = await File.ReadAllTextAsync(Path.Combine(options.InputDir, spec.Id + ".json"));
+    }
+    else
+    {
+        Console.WriteLine($"[{spec.Id}] GET {spec.ApiUrl}");
+        apiJson = await http.GetStringAsync(spec.ApiUrl);
     }
 
-    var entry = new UnlockDatasetEntry { Patch = mount.Patch };
-    foreach (var source in mount.Sources)
+    var api = JsonSerializer.Deserialize<CollectResponse>(apiJson, new JsonSerializerOptions { PropertyNameCaseInsensitive = true })
+              ?? Cli.Fail<CollectResponse>($"[{spec.Id}] API response was empty.");
+    Console.WriteLine($"[{spec.Id}] FFXIV Collect: {api.Results.Count} entries");
+
+    var module = new UnlockDatasetModule { MaxEntryId = guideRows.Keys.Max() };
+    foreach (var row in api.Results.OrderBy(r => r.Id))
     {
-        if (string.IsNullOrWhiteSpace(source.Text))
+        if (!guideRows.ContainsKey(row.Id))
         {
+            Console.WriteLine($"  warn: API {spec.Id} {row.Id} '{row.Name}' is not a guide row in this game version; skipped");
+            warnings++;
             continue;
         }
 
-        if (!UnlockCategories.IsKnown(source.Type))
+        var entry = new UnlockDatasetEntry { Patch = row.Patch };
+        foreach (var source in row.Sources)
         {
-            unknownCategories.Add(source.Type);
+            if (string.IsNullOrWhiteSpace(source.Text))
+            {
+                continue;
+            }
+
+            if (!UnlockCategories.IsKnown(source.Type))
+            {
+                unknownCategories.Add(source.Type);
+            }
+
+            entry.Sources.Add(new UnlockDatasetSource { Category = source.Type, Text = source.Text.Trim() });
         }
 
-        entry.Sources.Add(new UnlockDatasetSource { Category = source.Type, Text = source.Text.Trim() });
+        if (entry.Sources.Count > 0)
+        {
+            module.Entries[row.Id] = entry;
+        }
     }
 
-    if (entry.Sources.Count > 0)
+    var missing = guideRows.Keys.Where(id => !module.Entries.ContainsKey(id)).Order().ToList();
+    foreach (var id in missing.Take(25))
     {
-        module.Entries[mount.Id] = entry;
+        Console.WriteLine($"  warn: no unlock data for {spec.Id} {id} '{guideRows[id]}'");
     }
-}
 
-foreach (var id in guideMounts.Keys.Where(id => !module.Entries.ContainsKey(id)).Order())
-{
-    Console.WriteLine($"  warn: no unlock data for mount {id} '{guideMounts[id].Singular.ExtractText()}'");
-    warnings++;
+    if (missing.Count > 25)
+    {
+        Console.WriteLine($"  warn: ... and {missing.Count - 25} more {spec.Id} entries without data");
+    }
+
+    warnings += missing.Count;
+    dataset.Modules[spec.Id] = module;
+    Console.WriteLine($"[{spec.Id}] {module.Entries.Count} entries with data, {missing.Count} without");
 }
 
 foreach (var category in unknownCategories)
@@ -78,27 +125,12 @@ foreach (var category in unknownCategories)
     warnings++;
 }
 
-var dataset = new UnlockDataset
-{
-    DataVersion = DateTime.UtcNow.ToString("yyyy-MM-dd"),
-    GameVersion = gameVersion,
-    Source = "FFXIV Collect",
-    Modules = { ["mounts"] = module },
-};
-
 Directory.CreateDirectory(Path.GetDirectoryName(Path.GetFullPath(options.OutFile))!);
-await File.WriteAllTextAsync(options.OutFile, dataset.ToJson() + "\n");
-Console.WriteLine($"Wrote {module.Entries.Count} mount entries to {options.OutFile} (data {dataset.DataVersion}, {warnings} warnings)");
+await File.WriteAllTextAsync(options.OutFile, dataset.ToJson().ReplaceLineEndings("\n") + "\n");
+Console.WriteLine($"Wrote {options.OutFile} (data {dataset.DataVersion}, {dataset.Modules.Count} modules, {warnings} warnings)");
 return warnings == 0 ? 0 : 2;
 
-static async Task<string> FetchAsync(string url)
-{
-    using var http = new HttpClient();
-    http.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue("NekoDex-DataGen", "0.1"));
-    http.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue("(+https://github.com/moralevi/NekoDex)"));
-    Console.WriteLine($"GET {url}");
-    return await http.GetStringAsync(url);
-}
+sealed record ModuleSpec(string Id, string ApiUrl, Func<Dictionary<uint, string>> GuideRows);
 
 static class Cli
 {
@@ -114,14 +146,13 @@ static class Cli
     public static void Die(string message) => Fail<object>(message);
 }
 
-sealed record Options(string OutFile, string? GamePath, string? InputFile, string ApiUrl)
+sealed record Options(string OutFile, string? GamePath, string? InputDir)
 {
     public static Options Parse(string[] args)
     {
         string outFile = Path.Combine("src", "NekoDex", "Data", "unlocks.json");
         string? gamePath = null;
-        string? inputFile = null;
-        var apiUrl = "https://ffxivcollect.com/api/mounts";
+        string? inputDir = null;
 
         for (var i = 0; i < args.Length; i++)
         {
@@ -130,13 +161,12 @@ sealed record Options(string OutFile, string? GamePath, string? InputFile, strin
             {
                 case "--out": outFile = Next(); break;
                 case "--game": gamePath = Next(); break;
-                case "--input": inputFile = Next(); break;
-                case "--api": apiUrl = Next(); break;
+                case "--input-dir": inputDir = Next(); break;
                 default: Cli.Die($"Unknown argument {args[i]}"); break;
             }
         }
 
-        return new Options(outFile, gamePath, inputFile, apiUrl);
+        return new Options(outFile, gamePath, inputDir);
     }
 }
 
@@ -157,10 +187,10 @@ static class GameLocator
 
 sealed class CollectResponse
 {
-    public List<CollectMount> Results { get; set; } = new();
+    public List<CollectRow> Results { get; set; } = new();
 }
 
-sealed class CollectMount
+sealed class CollectRow
 {
     public uint Id { get; set; }
 

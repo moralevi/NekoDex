@@ -47,11 +47,22 @@ public class UnlockResolverTests
     }
 
     [Fact]
-    public void Unknown_module_on_site_gives_unknown_without_link()
+    public void Module_unknown_to_preferred_site_falls_back_to_another_site()
     {
         var resolver = new UnlockResolver([], () => UnlockLinkSite.GarlandTools);
 
         var source = resolver.Resolve("orchestrion", new CollectionEntry(5, "x", 0));
+
+        Assert.True(source.IsUnknown);
+        Assert.Equal("https://ffxivcollect.com/orchestrions/5", source.Url);
+    }
+
+    [Fact]
+    public void Module_unknown_to_every_site_gives_unknown_without_link()
+    {
+        var resolver = new UnlockResolver([], () => UnlockLinkSite.GarlandTools);
+
+        var source = resolver.Resolve("glamour", new CollectionEntry(5, "x", 0));
 
         Assert.True(source.IsUnknown);
         Assert.Null(source.Url);

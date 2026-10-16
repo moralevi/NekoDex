@@ -30,6 +30,8 @@ public sealed unsafe class MountModule : ICollectionModule
 
     public string DisplayName => Strings.Get("Module_Mounts", "Mounts");
 
+    public string? UnavailableReason => null;
+
     public IReadOnlyList<CollectionEntry> GetEntries() => entries ??= Load();
 
     public bool IsOwned(CollectionEntry entry)

@@ -35,6 +35,8 @@ public static class UnlockCategories
         ["Event"] = UnlockSourceType.Event,
         ["Premium"] = UnlockSourceType.Store,
 
+        ["Venture"] = UnlockSourceType.Other,
+        ["Beastmaster"] = UnlockSourceType.Other,
         ["PvP"] = UnlockSourceType.Other,
         ["FATE"] = UnlockSourceType.Other,
         ["Gathering"] = UnlockSourceType.Other,

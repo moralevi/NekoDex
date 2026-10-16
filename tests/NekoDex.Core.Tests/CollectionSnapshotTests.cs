@@ -10,6 +10,8 @@ public class CollectionSnapshotTests
 
         public string DisplayName => "Fake";
 
+        public string? UnavailableReason => null;
+
         public IReadOnlyList<CollectionEntry> GetEntries() => entries;
 
         public bool IsOwned(CollectionEntry entry) => owned(entry);

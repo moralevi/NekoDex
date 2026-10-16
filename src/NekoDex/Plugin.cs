@@ -49,10 +49,18 @@ public sealed class Plugin : IDalamudPlugin
         var unlockResolver = new UnlockResolver(providers, () => config.Current.LinkSite);
 
         // One tab per collection module. Adding a module means one line here plus its class in Data/.
+        var armoire = new ArmoireModule(dataManager, log);
         CollectionTab[] tabs =
         [
             new(new MountModule(dataManager, clientState, log), textureProvider, unlockResolver, dataset),
+            new(new MinionModule(dataManager, clientState, log), textureProvider, unlockResolver, dataset),
+            new(new OrchestrionModule(dataManager, log), textureProvider, unlockResolver, dataset),
+            new(armoire, textureProvider, unlockResolver, dataset),
         ];
+
+        // Outfit planner: item catalogue from the Item sheet, ownership from dresser snapshot, armoire and bags.
+        var dresser = new GlamourDresserReader(config, log);
+        var outfits = new OutfitsTab(config, new GearCatalog(dataManager, log), new ItemOwnershipSources(dresser, armoire), dresser, textureProvider);
 
         // Resets are fixed in UTC, so the local clock is enough; the checklist controller stamps and clears with it.
         var checklist = new ChecklistController(config, () => DateTimeOffset.UtcNow);
@@ -60,7 +68,7 @@ public sealed class Plugin : IDalamudPlugin
 
         miniWindow = new MiniWindow(config, checklist);
         configWindow = new ConfigWindow(config, miniWindow.SetShown);
-        mainWindow = new MainWindow(clientState, playerState, dashboard, tabs, configWindow.Toggle);
+        mainWindow = new MainWindow(clientState, playerState, dashboard, tabs, outfits, configWindow.Toggle);
         windowSystem.AddWindow(mainWindow);
         windowSystem.AddWindow(configWindow);
         windowSystem.AddWindow(miniWindow);

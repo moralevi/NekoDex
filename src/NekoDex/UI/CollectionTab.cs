@@ -49,6 +49,11 @@ public sealed class CollectionTab
     {
         RefreshIfDue();
 
+        if (Module.UnavailableReason is { } reason)
+        {
+            ImGui.TextColored(Theme.MissingColor, reason);
+        }
+
         DrawProgress();
         DrawControls();
 

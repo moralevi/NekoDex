@@ -27,6 +27,26 @@ public static class UnlockLinks
         };
     }
 
+    /// <summary>The preferred site's page, or any other site's page when the preferred one has none for this module.</summary>
+    public static string? BuildUrlWithFallback(UnlockLinkSite preferred, string moduleId, uint entryId)
+    {
+        var url = BuildUrl(preferred, moduleId, entryId);
+        if (url is not null)
+        {
+            return url;
+        }
+
+        foreach (var site in Enum.GetValues<UnlockLinkSite>())
+        {
+            if (site != preferred && BuildUrl(site, moduleId, entryId) is { } other)
+            {
+                return other;
+            }
+        }
+
+        return null;
+    }
+
     public static string SiteName(UnlockLinkSite site) => site switch
     {
         UnlockLinkSite.FfxivCollect => "FFXIV Collect",
@@ -41,6 +61,8 @@ public static class UnlockLinks
         (UnlockLinkSite.FfxivCollect, "orchestrion") => "orchestrions",
         (UnlockLinkSite.GarlandTools, "mounts") => "mount",
         (UnlockLinkSite.GarlandTools, "minions") => "minion",
+        (UnlockLinkSite.GarlandTools, "armoire") => "item",
+        (UnlockLinkSite.GarlandTools, "items") => "item",
         _ => null,
     };
 }
