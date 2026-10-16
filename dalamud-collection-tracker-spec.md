@@ -1,6 +1,6 @@
 # FFXIV Dalamud Plugin: Collection Tracker (working name: NekoDex)
 
-Status: Phases 0-7 gates passed 2026-10-16. Phase 8 built (theme and fresh-install gates pending; fresh install needs the GitHub repo public). Phases 9 and 10 gates passed; Phase 11 built, in-game gate pending. Target: friends first, public custom repo later.
+Status: Phases 0-7 gates passed 2026-10-16. Phase 8 built (theme and fresh-install gates pending; fresh install needs the GitHub repo public). Phases 9 to 11 gates passed; Phase 12 built, in-game gate pending. Target: friends first, public custom repo later.
 Stack: C#/.NET, Dalamud.NET.Sdk, ImGui (via Dalamud's ImGui bindings), Lumina, FFXIVClientStructs.
 Method: phased, each phase has gate criteria. Do not start a phase until the previous gate passes.
 
@@ -247,9 +247,9 @@ Scope
 - Mini window shows unfinished auto items too.
 
 Gate
-- [ ] Each auto item flips to done within a few seconds of completing it in game and clears at the right reset.
-- [ ] Items the game cannot report are documented in the spec and not offered.
-- [ ] Reset clearing of auto items is covered by fake-clock tests.
+- [x] Each auto item flips to done within a few seconds of completing it in game and clears at the right reset.
+- [x] Items the game cannot report are documented in the spec and not offered.
+- [x] Reset clearing of auto items is covered by fake-clock tests.
 
 ---
 
@@ -257,6 +257,7 @@ Gate
 
 Scope
 - One module per collection, each a Data class plus a registration line: emotes, hairstyles, bardings, Triple Triad cards, fashion accessories, framer's kits, facewear. Verify the unlock read for each; some need the item id to unlock id mapping from the sheets.
+  - Verified 2026-10-16. Delivered: emotes (`UIState.IsEmoteUnlocked`, rows with an unlock link), bardings (`CompanionInfo.IsBuddyEquipUnlocked`), Triple Triad cards (`UIState.IsTripleTriadCardUnlocked`, ordered by TripleTriadCardResident), fashion accessories (`PlayerState.IsOrnamentUnlocked`), facewear per style (`PlayerState.IsGlassesStyleUnlocked` over GlassesStyle). Deferred: hairstyles (unlock is per race via CharaMakeCustomize unlock links and there is no in-game count to gate against) and framer's kits (FFXIV Collect has no endpoint; the unlock id to sheet mapping is unverified).
 - DataGen gains a module row per collection pointing at the matching FFXIV Collect endpoint; `UnlockLinks` gains the page segments. Record any endpoint that does not exist.
 - Modules whose in-game guide applies extra visibility rules (emotes split by category, cards by region) keep the same ordering as the guide.
 

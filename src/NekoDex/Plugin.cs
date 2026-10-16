@@ -59,6 +59,11 @@ public sealed class Plugin : IDalamudPlugin
             new(new MountModule(dataManager, clientState, log), textureProvider, unlockResolver, dataset, pins),
             new(new MinionModule(dataManager, clientState, log), textureProvider, unlockResolver, dataset, pins),
             new(new OrchestrionModule(dataManager, log), textureProvider, unlockResolver, dataset, pins),
+            new(new EmoteModule(dataManager, log), textureProvider, unlockResolver, dataset, pins),
+            new(new BardingModule(dataManager, log), textureProvider, unlockResolver, dataset, pins),
+            new(new FashionAccessoryModule(dataManager, clientState, log), textureProvider, unlockResolver, dataset, pins),
+            new(new FacewearModule(dataManager, log), textureProvider, unlockResolver, dataset, pins),
+            new(new TriadCardModule(dataManager, log), textureProvider, unlockResolver, dataset, pins),
             new(armoire, textureProvider, unlockResolver, dataset, pins),
         ];
         bool CharacterReady() => clientState.IsLoggedIn && playerState.IsLoaded;

@@ -36,6 +36,16 @@ var modules = new ModuleSpec[]
                 .Where(o => !o.Name.IsEmpty && ui.GetRowOrDefault(o.RowId) is { Order: > 0 })
                 .ToDictionary(o => o.RowId, o => o.Name.ExtractText());
         }),
+    new("emotes", "https://ffxivcollect.com/api/emotes",
+        () => lumina.GetExcelSheet<Emote>()!.Where(e => !e.Name.IsEmpty && e.Icon != 0 && e.UnlockLink != 0).ToDictionary(e => e.RowId, e => e.Name.ExtractText())),
+    new("bardings", "https://ffxivcollect.com/api/bardings",
+        () => lumina.GetExcelSheet<BuddyEquip>()!.Where(b => !b.Name.IsEmpty && b.Order > 0).ToDictionary(b => b.RowId, b => b.Name.ExtractText())),
+    new("fashion", "https://ffxivcollect.com/api/fashions",
+        () => lumina.GetExcelSheet<Ornament>()!.Where(o => o.Icon != 0 && o.Order >= 0 && !o.Singular.IsEmpty).ToDictionary(o => o.RowId, o => o.Singular.ExtractText())),
+    new("facewear", "https://ffxivcollect.com/api/facewear",
+        () => lumina.GetExcelSheet<GlassesStyle>()!.Where(g => g.RowId > 0 && !g.Name.IsEmpty && g.Icon != 0).ToDictionary(g => g.RowId, g => g.Name.ExtractText())),
+    new("triad", "https://ffxivcollect.com/api/triad/cards",
+        () => lumina.GetExcelSheet<TripleTriadCard>()!.Where(c => c.RowId > 0 && !c.Name.IsEmpty).ToDictionary(c => c.RowId, c => c.Name.ExtractText())),
 };
 
 var dataset = new UnlockDataset

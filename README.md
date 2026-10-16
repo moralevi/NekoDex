@@ -76,7 +76,7 @@ The generator validates every entry against the local Mount sheet and exits non-
 
 ## Collections and outfits
 
-Tabs: Mounts, Minions, Orchestrion and Armoire, each with owned/missing status, search, filters and in-game unlock info. The Armoire tab needs the Armoire opened once per session before the game exposes its contents. The Outfits tab plans named outfits slot by slot from every equippable item and tells you where each piece is (Glamour Dresser, Armoire, bags) or that it is missing. Dresser contents are read when you open the dresser and remembered between sessions.
+Tabs: Mounts, Minions, Orchestrion, Emotes, Bardings, Fashion Accessories, Facewear, Triple Triad and Armoire, each with owned/missing status, search, filters, sorting, pins and in-game unlock info. The Armoire tab needs the Armoire opened once per session before the game exposes its contents. The Outfits tab plans named outfits slot by slot from every equippable item and tells you where each piece is (Glamour Dresser, Armoire, bags) or that it is missing. Dresser contents are read when you open the dresser and remembered between sessions.
 
 ## Gear advisor
 

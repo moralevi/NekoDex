@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.0 (in progress)
+
+- New tabs: Emotes, Bardings, Fashion Accessories, Facewear and Triple Triad, with unlock data for all of them.
+
 ## 1.1.0 (in progress)
 
 - Glamour Dresser contents are remembered per character. Config moves to v2; a snapshot saved by 1.0 is handed to the first character that logs in.
