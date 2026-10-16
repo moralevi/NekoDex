@@ -41,6 +41,10 @@ The Core project exists so logic can be tested without the game. Anything that t
 2. Commit to `main`, then tag and push: `git tag v1.0.0.0 && git push origin v1.0.0.0`.
 3. The Release workflow builds, tests, attaches `latest.zip` to a GitHub release and updates `repo.json` on `main`. Dalamud picks the new version up from `repo.json`.
 
+## Your data
+
+Settings has Export all, Export outfits only and Import. The file is JSON with a schema version. Import previews what the file contains and lets you merge (your copies win on conflicts) or replace the sections present in the file. Share the outfits-only file with friends; importing it adds their outfits and nothing else.
+
 ## Translations
 
 Every user-visible string goes through `Strings.Get(key, english)`. `loc/en.json` lists them all in CheapLoc format and is regenerated with:

@@ -1,6 +1,6 @@
 # FFXIV Dalamud Plugin: Collection Tracker (working name: NekoDex)
 
-Status: Phases 0-7 gates passed 2026-10-16. Phase 8 built (theme and fresh-install gates pending; fresh install needs the GitHub repo public). Phases 9 to 14 gates passed; Phase 15 built, in-game gate pending. Remaining before a public release: Phase 8 theme-leak check, screenshots, repo public, first tag, FFXIV Collect redistribution answer. Target: friends first, public custom repo later.
+Status: Phases 0-7 gates passed 2026-10-16. Phase 8 built (theme and fresh-install gates pending; fresh install needs the GitHub repo public). Phases 9 to 15 gates passed; Phase 16 built, in-game gate pending. Remaining before a public release: Phase 8 theme-leak check, screenshots, repo public, first tag, FFXIV Collect redistribution answer. Target: friends first, public custom repo later.
 Stack: C#/.NET, Dalamud.NET.Sdk, ImGui (via Dalamud's ImGui bindings), Lumina, FFXIVClientStructs.
 Method: phased, each phase has gate criteria. Do not start a phase until the previous gate passes.
 
@@ -331,8 +331,8 @@ Scope
 - Detail pane: highlight the patch when it is the latest.
 
 Gate
-- [ ] Filter shows exactly the entries whose patch equals the dataset's latest patch for that module (unit tests plus a spot check).
-- [ ] Dashboard counts match the filtered tabs.
+- [x] Filter shows exactly the entries whose patch equals the dataset's latest patch for that module (unit tests plus a spot check).
+- [x] Dashboard counts match the filtered tabs.
 
 ---
 

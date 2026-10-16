@@ -84,7 +84,8 @@ public sealed class Plugin : IDalamudPlugin
         var dashboard = new DashboardTab(checklist, autoItems, tabs, CharacterReady, navigation);
 
         miniWindow = new MiniWindow(config, checklist, autoItems, tabs, pins, CharacterReady);
-        configWindow = new ConfigWindow(config, miniWindow.SetShown, dataset, pluginInterface.Manifest.AssemblyVersion.ToString(), autoItems);
+        var version = pluginInterface.Manifest.AssemblyVersion.ToString();
+        configWindow = new ConfigWindow(config, miniWindow.SetShown, dataset, version, autoItems, new UserDataService(config, log, version));
         mainWindow = new MainWindow(config, clientState, playerState, dashboard, tabs, outfits, advisor, navigation, configWindow.Toggle);
         windowSystem.AddWindow(mainWindow);
         windowSystem.AddWindow(configWindow);

@@ -6,6 +6,9 @@ using Dalamud.Interface.Components;
 using Dalamud.Interface.Utility;
 using Dalamud.Interface.Utility.Raii;
 using Dalamud.Interface.Windowing;
+using System.IO;
+using Dalamud.Interface.ImGuiFileDialog;
+using NekoDex.Core.Transfer;
 using NekoDex.Core.Unlock;
 
 namespace NekoDex.UI;
@@ -17,8 +20,14 @@ public sealed class ConfigWindow : ThemedWindow
     private readonly DatasetUnlockSourceProvider? dataset;
     private readonly string pluginVersion;
     private readonly AutoChecklistController autoItems;
+    private readonly UserDataService userData;
+    private readonly FileDialogManager fileDialogs = new();
+    private UserDataFile? pendingImport;
+    private string? pendingImportName;
+    private ImportMode importMode = ImportMode.Merge;
+    private string dataStatus = string.Empty;
 
-    public ConfigWindow(ConfigurationManager config, Action<bool> setMiniWindowShown, DatasetUnlockSourceProvider? dataset, string pluginVersion, AutoChecklistController autoItems)
+    public ConfigWindow(ConfigurationManager config, Action<bool> setMiniWindowShown, DatasetUnlockSourceProvider? dataset, string pluginVersion, AutoChecklistController autoItems, UserDataService userData)
         : base(config, "NekoDex Settings###NekoDexConfig", ImGuiWindowFlags.NoCollapse | ImGuiWindowFlags.AlwaysAutoResize)
     {
         this.config = config;
@@ -26,6 +35,7 @@ public sealed class ConfigWindow : ThemedWindow
         this.dataset = dataset;
         this.pluginVersion = pluginVersion;
         this.autoItems = autoItems;
+        this.userData = userData;
         SizeConstraints = new WindowSizeConstraints { MinimumSize = new Vector2(380, 0) };
     }
 
@@ -129,12 +139,97 @@ public sealed class ConfigWindow : ThemedWindow
             config.Save();
         }
 
+        Section(Strings.Get("Config_Data", "Your data"));
+
+        Hint(Strings.Get("Config_DataHint", "Outfits, pins, checklist, auto item choices and dresser snapshots as one JSON file."));
+        if (ImGui.Button(Strings.Get("Data_ExportAll", "Export all...")))
+        {
+            fileDialogs.SaveFileDialog(Strings.Get("Data_ExportTitle", "Export NekoDex data"), ".json", userData.DefaultFileName(false), ".json", (ok, path) =>
+            {
+                if (ok)
+                {
+                    dataStatus = userData.Export(path, false);
+                }
+            });
+        }
+
+        ImGui.SameLine();
+        if (ImGui.Button(Strings.Get("Data_ExportOutfits", "Export outfits only...")))
+        {
+            fileDialogs.SaveFileDialog(Strings.Get("Data_ExportOutfitsTitle", "Export NekoDex outfits"), ".json", userData.DefaultFileName(true), ".json", (ok, path) =>
+            {
+                if (ok)
+                {
+                    dataStatus = userData.Export(path, true);
+                }
+            });
+        }
+
+        ImGui.SameLine();
+        if (ImGui.Button(Strings.Get("Data_Import", "Import...")))
+        {
+            fileDialogs.OpenFileDialog(Strings.Get("Data_ImportTitle", "Import NekoDex data"), ".json", (ok, path) =>
+            {
+                if (!ok)
+                {
+                    return;
+                }
+
+                var (file, error) = userData.Load(path);
+                pendingImport = file;
+                pendingImportName = Path.GetFileName(path);
+                dataStatus = error is null ? string.Empty : string.Format(Strings.Get("Data_ImportRefused", "Cannot import {0}: {1}"), Path.GetFileName(path), error);
+            });
+        }
+
+        if (pendingImport is { } pending)
+        {
+            var counts = UserDataTransfer.Preview(pending);
+            Hint(string.Format(
+                Strings.Get("Data_Preview", "{0} contains {1} outfits, {2} pins, {3} checklist items, {4} auto items, {5} dresser snapshots (exported by NekoDex {6})."),
+                pendingImportName, counts.Outfits, counts.Pins, counts.Checklist, counts.AutoItems, counts.Snapshots, pending.PluginVersion));
+
+            using (ImRaii.PushIndent(20f * ImGuiHelpers.GlobalScale))
+            {
+                if (ImGui.RadioButton(Strings.Get("Data_Merge", "Merge (keep mine on conflicts)"), importMode == ImportMode.Merge))
+                {
+                    importMode = ImportMode.Merge;
+                }
+
+                ImGui.SameLine();
+                if (ImGui.RadioButton(Strings.Get("Data_Replace", "Replace sections in the file"), importMode == ImportMode.Replace))
+                {
+                    importMode = ImportMode.Replace;
+                }
+
+                if (ImGui.Button(Strings.Get("Data_Apply", "Apply import")))
+                {
+                    dataStatus = userData.Import(pending, importMode);
+                    pendingImport = null;
+                }
+
+                ImGui.SameLine();
+                if (ImGui.Button(Strings.Get("Data_Cancel", "Cancel")))
+                {
+                    pendingImport = null;
+                    dataStatus = string.Empty;
+                }
+            }
+        }
+
+        if (dataStatus.Length > 0)
+        {
+            Hint(dataStatus);
+        }
+
         Section(Strings.Get("Config_About", "About"));
 
         ImGui.TextDisabled(string.Format(Strings.Get("Config_Version", "NekoDex {0}, config v{1}"), pluginVersion, current.Version));
         ImGui.TextDisabled(dataset is null
             ? Strings.Get("Config_NoDataset", "Bundled unlock data: unavailable")
             : string.Format(Strings.Get("Config_Dataset", "Unlock data {0} from {1}, for game {2}"), dataset.DataVersion, dataset.Source, dataset.GameVersion));
+
+        fileDialogs.Draw();
     }
 
     private static void Section(string title)
