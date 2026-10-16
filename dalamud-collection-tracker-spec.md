@@ -305,6 +305,110 @@ Gate
 
 ---
 
+# Part 3: focus round (planned 2026-10-16)
+
+From the second Q&A: the friends collect mounts, cards and glamour; languages are English and Swedish; clear yeses were a second unlock source, tomestone-aware gear, a "new this patch" view, and export/import of user data. Swedish goes last by the user's choice. Same method as before.
+
+**Decisions already made**
+| Topic | Decision |
+|---|---|
+| Glamour depth | Dresser capacity warning first; look-alike matching by model id parked |
+| Outfit sharing | Through the export file, never through chat |
+| Repo visibility | Stays private until the user says otherwise; FFXIV Collect question only matters before going public |
+
+**Open decisions (resolve before the phase that needs them)**
+- Garland Tools data: which file or endpoint, and its terms. Needed before Phase 17.
+- Which tomestone currencies count (current and previous tier only, or all). Needed before Phase 18.
+- Whether Dalamud lists Swedish as a UI language; if not, a plugin-level language override is required. Needed before Phase 20.
+
+---
+
+## Phase 15: New this patch
+
+Scope
+- Core: `LatestPatch(module)` from the dataset's patch fields; an "Added in {patch}" filter axis next to ownership and availability; patch sorting already exists.
+- Dashboard: one line per module, "N new in {patch}, M of them missing", clicking it opens the tab with the filter set.
+- Detail pane: highlight the patch when it is the latest.
+
+Gate
+- [ ] Filter shows exactly the entries whose patch equals the dataset's latest patch for that module (unit tests plus a spot check).
+- [ ] Dashboard counts match the filtered tabs.
+
+---
+
+## Phase 16: Export and import of user data
+
+Scope
+- One JSON file with a schema version holding outfits, pins, manual checklist items, enabled auto items and dresser snapshots. Config-only settings (theme, link site) stay out.
+- Core: serialisation model plus merge rules (replace all, or merge by id keeping local on conflict), tested.
+- Settings: Export to a chosen folder (default the plugin config folder), Import with a preview of counts and the merge choice, and a "share outfits only" export for friends.
+
+Gate
+- [ ] Export then import on a clean config reproduces outfits, pins, checklist and snapshots exactly (unit test on the model, manual check in game).
+- [ ] Importing an outfits-only file from another person adds their outfits without touching anything else.
+- [ ] A file with an unknown schema version is refused with a clear message.
+
+---
+
+## Phase 17: Second unlock source
+
+Scope
+- Verify first: what Garland Tools publishes as data files, their terms, and how its ids map to the game sheets. Record it in DATA_SOURCES.md.
+- DataGen gains a second source per module merged behind FFXIV Collect: an entry keeps Collect's text when present and takes Garland's otherwise; both attributions are kept per entry.
+- Provider chain unchanged; the dataset carries a `source` per entry and the UI shows the right attribution.
+
+Gate
+- [ ] The number of Unknown entries per module drops, and the drop is listed in the generator output.
+- [ ] Every entry shows the attribution of the source it came from.
+- [ ] DATA_SOURCES.md covers Garland's data terms.
+
+---
+
+## Phase 18: Tomestone-aware gear advisor
+
+Scope
+- Verify first: reading tomestone counts (`InventoryManager` currency container) and the SpecialShop sheet rows that sell gear for tomestones; decide which currencies count (open decision).
+- Core: price lookup per item and an "affordable now" flag; suggestions show the price and currency, and affordable pieces are marked.
+- Vendor location from the shop's NPC when the sheets provide it; otherwise the existing web link.
+
+Gate
+- [ ] For three jobs, every tomestone piece the advisor marks affordable is buyable in game at that moment, and the price matches the vendor.
+- [ ] Non-tomestone suggestions are unchanged.
+
+---
+
+## Phase 19: Dresser capacity warning
+
+Scope
+- Outfits footer and Dashboard show dresser usage against the 800-item limit from the live read or the snapshot, with a warning colour above a threshold set in settings (default 760).
+- For an outfit, show how many of its missing pieces would need dresser space and whether the dresser can hold them.
+- Verify the limit and whether the game exposes it rather than hard-coding 800.
+
+Gate
+- [ ] Usage matches the in-game dresser count.
+- [ ] Warning appears at the threshold and not below.
+
+---
+
+## Phase 20: Swedish
+
+Scope
+- Verify whether Dalamud offers Swedish as a UI language. If not, add a plugin setting "Language: follow Dalamud / English / Swedish" that overrides which loc file loads.
+- Ship `loc/sv.json`, translated by the user or a friend from `loc/en.json`; LocExport gains a `--check <file>` mode that lists keys missing or extra in a translation.
+- Review strings with placeholders for word-order problems and allow reordering via the format arguments.
+
+Gate
+- [ ] With Swedish selected every visible string is Swedish except keys the check tool reports as missing.
+- [ ] `--check` reports zero missing keys for sv.json at release.
+
+---
+
+## Release rhythm for Part 3
+- First public tag still waits on the user's go-ahead and the FFXIV Collect answer. Until then friends install from the dev build or a private release asset.
+- Tag `v1.3.0.0` after Phase 17 and `v1.4.0.0` after Phase 20.
+
+---
+
 ## Cross-cutting rules
 - Verify Dalamud API level and any ClientStructs usage against current docs at the start of each phase; they change with game patches.
 - Never read or write game memory in ways that mutate state. Read-only.
