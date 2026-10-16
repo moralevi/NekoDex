@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/NekoDex.Core/NekoDex.Core.csproj" />
+    <Project Path="src/NekoDex/NekoDex.csproj">
+      <Platform Project="x64" />
+    </Project>
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/NekoDex.Core.Tests/NekoDex.Core.Tests.csproj" />
+  </Folder>
+</Solution>

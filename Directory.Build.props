@@ -1,0 +1,10 @@
+<Project>
+  <PropertyGroup>
+    <Nullable>enable</Nullable>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <Authors>moralevi</Authors>
+    <Company>moralevi</Company>
+    <Product>NekoDex</Product>
+    <Copyright>Copyright (c) 2026 moralevi</Copyright>
+  </PropertyGroup>
+</Project>

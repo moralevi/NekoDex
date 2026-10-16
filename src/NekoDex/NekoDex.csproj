@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Dalamud.NET.Sdk/15.0.0">
+  <PropertyGroup>
+    <Version>0.1.0.0</Version>
+    <!-- Manifest fields consumed by DalamudPackager -->
+    <Author>moralevi</Author>
+    <Name>NekoDex</Name>
+    <Punchline>Track what your character owns and how to get what is missing.</Punchline>
+    <Description>Collection tracker for the logged-in character: mounts first, with more collections, unlock info and a daily/weekly checklist to follow.
+Information and UI only. No automation.</Description>
+    <RepoUrl>https://github.com/moralevi/NekoDex</RepoUrl>
+    <Tags>collection;mounts;tracker;minions;glamour;checklist</Tags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NekoDex.Core\NekoDex.Core.csproj" />
+  </ItemGroup>
+
+  <!--
+    Debug builds are copied to Dalamud's devPlugins folder so the plugin shows up under
+    /xlplugins -> Dev Tools -> Installed Dev Plugins. Dalamud loads dev plugins into memory,
+    so rebuilding while the game runs is fine; reload from that list afterwards.
+    Override with -p:DevPluginsDir=... or disable with -p:CopyToDevPlugins=false.
+  -->
+  <PropertyGroup>
+    <CopyToDevPlugins Condition="'$(CopyToDevPlugins)' == ''">true</CopyToDevPlugins>
+    <DevPluginsDir Condition="'$(DevPluginsDir)' == ''">$(APPDATA)\XIVLauncher\devPlugins\$(AssemblyName)\</DevPluginsDir>
+  </PropertyGroup>
+  <Target Name="CopyToDevPlugins" AfterTargets="Build" Condition="'$(CopyToDevPlugins)' == 'true' AND '$(Configuration)' == 'Debug' AND '$(OS)' == 'Windows_NT'">
+    <ItemGroup>
+      <DevPluginFiles Include="$(OutDir)**\*" />
+    </ItemGroup>
+    <Copy SourceFiles="@(DevPluginFiles)" DestinationFiles="@(DevPluginFiles->'$(DevPluginsDir)%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
+    <Message Importance="high" Text="NekoDex: copied dev build to $(DevPluginsDir)" />
+  </Target>
+</Project>
