@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Numerics;
 using Dalamud.Bindings.ImGui;
 using Dalamud.Interface;
@@ -23,6 +24,11 @@ public sealed unsafe class CollectionTab
     private readonly UnlockResolver unlockResolver;
     private readonly DatasetUnlockSourceProvider? dataset;
     private readonly PinController pins;
+    private readonly IDetailExtension? detailExtension;
+    private readonly IReadOnlyList<EntryFilterOption> moduleFilters;
+    private readonly HashSet<string> activeModuleFilters = new();
+    private bool hasCategory;
+    private bool hasRank;
 
     private CollectionSnapshot snapshot = CollectionSnapshot.Empty;
     private IReadOnlyList<EntryView> views = [];
@@ -39,13 +45,15 @@ public sealed unsafe class CollectionTab
     private bool latestOnly;
     private uint? selectedId;
 
-    public CollectionTab(ICollectionModule module, ITextureProvider textureProvider, UnlockResolver unlockResolver, DatasetUnlockSourceProvider? dataset, PinController pins)
+    public CollectionTab(ICollectionModule module, ITextureProvider textureProvider, UnlockResolver unlockResolver, DatasetUnlockSourceProvider? dataset, PinController pins, IDetailExtension? detailExtension = null)
     {
         Module = module;
         this.textureProvider = textureProvider;
         this.unlockResolver = unlockResolver;
         this.dataset = dataset;
         this.pins = pins;
+        this.detailExtension = detailExtension;
+        moduleFilters = module is IFilteredModule filtered ? filtered.Filters : [];
     }
 
     public ICollectionModule Module { get; }
@@ -134,11 +142,21 @@ public sealed unsafe class CollectionTab
         if (dirty)
         {
             var onlyPatch = latestOnly ? LatestPatch : null;
-            visible = EntryViewQuery.Sort(EntryViewQuery.Filter(views, ownership, availability, search, onlyPatch), sortKey, sortDescending, missingFirst, pinnedFirst: true);
+            Func<CollectionEntry, bool>? extra = null;
+            foreach (var option in moduleFilters)
+            {
+                if (activeModuleFilters.Contains(option.Id))
+                {
+                    var previous = extra;
+                    extra = previous is null ? option.Predicate : e => previous(e) && option.Predicate(e);
+                }
+            }
+
+            visible = EntryViewQuery.Sort(EntryViewQuery.Filter(views, ownership, availability, search, onlyPatch, extra), sortKey, sortDescending, missingFirst, pinnedFirst: true);
             dirty = false;
         }
 
-        var detailHeight = 150 * ImGuiHelpers.GlobalScale;
+        var detailHeight = (detailExtension is null ? 150 : 210) * ImGuiHelpers.GlobalScale;
         DrawTable(detailHeight);
         DrawDetail(detailHeight);
     }
@@ -166,6 +184,8 @@ public sealed unsafe class CollectionTab
         }
 
         views = list;
+        hasCategory = list.Any(v => v.Entry.Category is not null);
+        hasRank = list.Any(v => v.Entry.Rank > 0);
         dirty = true;
     }
 
@@ -217,6 +237,24 @@ public sealed unsafe class CollectionTab
                 dirty = true;
             }
         }
+
+        foreach (var option in moduleFilters)
+        {
+            var on = activeModuleFilters.Contains(option.Id);
+            if (ImGui.Checkbox(option.Label, ref on))
+            {
+                if (on)
+                {
+                    activeModuleFilters.Add(option.Id);
+                }
+                else
+                {
+                    activeModuleFilters.Remove(option.Id);
+                }
+
+                dirty = true;
+            }
+        }
     }
 
     private void Radio<T>(ref T field, T value, string label) where T : struct, Enum
@@ -235,7 +273,8 @@ public sealed unsafe class CollectionTab
         var flags = ImGuiTableFlags.RowBg | ImGuiTableFlags.BordersInnerH | ImGuiTableFlags.ScrollY | ImGuiTableFlags.SizingStretchProp | ImGuiTableFlags.Sortable | ImGuiTableFlags.SortTristate;
         var spacing = ImGui.GetStyle().ItemSpacing.Y;
 
-        using var table = ImRaii.Table($"##{Module.Id}", 6, flags, new Vector2(-1, -(reservedBelow + spacing)));
+        var columns = 6 + (hasRank ? 1 : 0) + (hasCategory ? 1 : 0);
+        using var table = ImRaii.Table($"##{Module.Id}", columns, flags, new Vector2(-1, -(reservedBelow + spacing)));
         if (!table.Success)
         {
             return;
@@ -245,6 +284,16 @@ public sealed unsafe class CollectionTab
         ImGui.TableSetupColumn("##pin", ImGuiTableColumnFlags.WidthFixed | ImGuiTableColumnFlags.NoSort, 24 * scale, 0);
         ImGui.TableSetupColumn("##icon", ImGuiTableColumnFlags.WidthFixed | ImGuiTableColumnFlags.NoSort, iconSize.X + 4, 0);
         ImGui.TableSetupColumn(Strings.Get("Column_Name", "Name"), ImGuiTableColumnFlags.WidthStretch, 0, (uint)EntrySortKey.Name);
+        if (hasRank)
+        {
+            ImGui.TableSetupColumn(Strings.Get("Column_Rank", "Stars"), ImGuiTableColumnFlags.WidthFixed, 44 * scale, (uint)EntrySortKey.Rank);
+        }
+
+        if (hasCategory)
+        {
+            ImGui.TableSetupColumn(Strings.Get("Column_Category", "Type"), ImGuiTableColumnFlags.WidthFixed, 70 * scale, (uint)EntrySortKey.Category);
+        }
+
         ImGui.TableSetupColumn(Strings.Get("Column_Patch", "Patch"), ImGuiTableColumnFlags.WidthFixed, 46 * scale, (uint)EntrySortKey.Patch);
         ImGui.TableSetupColumn(Strings.Get("Column_Status", "Status"), ImGuiTableColumnFlags.WidthFixed, 70 * scale, (uint)EntrySortKey.Status);
         ImGui.TableSetupColumn(Strings.Get("Column_Unlock", "Unlock"), ImGuiTableColumnFlags.WidthFixed, 130 * scale, (uint)EntrySortKey.UnlockType);
@@ -271,6 +320,20 @@ public sealed unsafe class CollectionTab
             if (ImGui.Selectable(entry.Name, selectedId == entry.Id, ImGuiSelectableFlags.SpanAllColumns | ImGuiSelectableFlags.AllowItemOverlap))
             {
                 selectedId = entry.Id;
+            }
+
+            if (hasRank)
+            {
+                ImGui.TableNextColumn();
+                ImGui.AlignTextToFramePadding();
+                ImGui.TextDisabled(entry.Rank > 0 ? new string('\u2605', entry.Rank) : string.Empty);
+            }
+
+            if (hasCategory)
+            {
+                ImGui.TableNextColumn();
+                ImGui.AlignTextToFramePadding();
+                ImGui.TextDisabled(entry.Category ?? string.Empty);
             }
 
             ImGui.TableNextColumn();
@@ -456,6 +519,8 @@ public sealed unsafe class CollectionTab
                 ImGui.TextDisabled(source.Note);
             }
         }
+
+        detailExtension?.Draw(entry);
     }
 
     private void DrawDataFooter()

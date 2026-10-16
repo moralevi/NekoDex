@@ -102,6 +102,25 @@ public class EntryViewQueryTests
     }
 
     [Fact]
+    public void Extra_predicate_filters_and_rank_category_sort()
+    {
+        EntryView Card(uint id, string name, int stars, string type) => new(
+            new TrackedEntry(new CollectionEntry(id, name, 0, Category: type, Rank: stars), false),
+            UnlockSource.Unknown(),
+            false);
+        var cards = new[] { Card(1, "Dodo", 1, "Beast"), Card(2, "Ifrit", 3, "Primal"), Card(3, "Alphinaud", 2, "Scion"), Card(4, "Bahamut", 5, "Primal") };
+
+        var onlyPrimals = EntryViewQuery.Filter(cards, OwnershipFilter.All, AvailabilityFilter.All, null, extra: e => e.Category == "Primal").Select(v => v.Entry.Id);
+        Assert.Equal([2u, 4u], onlyPrimals);
+
+        var byStarsDesc = EntryViewQuery.Sort(cards, EntrySortKey.Rank, true, false, false).Select(v => v.Entry.Id);
+        Assert.Equal([4u, 2u, 3u, 1u], byStarsDesc);
+
+        var byType = EntryViewQuery.Sort(cards, EntrySortKey.Category, false, false, false).Select(v => v.Entry.Id);
+        Assert.Equal([1u, 2u, 4u, 3u], byType);
+    }
+
+    [Fact]
     public void Default_sort_keeps_module_order()
     {
         var result = EntryViewQuery.Sort(Sample, EntrySortKey.Default, false, false, false).Select(v => v.Entry.Id);

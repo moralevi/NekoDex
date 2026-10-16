@@ -75,12 +75,20 @@
     "message": "New item",
     "description": ""
   },
+  "Column_Category": {
+    "message": "Type",
+    "description": ""
+  },
   "Column_Name": {
     "message": "Name",
     "description": ""
   },
   "Column_Patch": {
     "message": "Patch",
+    "description": ""
+  },
+  "Column_Rank": {
+    "message": "Stars",
     "description": ""
   },
   "Column_Status": {
@@ -441,6 +449,22 @@
   },
   "Tooltip_Settings": {
     "message": "NekoDex settings",
+    "description": ""
+  },
+  "Triad_Flag": {
+    "message": "Open the map with a flag on this NPC",
+    "description": ""
+  },
+  "Triad_Locked": {
+    "message": "(needs {0})",
+    "description": ""
+  },
+  "Triad_NpcHeader": {
+    "message": "Won from",
+    "description": ""
+  },
+  "Triad_Winnable": {
+    "message": "Winnable from NPCs you have unlocked",
     "description": ""
   },
   "Unlock_Achievement": {

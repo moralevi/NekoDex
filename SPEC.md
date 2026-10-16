@@ -68,13 +68,14 @@ Scope
 - Auto item defaults extended with alliance raid roulette and Wondrous Tails for new installs; existing configs unchanged.
 
 Gate
-- [ ] Toast appears once per reset crossing and not on login.
-- [ ] Locked clickthrough mini window ignores the mouse and can still be unlocked from settings.
+- [x] Toast appears once per reset crossing and not on login.
+- [x] Locked clickthrough mini window ignores the mouse and can still be unlocked from settings.
 
 ### Phase 23: Triple Triad depth
 
 Scope
 - Verify: TripleTriadCardResident acquisition, TripleTriad NPC sheet, ENpcBase to Level rows for coordinates, `IGameGui.OpenMapWithMapLink` for a flag.
+  - Verified 2026-10-16: 146 TripleTriad rows, 142 reachable from an ENpcBase data reference, 134 with a Level row (type 8); 333 cards drop from NPCs. `OpenMapWithMapLink(territory, map, Vector3)` takes the Level world position directly. NPC unlock quests come from `TripleTriad.PreviousQuest` with `PreviousQuestJoin` (2 = any, otherwise all).
 - Detail pane: NPC name, zone and coordinates for cards won from NPCs; a button that opens the map with a flag at the NPC.
 - Filter: "winnable from NPCs you have unlocked", using the NPC's unlock quest completion.
 - Sort options: by stars, by type, by number (the in-game deck view order).

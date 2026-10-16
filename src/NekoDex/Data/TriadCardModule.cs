@@ -7,19 +7,28 @@ using NekoDex.Core.Collections;
 
 namespace NekoDex.Data;
 
-/// <summary>Triple Triad cards, in card-number order from TripleTriadCardResident. Icons live at 87000 + card id (verified present for every card).</summary>
-public sealed unsafe class TriadCardModule : ICollectionModule
+/// <summary>
+/// Triple Triad cards, in card-number order from TripleTriadCardResident, with stars as rank and the card type as category.
+/// Icons live at 87000 + card id (verified present for every card). Offers a "winnable from unlocked NPCs" filter.
+/// </summary>
+public sealed unsafe class TriadCardModule : ICollectionModule, IFilteredModule
 {
     private const uint IconBase = 87000;
 
     private readonly IDataManager dataManager;
+    private readonly TriadNpcIndex npcs;
     private readonly IPluginLog log;
     private IReadOnlyList<CollectionEntry>? entries;
 
-    public TriadCardModule(IDataManager dataManager, IPluginLog log)
+    public TriadCardModule(IDataManager dataManager, TriadNpcIndex npcs, IPluginLog log)
     {
         this.dataManager = dataManager;
+        this.npcs = npcs;
         this.log = log;
+        Filters =
+        [
+            new EntryFilterOption("winnable", Strings.Get("Triad_Winnable", "Winnable from NPCs you have unlocked"), e => npcs.IsWinnableFromUnlockedNpc(e.Id)),
+        ];
     }
 
     public string Id => "triad";
@@ -27,6 +36,8 @@ public sealed unsafe class TriadCardModule : ICollectionModule
     public string DisplayName => Strings.Get("Module_Triad", "Triple Triad");
 
     public string? UnavailableReason => null;
+
+    public IReadOnlyList<EntryFilterOption> Filters { get; }
 
     public IReadOnlyList<CollectionEntry> GetEntries() => entries ??= Load();
 
@@ -42,9 +53,9 @@ public sealed unsafe class TriadCardModule : ICollectionModule
 
         var list = dataManager.GetExcelSheet<TripleTriadCard>()
             .Where(c => c.RowId > 0 && !c.Name.IsEmpty)
-            .Select(c => (Card: c, Order: resident.TryGetRow(c.RowId, out var r) ? r.Order : ushort.MaxValue))
+            .Select(c => (Card: c, Order: resident.TryGetRow(c.RowId, out var r) ? r.Order : ushort.MaxValue, Meta: npcs.MetaFor(c.RowId)))
             .OrderBy(x => x.Order).ThenBy(x => x.Card.RowId)
-            .Select(x => new CollectionEntry(x.Card.RowId, x.Card.Name.ExtractText(), IconBase + x.Card.RowId, x.Order))
+            .Select(x => new CollectionEntry(x.Card.RowId, x.Card.Name.ExtractText(), IconBase + x.Card.RowId, x.Order, x.Meta?.Type, x.Meta?.Stars ?? 0))
             .ToArray();
 
         log.Debug("Loaded {Count} Triple Triad cards", list.Length);

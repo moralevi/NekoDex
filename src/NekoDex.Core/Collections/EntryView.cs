@@ -17,6 +17,8 @@ public enum EntrySortKey
     Patch = 2,
     UnlockType = 3,
     Status = 4,
+    Category = 5,
+    Rank = 6,
 }
 
 /// <summary>Filtering and sorting over <see cref="EntryView"/>. Pure, so the UI stays thin and this is tested.</summary>
@@ -25,7 +27,7 @@ public static class EntryViewQuery
     /// <summary>
     /// Applies ownership, availability and search filters; when <paramref name="onlyPatch"/> is set, keeps entries added in exactly that patch.
     /// </summary>
-    public static IEnumerable<EntryView> Filter(IEnumerable<EntryView> views, OwnershipFilter ownership, AvailabilityFilter availability, string? search, string? onlyPatch = null)
+    public static IEnumerable<EntryView> Filter(IEnumerable<EntryView> views, OwnershipFilter ownership, AvailabilityFilter availability, string? search, string? onlyPatch = null, Func<CollectionEntry, bool>? extra = null)
     {
         var needle = string.IsNullOrWhiteSpace(search) ? null : search.Trim();
         foreach (var view in views)
@@ -36,6 +38,11 @@ public static class EntryViewQuery
             }
 
             if (onlyPatch is not null && !IsPatch(view.Source.Patch, onlyPatch))
+            {
+                continue;
+            }
+
+            if (extra is not null && !extra(view.Entry))
             {
                 continue;
             }
@@ -91,6 +98,8 @@ public static class EntryViewQuery
         EntrySortKey.Patch => ComparePatch(a.Source.Patch, b.Source.Patch),
         EntrySortKey.UnlockType => ((int)a.Source.Type).CompareTo((int)b.Source.Type),
         EntrySortKey.Status => a.Owned.CompareTo(b.Owned),
+        EntrySortKey.Category => string.Compare(a.Entry.Category ?? string.Empty, b.Entry.Category ?? string.Empty, StringComparison.OrdinalIgnoreCase),
+        EntrySortKey.Rank => a.Entry.Rank.CompareTo(b.Entry.Rank),
         _ => 0,
     };
 
