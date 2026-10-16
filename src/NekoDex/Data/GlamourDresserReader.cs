@@ -2,23 +2,26 @@ using System;
 using System.Collections.Generic;
 using Dalamud.Plugin.Services;
 using FFXIVClientStructs.FFXIV.Client.Game;
+using NekoDex.Core.Dresser;
 
 namespace NekoDex.Data;
 
 /// <summary>
-/// Glamour Dresser contents. The game fills them only after the dresser has been opened in the current session,
-/// so the last seen contents are kept in the configuration and used until a fresh read is possible.
+/// Glamour Dresser contents for the logged-in character. The game fills them only after the dresser has been opened
+/// in the current session, so the last seen contents are kept per character in the configuration and used until a fresh read is possible.
 /// </summary>
 public sealed unsafe class GlamourDresserReader
 {
     private readonly ConfigurationManager config;
+    private readonly IPlayerState playerState;
     private readonly IPluginLog log;
     private HashSet<uint>? live;
-    private int liveCount;
+    private ulong liveContentId;
 
-    public GlamourDresserReader(ConfigurationManager config, IPluginLog log)
+    public GlamourDresserReader(ConfigurationManager config, IPlayerState playerState, IPluginLog log)
     {
         this.config = config;
+        this.playerState = playerState;
         this.log = log;
     }
 
@@ -32,22 +35,44 @@ public sealed unsafe class GlamourDresserReader
         }
     }
 
-    public DateTimeOffset? SnapshotTakenAt => config.Current.GlamourDresserCapturedAt;
+    private ulong ContentId => playerState.IsLoaded ? playerState.ContentId : 0;
 
-    public int SnapshotCount => config.Current.GlamourDresserItems.Count;
+    private DresserSnapshot? Current => ContentId == 0 ? null : config.Current.Dresser.Get(ContentId);
 
-    /// <summary>Refresh from memory when available (cheap: only when the item count changed), otherwise keep the stored snapshot.</summary>
+    public DateTimeOffset? SnapshotTakenAt => Current?.CapturedAt;
+
+    public int SnapshotCount => Current?.Items.Count ?? 0;
+
+    /// <summary>Drop the in-memory set; called on login and logout so one character's dresser never shows for another.</summary>
+    public void Reset()
+    {
+        live = null;
+        liveContentId = 0;
+    }
+
+    /// <summary>Adopt any pre-v2 snapshot for this character, then refresh from memory when the game has the dresser loaded.</summary>
     public void Refresh()
     {
+        var contentId = ContentId;
+        if (contentId == 0)
+        {
+            return;
+        }
+
+        if (config.Current.Dresser.AdoptLegacy(contentId, playerState.CharacterName))
+        {
+            config.Save();
+            log.Information("Legacy dresser snapshot assigned to {Name}", playerState.CharacterName);
+        }
+
         var manager = MirageManager.Instance();
         if (manager == null || !manager->PrismBoxLoaded)
         {
             return;
         }
 
-        var ids = manager->PrismBoxItemIds;
         var set = new HashSet<uint>();
-        foreach (var id in ids)
+        foreach (var id in manager->PrismBoxItemIds)
         {
             if (id != 0)
             {
@@ -55,27 +80,32 @@ public sealed unsafe class GlamourDresserReader
             }
         }
 
-        if (live is not null && set.Count == liveCount && set.SetEquals(live))
+        if (live is not null && liveContentId == contentId && set.SetEquals(live))
         {
             return;
         }
 
         live = set;
-        liveCount = set.Count;
-        config.Current.GlamourDresserItems = new List<uint>(set);
-        config.Current.GlamourDresserCapturedAt = DateTimeOffset.UtcNow;
+        liveContentId = contentId;
+        config.Current.Dresser.Set(contentId, set, DateTimeOffset.UtcNow, playerState.CharacterName);
         config.Save();
-        log.Debug("Glamour Dresser snapshot updated: {Count} items", set.Count);
+        log.Debug("Glamour Dresser snapshot updated for {Name}: {Count} items", playerState.CharacterName, set.Count);
     }
 
     public bool Contains(uint itemId)
     {
-        if (live is not null)
+        var contentId = ContentId;
+        if (contentId == 0)
+        {
+            return false;
+        }
+
+        if (live is not null && liveContentId == contentId)
         {
             return live.Contains(itemId);
         }
 
-        return config.Current.GlamourDresserItems.Contains(itemId);
+        return Current?.Items.Contains(itemId) ?? false;
     }
 
     /// <summary>HQ items are stored with an offset of 1,000,000; the planner works with base item ids.</summary>

@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.0 (in progress)
+
+- Glamour Dresser contents are remembered per character. Config moves to v2; a snapshot saved by 1.0 is handed to the first character that logs in.
+
 ## 1.0.0 (unreleased)
 
 First friends release.

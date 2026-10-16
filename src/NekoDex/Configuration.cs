@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Dalamud.Configuration;
 using NekoDex.Core.Checklist;
+using NekoDex.Core.Dresser;
 using NekoDex.Core.Outfits;
 using NekoDex.Core.Unlock;
 
@@ -14,7 +15,7 @@ namespace NekoDex;
 [Serializable]
 public sealed class Configuration : IPluginConfiguration
 {
-    public const int CurrentVersion = 1;
+    public const int CurrentVersion = 2;
 
     public int Version { get; set; } = CurrentVersion;
 
@@ -36,8 +37,12 @@ public sealed class Configuration : IPluginConfiguration
     /// <summary>Planned outfits.</summary>
     public List<Outfit> Outfits { get; set; } = new();
 
-    /// <summary>Item ids last seen in the Glamour Dresser, kept because the game only exposes them after the dresser is opened.</summary>
-    public List<uint> GlamourDresserItems { get; set; } = new();
+    /// <summary>Glamour Dresser contents per character (v2). The game only exposes them after the dresser is opened.</summary>
+    public DresserCache Dresser { get; set; } = new();
 
+    /// <summary>v1 single-character snapshot. Read only by the migration; empty afterwards.</summary>
+    public List<uint>? GlamourDresserItems { get; set; }
+
+    /// <summary>v1 companion of <see cref="GlamourDresserItems"/>.</summary>
     public DateTimeOffset? GlamourDresserCapturedAt { get; set; }
 }

@@ -23,6 +23,7 @@ public sealed class Plugin : IDalamudPlugin
     private readonly MainWindow mainWindow;
     private readonly ConfigWindow configWindow;
     private readonly MiniWindow miniWindow;
+    private readonly GlamourDresserReader dresser;
 
     // Services arrive through constructor injection; nothing in the plugin reaches for them statically.
     public Plugin(
@@ -60,7 +61,7 @@ public sealed class Plugin : IDalamudPlugin
         ];
 
         // Outfit planner: item catalogue from the Item sheet, ownership from dresser snapshot, armoire and bags.
-        var dresser = new GlamourDresserReader(config, log);
+        dresser = new GlamourDresserReader(config, playerState, log);
         var gearCatalog = new GearCatalog(dataManager, log);
         var itemOwnership = new ItemOwnershipSources(dresser, armoire);
         var outfits = new OutfitsTab(config, gearCatalog, itemOwnership, dresser, textureProvider);
@@ -129,6 +130,7 @@ public sealed class Plugin : IDalamudPlugin
 
     private void OnLogin()
     {
+        dresser.Reset();
         mainWindow.ResetCollections();
         if (config.Current.OpenMainWindowOnLogin)
         {
@@ -136,5 +138,9 @@ public sealed class Plugin : IDalamudPlugin
         }
     }
 
-    private void OnLogout(int type, int code) => mainWindow.ResetCollections();
+    private void OnLogout(int type, int code)
+    {
+        dresser.Reset();
+        mainWindow.ResetCollections();
+    }
 }
