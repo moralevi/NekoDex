@@ -26,6 +26,6 @@ foreach (var conflict in extraction.Conflicts)
 }
 
 Directory.CreateDirectory(Path.GetDirectoryName(Path.GetFullPath(outFile))!);
-File.WriteAllText(outFile, LocExtractor.ToCheapLocJson(extraction.Strings) + "\n");
+File.WriteAllText(outFile, LocExtractor.ToCheapLocJson(extraction.Strings).ReplaceLineEndings("\n") + "\n");
 Console.WriteLine($"Wrote {extraction.Strings.Count} strings from {files.Count} files to {outFile}");
 return extraction.Conflicts.Count == 0 ? 0 : 2;
