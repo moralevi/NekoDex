@@ -18,7 +18,7 @@ public class UnlockDatasetTests
                 "1": { "patch": "2.0", "sources": [
                   { "category": "Quest", "text": "My Little Chocobo (Immortal Flames)" },
                   { "category": "Quest", "text": "My Little Chocobo (Maelstrom)" } ] },
-                "18": { "patch": "2.1", "sources": [ { "category": "Achievement", "text": "Jonathas - Old Gridania" } ] },
+                "18": { "patch": "2.1", "itemId": 6990, "source": "Garland Tools", "sources": [ { "category": "Achievement", "text": "Jonathas - Old Gridania" } ] },
                 "99": { "sources": [ { "category": "Moon Cheese", "text": "???" } ] }
               }
             }
@@ -68,6 +68,8 @@ public class UnlockDatasetTests
 
         Assert.Equal("Jonathas - Old Gridania", source!.Summary);
         Assert.Equal(UnlockSourceType.Achievement, source.Type);
+        Assert.Equal(6990u, source.ItemId);
+        Assert.Equal("Garland Tools, data 2026-10-16", source.Note);
     }
 
     [Fact]

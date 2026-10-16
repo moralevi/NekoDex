@@ -1,6 +1,6 @@
 # FFXIV Dalamud Plugin: Collection Tracker (working name: NekoDex)
 
-Status: Phases 0-7 gates passed 2026-10-16. Phase 8 built (theme and fresh-install gates pending; fresh install needs the GitHub repo public). Phases 9 to 15 gates passed; Phase 16 built, in-game gate pending. Remaining before a public release: Phase 8 theme-leak check, screenshots, repo public, first tag, FFXIV Collect redistribution answer. Target: friends first, public custom repo later.
+Status: Phases 0-7 gates passed 2026-10-16. Phase 8 built (theme and fresh-install gates pending; fresh install needs the GitHub repo public). Phases 9 to 16 gates passed; Phase 17 built, in-game gate pending. Remaining before a public release: Phase 8 theme-leak check, screenshots, repo public, first tag, FFXIV Collect redistribution answer. Target: friends first, public custom repo later.
 Stack: C#/.NET, Dalamud.NET.Sdk, ImGui (via Dalamud's ImGui bindings), Lumina, FFXIVClientStructs.
 Method: phased, each phase has gate criteria. Do not start a phase until the previous gate passes.
 
@@ -317,7 +317,7 @@ From the second Q&A: the friends collect mounts, cards and glamour; languages ar
 | Repo visibility | Stays private until the user says otherwise; FFXIV Collect question only matters before going public |
 
 **Open decisions (resolve before the phase that needs them)**
-- Garland Tools data: which file or endpoint, and its terms. Needed before Phase 17.
+- Garland Tools data: which file or endpoint, and its terms. Needed before Phase 17. **Resolved 2026-10-16:** per-item documents at `/db/doc/item/en/3/{item id}.json` (there are no mount or minion documents); no stated licence, ask before public release.
 - Which tomestone currencies count (current and previous tier only, or all). Needed before Phase 18.
 - Whether Dalamud lists Swedish as a UI language; if not, a plugin-level language override is required. Needed before Phase 20.
 
@@ -344,9 +344,9 @@ Scope
 - Settings: Export to a chosen folder (default the plugin config folder), Import with a preview of counts and the merge choice, and a "share outfits only" export for friends.
 
 Gate
-- [ ] Export then import on a clean config reproduces outfits, pins, checklist and snapshots exactly (unit test on the model, manual check in game).
-- [ ] Importing an outfits-only file from another person adds their outfits without touching anything else.
-- [ ] A file with an unknown schema version is refused with a clear message.
+- [x] Export then import on a clean config reproduces outfits, pins, checklist and snapshots exactly (unit test on the model, manual check in game).
+- [x] Importing an outfits-only file from another person adds their outfits without touching anything else.
+- [x] A file with an unknown schema version is refused with a clear message.
 
 ---
 
@@ -354,6 +354,7 @@ Gate
 
 Scope
 - Verify first: what Garland Tools publishes as data files, their terms, and how its ids map to the game sheets. Record it in DATA_SOURCES.md.
+  - Verified 2026-10-16: Garland indexes by item id. Collectable to item mapping comes from the Item sheet's ItemAction (mounts 1322, minions 853, bardings 1013, fashion 20086, cards 3357, emotes 2633 via Data[0]; orchestrion 25183 and facewear 37312 via AdditionalData). This also fixed the Garland links, which had pointed at non-existent `#mount/{id}` pages since Phase 3.
 - DataGen gains a second source per module merged behind FFXIV Collect: an entry keeps Collect's text when present and takes Garland's otherwise; both attributions are kept per entry.
 - Provider chain unchanged; the dataset carries a `source` per entry and the UI shows the right attribution.
 

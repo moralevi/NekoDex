@@ -23,5 +23,7 @@ Every external source NekoDex uses, with how it is used, its terms and the attri
 
 ## Garland Tools (https://www.garlandtools.org)
 
-- **Link-out only:** `https://www.garlandtools.org/db/#mount/{id}`, `#minion/{id}`, `#emote/{id}`, `#tripletriad/{id}` and `#item/{id}` (Armoire entries). Ids match the game's sheet row ids. No API calls.
-- **Attribution:** none required for links.
+- **Link-out:** Garland has no pages for mounts, minions or other collectables as such; everything is an item. Links therefore go to `https://www.garlandtools.org/db/#item/{item id}` using the item that grants the collectable (the whistle, roll, card...). The item id comes from the game's Item sheet (ItemAction) at generation time, or from FFXIV Collect's `item_id`. Entries without an item id fall back to the FFXIV Collect page. (Before 2026-10-16 the plugin linked to `#mount/{id}` style pages that do not exist.)
+- **Dataset fallback:** for entries FFXIV Collect lists without any source, DataGen reads Garland's item document (`/db/doc/item/en/3/{item id}.json`) and converts its `quests`, `achievements`, `instances`, `tradeShops`, `vendors`, `fates`, `ventures`, `craft` and `drops` fields into source lines, resolving names through the document's `partials`. One request per such entry with a 150 ms pause; typically a few dozen per run. Those entries carry `source: "Garland Tools"` and the UI attributes them to Garland.
+- **Terms:** the site states no licence; it is written by Clorifex Ezalor and has a Discord. Same action as for FFXIV Collect before a public release: ask, and record the answer here.
+- **Attribution:** "Garland Tools, data yyyy-mm-dd" shown next to every answer that came from it.

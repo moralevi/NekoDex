@@ -35,15 +35,25 @@ public class UnlockResolverTests
     }
 
     [Fact]
-    public void Provider_answer_without_url_gets_site_link()
+    public void Provider_answer_without_url_gets_site_link_using_its_item_id()
+    {
+        var provider = new StaticUnlockSourceProvider()
+            .Add("mounts", 18, new UnlockSource(UnlockSourceType.Vendor, "Jonathas", ItemId: 6990));
+        var resolver = new UnlockResolver([provider], () => UnlockLinkSite.GarlandTools);
+
+        var source = resolver.Resolve("mounts", Behemoth);
+
+        Assert.Equal("https://www.garlandtools.org/db/#item/6990", source.Url);
+    }
+
+    [Fact]
+    public void Garland_preference_without_item_id_falls_back_to_collect()
     {
         var provider = new StaticUnlockSourceProvider()
             .Add("mounts", 18, new UnlockSource(UnlockSourceType.Vendor, "Jonathas"));
         var resolver = new UnlockResolver([provider], () => UnlockLinkSite.GarlandTools);
 
-        var source = resolver.Resolve("mounts", Behemoth);
-
-        Assert.Equal("https://www.garlandtools.org/db/#mount/18", source.Url);
+        Assert.Equal("https://ffxivcollect.com/mounts/18", resolver.Resolve("mounts", Behemoth).Url);
     }
 
     [Fact]
@@ -72,7 +82,9 @@ public class UnlockResolverTests
     public void Site_choice_is_read_live()
     {
         var site = UnlockLinkSite.FfxivCollect;
-        var resolver = new UnlockResolver([], () => site);
+        var provider = new StaticUnlockSourceProvider()
+            .Add("mounts", 18, new UnlockSource(UnlockSourceType.Vendor, "Jonathas", ItemId: 6990));
+        var resolver = new UnlockResolver([provider], () => site);
 
         Assert.StartsWith("https://ffxivcollect.com", resolver.Resolve("mounts", Behemoth).Url);
         site = UnlockLinkSite.GarlandTools;

@@ -84,7 +84,8 @@ public sealed class DatasetUnlockSourceProvider : IUnlockSourceProvider
             lines.Length == 1 ? first.Text : $"{first.Text} (+{lines.Length - 1})",
             Details: lines,
             Patch: data.Patch,
-            Note: Attribution,
-            Categories: categories);
+            Note: data.Source is { } source && source != dataset.Source ? $"{source}, data {dataset.DataVersion}" : Attribution,
+            Categories: categories,
+            ItemId: data.ItemId);
     }
 }

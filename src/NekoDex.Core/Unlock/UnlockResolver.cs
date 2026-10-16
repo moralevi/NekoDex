@@ -33,7 +33,7 @@ public sealed class UnlockResolver
 
         if (source.Url is null)
         {
-            var url = UnlockLinks.BuildUrlWithFallback(linkSite(), moduleId, entry.Id);
+            var url = UnlockLinks.BuildUrlWithFallback(linkSite(), moduleId, entry.Id, source.ItemId);
             if (url is not null)
             {
                 source = source with { Url = url };

@@ -22,6 +22,7 @@ public static class UnlockCategories
         ["Occult Crescent"] = UnlockSourceType.Duty,
 
         ["Purchase"] = UnlockSourceType.Vendor,
+        ["Trade"] = UnlockSourceType.Vendor,
         ["Gold Saucer"] = UnlockSourceType.Vendor,
         ["Tribal"] = UnlockSourceType.Vendor,
         ["Hunts"] = UnlockSourceType.Vendor,

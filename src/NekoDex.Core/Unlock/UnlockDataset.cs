@@ -66,6 +66,12 @@ public sealed class UnlockDatasetEntry
 {
     public string? Patch { get; set; }
 
+    /// <summary>The item that grants the collectable (whistle, roll, card...), for item-page links and Garland lookups.</summary>
+    public uint? ItemId { get; set; }
+
+    /// <summary>Where this entry's text came from when it differs from the dataset's main source.</summary>
+    public string? Source { get; set; }
+
     public List<UnlockDatasetSource> Sources { get; set; } = new();
 }
 
