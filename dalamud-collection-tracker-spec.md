@@ -319,7 +319,7 @@ From the second Q&A: the friends collect mounts, cards and glamour; languages ar
 **Open decisions (resolve before the phase that needs them)**
 - Garland Tools data: which file or endpoint, and its terms. Needed before Phase 17. **Resolved 2026-10-16:** per-item documents at `/db/doc/item/en/3/{item id}.json` (there are no mount or minion documents); no stated licence, ask before public release.
 - Which tomestone currencies count (current and previous tier only, or all). Needed before Phase 18. **Decided 2026-10-16: every tomestone the TomestonesItem sheet still lists with a tomestone number (Poetics, Mathematics, Mnemonics, Heliometry).**
-- Whether Dalamud lists Swedish as a UI language; if not, a plugin-level language override is required. Needed before Phase 20.
+- Whether Dalamud lists Swedish as a UI language; if not, a plugin-level language override is required. Needed before Phase 20. **Resolved 2026-10-16: Dalamud offers de, ja, fr, it, es, ko, no, ru, zh, tw only; the plugin has a Language setting (follow Dalamud, or any loc file present).**
 
 ---
 
@@ -397,6 +397,7 @@ Gate
 Scope
 - Verify whether Dalamud offers Swedish as a UI language. If not, add a plugin setting "Language: follow Dalamud / English / Swedish" that overrides which loc file loads.
 - Ship `loc/sv.json`, translated by the user or a friend from `loc/en.json`; LocExport gains a `--check <file>` mode that lists keys missing or extra in a translation.
+  - 2026-10-16: a first full Swedish pass was written during development for the user to review in game; game terms (Wondrous Tails, Triple Triad, Facewear, Bardings, Duty) were kept in English as players use them.
 - Review strings with placeholders for word-order problems and allow reordering via the format arguments.
 
 Gate

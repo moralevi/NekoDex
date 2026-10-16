@@ -123,6 +123,18 @@
     "message": "General",
     "description": ""
   },
+  "Config_Language": {
+    "message": "Language",
+    "description": ""
+  },
+  "Config_LanguageFollow": {
+    "message": "Follow Dalamud ({0})",
+    "description": ""
+  },
+  "Config_LanguageHint": {
+    "message": "Dalamud has no Swedish, so pick it here. Applies immediately.",
+    "description": ""
+  },
   "Config_LinkSite": {
     "message": "Website for unlock info",
     "description": ""

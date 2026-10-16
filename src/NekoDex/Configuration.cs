@@ -36,6 +36,9 @@ public sealed class Configuration : IPluginConfiguration
     /// <summary>Neko look on, or plain Dalamud styling.</summary>
     public bool UseNekoTheme { get; set; } = true;
 
+    /// <summary>Language code to use instead of Dalamud's UI language, e.g. "sv". Null follows Dalamud.</summary>
+    public string? LanguageOverride { get; set; }
+
     /// <summary>Starred entries per module id ("mounts" -> mount row ids). Shown first in their tab and in the mini window.</summary>
     public Dictionary<string, List<uint>> Pins { get; set; } = new();
 }

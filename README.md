@@ -53,7 +53,11 @@ Every user-visible string goes through `Strings.Get(key, english)`. `loc/en.json
 dotnet run --project tools/LocExport
 ```
 
-To translate, copy `loc/en.json` to `loc/<language>.json` (`de`, `fr`, `ja`) and replace the `message` values. The plugin loads the file matching Dalamud's UI language at start and when the language changes; missing keys fall back to English.
+To translate, copy `loc/en.json` to `loc/<language>.json` and replace the `message` values; `loc/sv.json` is a complete Swedish translation, `de`, `fr` and `ja` are empty templates. The plugin loads the file matching Dalamud's UI language, or the one chosen under Settings, Appearance, Language for languages Dalamud lacks; missing keys fall back to English. Check a translation for missing keys with:
+
+```bash
+dotnet run --project tools/LocExport -- --check loc/sv.json
+```
 
 ## Dataset refresh in CI
 

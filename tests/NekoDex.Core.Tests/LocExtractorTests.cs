@@ -37,6 +37,15 @@ public class LocExtractorTests
     }
 
     [Fact]
+    public void Compare_reports_missing_and_extra_keys_sorted()
+    {
+        var diff = LocExtractor.Compare(["B", "A", "C"], ["C", "Z", "A"]);
+
+        Assert.Equal(["B"], diff.Missing);
+        Assert.Equal(["Z"], diff.Extra);
+    }
+
+    [Fact]
     public void Writes_cheaploc_shape()
     {
         var json = LocExtractor.ToCheapLocJson(new Dictionary<string, string> { ["Hello"] = "Hi there" });

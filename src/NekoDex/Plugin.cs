@@ -40,8 +40,8 @@ public sealed class Plugin : IDalamudPlugin
         this.clientState = clientState;
         this.log = log;
 
-        Strings.Setup(pluginInterface, log);
         config = new ConfigurationManager(pluginInterface, log);
+        Strings.Apply(pluginInterface, config.Current, log);
 
         // Unlock info comes from the bundled dataset; anything it cannot answer becomes an explicit
         // Unknown with a web link for the configured site. Entries newer than the data also fall back to the link.
@@ -72,7 +72,7 @@ public sealed class Plugin : IDalamudPlugin
 
         miniWindow = new MiniWindow(config, checklist, autoItems, tabs, pins, CharacterReady);
         var version = pluginInterface.Manifest.AssemblyVersion.ToString();
-        configWindow = new ConfigWindow(config, miniWindow.SetShown, dataset, version, autoItems, new UserDataService(config, log, version));
+        configWindow = new ConfigWindow(config, miniWindow.SetShown, dataset, version, autoItems, new UserDataService(config, log, version), pluginInterface, SetLanguage);
         mainWindow = new MainWindow(config, clientState, playerState, dashboard, tabs, navigation, configWindow.Toggle);
         windowSystem.AddWindow(mainWindow);
         windowSystem.AddWindow(configWindow);
@@ -138,7 +138,15 @@ public sealed class Plugin : IDalamudPlugin
         }
     }
 
-    private void OnLanguageChanged(string language) => Strings.Apply(language, pluginInterface, log);
+    private void OnLanguageChanged(string language) => Strings.Apply(pluginInterface, config.Current, log);
+
+    /// <summary>Null follows Dalamud; a code picks that loc file. Applied immediately.</summary>
+    private void SetLanguage(string? code)
+    {
+        config.Current.LanguageOverride = code;
+        config.Save();
+        Strings.Apply(pluginInterface, config.Current, log);
+    }
 
     private void OnLogout(int type, int code)
     {

@@ -15,6 +15,16 @@ public static partial class LocExtractor
 
     public sealed record Extraction(SortedDictionary<string, string> Strings, IReadOnlyList<string> Conflicts);
 
+    public sealed record KeyDiff(IReadOnlyList<string> Missing, IReadOnlyList<string> Extra);
+
+    /// <summary>Keys the source has that a translation lacks, and keys the translation has that no longer exist.</summary>
+    public static KeyDiff Compare(IEnumerable<string> sourceKeys, IEnumerable<string> translatedKeys)
+    {
+        var source = new SortedSet<string>(sourceKeys, StringComparer.Ordinal);
+        var translated = new SortedSet<string>(translatedKeys, StringComparer.Ordinal);
+        return new KeyDiff(source.Except(translated).ToArray(), translated.Except(source).ToArray());
+    }
+
     /// <summary>Keys mapped to their English fallback. A key used with two different fallbacks is reported as a conflict and keeps the first.</summary>
     public static Extraction Extract(IEnumerable<string> sources)
     {

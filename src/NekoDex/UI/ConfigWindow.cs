@@ -6,6 +6,7 @@ using Dalamud.Interface.ImGuiFileDialog;
 using Dalamud.Interface.Utility;
 using Dalamud.Interface.Utility.Raii;
 using Dalamud.Interface.Windowing;
+using Dalamud.Plugin;
 using NekoDex.Core.Transfer;
 using NekoDex.Core.Unlock;
 
@@ -19,13 +20,15 @@ public sealed class ConfigWindow : ThemedWindow
     private readonly string pluginVersion;
     private readonly AutoChecklistController autoItems;
     private readonly UserDataService userData;
+    private readonly IDalamudPluginInterface pluginInterface;
+    private readonly Action<string?> setLanguage;
     private readonly FileDialogManager fileDialogs = new();
     private UserDataFile? pendingImport;
     private string? pendingImportName;
     private ImportMode importMode = ImportMode.Merge;
     private string dataStatus = string.Empty;
 
-    public ConfigWindow(ConfigurationManager config, Action<bool> setMiniWindowShown, DatasetUnlockSourceProvider? dataset, string pluginVersion, AutoChecklistController autoItems, UserDataService userData)
+    public ConfigWindow(ConfigurationManager config, Action<bool> setMiniWindowShown, DatasetUnlockSourceProvider? dataset, string pluginVersion, AutoChecklistController autoItems, UserDataService userData, IDalamudPluginInterface pluginInterface, Action<string?> setLanguage)
         : base(config, "NekoDex Settings###NekoDexConfig", ImGuiWindowFlags.NoCollapse | ImGuiWindowFlags.AlwaysAutoResize)
     {
         this.config = config;
@@ -34,6 +37,8 @@ public sealed class ConfigWindow : ThemedWindow
         this.pluginVersion = pluginVersion;
         this.autoItems = autoItems;
         this.userData = userData;
+        this.pluginInterface = pluginInterface;
+        this.setLanguage = setLanguage;
         SizeConstraints = new WindowSizeConstraints { MinimumSize = new Vector2(380, 0) };
     }
 
@@ -80,6 +85,30 @@ public sealed class ConfigWindow : ThemedWindow
         }
 
         Hint(Strings.Get("Config_NekoThemeHint", "Off uses your Dalamud style unchanged. Applies immediately."));
+
+        ImGui.SetNextItemWidth(180 * ImGuiHelpers.GlobalScale);
+        var followLabel = string.Format(Strings.Get("Config_LanguageFollow", "Follow Dalamud ({0})"), Strings.DisplayName(pluginInterface.UiLanguage));
+        var currentLabel = current.LanguageOverride is { } code ? Strings.DisplayName(code) : followLabel;
+        using (var combo = ImRaii.Combo(Strings.Get("Config_Language", "Language"), currentLabel))
+        {
+            if (combo.Success)
+            {
+                if (ImGui.Selectable(followLabel, current.LanguageOverride is null))
+                {
+                    setLanguage(null);
+                }
+
+                foreach (var available in Strings.Available(pluginInterface))
+                {
+                    if (ImGui.Selectable(Strings.DisplayName(available), current.LanguageOverride == available))
+                    {
+                        setLanguage(available);
+                    }
+                }
+            }
+        }
+
+        Hint(Strings.Get("Config_LanguageHint", "Dalamud has no Swedish, so pick it here. Applies immediately."));
 
         Section(Strings.Get("Config_Links", "Web links"));
 
