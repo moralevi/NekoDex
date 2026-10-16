@@ -58,6 +58,10 @@ var modules = new ModuleSpec[]
         () => Sheets().GetExcelSheet<GlassesStyle>()!.Where(g => g.RowId > 0 && !g.Name.IsEmpty && g.Icon != 0).ToDictionary(g => g.RowId, g => g.Name.ExtractText())),
     new("triad", "https://ffxivcollect.com/api/triad/cards",
         () => Sheets().GetExcelSheet<TripleTriadCard>()!.Where(c => c.RowId > 0 && !c.Name.IsEmpty).ToDictionary(c => c.RowId, c => c.Name.ExtractText())),
+    // Hairstyles: one entry per unlock link (FFXIV Collect's id); the plugin's HairstyleModule uses the same rule.
+    new("hairstyles", "https://ffxivcollect.com/api/hairstyles",
+        () => Sheets().GetExcelSheet<CharaMakeCustomize>()!.Where(c => c.IsPurchasable && c.UnlockLink != 0).GroupBy(c => (uint)c.UnlockLink)
+            .ToDictionary(g => g.Key, g => g.First().HintItem.IsValid ? g.First().HintItem.Value.Name.ExtractText() : $"Hairstyle {g.Key}")),
 };
 
 // Collectable -> item that grants it, from the Item sheet's ItemAction. Used for Garland lookups and item-page links.
@@ -301,6 +305,14 @@ static class ItemLinker
                     }
 
                     break;
+            }
+        }
+
+        foreach (var row in gd.GetExcelSheet<CharaMakeCustomize>()!)
+        {
+            if (row.IsPurchasable && row.UnlockLink != 0 && row.HintItem.RowId != 0)
+            {
+                Add("hairstyles", row.UnlockLink, row.HintItem.RowId);
             }
         }
 

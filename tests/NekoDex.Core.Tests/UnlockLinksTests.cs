@@ -22,6 +22,14 @@ public class UnlockLinksTests
     }
 
     [Fact]
+    public void Framer_kits_link_by_entry_id_and_hairstyles_by_collect_segment()
+    {
+        Assert.Equal("https://www.garlandtools.org/db/#item/37247", UnlockLinks.BuildUrl(UnlockLinkSite.GarlandTools, "framerkits", 37247));
+        Assert.Equal("https://ffxivcollect.com/hairstyles/637", UnlockLinks.BuildUrl(UnlockLinkSite.FfxivCollect, "hairstyles", 637));
+        Assert.Equal("https://www.garlandtools.org/db/#item/37247", UnlockLinks.BuildUrlWithFallback(UnlockLinkSite.FfxivCollect, "framerkits", 37247));
+    }
+
+    [Fact]
     public void Unknown_module_yields_no_url()
     {
         Assert.Null(UnlockLinks.BuildUrl(UnlockLinkSite.FfxivCollect, "glamour", 1));

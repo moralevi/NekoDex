@@ -69,6 +69,8 @@ public sealed class Plugin : IDalamudPlugin
             new(new FashionAccessoryModule(dataManager, clientState, log), textureProvider, unlockResolver, dataset, pins),
             new(new FacewearModule(dataManager, log), textureProvider, unlockResolver, dataset, pins),
             new(new TriadCardModule(dataManager, triadNpcs, log), textureProvider, unlockResolver, dataset, pins, new TriadDetailExtension(triadNpcs, gameGui)),
+            new(new HairstyleModule(dataManager, log), textureProvider, unlockResolver, dataset, pins),
+            new(new FramersKitModule(dataManager, log), textureProvider, unlockResolver, dataset, pins),
         ];
         bool CharacterReady() => clientState.IsLoggedIn && playerState.IsLoaded;
 

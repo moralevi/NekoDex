@@ -41,7 +41,7 @@ Method: phased, each phase has a scope and a gate. A phase starts only when the 
 ## 4. Open decisions
 
 - Boss-kill counter scope (Phase 24): count every duty completion, or only duties tied to a pinned or missing mount. Needed before Phase 24. **Decided 2026-10-16: every completion is counted (per character, per ContentFinderCondition); the UI shows counts where a duty matters.**
-- Hairstyle gate (Phase 25): FFXIV Collect's count is the reference since the game has no hairstyle guide; confirm that is acceptable at the gate.
+- Hairstyle gate (Phase 25): FFXIV Collect's count is the reference since the game has no hairstyle guide; confirm that is acceptable at the gate. (Data: 54 distinct unlock links in the sheet, 54 entries at FFXIV Collect.)
 - "Check for newer data" (Phase 26): where the version marker is read from (repo.json on the public repo is the plan once public).
 
 ## 5. Roadmap, Part 4 (planned 2026-10-16)
@@ -93,14 +93,15 @@ Scope
   - Verified 2026-10-16: FFXIV Collect's instance ids are ContentFinderCondition rows; `IDutyState.ContentFinderCondition` is valid at `DutyCompleted`, so no territory mapping is needed. The sheet's HighEndDuty flag is unreliable, so difficulty comes from the name suffix and content type.
 
 Gate
-- [ ] Completing a trial increments its counter by exactly one and survives a reload.
-- [ ] Farm view groups match the duty names in the Duty Finder.
+- [x] Completing a trial increments its counter by exactly one and survives a reload.
+- [x] Farm view groups match the duty names in the Duty Finder.
 
 ### Phase 25: Glamour-relevant collections
 
 Scope
 - Hairstyles: CharaMakeCustomize rows that are purchasable, unlock via unlock link, labelled by race restriction where it applies; gated against FFXIV Collect's count (open decision).
 - Framer's kits and portrait items: owned/missing from `PlayerState.IsFramersKitUnlocked`, verifying the kit id to sheet mapping; no unlock data source exists, so links only.
+  - Verified 2026-10-16: 347 kit items, ItemAction type 29459, kit id in the item's AdditionalData. The Paladin kit maps to id 0, so the gate must include a kit the character owns and one it does not, to catch an off-by-one. Hairstyles: FFXIV Collect's id equals the CharaMakeCustomize unlock link; styles with 8 variant rows are race-limited (Scion Special Issue I-III, Liberating Locks).
 - DataGen rows where an endpoint exists (hairstyles yes, framer's kits no).
 
 Gate

@@ -391,6 +391,14 @@
     "message": "Owned",
     "description": ""
   },
+  "Hairstyle_AllRaces": {
+    "message": "All races",
+    "description": ""
+  },
+  "Hairstyle_Limited": {
+    "message": "Some races",
+    "description": ""
+  },
   "Mini_WorkingOn": {
     "message": "Working on",
     "description": ""
@@ -409,6 +417,14 @@
   },
   "Module_Fashion": {
     "message": "Fashion Accessories",
+    "description": ""
+  },
+  "Module_FramersKits": {
+    "message": "Framer's Kits",
+    "description": ""
+  },
+  "Module_Hairstyles": {
+    "message": "Hairstyles",
     "description": ""
   },
   "Module_Minions": {

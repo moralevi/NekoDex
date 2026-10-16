@@ -4,7 +4,7 @@
 
 First release, for friends.
 
-- Collections: Mounts, Minions, Orchestrion, Emotes, Bardings, Fashion Accessories, Facewear and Triple Triad, with owned/missing status, progress, search, ownership and obtainable filters, "new in patch" filter, sortable columns and pins.
+- Collections: Mounts, Minions, Orchestrion, Emotes, Bardings, Fashion Accessories, Facewear, Triple Triad, Hairstyles and Framer's Kits, with owned/missing status, progress, search, ownership and obtainable filters, "new in patch" filter, sortable columns and pins.
 - Farm tab: missing mounts grouped by the duty that drops them, with difficulty, a Savage/Ultimate filter, pins, and a per-character clear counter fed by duty completions; pinned mounts in the mini window show their duty and count.
 - Triple Triad: the detail pane lists the NPCs that drop a card with their zone, greys out the ones you have not unlocked and names the quest, and a button flags the NPC on the map; a "winnable from unlocked NPCs" filter; stars and type columns to sort by.
 - Unlock info in game from a bundled dataset built from FFXIV Collect with Garland Tools filling gaps, attributed per entry, with links to FFXIV Collect or Garland item pages. The dataset refreshes weekly through a pull request.

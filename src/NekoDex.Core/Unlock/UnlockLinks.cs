@@ -22,7 +22,9 @@ public static class UnlockLinks
                 return CollectSegment(moduleId) is { } segment ? $"https://ffxivcollect.com/{segment}/{entryId}" : null;
 
             case UnlockLinkSite.GarlandTools:
-                return itemId is { } id && id != 0 ? $"https://www.garlandtools.org/db/#item/{id}" : null;
+                // Framer's kits are items themselves, so the entry id is the item id.
+                var item = moduleId == "framerkits" ? entryId : itemId;
+                return item is { } id && id != 0 ? $"https://www.garlandtools.org/db/#item/{id}" : null;
 
             default:
                 return null;
@@ -66,6 +68,7 @@ public static class UnlockLinks
         "fashion" => "fashions",
         "facewear" => "facewear",
         "triad" => "triad/cards",
+        "hairstyles" => "hairstyles",
         _ => null,
     };
 }

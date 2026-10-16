@@ -34296,6 +34296,689 @@
           ]
         }
       }
+    },
+    "hairstyles": {
+      "maxEntryId": 638,
+      "entries": {
+        "66": {
+          "patch": "5.45",
+          "itemId": 32835,
+          "source": "FFXIV Collect",
+          "sources": [
+            {
+              "category": "Bozja",
+              "text": "Delubrum Reginae"
+            },
+            {
+              "category": "Bozja",
+              "text": "Resistance supplier - Zadnor - 5 Bozjan Gold Coins and 30 Bozjan Platinum Coins"
+            },
+            {
+              "category": "Occult Crescent",
+              "text": "South Horn - Silver Coffer"
+            }
+          ]
+        },
+        "67": {
+          "patch": "5.4",
+          "itemId": 32836,
+          "source": "FFXIV Collect",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "72": {
+          "patch": "5.21",
+          "itemId": 30113,
+          "source": "FFXIV Collect",
+          "sources": [
+            {
+              "category": "Skybuilders",
+              "text": "Enie - The Firmament - 1,800 Skybuilders' Scrips"
+            },
+            {
+              "category": "Skybuilders",
+              "text": "Fête Present"
+            },
+            {
+              "category": "Cosmic Exploration",
+              "text": "Silver/Gold Ancient Record - Oizys"
+            }
+          ]
+        },
+        "79": {
+          "patch": "5.11",
+          "itemId": 28615,
+          "source": "FFXIV Collect",
+          "sources": [
+            {
+              "category": "Skybuilders",
+              "text": "Enie - The Firmament - 1,800 Skybuilders' Scrips"
+            },
+            {
+              "category": "Skybuilders",
+              "text": "Fête Present"
+            },
+            {
+              "category": "Cosmic Exploration",
+              "text": "Silver/Gold Ancient Record - Oizys"
+            }
+          ]
+        },
+        "227": {
+          "patch": "2.38",
+          "itemId": 28614,
+          "source": "FFXIV Collect",
+          "sources": [
+            {
+              "category": "Event",
+              "text": "All Saints' Wake (2014)"
+            },
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "228": {
+          "patch": "2.4",
+          "source": "FFXIV Collect",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Ceremony of Eternal Bonding"
+            }
+          ]
+        },
+        "230": {
+          "patch": "4.45",
+          "itemId": 24801,
+          "source": "FFXIV Collect",
+          "sources": [
+            {
+              "category": "Gold Saucer",
+              "text": "50,000 MGP"
+            }
+          ]
+        },
+        "231": {
+          "patch": "4.5",
+          "itemId": 24802,
+          "source": "FFXIV Collect",
+          "sources": [
+            {
+              "category": "Event",
+              "text": "Final Fantasy XV Collaboration"
+            }
+          ]
+        },
+        "239": {
+          "patch": "6.08",
+          "itemId": 36618,
+          "source": "FFXIV Collect",
+          "sources": [
+            {
+              "category": "Event",
+              "text": "All Saints' Wake (Jan 2022)"
+            },
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "243": {
+          "patch": "2.51",
+          "itemId": 10084,
+          "source": "FFXIV Collect",
+          "sources": [
+            {
+              "category": "Gold Saucer",
+              "text": "8,000 MGP"
+            }
+          ]
+        },
+        "267": {
+          "patch": "4.35",
+          "itemId": 23369,
+          "source": "FFXIV Collect",
+          "sources": [
+            {
+              "category": "Deep Dungeon",
+              "text": "Heaven-on-High - Silver Sack"
+            }
+          ]
+        },
+        "268": {
+          "patch": "4.3",
+          "itemId": 23370,
+          "source": "FFXIV Collect",
+          "sources": [
+            {
+              "category": "PvP",
+              "text": "18,000 Wolf Marks"
+            }
+          ]
+        },
+        "280": {
+          "patch": "5.31",
+          "itemId": 31406,
+          "source": "FFXIV Collect",
+          "sources": [
+            {
+              "category": "Skybuilders",
+              "text": "Enie - The Firmament - 1,800 Skybuilders' Scrips"
+            },
+            {
+              "category": "Skybuilders",
+              "text": "Fête Present"
+            },
+            {
+              "category": "Cosmic Exploration",
+              "text": "Silver/Gold Ancient Record - Auxesia"
+            }
+          ]
+        },
+        "281": {
+          "patch": "5.35",
+          "itemId": 31407,
+          "source": "FFXIV Collect",
+          "sources": [
+            {
+              "category": "Bozja",
+              "text": "150 Bozjan Clusters"
+            },
+            {
+              "category": "Occult Crescent",
+              "text": "South Horn - Bronze/Silver Coffer"
+            }
+          ]
+        },
+        "286": {
+          "patch": "3.1",
+          "itemId": 13705,
+          "source": "FFXIV Collect",
+          "sources": [
+            {
+              "category": "Gold Saucer",
+              "text": "14 MGP"
+            }
+          ]
+        },
+        "287": {
+          "patch": "3.1",
+          "itemId": 13704,
+          "source": "FFXIV Collect",
+          "sources": [
+            {
+              "category": "Gold Saucer",
+              "text": "9,600 MGP"
+            }
+          ]
+        },
+        "290": {
+          "patch": "3.1",
+          "itemId": 13703,
+          "source": "FFXIV Collect",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "302": {
+          "patch": "3.4",
+          "itemId": 16703,
+          "source": "FFXIV Collect",
+          "sources": [
+            {
+              "category": "Deep Dungeon",
+              "text": "The Palace of the Dead - Bronze/Iron/Silver Sack"
+            }
+          ]
+        },
+        "303": {
+          "patch": "3.2",
+          "itemId": 14970,
+          "source": "FFXIV Collect",
+          "sources": [
+            {
+              "category": "Event",
+              "text": "Final Fantasy XIII Collaboration"
+            },
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "321": {
+          "patch": "3.35",
+          "itemId": 15612,
+          "source": "FFXIV Collect",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "322": {
+          "patch": "3.35",
+          "itemId": 15613,
+          "source": "FFXIV Collect",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "337": {
+          "patch": "3.55a",
+          "itemId": 17471,
+          "source": "FFXIV Collect",
+          "sources": [
+            {
+              "category": "Gold Saucer",
+              "text": "5,000 MGP"
+            }
+          ]
+        },
+        "338": {
+          "patch": "3.55a",
+          "itemId": 17472,
+          "source": "FFXIV Collect",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "397": {
+          "patch": "4.45",
+          "itemId": 24233,
+          "source": "FFXIV Collect",
+          "sources": [
+            {
+              "category": "Eureka",
+              "text": "Happy Bunny Lockbox - Eureka Pyros"
+            },
+            {
+              "category": "Occult Crescent",
+              "text": "South Horn - Bronze Coffer"
+            }
+          ]
+        },
+        "398": {
+          "patch": "4.4",
+          "itemId": 24234,
+          "source": "FFXIV Collect",
+          "sources": [
+            {
+              "category": "PvP",
+              "text": "18,000 Wolf Marks"
+            }
+          ]
+        },
+        "399": {
+          "patch": "4.4",
+          "itemId": 24232,
+          "source": "FFXIV Collect",
+          "sources": [
+            {
+              "category": "Other",
+              "text": "Community Events Reward"
+            }
+          ]
+        },
+        "413": {
+          "patch": "5.0",
+          "itemId": 27970,
+          "source": "FFXIV Collect",
+          "sources": [
+            {
+              "category": "Gold Saucer",
+              "text": "30,000 MGP"
+            }
+          ]
+        },
+        "419": {
+          "patch": "5.55",
+          "itemId": 33706,
+          "source": "FFXIV Collect",
+          "sources": [
+            {
+              "category": "Bozja",
+              "text": "Zadnor Lockbox"
+            },
+            {
+              "category": "Occult Crescent",
+              "text": "South Horn - Silver Coffer"
+            }
+          ]
+        },
+        "420": {
+          "patch": "5.5",
+          "itemId": 33707,
+          "source": "FFXIV Collect",
+          "sources": [
+            {
+              "category": "Raid",
+              "text": "The Tower at Paradigm's Breach",
+              "instanceId": 779
+            }
+          ]
+        },
+        "421": {
+          "patch": "5.5",
+          "itemId": 33708,
+          "source": "FFXIV Collect",
+          "sources": [
+            {
+              "category": "Raid",
+              "text": "The Tower at Paradigm's Breach",
+              "instanceId": 779
+            }
+          ]
+        },
+        "435": {
+          "patch": "6.1",
+          "itemId": 36812,
+          "source": "FFXIV Collect",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "441": {
+          "patch": "6.2",
+          "itemId": 38442,
+          "source": "FFXIV Collect",
+          "sources": [
+            {
+              "category": "Island Sanctuary",
+              "text": "6,000 Seafarer's Cowries"
+            }
+          ]
+        },
+        "442": {
+          "patch": "6.2",
+          "itemId": 38443,
+          "source": "FFXIV Collect",
+          "sources": [
+            {
+              "category": "Island Sanctuary",
+              "text": "6,000 Seafarer's Cowries"
+            }
+          ]
+        },
+        "447": {
+          "patch": "6.3",
+          "itemId": 39472,
+          "source": "FFXIV Collect",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "448": {
+          "patch": "6.35",
+          "itemId": 39473,
+          "source": "FFXIV Collect",
+          "sources": [
+            {
+              "category": "Deep Dungeon",
+              "text": "Eureka Orthos - Bronze Sack"
+            }
+          ]
+        },
+        "460": {
+          "patch": "6.45",
+          "itemId": 40601,
+          "source": "FFXIV Collect",
+          "sources": [
+            {
+              "category": "V&C Dungeon",
+              "text": "Trisassant - Old Sharlayan - 6 Rokkon Potsherds"
+            }
+          ]
+        },
+        "476": {
+          "patch": "6.51",
+          "itemId": 41465,
+          "source": "FFXIV Collect",
+          "sources": [
+            {
+              "category": "V&C Dungeon",
+              "text": "Trisassant - Old Sharlayan - 6 Aloalo Potsherds"
+            }
+          ]
+        },
+        "483": {
+          "patch": "7.0",
+          "itemId": 43606,
+          "source": "FFXIV Collect",
+          "sources": [
+            {
+              "category": "Treasure Hunt",
+              "text": "Timeworn Br'aaxskin/Gargantuaskin Map"
+            }
+          ]
+        },
+        "485": {
+          "patch": "7.1",
+          "itemId": 44506,
+          "source": "FFXIV Collect",
+          "sources": [
+            {
+              "category": "Treasure Hunt",
+              "text": "Cenote Ja Ja Gural",
+              "instanceId": 993
+            },
+            {
+              "category": "Treasure Hunt",
+              "text": "Vault Oneiron",
+              "instanceId": 1060
+            }
+          ]
+        },
+        "486": {
+          "patch": "7.15",
+          "itemId": 44507,
+          "source": "FFXIV Collect",
+          "sources": [
+            {
+              "category": "Chaotic Raid",
+              "text": "Uah'shepya - Solution Nine - 49 Clouddark Demimateria II"
+            },
+            {
+              "category": "Chaotic Raid",
+              "text": "The Cloud of Darkness (Chaotic)",
+              "instanceId": 1010
+            }
+          ]
+        },
+        "487": {
+          "patch": "7.1",
+          "itemId": 44866,
+          "source": "FFXIV Collect",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "488": {
+          "patch": "7.1",
+          "itemId": 44867,
+          "source": "FFXIV Collect",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "489": {
+          "patch": "7.1",
+          "itemId": 44865,
+          "source": "FFXIV Collect",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "538": {
+          "patch": "7.2",
+          "itemId": 47986,
+          "source": "FFXIV Collect",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "539": {
+          "patch": "7.25",
+          "itemId": 47987,
+          "source": "FFXIV Collect",
+          "sources": [
+            {
+              "category": "Occult Crescent",
+              "text": "Expedition Antiquarian - South Horn - 30 Chunks of Sanguinite"
+            },
+            {
+              "category": "Occult Crescent",
+              "text": "South Horn - Silver Coffer"
+            }
+          ]
+        },
+        "550": {
+          "patch": "7.35",
+          "itemId": 46798,
+          "source": "FFXIV Collect",
+          "sources": [
+            {
+              "category": "Deep Dungeon",
+              "text": "99 Phials of Luminous Oil"
+            },
+            {
+              "category": "Deep Dungeon",
+              "text": "Pilgrim's Traverse - Silver/Gold/Platinum Sack"
+            }
+          ]
+        },
+        "551": {
+          "patch": "7.38",
+          "itemId": 46796,
+          "source": "FFXIV Collect",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "552": {
+          "patch": "7.38",
+          "itemId": 46797,
+          "source": "FFXIV Collect",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "573": {
+          "patch": "7.4",
+          "itemId": 50324,
+          "source": "FFXIV Collect",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "574": {
+          "patch": "7.4",
+          "itemId": 50325,
+          "source": "FFXIV Collect",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "575": {
+          "patch": "7.4",
+          "itemId": 50326,
+          "source": "FFXIV Collect",
+          "sources": [
+            {
+              "category": "Premium",
+              "text": "Online Store"
+            }
+          ]
+        },
+        "576": {
+          "patch": "7.45",
+          "itemId": 50327,
+          "source": "FFXIV Collect",
+          "sources": [
+            {
+              "category": "V&C Dungeon",
+              "text": "Trisassant - Old Sharlayan - 20 Pieces of Corvosi Brass"
+            }
+          ]
+        },
+        "637": {
+          "patch": "7.56",
+          "itemId": 51747,
+          "source": "FFXIV Collect",
+          "sources": [
+            {
+              "category": "Beastmaster",
+              "text": "Kornago Merchant - Bentbranch Meadows - 500 Faded Remnants of Resilience"
+            },
+            {
+              "category": "Beastmaster",
+              "text": "Crucible of the Unbroken - Apex/Legendary"
+            }
+          ]
+        },
+        "638": {
+          "patch": "7.55",
+          "itemId": 52440,
+          "source": "FFXIV Collect",
+          "sources": [
+            {
+              "category": "Occult Crescent",
+              "text": "Expedition Antiquarian - North Horn - 40 Arcane Amulets"
+            },
+            {
+              "category": "Occult Crescent",
+              "text": "North Horn - Bronze/Silver Coffer"
+            }
+          ]
+        }
+      }
     }
   }
 }
