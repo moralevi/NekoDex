@@ -117,6 +117,7 @@ The Dashboard tab shows countdowns to the fixed UTC resets (daily 15:00, weekly 
 | `/nekodex` | Toggle the main window |
 | `/nekodex config` | Toggle the settings window |
 | `/nekodex mini` | Toggle the compact countdown/checklist window |
+| `/nekodex mini lock` | Lock or unlock the mini window in place |
 
 ## License
 

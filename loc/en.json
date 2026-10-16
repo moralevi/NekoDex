@@ -147,6 +147,18 @@
     "message": "Web links",
     "description": ""
   },
+  "Config_MiniClickthrough": {
+    "message": "Mini window ignores the mouse",
+    "description": ""
+  },
+  "Config_MiniLock": {
+    "message": "Lock mini window in place",
+    "description": ""
+  },
+  "Config_MiniOpacity": {
+    "message": "Mini window opacity",
+    "description": ""
+  },
   "Config_NekoTheme": {
     "message": "Neko theme",
     "description": ""
@@ -161,6 +173,10 @@
   },
   "Config_OpenOnLogin": {
     "message": "Open NekoDex when a character logs in",
+    "description": ""
+  },
+  "Config_ResetToasts": {
+    "message": "Toast when the daily or weekly reset passes",
     "description": ""
   },
   "Config_ShowMini": {
@@ -413,6 +429,10 @@
   },
   "Table_Empty": {
     "message": "Nothing matches.",
+    "description": ""
+  },
+  "Toast_Reset": {
+    "message": "NekoDex: {0} has passed.",
     "description": ""
   },
   "Tooltip_OpenOnWeb": {

@@ -11,6 +11,8 @@ namespace NekoDex.UI;
 /// <summary>Compact countdowns, the unticked checklist items and the entries you are working on. Shown while the config flag is on.</summary>
 public sealed class MiniWindow : ThemedWindow
 {
+    private const ImGuiWindowFlags BaseFlags = ImGuiWindowFlags.AlwaysAutoResize | ImGuiWindowFlags.NoCollapse | ImGuiWindowFlags.NoScrollbar;
+
     private readonly ConfigurationManager config;
     private readonly ChecklistController checklist;
     private readonly AutoChecklistController autoItems;
@@ -19,7 +21,7 @@ public sealed class MiniWindow : ThemedWindow
     private readonly Func<bool> characterReady;
 
     public MiniWindow(ConfigurationManager config, ChecklistController checklist, AutoChecklistController autoItems, IReadOnlyList<CollectionTab> collections, PinController pins, Func<bool> characterReady)
-        : base(config, "NekoDex Mini###NekoDexMini", ImGuiWindowFlags.AlwaysAutoResize | ImGuiWindowFlags.NoCollapse | ImGuiWindowFlags.NoScrollbar)
+        : base(config, "NekoDex Mini###NekoDexMini", BaseFlags)
     {
         this.config = config;
         this.checklist = checklist;
@@ -42,10 +44,39 @@ public sealed class MiniWindow : ThemedWindow
         IsOpen = shown;
     }
 
+    public void SetLocked(bool locked)
+    {
+        if (config.Current.MiniLocked != locked)
+        {
+            config.Current.MiniLocked = locked;
+            config.Save();
+        }
+    }
+
     public override void OnClose()
     {
         // Closing with the X turns the option off so it does not come back next launch unasked.
         SetShown(false);
+    }
+
+    public override void PreDraw()
+    {
+        base.PreDraw();
+
+        // Lock keeps position and size; clickthrough also ignores the mouse entirely (unlock from settings or /nekodex mini lock).
+        var flags = BaseFlags;
+        if (config.Current.MiniLocked)
+        {
+            flags |= ImGuiWindowFlags.NoMove | ImGuiWindowFlags.NoResize | ImGuiWindowFlags.NoTitleBar;
+        }
+
+        if (config.Current.MiniClickthrough)
+        {
+            flags |= ImGuiWindowFlags.NoInputs | ImGuiWindowFlags.NoTitleBar;
+        }
+
+        Flags = flags;
+        BgAlpha = config.Current.MiniOpacity;
     }
 
     public override void Draw()

@@ -63,6 +63,38 @@ public sealed class ConfigWindow : ThemedWindow
 
         Hint(Strings.Get("Config_ShowMiniHint", "Countdowns and open to-dos in a small panel. Also /nekodex mini."));
 
+        using (ImRaii.PushIndent(20f * ImGuiHelpers.GlobalScale))
+        {
+            var locked = current.MiniLocked;
+            if (ImGui.Checkbox(Strings.Get("Config_MiniLock", "Lock mini window in place"), ref locked))
+            {
+                current.MiniLocked = locked;
+                config.Save();
+            }
+
+            var clickthrough = current.MiniClickthrough;
+            if (ImGui.Checkbox(Strings.Get("Config_MiniClickthrough", "Mini window ignores the mouse"), ref clickthrough))
+            {
+                current.MiniClickthrough = clickthrough;
+                config.Save();
+            }
+
+            ImGui.SetNextItemWidth(160 * ImGuiHelpers.GlobalScale);
+            var opacity = current.MiniOpacity;
+            if (ImGui.SliderFloat(Strings.Get("Config_MiniOpacity", "Mini window opacity"), ref opacity, 0.2f, 1f, "%.2f"))
+            {
+                current.MiniOpacity = opacity;
+                config.Save();
+            }
+        }
+
+        var toasts = current.ResetToasts;
+        if (ImGui.Checkbox(Strings.Get("Config_ResetToasts", "Toast when the daily or weekly reset passes"), ref toasts))
+        {
+            current.ResetToasts = toasts;
+            config.Save();
+        }
+
         Section(Strings.Get("Config_AutoItems", "Automatic checklist items"));
 
         Hint(Strings.Get("Config_AutoItemsHint", "Read from the game; they tick themselves."));

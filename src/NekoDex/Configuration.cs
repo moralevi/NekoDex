@@ -33,6 +33,18 @@ public sealed class Configuration : IPluginConfiguration
     /// <summary>Whether the compact countdown/checklist window is shown.</summary>
     public bool ShowMiniWindow { get; set; }
 
+    /// <summary>Mini window keeps its position and size and hides its title bar.</summary>
+    public bool MiniLocked { get; set; }
+
+    /// <summary>Mini window ignores the mouse entirely.</summary>
+    public bool MiniClickthrough { get; set; }
+
+    /// <summary>Mini window background opacity, 0.2 to 1.</summary>
+    public float MiniOpacity { get; set; } = 1f;
+
+    /// <summary>Toast when the daily or weekly reset passes while playing.</summary>
+    public bool ResetToasts { get; set; } = true;
+
     /// <summary>Neko look on, or plain Dalamud styling.</summary>
     public bool UseNekoTheme { get; set; } = true;
 

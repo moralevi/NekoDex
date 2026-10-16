@@ -57,7 +57,7 @@ Scope
 
 Gate
 - [x] `--sheets-only` runs in under a minute and prints per-module counts.
-- [ ] Legacy entries show as not obtainable with a reason.
+- [x] Legacy entries show as not obtainable with a reason.
 
 ### Phase 22: Dashboard and mini window polish
 

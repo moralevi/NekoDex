@@ -36,7 +36,8 @@ public sealed unsafe class AutoChecklistSources
         this.log = log;
     }
 
-    public static IReadOnlyList<string> DefaultEnabled { get; } = [RoulettePrefix + "5", RoulettePrefix + "1", TribalId];
+    /// <summary>Defaults for new installs (existing configs keep their list): expert, leveling and alliance raid roulettes, tribal allowances, Wondrous Tails.</summary>
+    public static IReadOnlyList<string> DefaultEnabled { get; } = [RoulettePrefix + "5", RoulettePrefix + "1", RoulettePrefix + "15", TribalId, BingoId];
 
     public IReadOnlyList<AutoItemDefinition> Definitions => definitions ??= Load();
 

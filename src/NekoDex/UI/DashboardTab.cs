@@ -36,6 +36,11 @@ public sealed class DashboardTab
         checklist.ApplyResets();
         var now = checklist.NowUtc;
 
+        // Checklist first: it is the part that changes every day.
+        DrawChecklist();
+        ImGui.Spacing();
+        ImGui.Separator();
+        ImGui.Spacing();
         DrawResets(now);
         ImGui.Spacing();
         ImGui.Separator();
@@ -45,10 +50,6 @@ public sealed class DashboardTab
         ImGui.Separator();
         ImGui.Spacing();
         DrawNewThisPatch();
-        ImGui.Spacing();
-        ImGui.Separator();
-        ImGui.Spacing();
-        DrawChecklist();
     }
 
     /// <summary>Per module: entries added in the newest patch the data knows, and how many are still missing. Click to open the tab filtered.</summary>

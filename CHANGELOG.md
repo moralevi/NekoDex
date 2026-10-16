@@ -7,7 +7,8 @@ First release, for friends.
 - Collections: Mounts, Minions, Orchestrion, Emotes, Bardings, Fashion Accessories, Facewear and Triple Triad, with owned/missing status, progress, search, ownership and obtainable filters, "new in patch" filter, sortable columns and pins.
 - Unlock info in game from a bundled dataset built from FFXIV Collect with Garland Tools filling gaps, attributed per entry, with links to FFXIV Collect or Garland item pages. The dataset refreshes weekly through a pull request.
 - Dashboard: reset countdowns (daily, weekly, Grand Company, Jumbo Cactpot, Fashion Report) in your time zone, per-collection progress, new-this-patch rows, and a checklist whose daily and weekly items clear at reset, plus game-read auto items (duty roulettes, tribal allowances, Wondrous Tails).
-- Mini window with countdowns, open to-dos and pinned entries; `/nekodex mini`.
+- Mini window with countdowns, open to-dos and pinned entries; `/nekodex mini`, with lock (`/nekodex mini lock`), clickthrough and opacity settings.
+- A toast when the daily or weekly reset passes while you play (can be turned off).
 - Neko theme with a live toggle back to the default Dalamud style.
 - Export and import of pins, checklist and auto item choices.
 - Translations: English and Swedish, with a Language setting for languages Dalamud does not offer; German, French and Japanese templates.

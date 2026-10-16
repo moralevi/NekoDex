@@ -24,6 +24,7 @@ public sealed class Plugin : IDalamudPlugin
     private readonly ConfigWindow configWindow;
     private readonly MiniWindow miniWindow;
     private readonly AutoChecklistController autoItems;
+    private readonly ResetNotifier resetNotifier;
 
     // Services arrive through constructor injection; nothing in the plugin reaches for them statically.
     public Plugin(
@@ -33,6 +34,8 @@ public sealed class Plugin : IDalamudPlugin
         IPlayerState playerState,
         IDataManager dataManager,
         ITextureProvider textureProvider,
+        IFramework framework,
+        IToastGui toastGui,
         IPluginLog log)
     {
         this.pluginInterface = pluginInterface;
@@ -71,6 +74,7 @@ public sealed class Plugin : IDalamudPlugin
         var dashboard = new DashboardTab(checklist, autoItems, tabs, CharacterReady, navigation);
 
         miniWindow = new MiniWindow(config, checklist, autoItems, tabs, pins, CharacterReady);
+        resetNotifier = new ResetNotifier(framework, toastGui, config, CharacterReady);
         var version = pluginInterface.Manifest.AssemblyVersion.ToString();
         configWindow = new ConfigWindow(config, miniWindow.SetShown, dataset, version, autoItems, new UserDataService(config, log, version), pluginInterface, SetLanguage);
         mainWindow = new MainWindow(config, clientState, playerState, dashboard, tabs, navigation, configWindow.Toggle);
@@ -80,7 +84,7 @@ public sealed class Plugin : IDalamudPlugin
 
         commandManager.AddHandler(CommandName, new CommandInfo(OnCommand)
         {
-            HelpMessage = "Toggle the NekoDex window. \"/nekodex config\" opens settings, \"/nekodex mini\" toggles the mini window.",
+            HelpMessage = "Toggle the NekoDex window. \"/nekodex config\" opens settings, \"/nekodex mini\" toggles the mini window, \"/nekodex mini lock\" locks it in place.",
         });
 
         pluginInterface.UiBuilder.Draw += windowSystem.Draw;
@@ -108,6 +112,7 @@ public sealed class Plugin : IDalamudPlugin
 
         commandManager.RemoveHandler(CommandName);
         windowSystem.RemoveAllWindows();
+        resetNotifier.Dispose();
 
         log.Information("NekoDex unloaded");
     }
@@ -122,6 +127,9 @@ public sealed class Plugin : IDalamudPlugin
             case "mini":
                 miniWindow.SetShown(!miniWindow.IsOpen);
                 break;
+            case "mini lock":
+                miniWindow.SetLocked(!config.Current.MiniLocked);
+                break;
             default:
                 mainWindow.Toggle();
                 break;
@@ -130,6 +138,7 @@ public sealed class Plugin : IDalamudPlugin
 
     private void OnLogin()
     {
+        resetNotifier.Reset();
         autoItems.Reset();
         mainWindow.ResetCollections();
         if (config.Current.OpenMainWindowOnLogin)
@@ -150,6 +159,7 @@ public sealed class Plugin : IDalamudPlugin
 
     private void OnLogout(int type, int code)
     {
+        resetNotifier.Reset();
         autoItems.Reset();
         mainWindow.ResetCollections();
     }
