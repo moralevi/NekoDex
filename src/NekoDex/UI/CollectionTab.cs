@@ -1,11 +1,15 @@
 using System;
 using System.Numerics;
 using Dalamud.Bindings.ImGui;
+using Dalamud.Interface;
+using Dalamud.Interface.Components;
 using Dalamud.Interface.Textures;
 using Dalamud.Interface.Utility;
 using Dalamud.Interface.Utility.Raii;
 using Dalamud.Plugin.Services;
+using Dalamud.Utility;
 using NekoDex.Core.Collections;
+using NekoDex.Core.Unlock;
 
 namespace NekoDex.UI;
 
@@ -15,15 +19,17 @@ public sealed class CollectionTab
     private static readonly TimeSpan RefreshInterval = TimeSpan.FromSeconds(1);
 
     private readonly ITextureProvider textureProvider;
+    private readonly UnlockResolver unlockResolver;
     private CollectionSnapshot snapshot = CollectionSnapshot.Empty;
     private DateTime lastRefresh = DateTime.MinValue;
     private string search = string.Empty;
     private OwnershipFilter filter = OwnershipFilter.All;
 
-    public CollectionTab(ICollectionModule module, ITextureProvider textureProvider)
+    public CollectionTab(ICollectionModule module, ITextureProvider textureProvider, UnlockResolver unlockResolver)
     {
         Module = module;
         this.textureProvider = textureProvider;
+        this.unlockResolver = unlockResolver;
     }
 
     public ICollectionModule Module { get; }
@@ -86,10 +92,11 @@ public sealed class CollectionTab
 
     private void DrawTable()
     {
-        var iconSize = new Vector2(28, 28) * ImGuiHelpers.GlobalScale;
+        var scale = ImGuiHelpers.GlobalScale;
+        var iconSize = new Vector2(28, 28) * scale;
         var flags = ImGuiTableFlags.RowBg | ImGuiTableFlags.BordersInnerH | ImGuiTableFlags.ScrollY | ImGuiTableFlags.SizingStretchProp;
 
-        using var table = ImRaii.Table($"##{Module.Id}", 3, flags, new Vector2(-1, -1));
+        using var table = ImRaii.Table($"##{Module.Id}", 4, flags, new Vector2(-1, -1));
         if (!table.Success)
         {
             return;
@@ -98,7 +105,8 @@ public sealed class CollectionTab
         ImGui.TableSetupScrollFreeze(0, 1);
         ImGui.TableSetupColumn("##icon", ImGuiTableColumnFlags.WidthFixed, iconSize.X + 4);
         ImGui.TableSetupColumn(Strings.Get("Column_Name", "Name"), ImGuiTableColumnFlags.WidthStretch);
-        ImGui.TableSetupColumn(Strings.Get("Column_Status", "Status"), ImGuiTableColumnFlags.WidthFixed, 80 * ImGuiHelpers.GlobalScale);
+        ImGui.TableSetupColumn(Strings.Get("Column_Status", "Status"), ImGuiTableColumnFlags.WidthFixed, 70 * scale);
+        ImGui.TableSetupColumn(Strings.Get("Column_Unlock", "Unlock"), ImGuiTableColumnFlags.WidthFixed, 130 * scale);
         ImGui.TableHeadersRow();
 
         var ownedLabel = Strings.Get("Status_Owned", "Owned");
@@ -127,6 +135,9 @@ public sealed class CollectionTab
             {
                 ImGui.TextColored(Theme.MissingColor, missingLabel);
             }
+
+            ImGui.TableNextColumn();
+            DrawUnlock(tracked.Entry);
         }
 
         if (!any)
@@ -137,6 +148,47 @@ public sealed class CollectionTab
             ImGui.TextDisabled(Strings.Get("Table_Empty", "Nothing matches."));
         }
     }
+
+    /// <summary>Type label with the summary as tooltip, plus a button that opens the web page when one exists.</summary>
+    private void DrawUnlock(CollectionEntry entry)
+    {
+        var source = unlockResolver.Resolve(Module.Id, entry);
+
+        if (source.Url is not null)
+        {
+            if (ImGuiComponents.IconButton((int)entry.Id, FontAwesomeIcon.ExternalLinkAlt))
+            {
+                Util.OpenLink(source.Url);
+            }
+
+            if (ImGui.IsItemHovered())
+            {
+                ImGui.SetTooltip(string.Format(Strings.Get("Tooltip_OpenOnWeb", "Open on {0}"), HostOf(source.Url)));
+            }
+
+            ImGui.SameLine();
+        }
+
+        ImGui.AlignTextToFramePadding();
+        if (source.IsUnknown)
+        {
+            ImGui.TextDisabled(UnlockLabels.For(source.Type));
+        }
+        else
+        {
+            ImGui.Text(UnlockLabels.For(source.Type));
+        }
+
+        if (ImGui.IsItemHovered())
+        {
+            ImGui.SetTooltip(source.IsUnknown
+                ? Strings.Get("Unlock_UnknownHint", "No unlock information yet.")
+                : source.Summary);
+        }
+    }
+
+    private static string HostOf(string url)
+        => Uri.TryCreate(url, UriKind.Absolute, out var uri) ? uri.Host : url;
 
     private void DrawIcon(uint iconId, Vector2 size)
     {

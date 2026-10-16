@@ -1,5 +1,6 @@
 using System;
 using Dalamud.Configuration;
+using NekoDex.Core.Unlock;
 
 namespace NekoDex;
 
@@ -16,4 +17,7 @@ public sealed class Configuration : IPluginConfiguration
 
     /// <summary>Open the main window automatically when a character logs in.</summary>
     public bool OpenMainWindowOnLogin { get; set; }
+
+    /// <summary>Which website the "open on web" buttons point at.</summary>
+    public UnlockLinkSite LinkSite { get; set; } = UnlockLinkSite.FfxivCollect;
 }

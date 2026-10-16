@@ -3,6 +3,7 @@ using Dalamud.Game.Command;
 using Dalamud.Interface.Windowing;
 using Dalamud.Plugin;
 using Dalamud.Plugin.Services;
+using NekoDex.Core.Unlock;
 using NekoDex.Data;
 using NekoDex.UI;
 
@@ -40,10 +41,14 @@ public sealed class Plugin : IDalamudPlugin
         Strings.Setup();
         config = new ConfigurationManager(pluginInterface, log);
 
+        // Unlock info: hand-verified entries first, the bundled dataset (Phase 4) slots in after them;
+        // anything unanswered becomes an explicit Unknown with a web link for the configured site.
+        var unlockResolver = new UnlockResolver([KnownUnlocks.Create()], () => config.Current.LinkSite);
+
         // One tab per collection module. Adding a module means one line here plus its class in Data/.
         CollectionTab[] tabs =
         [
-            new(new MountModule(dataManager, clientState, log), textureProvider),
+            new(new MountModule(dataManager, clientState, log), textureProvider, unlockResolver),
         ];
 
         configWindow = new ConfigWindow(config);

@@ -1,0 +1,46 @@
+namespace NekoDex.Core.Unlock;
+
+/// <summary>External sites that have one page per collectable, addressed by the game's row id.</summary>
+public enum UnlockLinkSite
+{
+    FfxivCollect = 0,
+    GarlandTools = 1,
+}
+
+/// <summary>Builds the web page URL for an entry on a given site. Pure string building; verified formats are listed in DATA_SOURCES.md.</summary>
+public static class UnlockLinks
+{
+    /// <summary>Returns null when the site has no known page scheme for the module.</summary>
+    public static string? BuildUrl(UnlockLinkSite site, string moduleId, uint entryId)
+    {
+        var segment = SiteSegment(site, moduleId);
+        if (segment is null)
+        {
+            return null;
+        }
+
+        return site switch
+        {
+            UnlockLinkSite.FfxivCollect => $"https://ffxivcollect.com/{segment}/{entryId}",
+            UnlockLinkSite.GarlandTools => $"https://www.garlandtools.org/db/#{segment}/{entryId}",
+            _ => null,
+        };
+    }
+
+    public static string SiteName(UnlockLinkSite site) => site switch
+    {
+        UnlockLinkSite.FfxivCollect => "FFXIV Collect",
+        UnlockLinkSite.GarlandTools => "Garland Tools",
+        _ => site.ToString(),
+    };
+
+    private static string? SiteSegment(UnlockLinkSite site, string moduleId) => (site, moduleId) switch
+    {
+        (UnlockLinkSite.FfxivCollect, "mounts") => "mounts",
+        (UnlockLinkSite.FfxivCollect, "minions") => "minions",
+        (UnlockLinkSite.FfxivCollect, "orchestrion") => "orchestrions",
+        (UnlockLinkSite.GarlandTools, "mounts") => "mount",
+        (UnlockLinkSite.GarlandTools, "minions") => "minion",
+        _ => null,
+    };
+}

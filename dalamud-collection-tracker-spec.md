@@ -1,6 +1,6 @@
 # FFXIV Dalamud Plugin: Collection Tracker (working name: NekoDex)
 
-Status: Phase 0 and 1 gates passed 2026-10-16. Phase 2 built, in-game gate pending. Target: friends first, public custom repo later.
+Status: Phases 0-2 gates passed 2026-10-16. Phase 3 built, in-game gate pending. Target: friends first, public custom repo later.
 Stack: C#/.NET, Dalamud.NET.Sdk, ImGui (via Dalamud's ImGui bindings), Lumina, FFXIVClientStructs.
 Method: phased, each phase has gate criteria. Do not start a phase until the previous gate passes.
 
@@ -86,10 +86,10 @@ Scope
   - Mounts are the first module.
 
 Gate
-- [ ] Owned and total counts match the in-game Mount Guide on the same character.
-- [ ] Spot check 10 known owned and 10 known missing mounts: all correct.
-- [ ] No crashes when switching characters or logging out with the window open.
-- [ ] Filter + search combined work correctly.
+- [x] Owned and total counts match the in-game Mount Guide on the same character.
+- [x] Spot check 10 known owned and 10 known missing mounts: all correct.
+- [x] No crashes when switching characters or logging out with the window open.
+- [x] Filter + search combined work correctly.
 
 ---
 

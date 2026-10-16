@@ -4,7 +4,7 @@ Dalamud plugin for FFXIV that shows what the logged-in character owns and is mis
 
 Information and UI only. No automation, no input injection, read-only access to game state.
 
-Status: Phase 1 (skeleton). See [the spec](dalamud-collection-tracker-spec.md) for the roadmap and phase gates.
+Status: Phase 3 (mount list with link-out unlock info). See [the spec](dalamud-collection-tracker-spec.md) for the roadmap and phase gates.
 
 ## Layout
 
@@ -49,4 +49,4 @@ Release builds via the solution produce the distributable package at `src/NekoDe
 
 ## License
 
-MIT. Data source licenses and attributions will be listed in `DATA_SOURCES.md` once external data is used.
+MIT. External data sources, their terms and attributions are listed in [DATA_SOURCES.md](DATA_SOURCES.md).
