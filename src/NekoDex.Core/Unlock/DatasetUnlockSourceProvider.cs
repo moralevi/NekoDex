@@ -46,8 +46,10 @@ public sealed class DatasetUnlockSourceProvider : IUnlockSourceProvider
         }
 
         var lines = new string[data.Sources.Count];
+        var categories = new string[data.Sources.Count];
         for (var i = 0; i < lines.Length; i++)
         {
+            categories[i] = data.Sources[i].Category;
             lines[i] = $"{data.Sources[i].Category}: {data.Sources[i].Text}";
         }
 
@@ -57,6 +59,7 @@ public sealed class DatasetUnlockSourceProvider : IUnlockSourceProvider
             lines.Length == 1 ? first.Text : $"{first.Text} (+{lines.Length - 1})",
             Details: lines,
             Patch: data.Patch,
-            Note: Attribution);
+            Note: Attribution,
+            Categories: categories);
     }
 }

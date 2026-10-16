@@ -1,6 +1,6 @@
 # FFXIV Dalamud Plugin: Collection Tracker (working name: NekoDex)
 
-Status: Phases 0-7 gates passed 2026-10-16. Phase 8 built (theme and fresh-install gates pending; fresh install needs the GitHub repo public). Phase 9 built, in-game gate pending. Target: friends first, public custom repo later.
+Status: Phases 0-7 gates passed 2026-10-16. Phase 8 built (theme and fresh-install gates pending; fresh install needs the GitHub repo public). Phase 9 gate passed; Phase 10 built, in-game gate pending. Target: friends first, public custom repo later.
 Stack: C#/.NET, Dalamud.NET.Sdk, ImGui (via Dalamud's ImGui bindings), Lumina, FFXIVClientStructs.
 Method: phased, each phase has gate criteria. Do not start a phase until the previous gate passes.
 
@@ -215,9 +215,9 @@ Scope
 - Config migration helper in Core so old config shapes can be unit tested without Dalamud.
 
 Gate
-- [ ] A v1 config file with a dresser snapshot migrates to v2 and the snapshot lands under the character that loaded it.
-- [ ] Two characters on the same account show their own dresser contents in the Outfits tab, and a third with no snapshot shows the "not read yet" footer.
-- [ ] Migration covered by a unit test; reload 5 times with no errors in `/xllog`.
+- [x] A v1 config file with a dresser snapshot migrates to v2 and the snapshot lands under the character that loaded it.
+- [x] Two characters on the same account show their own dresser contents in the Outfits tab, and a third with no snapshot shows the "not read yet" footer.
+- [x] Migration covered by a unit test; reload 5 times with no errors in `/xllog`.
 
 ---
 

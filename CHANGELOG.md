@@ -3,6 +3,10 @@
 ## 1.1.0 (in progress)
 
 - Glamour Dresser contents are remembered per character. Config moves to v2; a snapshot saved by 1.0 is handed to the first character that logs in.
+- Obtainable / not obtainable filter from the unlock data (store-only, event and legacy rewards).
+- Sortable table headers (name, patch, status, unlock type) and a missing-first toggle.
+- Pin entries with the star: they sit at the top of their tab and in the mini window until unlocked.
+- Dashboard shows per-collection progress.
 
 ## 1.0.0 (unreleased)
 

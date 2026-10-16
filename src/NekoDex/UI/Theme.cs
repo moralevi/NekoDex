@@ -34,6 +34,8 @@ internal static class Theme
 
     public static Vector4 MissingColor => Active ? NekoMissing : DefaultMissing;
 
+    public static Vector4 PinColor => Active ? Salmon : new Vector4(0.95f, 0.80f, 0.30f, 1f);
+
     /// <summary>Pushes every colour and style var. Dispose to pop them all; nothing is left on the stack.</summary>
     public static IDisposable Push()
     {

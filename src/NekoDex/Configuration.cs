@@ -37,6 +37,9 @@ public sealed class Configuration : IPluginConfiguration
     /// <summary>Planned outfits.</summary>
     public List<Outfit> Outfits { get; set; } = new();
 
+    /// <summary>Starred entries per module id ("mounts" -> mount row ids). Shown first in their tab and in the mini window.</summary>
+    public Dictionary<string, List<uint>> Pins { get; set; } = new();
+
     /// <summary>Glamour Dresser contents per character (v2). The game only exposes them after the dresser is opened.</summary>
     public DresserCache Dresser { get; set; } = new();
 

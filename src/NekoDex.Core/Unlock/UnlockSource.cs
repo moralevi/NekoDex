@@ -9,13 +9,15 @@ namespace NekoDex.Core.Unlock;
 /// <param name="Details">Every known way to obtain the entry, one line each, for the detail pane.</param>
 /// <param name="Patch">Game patch the entry was added in, when known.</param>
 /// <param name="Note">Attribution or staleness note, e.g. the dataset the answer came from.</param>
+/// <param name="Categories">Raw source categories ("Trial", "Premium", ...), one per way to obtain; drives the obtainable filter.</param>
 public sealed record UnlockSource(
     UnlockSourceType Type,
     string Summary,
     string? Url = null,
     IReadOnlyList<string>? Details = null,
     string? Patch = null,
-    string? Note = null)
+    string? Note = null,
+    IReadOnlyList<string>? Categories = null)
 {
     public static UnlockSource Unknown(string? url = null, string? note = null) => new(UnlockSourceType.Unknown, string.Empty, url, Note: note);
 

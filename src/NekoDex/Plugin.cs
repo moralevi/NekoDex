@@ -51,14 +51,16 @@ public sealed class Plugin : IDalamudPlugin
         var unlockResolver = new UnlockResolver(providers, () => config.Current.LinkSite);
 
         // One tab per collection module. Adding a module means one line here plus its class in Data/.
+        var pins = new PinController(config);
         var armoire = new ArmoireModule(dataManager, log);
         CollectionTab[] tabs =
         [
-            new(new MountModule(dataManager, clientState, log), textureProvider, unlockResolver, dataset),
-            new(new MinionModule(dataManager, clientState, log), textureProvider, unlockResolver, dataset),
-            new(new OrchestrionModule(dataManager, log), textureProvider, unlockResolver, dataset),
-            new(armoire, textureProvider, unlockResolver, dataset),
+            new(new MountModule(dataManager, clientState, log), textureProvider, unlockResolver, dataset, pins),
+            new(new MinionModule(dataManager, clientState, log), textureProvider, unlockResolver, dataset, pins),
+            new(new OrchestrionModule(dataManager, log), textureProvider, unlockResolver, dataset, pins),
+            new(armoire, textureProvider, unlockResolver, dataset, pins),
         ];
+        bool CharacterReady() => clientState.IsLoggedIn && playerState.IsLoaded;
 
         // Outfit planner: item catalogue from the Item sheet, ownership from dresser snapshot, armoire and bags.
         dresser = new GlamourDresserReader(config, playerState, log);
@@ -71,9 +73,9 @@ public sealed class Plugin : IDalamudPlugin
 
         // Resets are fixed in UTC, so the local clock is enough; the checklist controller stamps and clears with it.
         var checklist = new ChecklistController(config, () => DateTimeOffset.UtcNow);
-        var dashboard = new DashboardTab(checklist);
+        var dashboard = new DashboardTab(checklist, tabs, CharacterReady);
 
-        miniWindow = new MiniWindow(config, checklist);
+        miniWindow = new MiniWindow(config, checklist, tabs, pins, CharacterReady);
         configWindow = new ConfigWindow(config, miniWindow.SetShown, dataset, pluginInterface.Manifest.AssemblyVersion.ToString());
         mainWindow = new MainWindow(config, clientState, playerState, dashboard, tabs, outfits, advisor, configWindow.Toggle);
         windowSystem.AddWindow(mainWindow);

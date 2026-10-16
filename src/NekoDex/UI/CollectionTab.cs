@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Numerics;
 using Dalamud.Bindings.ImGui;
 using Dalamud.Interface;
@@ -13,26 +14,37 @@ using NekoDex.Core.Unlock;
 
 namespace NekoDex.UI;
 
-/// <summary>Draws one collection module: progress, search, ownership filter, the entry table and a detail pane for the selected entry.</summary>
-public sealed class CollectionTab
+/// <summary>Draws one collection module: progress, filters, a sortable entry table with pins, and a detail pane for the selected entry.</summary>
+public sealed unsafe class CollectionTab
 {
     private static readonly TimeSpan RefreshInterval = TimeSpan.FromSeconds(1);
 
     private readonly ITextureProvider textureProvider;
     private readonly UnlockResolver unlockResolver;
     private readonly DatasetUnlockSourceProvider? dataset;
+    private readonly PinController pins;
+
     private CollectionSnapshot snapshot = CollectionSnapshot.Empty;
+    private IReadOnlyList<EntryView> views = [];
+    private IReadOnlyList<EntryView> visible = [];
     private DateTime lastRefresh = DateTime.MinValue;
+    private bool dirty = true;
+
     private string search = string.Empty;
-    private OwnershipFilter filter = OwnershipFilter.All;
+    private OwnershipFilter ownership = OwnershipFilter.All;
+    private AvailabilityFilter availability = AvailabilityFilter.All;
+    private EntrySortKey sortKey = EntrySortKey.Default;
+    private bool sortDescending;
+    private bool missingFirst;
     private uint? selectedId;
 
-    public CollectionTab(ICollectionModule module, ITextureProvider textureProvider, UnlockResolver unlockResolver, DatasetUnlockSourceProvider? dataset)
+    public CollectionTab(ICollectionModule module, ITextureProvider textureProvider, UnlockResolver unlockResolver, DatasetUnlockSourceProvider? dataset, PinController pins)
     {
         Module = module;
         this.textureProvider = textureProvider;
         this.unlockResolver = unlockResolver;
         this.dataset = dataset;
+        this.pins = pins;
     }
 
     public ICollectionModule Module { get; }
@@ -41,8 +53,31 @@ public sealed class CollectionTab
     public void Reset()
     {
         snapshot = CollectionSnapshot.Empty;
+        views = [];
+        visible = [];
         lastRefresh = DateTime.MinValue;
         selectedId = null;
+        dirty = true;
+    }
+
+    /// <summary>Latest snapshot, refreshed if due. Only call while a character is loaded.</summary>
+    public CollectionSnapshot CurrentSnapshot()
+    {
+        RefreshIfDue();
+        return snapshot;
+    }
+
+    /// <summary>Pinned entries with their ownership, module order. Only call while a character is loaded.</summary>
+    public IEnumerable<EntryView> PinnedViews()
+    {
+        RefreshIfDue();
+        foreach (var view in views)
+        {
+            if (view.Pinned)
+            {
+                yield return view;
+            }
+        }
     }
 
     public void Draw()
@@ -56,6 +91,12 @@ public sealed class CollectionTab
 
         DrawProgress();
         DrawControls();
+
+        if (dirty)
+        {
+            visible = EntryViewQuery.Sort(EntryViewQuery.Filter(views, ownership, availability, search), sortKey, sortDescending, missingFirst, pinnedFirst: true);
+            dirty = false;
+        }
 
         var detailHeight = 150 * ImGuiHelpers.GlobalScale;
         DrawTable(detailHeight);
@@ -71,7 +112,21 @@ public sealed class CollectionTab
         }
 
         snapshot = CollectionSnapshot.Build(Module);
+        RebuildViews();
         lastRefresh = now;
+    }
+
+    private void RebuildViews()
+    {
+        var list = new EntryView[snapshot.Entries.Count];
+        for (var i = 0; i < list.Length; i++)
+        {
+            var tracked = snapshot.Entries[i];
+            list[i] = new EntryView(tracked, unlockResolver.Resolve(Module.Id, tracked.Entry), pins.IsPinned(Module.Id, tracked.Entry.Id));
+        }
+
+        views = list;
+        dirty = true;
     }
 
     private void DrawProgress()
@@ -83,22 +138,42 @@ public sealed class CollectionTab
 
     private void DrawControls()
     {
-        ImGui.SetNextItemWidth(220 * ImGuiHelpers.GlobalScale);
-        ImGui.InputTextWithHint("##search", Strings.Get("Search_Hint", "Search"), ref search, 100);
+        ImGui.SetNextItemWidth(200 * ImGuiHelpers.GlobalScale);
+        if (ImGui.InputTextWithHint("##search", Strings.Get("Search_Hint", "Search"), ref search, 100))
+        {
+            dirty = true;
+        }
 
         ImGui.SameLine();
-        DrawFilterButton(OwnershipFilter.All, Strings.Get("Filter_All", "All"));
+        Radio(ref ownership, OwnershipFilter.All, Strings.Get("Filter_All", "All"));
         ImGui.SameLine();
-        DrawFilterButton(OwnershipFilter.Owned, Strings.Get("Filter_Owned", "Owned"));
+        Radio(ref ownership, OwnershipFilter.Owned, Strings.Get("Filter_Owned", "Owned"));
         ImGui.SameLine();
-        DrawFilterButton(OwnershipFilter.Missing, Strings.Get("Filter_Missing", "Missing"));
+        Radio(ref ownership, OwnershipFilter.Missing, Strings.Get("Filter_Missing", "Missing"));
+
+        ImGui.SameLine();
+        ImGui.TextDisabled("|");
+        ImGui.SameLine();
+        if (ImGui.Checkbox(Strings.Get("Sort_MissingFirst", "Missing first"), ref missingFirst))
+        {
+            dirty = true;
+        }
+
+        Radio(ref availability, AvailabilityFilter.All, Strings.Get("Avail_All", "Any source"));
+        ImGui.SameLine();
+        Radio(ref availability, AvailabilityFilter.Obtainable, Strings.Get("Avail_Obtainable", "Obtainable"));
+        ImGui.SameLine();
+        Radio(ref availability, AvailabilityFilter.NotObtainable, Strings.Get("Avail_NotObtainable", "Not obtainable"));
+        ImGui.SameLine();
+        ImGuiComponents.HelpMarker(Strings.Get("Avail_Help", "Not obtainable: store-only, past events and legacy rewards according to the unlock data. Entries without data count as obtainable."));
     }
 
-    private void DrawFilterButton(OwnershipFilter value, string label)
+    private void Radio<T>(ref T field, T value, string label) where T : struct, Enum
     {
-        if (ImGui.RadioButton(label, filter == value))
+        if (ImGui.RadioButton(label, field.Equals(value)))
         {
-            filter = value;
+            field = value;
+            dirty = true;
         }
     }
 
@@ -106,45 +181,54 @@ public sealed class CollectionTab
     {
         var scale = ImGuiHelpers.GlobalScale;
         var iconSize = new Vector2(28, 28) * scale;
-        var flags = ImGuiTableFlags.RowBg | ImGuiTableFlags.BordersInnerH | ImGuiTableFlags.ScrollY | ImGuiTableFlags.SizingStretchProp;
+        var flags = ImGuiTableFlags.RowBg | ImGuiTableFlags.BordersInnerH | ImGuiTableFlags.ScrollY | ImGuiTableFlags.SizingStretchProp | ImGuiTableFlags.Sortable | ImGuiTableFlags.SortTristate;
         var spacing = ImGui.GetStyle().ItemSpacing.Y;
 
-        using var table = ImRaii.Table($"##{Module.Id}", 4, flags, new Vector2(-1, -(reservedBelow + spacing)));
+        using var table = ImRaii.Table($"##{Module.Id}", 6, flags, new Vector2(-1, -(reservedBelow + spacing)));
         if (!table.Success)
         {
             return;
         }
 
         ImGui.TableSetupScrollFreeze(0, 1);
-        ImGui.TableSetupColumn("##icon", ImGuiTableColumnFlags.WidthFixed, iconSize.X + 4);
-        ImGui.TableSetupColumn(Strings.Get("Column_Name", "Name"), ImGuiTableColumnFlags.WidthStretch);
-        ImGui.TableSetupColumn(Strings.Get("Column_Status", "Status"), ImGuiTableColumnFlags.WidthFixed, 70 * scale);
-        ImGui.TableSetupColumn(Strings.Get("Column_Unlock", "Unlock"), ImGuiTableColumnFlags.WidthFixed, 130 * scale);
+        ImGui.TableSetupColumn("##pin", ImGuiTableColumnFlags.WidthFixed | ImGuiTableColumnFlags.NoSort, 24 * scale, 0);
+        ImGui.TableSetupColumn("##icon", ImGuiTableColumnFlags.WidthFixed | ImGuiTableColumnFlags.NoSort, iconSize.X + 4, 0);
+        ImGui.TableSetupColumn(Strings.Get("Column_Name", "Name"), ImGuiTableColumnFlags.WidthStretch, 0, (uint)EntrySortKey.Name);
+        ImGui.TableSetupColumn(Strings.Get("Column_Patch", "Patch"), ImGuiTableColumnFlags.WidthFixed, 46 * scale, (uint)EntrySortKey.Patch);
+        ImGui.TableSetupColumn(Strings.Get("Column_Status", "Status"), ImGuiTableColumnFlags.WidthFixed, 70 * scale, (uint)EntrySortKey.Status);
+        ImGui.TableSetupColumn(Strings.Get("Column_Unlock", "Unlock"), ImGuiTableColumnFlags.WidthFixed, 130 * scale, (uint)EntrySortKey.UnlockType);
         ImGui.TableHeadersRow();
+        ReadSortSpecs();
 
         var ownedLabel = Strings.Get("Status_Owned", "Owned");
         var missingLabel = Strings.Get("Status_Missing", "Missing");
-        var any = false;
 
-        foreach (var tracked in EntryQuery.Apply(snapshot.Entries, filter, search))
+        foreach (var view in visible)
         {
-            any = true;
-            var entry = tracked.Entry;
+            var entry = view.Entry;
+            using var id = ImRaii.PushId((int)entry.Id);
             ImGui.TableNextRow();
+
+            ImGui.TableNextColumn();
+            DrawPinButton(view);
 
             ImGui.TableNextColumn();
             DrawIcon(entry.IconId, iconSize);
 
             ImGui.TableNextColumn();
             ImGui.AlignTextToFramePadding();
-            if (ImGui.Selectable($"{entry.Name}##{entry.Id}", selectedId == entry.Id, ImGuiSelectableFlags.SpanAllColumns | ImGuiSelectableFlags.AllowItemOverlap))
+            if (ImGui.Selectable(entry.Name, selectedId == entry.Id, ImGuiSelectableFlags.SpanAllColumns | ImGuiSelectableFlags.AllowItemOverlap))
             {
                 selectedId = entry.Id;
             }
 
             ImGui.TableNextColumn();
             ImGui.AlignTextToFramePadding();
-            if (tracked.Owned)
+            ImGui.TextDisabled(view.Source.Patch ?? string.Empty);
+
+            ImGui.TableNextColumn();
+            ImGui.AlignTextToFramePadding();
+            if (view.Owned)
             {
                 ImGui.TextColored(Theme.OwnedColor, ownedLabel);
             }
@@ -154,26 +238,67 @@ public sealed class CollectionTab
             }
 
             ImGui.TableNextColumn();
-            DrawUnlockCell(entry);
+            DrawUnlockCell(view.Source);
         }
 
-        if (!any)
+        if (visible.Count == 0)
         {
             ImGui.TableNextRow();
+            ImGui.TableNextColumn();
             ImGui.TableNextColumn();
             ImGui.TableNextColumn();
             ImGui.TextDisabled(Strings.Get("Table_Empty", "Nothing matches."));
         }
     }
 
-    /// <summary>Type label with the summary as tooltip, plus a button that opens the web page when one exists.</summary>
-    private void DrawUnlockCell(CollectionEntry entry)
+    private void ReadSortSpecs()
     {
-        var source = unlockResolver.Resolve(Module.Id, entry);
+        var specs = ImGui.TableGetSortSpecs();
+        if (specs.IsNull || !specs.SpecsDirty)
+        {
+            return;
+        }
 
+        if (specs.SpecsCount > 0 && !specs.Specs.IsNull)
+        {
+            sortKey = (EntrySortKey)specs.Specs.ColumnUserID;
+            sortDescending = specs.Specs.SortDirection == ImGuiSortDirection.Descending;
+        }
+        else
+        {
+            sortKey = EntrySortKey.Default;
+            sortDescending = false;
+        }
+
+        specs.SpecsDirty = false;
+        dirty = true;
+    }
+
+    private void DrawPinButton(EntryView view)
+    {
+        var icon = view.Pinned ? FontAwesomeIcon.Star : FontAwesomeIcon.StarHalfAlt;
+        using (ImRaii.PushColor(ImGuiCol.Text, view.Pinned ? Theme.PinColor : ImGui.GetStyle().Colors[(int)ImGuiCol.TextDisabled]))
+        using (ImRaii.PushColor(ImGuiCol.Button, new Vector4(0, 0, 0, 0)))
+        {
+            if (ImGuiComponents.IconButton(icon))
+            {
+                pins.Toggle(Module.Id, view.Entry.Id);
+                RebuildViews();
+            }
+        }
+
+        if (ImGui.IsItemHovered())
+        {
+            ImGui.SetTooltip(view.Pinned ? Strings.Get("Pin_Remove", "Unpin") : Strings.Get("Pin_Add", "Pin: show first here and in the mini window"));
+        }
+    }
+
+    /// <summary>Type label with the summary as tooltip, plus a button that opens the web page when one exists.</summary>
+    private void DrawUnlockCell(UnlockSource source)
+    {
         if (source.Url is not null)
         {
-            DrawOpenLinkButton((int)entry.Id, source.Url);
+            DrawOpenLinkButton(source.Url);
             ImGui.SameLine();
         }
 
@@ -212,7 +337,7 @@ public sealed class CollectionTab
         }
 
         var entry = selected.Entry;
-        var source = unlockResolver.Resolve(Module.Id, entry);
+        var source = selected.Source;
         var scale = ImGuiHelpers.GlobalScale;
 
         DrawIcon(entry.IconId, new Vector2(40, 40) * scale);
@@ -236,11 +361,17 @@ public sealed class CollectionTab
                 ImGui.TextDisabled(string.Format(Strings.Get("Detail_Patch", "Patch {0}"), source.Patch));
             }
 
+            if (!UnlockAvailability.IsObtainable(source))
+            {
+                ImGui.SameLine();
+                ImGui.TextColored(Theme.MissingColor, Strings.Get("Detail_NotObtainable", "Not obtainable"));
+            }
+
             ImGui.Text(UnlockLabels.For(source.Type));
             if (source.Url is not null)
             {
                 ImGui.SameLine();
-                DrawOpenLinkButton(-1, source.Url);
+                DrawOpenLinkButton(source.Url);
             }
         }
 
@@ -284,27 +415,27 @@ public sealed class CollectionTab
             dataset.GameVersion));
     }
 
-    private TrackedEntry? FindSelected()
+    private EntryView? FindSelected()
     {
         if (selectedId is not { } id)
         {
             return null;
         }
 
-        foreach (var tracked in snapshot.Entries)
+        foreach (var view in views)
         {
-            if (tracked.Entry.Id == id)
+            if (view.Entry.Id == id)
             {
-                return tracked;
+                return view;
             }
         }
 
         return null;
     }
 
-    private static void DrawOpenLinkButton(int id, string url)
+    private static void DrawOpenLinkButton(string url)
     {
-        if (ImGuiComponents.IconButton(id, FontAwesomeIcon.ExternalLinkAlt))
+        if (ImGuiComponents.IconButton(FontAwesomeIcon.ExternalLinkAlt))
         {
             Util.OpenLink(url);
         }

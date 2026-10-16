@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Numerics;
 using Dalamud.Bindings.ImGui;
 using Dalamud.Interface;
@@ -10,16 +11,20 @@ using NekoDex.Core.Resets;
 
 namespace NekoDex.UI;
 
-/// <summary>Reset countdowns plus the user's checklist. All time maths lives in Core; this only draws.</summary>
+/// <summary>Reset countdowns, per-module progress and the user's checklist. All time maths lives in Core; this only draws.</summary>
 public sealed class DashboardTab
 {
     private readonly ChecklistController checklist;
+    private readonly IReadOnlyList<CollectionTab> collections;
+    private readonly Func<bool> characterReady;
     private string newItemText = string.Empty;
     private ResetCadence newItemCadence = ResetCadence.Daily;
 
-    public DashboardTab(ChecklistController checklist)
+    public DashboardTab(ChecklistController checklist, IReadOnlyList<CollectionTab> collections, Func<bool> characterReady)
     {
         this.checklist = checklist;
+        this.collections = collections;
+        this.characterReady = characterReady;
     }
 
     public void Draw()
@@ -28,6 +33,10 @@ public sealed class DashboardTab
         var now = checklist.NowUtc;
 
         DrawResets(now);
+        ImGui.Spacing();
+        ImGui.Separator();
+        ImGui.Spacing();
+        DrawProgressSummary();
         ImGui.Spacing();
         ImGui.Separator();
         ImGui.Spacing();
@@ -64,6 +73,56 @@ public sealed class DashboardTab
             {
                 ImGui.SetTooltip(string.Format(Strings.Get("Reset_LocalTooltip", "{0:f} your time ({1:HH:mm} UTC)"), local, next.UtcDateTime));
             }
+        }
+    }
+
+    private void DrawProgressSummary()
+    {
+        ImGui.Text(Strings.Get("Dashboard_Progress", "Collections"));
+
+        if (!characterReady())
+        {
+            ImGui.TextDisabled(Strings.Get("State_NotLoggedIn", "Log in to a character to see your collections."));
+            return;
+        }
+
+        using var table = ImRaii.Table("##progress", 3, ImGuiTableFlags.SizingStretchProp | ImGuiTableFlags.RowBg);
+        if (!table.Success)
+        {
+            return;
+        }
+
+        ImGui.TableSetupColumn("##module", ImGuiTableColumnFlags.WidthFixed, 110 * ImGuiHelpers.GlobalScale);
+        ImGui.TableSetupColumn("##bar", ImGuiTableColumnFlags.WidthStretch);
+        ImGui.TableSetupColumn("##count", ImGuiTableColumnFlags.WidthFixed, 90 * ImGuiHelpers.GlobalScale);
+
+        foreach (var tab in collections)
+        {
+            ImGui.TableNextRow();
+            ImGui.TableNextColumn();
+            ImGui.AlignTextToFramePadding();
+            ImGui.Text(tab.Module.DisplayName);
+
+            ImGui.TableNextColumn();
+            if (tab.Module.UnavailableReason is { } reason)
+            {
+                ImGui.AlignTextToFramePadding();
+                ImGui.TextDisabled(Strings.Get("Dashboard_Unavailable", "not loaded"));
+                if (ImGui.IsItemHovered())
+                {
+                    ImGui.SetTooltip(reason);
+                }
+
+                ImGui.TableNextColumn();
+                continue;
+            }
+
+            var progress = tab.CurrentSnapshot().Progress;
+            ImGui.ProgressBar(progress.Fraction, new Vector2(-1, 0), string.Empty);
+
+            ImGui.TableNextColumn();
+            ImGui.AlignTextToFramePadding();
+            ImGui.Text(string.Format(Strings.Get("Progress_Overlay", "{0} / {1}"), progress.Owned, progress.Total));
         }
     }
 
