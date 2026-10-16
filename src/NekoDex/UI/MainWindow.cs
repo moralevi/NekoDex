@@ -9,7 +9,7 @@ using Dalamud.Plugin.Services;
 
 namespace NekoDex.UI;
 
-public sealed class MainWindow : Window
+public sealed class MainWindow : ThemedWindow
 {
     private readonly IClientState clientState;
     private readonly IPlayerState playerState;
@@ -18,8 +18,8 @@ public sealed class MainWindow : Window
     private readonly OutfitsTab outfits;
     private readonly AdvisorTab advisor;
 
-    public MainWindow(IClientState clientState, IPlayerState playerState, DashboardTab dashboard, IReadOnlyList<CollectionTab> tabs, OutfitsTab outfits, AdvisorTab advisor, Action openSettings)
-        : base("NekoDex###NekoDexMain")
+    public MainWindow(ConfigurationManager config, IClientState clientState, IPlayerState playerState, DashboardTab dashboard, IReadOnlyList<CollectionTab> tabs, OutfitsTab outfits, AdvisorTab advisor, Action openSettings)
+        : base(config, "NekoDex###NekoDexMain")
     {
         this.clientState = clientState;
         this.playerState = playerState;

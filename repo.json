@@ -1,0 +1,21 @@
+[
+  {
+    "Author": "moralevi",
+    "Name": "NekoDex",
+    "InternalName": "NekoDex",
+    "Punchline": "Track what your character owns and how to get what is missing.",
+    "Description": "Collection tracker for the logged-in character: mounts, minions, orchestrion and Armoire with in-game unlock info, an outfit planner, a gear advisor and a daily/weekly checklist. Information and UI only. No automation.",
+    "RepoUrl": "https://github.com/moralevi/NekoDex",
+    "Tags": [ "collection", "mounts", "tracker", "minions", "glamour", "checklist" ],
+    "ApplicableVersion": "any",
+    "DalamudApiLevel": 15,
+    "AssemblyVersion": "1.0.0.0",
+    "IconUrl": "https://raw.githubusercontent.com/moralevi/NekoDex/main/images/icon.png",
+    "DownloadLinkInstall": "https://github.com/moralevi/NekoDex/releases/download/v1.0.0.0/latest.zip",
+    "DownloadLinkUpdate": "https://github.com/moralevi/NekoDex/releases/download/v1.0.0.0/latest.zip",
+    "DownloadLinkTesting": "https://github.com/moralevi/NekoDex/releases/download/v1.0.0.0/latest.zip",
+    "LastUpdate": 0,
+    "DownloadCount": 0,
+    "IsHide": false
+  }
+]

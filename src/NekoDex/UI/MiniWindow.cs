@@ -7,13 +7,13 @@ using NekoDex.Core.Resets;
 namespace NekoDex.UI;
 
 /// <summary>Compact countdowns and the unticked checklist items. Shown while the config flag is on.</summary>
-public sealed class MiniWindow : Window
+public sealed class MiniWindow : ThemedWindow
 {
     private readonly ConfigurationManager config;
     private readonly ChecklistController checklist;
 
     public MiniWindow(ConfigurationManager config, ChecklistController checklist)
-        : base("NekoDex Mini###NekoDexMini", ImGuiWindowFlags.AlwaysAutoResize | ImGuiWindowFlags.NoCollapse | ImGuiWindowFlags.NoScrollbar)
+        : base(config, "NekoDex Mini###NekoDexMini", ImGuiWindowFlags.AlwaysAutoResize | ImGuiWindowFlags.NoCollapse | ImGuiWindowFlags.NoScrollbar)
     {
         this.config = config;
         this.checklist = checklist;

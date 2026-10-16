@@ -30,6 +30,9 @@ public sealed class Configuration : IPluginConfiguration
     /// <summary>Whether the compact countdown/checklist window is shown.</summary>
     public bool ShowMiniWindow { get; set; }
 
+    /// <summary>Neko look on, or plain Dalamud styling.</summary>
+    public bool UseNekoTheme { get; set; } = true;
+
     /// <summary>Planned outfits.</summary>
     public List<Outfit> Outfits { get; set; } = new();
 

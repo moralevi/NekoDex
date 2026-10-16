@@ -4,7 +4,24 @@ Dalamud plugin for FFXIV that shows what the logged-in character owns and is mis
 
 Information and UI only. No automation, no input injection, read-only access to game state.
 
-Status: Phase 7 (collections, outfit planner, gear advisor, resets and checklist). See [the spec](dalamud-collection-tracker-spec.md) for the roadmap and phase gates.
+Status: 1.0.0 release candidate. All phases built; see [CHANGELOG.md](CHANGELOG.md). See [the spec](dalamud-collection-tracker-spec.md) for the roadmap and phase gates.
+
+## Installing (friends build)
+
+1. In game: `/xlsettings` → Experimental → Custom Plugin Repositories, add
+   `https://raw.githubusercontent.com/moralevi/NekoDex/main/repo.json` and save.
+2. `/xlplugins` → search "NekoDex" → Install.
+3. `/nekodex` opens the window; the cog in its title bar opens settings.
+
+The repository must be public for that URL and the release download to work.
+
+## Screenshots
+
+Screenshots of the Mounts tab, the Outfits tab and the Dashboard go here once taken in game (`docs/screenshots/`).
+
+## Theme
+
+The Neko theme (plum and salmon, rounded corners) is pushed and popped per window, so other plugins keep their own style. Turn it off in settings to use your Dalamud style unchanged; the change applies immediately.
 
 ## Layout
 
@@ -17,6 +34,12 @@ tests/NekoDex.Core.Tests xUnit tests for Core
 ```
 
 The Core project exists so logic can be tested without the game. Anything that touches Dalamud, Lumina, ClientStructs or ImGui lives in `src/NekoDex`.
+
+## Releasing
+
+1. Bump `<Version>` in `src/NekoDex/NekoDex.csproj` and add a section to `CHANGELOG.md`.
+2. Commit to `main`, then tag and push: `git tag v1.0.0.0 && git push origin v1.0.0.0`.
+3. The Release workflow builds, tests, attaches `latest.zip` to a GitHub release and updates `repo.json` on `main`. Dalamud picks the new version up from `repo.json`.
 
 ## Building
 

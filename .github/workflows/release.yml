@@ -1,0 +1,67 @@
+name: Release
+
+# Tag a commit on main as vX.Y.Z.W (matching <Version> in src/NekoDex/NekoDex.csproj) and push the tag.
+# The workflow builds, attaches latest.zip to a GitHub release, then points repo.json at it and commits that to main.
+
+on:
+  push:
+    tags: [ 'v*' ]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: windows-2022
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Download Dalamud
+        run: |
+          Invoke-WebRequest -Uri https://goatcorp.github.io/dalamud-distrib/latest.zip -OutFile latest.zip
+          Expand-Archive -Force latest.zip "$env:AppData\XIVLauncher\addon\Hooks\dev"
+
+      - name: Build and test
+        run: |
+          dotnet build --configuration Release
+          dotnet test --configuration Release --no-build
+
+      - name: Check tag matches manifest version
+        id: manifest
+        shell: pwsh
+        run: |
+          $manifest = Get-Content src\NekoDex\bin\x64\Release\NekoDex\NekoDex.json | ConvertFrom-Json
+          $tag = "${{ github.ref_name }}".TrimStart('v')
+          if ($manifest.AssemblyVersion -ne $tag) { throw "Tag $tag does not match AssemblyVersion $($manifest.AssemblyVersion)" }
+          "version=$($manifest.AssemblyVersion)" >> $env:GITHUB_OUTPUT
+
+      - name: Create GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: src/NekoDex/bin/x64/Release/NekoDex/latest.zip
+          generate_release_notes: true
+
+      - name: Update repo.json
+        shell: pwsh
+        run: |
+          $version = "${{ steps.manifest.outputs.version }}"
+          $url = "https://github.com/${{ github.repository }}/releases/download/v$version/latest.zip"
+          $repo = Get-Content repo.json -Raw | ConvertFrom-Json
+          $repo[0].AssemblyVersion = $version
+          $repo[0].DownloadLinkInstall = $url
+          $repo[0].DownloadLinkUpdate = $url
+          $repo[0].DownloadLinkTesting = $url
+          $repo[0].LastUpdate = [int][double]::Parse((Get-Date -UFormat %s))
+          ConvertTo-Json -InputObject @($repo) -Depth 5 | Set-Content repo.json -Encoding utf8
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add repo.json
+          git commit -m "repo.json: release v$version"
+          git push origin HEAD:main

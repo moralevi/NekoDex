@@ -1,6 +1,6 @@
 # FFXIV Dalamud Plugin: Collection Tracker (working name: NekoDex)
 
-Status: Phases 0-6 gates passed 2026-10-16. Phase 7 built, in-game gate pending. Target: friends first, public custom repo later.
+Status: Phases 0-7 gates passed 2026-10-16. Phase 8 built; theme and fresh-install gates pending (fresh install needs the GitHub repo public). Target: friends first, public custom repo later.
 Stack: C#/.NET, Dalamud.NET.Sdk, ImGui (via Dalamud's ImGui bindings), Lumina, FFXIVClientStructs.
 Method: phased, each phase has gate criteria. Do not start a phase until the previous gate passes.
 
@@ -33,7 +33,7 @@ Method: phased, each phase has gate criteria. Do not start a phase until the pre
 
 **Open decisions (resolve before the phase that needs them)**
 - Gear advisor scope: simple "next upgrade by item level" vs per-job best-in-slot. Needed before Phase 7. **Decided 2026-10-16: simple.** Best-in-slot would need stat-priority tables maintained every patch; nobody has committed to that.
-- Final plugin name and Neko branding. Needed before Phase 8.
+- Final plugin name and Neko branding. Needed before Phase 8. **Decided 2026-10-16: NekoDex, fresh plum/salmon theme, cat-face icon.**
 - Whether any existing plugin does part of this badly (informs scope). Optional.
 
 ---
@@ -166,7 +166,7 @@ Decide scope first (open decision above). Decided 2026-10-16: **Simple**. Where-
 
 Gate
 - [x] Scope decision written down.
-- [ ] Suggestions for 3 different jobs at 3 different levels are sanity-checked by hand.
+- [x] Suggestions for 3 different jobs at 3 different levels are sanity-checked by hand.
 
 ---
 
@@ -179,6 +179,7 @@ Scope
 - README, screenshots, `DATA_SOURCES.md`, changelog.
 - Custom repo: `repo.json` (pluginmaster) hosted on GitHub, with CI building releases.
 - Decide on submission to the official plugin repository (its review process and rules apply; check current requirements before deciding).
+  - Open as of 2026-10-16. Prerequisites known so far: public source, the FFXIV Collect redistribution answer recorded in DATA_SOURCES.md, and a review of goatcorp's current plugin rules. Not required for the friends release.
 
 Gate
 - [ ] Theme toggle switches live with no visual leakage into other windows.
