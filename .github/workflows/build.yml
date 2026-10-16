@@ -27,7 +27,7 @@ jobs:
       - name: Test
         run: dotnet test --configuration Release --no-build
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         with:
           name: NekoDex
           path: src\NekoDex\bin\x64\Release\NekoDex\*
