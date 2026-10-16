@@ -3,6 +3,7 @@ using Dalamud.Game.Command;
 using Dalamud.Interface.Windowing;
 using Dalamud.Plugin;
 using Dalamud.Plugin.Services;
+using NekoDex.Data;
 using NekoDex.UI;
 
 namespace NekoDex;
@@ -27,6 +28,8 @@ public sealed class Plugin : IDalamudPlugin
         ICommandManager commandManager,
         IClientState clientState,
         IPlayerState playerState,
+        IDataManager dataManager,
+        ITextureProvider textureProvider,
         IPluginLog log)
     {
         this.pluginInterface = pluginInterface;
@@ -34,10 +37,17 @@ public sealed class Plugin : IDalamudPlugin
         this.clientState = clientState;
         this.log = log;
 
+        Strings.Setup();
         config = new ConfigurationManager(pluginInterface, log);
 
+        // One tab per collection module. Adding a module means one line here plus its class in Data/.
+        CollectionTab[] tabs =
+        [
+            new(new MountModule(dataManager, clientState, log), textureProvider),
+        ];
+
         configWindow = new ConfigWindow(config);
-        mainWindow = new MainWindow(clientState, playerState, configWindow.Toggle);
+        mainWindow = new MainWindow(clientState, playerState, tabs, configWindow.Toggle);
         windowSystem.AddWindow(mainWindow);
         windowSystem.AddWindow(configWindow);
 
@@ -50,6 +60,7 @@ public sealed class Plugin : IDalamudPlugin
         pluginInterface.UiBuilder.OpenMainUi += mainWindow.Toggle;
         pluginInterface.UiBuilder.OpenConfigUi += configWindow.Toggle;
         clientState.Login += OnLogin;
+        clientState.Logout += OnLogout;
 
         log.Information(
             "NekoDex {Version} loaded (Dalamud API {Api})",
@@ -60,6 +71,7 @@ public sealed class Plugin : IDalamudPlugin
     public void Dispose()
     {
         // Mirror every registration in the constructor so reloads leave nothing behind.
+        clientState.Logout -= OnLogout;
         clientState.Login -= OnLogin;
         pluginInterface.UiBuilder.OpenConfigUi -= configWindow.Toggle;
         pluginInterface.UiBuilder.OpenMainUi -= mainWindow.Toggle;
@@ -84,9 +96,12 @@ public sealed class Plugin : IDalamudPlugin
 
     private void OnLogin()
     {
+        mainWindow.ResetCollections();
         if (config.Current.OpenMainWindowOnLogin)
         {
             mainWindow.IsOpen = true;
         }
     }
+
+    private void OnLogout(int type, int code) => mainWindow.ResetCollections();
 }

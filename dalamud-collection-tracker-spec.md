@@ -1,6 +1,6 @@
 # FFXIV Dalamud Plugin: Collection Tracker (working name: NekoDex)
 
-Status: spec → Phase 1 built (2026-10-16), in-game gates for Phase 0/1 pending. Target: friends first, public custom repo later.
+Status: Phase 0 and 1 gates passed 2026-10-16. Phase 2 built, in-game gate pending. Target: friends first, public custom repo later.
 Stack: C#/.NET, Dalamud.NET.Sdk, ImGui (via Dalamud's ImGui bindings), Lumina, FFXIVClientStructs.
 Method: phased, each phase has gate criteria. Do not start a phase until the previous gate passes.
 
@@ -49,9 +49,9 @@ Steps
 6. Learn the loop: rebuild, reload from the dev plugin list, read logs with `/xllog`.
 
 Gate
-- [ ] SamplePlugin builds and loads from a dev location.
-- [ ] Rebuild-and-reload works without restarting the game.
-- [ ] `/xllog` shows plugin log output.
+- [x] SamplePlugin builds and loads from a dev location.
+- [x] Rebuild-and-reload works without restarting the game.
+- [x] `/xllog` shows plugin log output.
 
 ---
 
@@ -66,9 +66,9 @@ Scope
 - Clean architecture: `Core` (tracker logic, no ImGui), `Data` (providers), `UI` (windows), so logic is testable.
 
 Gate
-- [ ] Plugin loads, `/nekodex` opens and closes the main window.
-- [ ] Config persists across a game restart.
-- [ ] Unloading the plugin leaves no leftover hooks, windows or commands (reload 5 times, no errors in log).
+- [x] Plugin loads, `/nekodex` opens and closes the main window.
+- [x] Config persists across a game restart.
+- [x] Unloading the plugin leaves no leftover hooks, windows or commands (reload 5 times, no errors in log).
 
 ---
 
