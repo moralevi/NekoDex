@@ -13,13 +13,15 @@ public sealed class MainWindow : Window
 {
     private readonly IClientState clientState;
     private readonly IPlayerState playerState;
+    private readonly DashboardTab dashboard;
     private readonly IReadOnlyList<CollectionTab> tabs;
 
-    public MainWindow(IClientState clientState, IPlayerState playerState, IReadOnlyList<CollectionTab> tabs, Action openSettings)
+    public MainWindow(IClientState clientState, IPlayerState playerState, DashboardTab dashboard, IReadOnlyList<CollectionTab> tabs, Action openSettings)
         : base("NekoDex###NekoDexMain")
     {
         this.clientState = clientState;
         this.playerState = playerState;
+        this.dashboard = dashboard;
         this.tabs = tabs;
 
         SizeConstraints = new WindowSizeConstraints
@@ -39,7 +41,7 @@ public sealed class MainWindow : Window
         });
     }
 
-    /// <summary>Drop every cached snapshot. Called on logout so a different character never sees stale data.</summary>
+    /// <summary>Drop every cached snapshot. Called on login and logout so a different character never sees stale data.</summary>
     public void ResetCollections()
     {
         foreach (var tab in tabs)
@@ -49,6 +51,33 @@ public sealed class MainWindow : Window
     }
 
     public override void Draw()
+    {
+        using var tabBar = ImRaii.TabBar("##main");
+        if (!tabBar.Success)
+        {
+            return;
+        }
+
+        // The dashboard needs no character: resets are fixed in UTC and the checklist is per plugin config.
+        using (var item = ImRaii.TabItem($"{Strings.Get("Tab_Dashboard", "Dashboard")}###dashboard"))
+        {
+            if (item.Success)
+            {
+                dashboard.Draw();
+            }
+        }
+
+        foreach (var tab in tabs)
+        {
+            using var item = ImRaii.TabItem($"{tab.Module.DisplayName}###{tab.Module.Id}");
+            if (item.Success)
+            {
+                DrawCollection(tab);
+            }
+        }
+    }
+
+    private void DrawCollection(CollectionTab tab)
     {
         // Every "game not ready" state renders a message instead of touching character data.
         if (!clientState.IsLoggedIn)
@@ -70,19 +99,6 @@ public sealed class MainWindow : Window
             ImGui.TextDisabled($"@ {playerState.HomeWorld.Value.Name}");
         }
 
-        using var tabBar = ImRaii.TabBar("##modules");
-        if (!tabBar.Success)
-        {
-            return;
-        }
-
-        foreach (var tab in tabs)
-        {
-            using var item = ImRaii.TabItem($"{tab.Module.DisplayName}###{tab.Module.Id}");
-            if (item.Success)
-            {
-                tab.Draw();
-            }
-        }
+        tab.Draw();
     }
 }

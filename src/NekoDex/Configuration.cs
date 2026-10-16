@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using Dalamud.Configuration;
+using NekoDex.Core.Checklist;
 using NekoDex.Core.Unlock;
 
 namespace NekoDex;
@@ -20,4 +22,10 @@ public sealed class Configuration : IPluginConfiguration
 
     /// <summary>Which website the "open on web" buttons point at.</summary>
     public UnlockLinkSite LinkSite { get; set; } = UnlockLinkSite.FfxivCollect;
+
+    /// <summary>User-defined daily/weekly to-dos.</summary>
+    public List<ChecklistItem> Checklist { get; set; } = new();
+
+    /// <summary>Whether the compact countdown/checklist window is shown.</summary>
+    public bool ShowMiniWindow { get; set; }
 }

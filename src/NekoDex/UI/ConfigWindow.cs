@@ -11,11 +11,13 @@ namespace NekoDex.UI;
 public sealed class ConfigWindow : Window
 {
     private readonly ConfigurationManager config;
+    private readonly Action<bool> setMiniWindowShown;
 
-    public ConfigWindow(ConfigurationManager config)
+    public ConfigWindow(ConfigurationManager config, Action<bool> setMiniWindowShown)
         : base("NekoDex Settings###NekoDexConfig", ImGuiWindowFlags.NoCollapse | ImGuiWindowFlags.AlwaysAutoResize)
     {
         this.config = config;
+        this.setMiniWindowShown = setMiniWindowShown;
         SizeConstraints = new WindowSizeConstraints { MinimumSize = new Vector2(360, 0) };
     }
 
@@ -28,6 +30,12 @@ public sealed class ConfigWindow : Window
         {
             current.OpenMainWindowOnLogin = openOnLogin;
             config.Save();
+        }
+
+        var showMini = current.ShowMiniWindow;
+        if (ImGui.Checkbox(Strings.Get("Config_ShowMini", "Show the mini window (countdowns and open to-dos)"), ref showMini))
+        {
+            setMiniWindowShown(showMini);
         }
 
         ImGui.Spacing();

@@ -22,6 +22,7 @@ public sealed class Plugin : IDalamudPlugin
     private readonly WindowSystem windowSystem = new("NekoDex");
     private readonly MainWindow mainWindow;
     private readonly ConfigWindow configWindow;
+    private readonly MiniWindow miniWindow;
 
     // Services arrive through constructor injection; nothing in the plugin reaches for them statically.
     public Plugin(
@@ -53,14 +54,20 @@ public sealed class Plugin : IDalamudPlugin
             new(new MountModule(dataManager, clientState, log), textureProvider, unlockResolver, dataset),
         ];
 
-        configWindow = new ConfigWindow(config);
-        mainWindow = new MainWindow(clientState, playerState, tabs, configWindow.Toggle);
+        // Resets are fixed in UTC, so the local clock is enough; the checklist controller stamps and clears with it.
+        var checklist = new ChecklistController(config, () => DateTimeOffset.UtcNow);
+        var dashboard = new DashboardTab(checklist);
+
+        miniWindow = new MiniWindow(config, checklist);
+        configWindow = new ConfigWindow(config, miniWindow.SetShown);
+        mainWindow = new MainWindow(clientState, playerState, dashboard, tabs, configWindow.Toggle);
         windowSystem.AddWindow(mainWindow);
         windowSystem.AddWindow(configWindow);
+        windowSystem.AddWindow(miniWindow);
 
         commandManager.AddHandler(CommandName, new CommandInfo(OnCommand)
         {
-            HelpMessage = "Toggle the NekoDex window. \"/nekodex config\" opens settings.",
+            HelpMessage = "Toggle the NekoDex window. \"/nekodex config\" opens settings, \"/nekodex mini\" toggles the mini window.",
         });
 
         pluginInterface.UiBuilder.Draw += windowSystem.Draw;
@@ -92,13 +99,18 @@ public sealed class Plugin : IDalamudPlugin
 
     private void OnCommand(string command, string args)
     {
-        if (args.Trim().Equals("config", StringComparison.OrdinalIgnoreCase))
+        switch (args.Trim().ToLowerInvariant())
         {
-            configWindow.Toggle();
-            return;
+            case "config":
+                configWindow.Toggle();
+                break;
+            case "mini":
+                miniWindow.SetShown(!miniWindow.IsOpen);
+                break;
+            default:
+                mainWindow.Toggle();
+                break;
         }
-
-        mainWindow.Toggle();
     }
 
     private void OnLogin()

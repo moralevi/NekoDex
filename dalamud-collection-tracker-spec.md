@@ -1,6 +1,6 @@
 # FFXIV Dalamud Plugin: Collection Tracker (working name: NekoDex)
 
-Status: Phases 0-3 gates passed 2026-10-16. Phase 4 built, in-game gate pending. Target: friends first, public custom repo later.
+Status: Phases 0-4 gates passed 2026-10-16. Phase 5 built, in-game gate pending. Target: friends first, public custom repo later.
 Stack: C#/.NET, Dalamud.NET.Sdk, ImGui (via Dalamud's ImGui bindings), Lumina, FFXIVClientStructs.
 Method: phased, each phase has gate criteria. Do not start a phase until the previous gate passes.
 
@@ -120,10 +120,10 @@ Scope
 - Graceful staleness: show data version, and fall back to link-out for entries newer than the dataset.
 
 Gate
-- [ ] 100% of missing mounts show in-game unlock text or an explicit "unknown".
-- [ ] Works fully offline.
-- [ ] Data file regeneration is one command and documented.
-- [ ] Entries newer than the dataset degrade to link-out, not errors.
+- [x] 100% of missing mounts show in-game unlock text or an explicit "unknown".
+- [x] Works fully offline.
+- [x] Data file regeneration is one command and documented.
+- [x] Entries newer than the dataset degrade to link-out, not errors.
 
 ---
 
@@ -131,8 +131,10 @@ Gate
 
 Scope
 - Reset countdowns computed locally from UTC reset times: daily, weekly, and any other resets you actually care about (decide the list at the start of this phase).
+  - Decided 2026-10-16: daily 15:00 UTC, weekly Tuesday 08:00 UTC, Grand Company missions 20:00 UTC, Jumbo Cactpot drawing Saturday 19:00 UTC, Fashion Report judging opens Friday 08:00 UTC.
 - Custom checklist: user-defined items, each with a reset cadence (daily / weekly / never), checked state persisted and auto-cleared at reset.
 - Optionally read in-game completion state where it is reliably available (e.g. roulettes); mark such items as "auto" vs "manual".
+  - Deferred 2026-10-16: v1 of this phase ships manual items only.
 - Compact always-on-top mini window option.
 
 Gate

@@ -4,7 +4,7 @@ Dalamud plugin for FFXIV that shows what the logged-in character owns and is mis
 
 Information and UI only. No automation, no input injection, read-only access to game state.
 
-Status: Phase 4 (mount list with in-game unlock info from a bundled dataset). See [the spec](dalamud-collection-tracker-spec.md) for the roadmap and phase gates.
+Status: Phase 5 (mounts with in-game unlock info, reset countdowns and a checklist). See [the spec](dalamud-collection-tracker-spec.md) for the roadmap and phase gates.
 
 ## Layout
 
@@ -51,12 +51,17 @@ dotnet run --project tools/DataGen
 
 The generator validates every entry against the local Mount sheet and exits non-zero with warnings if the API and the game disagree or a new source category appears. Mounts newer than the dataset fall back to the web link.
 
+## Dashboard
+
+The Dashboard tab shows countdowns to the fixed UTC resets (daily 15:00, weekly Tuesday 08:00, Grand Company 20:00, Jumbo Cactpot Saturday 19:00, Fashion Report judging Friday 08:00) with the time in your zone, plus a checklist of your own items. Daily and weekly items untick themselves at their reset. The mini window shows the same countdowns and open items in a small always-visible panel.
+
 ## Commands
 
 | Command | Effect |
 |---|---|
 | `/nekodex` | Toggle the main window |
 | `/nekodex config` | Toggle the settings window |
+| `/nekodex mini` | Toggle the compact countdown/checklist window |
 
 ## License
 
